@@ -1,0 +1,19 @@
+{
+  "name": "developer-portal",
+  "version": "0.0.1",
+  "description": "API documentation",
+  "main": "index.js",
+  "authors": {
+    "name": "Fredrik Hilmersson",
+    "email": "fredrik@libellux.com"
+  },
+  "repository": "Intergiro/developer-portal/developer-portal",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
