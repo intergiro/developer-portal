@@ -28,6 +28,8 @@ module.exports = {
    */
   themeConfig: {
     repo: '',
+    logo: '/assets/img/intergiro.png',
+    smoothScroll: true,
     nav: [
       { text: 'Card programmes', link: '/integrate/card-programmes/' },
       { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
