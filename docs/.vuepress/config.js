@@ -2,7 +2,7 @@ const path = require('path')
 const { description } = require('../../package')
 
 module.exports = {
-  base: '/developer-portal',
+  base: '/developer-portal/',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
