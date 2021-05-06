@@ -18,6 +18,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
+    ['link', { rel: 'icon', href: '/assets/img/logo_black.svg' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
@@ -29,7 +30,7 @@ module.exports = {
    */
   themeConfig: {
     repo: '',
-    logo: '/assets/img/intergiro.png',
+    logo: '/assets/img/logo_black.svg',
     smoothScroll: true,
     nav: [
       { text: 'Card programmes', link: '/integrate/card-programmes/' },
@@ -45,7 +46,9 @@ module.exports = {
       }
     ],
     sidebar: {
+      '/integrate/': getIntegrateSidebar(),
       '/integrate/getting-started/': getIntegrateSidebar(),
+      '/integrate/onboarding/': getIntegrateSidebar(),
       '/integrate/card-programmes/': getIntegrateSidebar(),
       '/integrate/embedded-finance/': getIntegrateSidebar(),
       '/integrate/merchants/': getIntegrateSidebar(),
@@ -73,8 +76,11 @@ function getIntegrateSidebar() {
         '/integrate/getting-started/introduction',
         '/integrate/getting-started/environments',
         '/integrate/getting-started/authentication',
+        '/integrate/versioning',
+        '/integrate/simulation',
       ],
     },
+    '/integrate/onboarding/',
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
     '/integrate/merchants/',
