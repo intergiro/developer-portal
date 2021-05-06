@@ -2,11 +2,11 @@ const path = require('path')
 const { description } = require('../../package')
 
 module.exports = {
-  // base: '/guides',
+  base: '/developer-portal',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Intergiro developer portal',
+  title: 'Intergiro Developer Portal',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
