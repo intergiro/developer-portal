@@ -1,5 +1,6 @@
 # Embedded finance
 
+![](/assets/img/embedded-splash.jpg)
 
 ## Accounts
 

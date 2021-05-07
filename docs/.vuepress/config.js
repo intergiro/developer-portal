@@ -2,6 +2,8 @@ const path = require('path')
 const { description } = require('../../package')
 
 module.exports = {
+  // when changing base make sure to update
+  // font loading paths in styles/palette.styl
   base: '/developer-portal/',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
