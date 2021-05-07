@@ -1,5 +1,7 @@
 # Onboarding
 
+<img :src="$withBase('/assets/img/onboarding.jpg')" alt="Business banking">
+
 Individuals represent end users and it's important to have them properly registered before they can use accounts or cards. This process is called onboarding.
 
 ## Create individual

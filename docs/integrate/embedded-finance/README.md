@@ -1,6 +1,6 @@
 # Embedded finance
 
-![](/assets/img/embedded-splash.jpg)
+<img :src="$withBase('/assets/img/embedded-splash.jpg')" alt="Business banking">
 
 ## Accounts
 

@@ -5,6 +5,14 @@ module.exports = {
   // when changing base make sure to update
   // font loading paths in styles/palette.styl
   base: '/developer-portal/',
+
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@assets': `${__dirname}/public/assets/`
+      }
+    }
+  },
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */

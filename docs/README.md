@@ -3,7 +3,7 @@ home: true
 lang: en-US
 ---
 
-![](/assets/img/tech-splash.jpg)
+<img :src="$withBase('/assets/img/tech-splash.jpg')" alt="Intergiro Developer Portal">
 
 Moving money abroad can be an expensive business. Wherever you sit in the value chain, you’ll likely be charged high rates by banks and providers alike. While many charge extra to integrate and take payments, we develop a fully bespoke solution with you to ensure you’re all set to join the world of international money transfers.
 
