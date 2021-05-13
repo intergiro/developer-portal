@@ -5,18 +5,10 @@ module.exports = {
   // when changing base make sure to update
   // font loading paths in styles/palette.styl
   base: '/developer-portal/',
-
-  configureWebpack: {
-    resolve: {
-      alias: {
-        '@assets': `${__dirname}/public/assets/`
-      }
-    }
-  },
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Intergiro Developer Portal',
+  title: 'Intergiro developer portal',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -43,9 +35,18 @@ module.exports = {
     logo: '/assets/img/logo_black.svg',
     smoothScroll: true,
     nav: [
-      { text: 'Card programmes', link: '/integrate/card-programmes/' },
-      { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
-      { text: 'Merchants', link: '/integrate/merchants/' },
+      {
+        text: 'Integr>te',
+        ariaLabel: 'Integrate Menu',
+        link: '/integrate/',
+        items: [
+          { text: 'Getting started', link: '/integrate/getting-started/introduction' },
+          { text: 'Onboarding', link: '/integrate/onboarding/' },
+          { text: 'Card programmes', link: '/integrate/card-programmes/' },
+          { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
+          { text: 'Merchants', link: '/integrate/merchants/' },
+        ] 
+      },
       { text: 'Business banking', link: '/direct/' },
       {
         text: 'Reference',
@@ -94,6 +95,5 @@ function getIntegrateSidebar() {
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
     '/integrate/merchants/',
-    '/direct/',
   ]
 }

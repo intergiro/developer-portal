@@ -1,3 +1,7 @@
+---
+lang: en-US
+---
+
 # Business banking
 
 <img :src="$withBase('/assets/img/business-banking-splash.jpg')" alt="Business banking">
