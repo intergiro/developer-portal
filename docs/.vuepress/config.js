@@ -45,16 +45,10 @@ module.exports = {
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
           { text: 'Merchants', link: '/integrate/merchants/' },
+          { text: 'Integrate API reference', link: 'https://b2b.intergiro.com/v3/docs' },
         ] 
       },
       { text: 'Business banking', link: '/direct/' },
-      {
-        text: 'Reference',
-        ariaLabel: 'Reference Menu',
-        items: [
-          { text: 'Integrate API', link: 'https://b2b.intergiro.com/v3/docs' },
-        ] 
-      }
     ],
     sidebar: {
       '/integrate/': getIntegrateSidebar(),
