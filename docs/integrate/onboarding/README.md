@@ -60,7 +60,9 @@ Authorization: Bearer <access_token>
 
 Response:
 
-``` {2}
+``` {1,4}
+HTTP 200 OK
+
 {
   "redirect_url": "https://integrate.intergiro.com/onboarding/...",
   "expires_at": "2021-02-08T14:09:15.000Z"
@@ -103,6 +105,12 @@ GET /v3/events/d08fb891-40be-4579-90c4-92c648b973f0
 Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
+```
+
+Response:
+
+``` {1}
+HTTP 200 OK
 
 {
   "id": "d08fb891-40be-4579-90c4-92c648b973f0",
@@ -142,6 +150,12 @@ GET /v3/events/859edbaa-e110-482d-9054-1d187179aaee
 Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
+```
+
+Response:
+
+``` {1}
+HTTP 200 OK
 
 {
   "id": "859edbaa-e110-482d-9054-1d187179aaee",
@@ -160,6 +174,6 @@ Authorization: Bearer <access_token>
 
 We do not support iframes and you should not try to embed the url but rather send the user to it.
 
-### We do not collect user's address, can we skip it
+### We do not collect user's address, can we skip it?
 
 Yes, `address` section of `POST /v3/individuals` request body is optional.

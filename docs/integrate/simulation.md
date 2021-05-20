@@ -14,6 +14,12 @@ POST /v3/simulations/card_payment
 Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
+```
+
+Response:
+
+``` {1}
+HTTP 200 OK
 
 {
   "card_id": "fc19e3bd-bc42-4a1a-8641-154be6d91bb1",

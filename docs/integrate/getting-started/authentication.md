@@ -4,7 +4,7 @@ All Intergiro API endpoints are protected and require a valid JWT **access token
 
 Example API request using `access_token`:
 
-``` {5}
+``` {1,5}
 GET /v3/individuals
 
 Host: b2b.intergiro.com
@@ -22,7 +22,7 @@ Session API endpoints allow to obtain and subsequently renew access tokens.
 
 Example Login request:
 
-``` {7}
+``` {1,7}
 POST /v3/auth/login
 
 Host: b2b.intergiro.com
@@ -35,7 +35,9 @@ Content-Type: application/json
 
 Response:
 
-``` {2}
+``` {1,4}
+HTTP 200 OK
+
 {
   "access_token": "eyJraWQiOiIxIiwiYWxnIjoi...",
   "refresh_token": "eyJzZXNzaW9uSWQiOiJmMjUa..."
@@ -56,7 +58,7 @@ Whenever an API call returns `401 Unauthorized` response, it means the session h
 
 Example refresh access token request:
 
-``` {7}
+``` {1,7}
 POST /v3/auth/refresh
 
 Host: b2b.intergiro.com
@@ -69,7 +71,9 @@ Content-Type: application/json
 
 Response
 
-``` {2}
+``` {1,4}
+HTTP 200 OK
+
 {
   "access_token": "eyJraWQiOiIxIiwiYWxnIjoi...",
   "refresh_token": "eyJzZXNzaW9uSWQiOiJmMjUa..."
