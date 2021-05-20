@@ -36,7 +36,7 @@ module.exports = {
     smoothScroll: true,
     nav: [
       {
-        text: 'Integr>te',
+        text: 'Integrate',
         ariaLabel: 'Integrate Menu',
         link: '/integrate/',
         items: [
@@ -44,7 +44,7 @@ module.exports = {
           { text: 'Onboarding', link: '/integrate/onboarding/' },
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
-          { text: 'Merchants', link: '/integrate/merchants/' },
+          // { text: 'Merchants', link: '/integrate/merchants/' },
           { text: 'Integrate API reference', link: 'https://b2b.intergiro.com/v3/docs' },
         ] 
       },
@@ -88,6 +88,6 @@ function getIntegrateSidebar() {
     '/integrate/onboarding/',
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
-    '/integrate/merchants/',
+    // '/integrate/merchants/',
   ]
 }

@@ -1,8 +1,9 @@
 ---
 lang: en-US
+next: /integrate/getting-started/introduction
 ---
 
-# Integr>te
+# Integrate
 
 <img :src="$withBase('/assets/img/tech-splash.jpg')" alt="Intergiro Developer Portal">
 
