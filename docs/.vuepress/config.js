@@ -45,7 +45,7 @@ module.exports = {
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
           // { text: 'Merchants', link: '/integrate/merchants/' },
-          { text: 'Integrate API reference', link: 'https://b2b.intergiro.com/v3/docs' },
+          { text: 'API reference', link: 'https://b2b.intergiro.com/v3/docs' },
         ] 
       },
       { text: 'Business banking', link: '/direct/' },
@@ -83,6 +83,7 @@ function getIntegrateSidebar() {
         '/integrate/getting-started/authentication',
         '/integrate/versioning',
         '/integrate/simulation',
+        '/integrate/getting-started/sca',
       ],
     },
     '/integrate/onboarding/',
