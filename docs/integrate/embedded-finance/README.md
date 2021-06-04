@@ -76,8 +76,8 @@ HTTP 200 OK
 ## Payments
 
 There are two ways to transfer money:
-- move money between same individual's accounts
-- pay to another account using account ID or IBAN
+- move money between individual's own accounts
+- pay to somebody else's account using account ID or IBAN
 
 ### Make a transfer
 
@@ -129,9 +129,13 @@ HTTP 200 OK
 
 ### External bank payment
 
-There are two main ways to make a payment:
+There are two main ways to make a payment to another account:
 - using Intergiro account ID
 - via bank details
+
+::: warning
+Making payments online requires individual's [Strong Customer Authentication](/integrate/getting-started/sca).
+:::
 
 #### Make payment using counterparty account ID
 
@@ -185,10 +189,6 @@ HTTP 200 OK
 
 #### Make payment using account bank details
 
-::: warning
-Making payments online requires individual's [Strong Customer Authentication](#).
-:::
-
 Example SEPA payment request:
 
 ``` {1,13-14}
@@ -216,7 +216,7 @@ Authorization: Bearer <access_token>
 Response:
 
 ``` {1}
-HTTP 412 Consent required
+HTTP 412 Precondition Failed
 
 {
   "consent": {
