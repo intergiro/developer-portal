@@ -1,60 +1,75 @@
 
 # Authorization
 
-## Creatable
+### Creatable
+
+In order to create and Authorization an Authorization Creatable must first be made to be **sent into...**
+
 Authorization Creatable
 
-| Property     | Type                            | Description                                                                                                                    |
-|--------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| `number`     | `string`                        |                                                                                                                                |
-| `amount`     | `number`                        |                                                                                                                                |
-| `currency`   | `string`                        | ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish Crowns. |
-| `card`       | `authly.Token | Card.Creatable` | Read More about Token and Card.Creatable [here](../merchants/card)                                                             |
-| `descriptor` | `string`                        | (optional)                                                                                                                     |
-| `capture`    | `"auto"`                        | (optional)                                                                                                                     |
-| `recurring`  | [`Recurring`](#recurring)       | (optional)                                                                                                                     |
+| Property     | Type                                                      | Description |
+|--------------|-----------------------------------------------------------|-------------|
+| `number`     | `string`                                                  |             |
+| `amount`     | `number`                                                  |             |
+| `currency`   | [`Currency`](./other.html#currency)                       |             |
+| `card`       | `Signed JWT` or [`Card.Creatable`](./card.html#creatable) |             |
+| `descriptor` | `string`                                                  | (optional)  |
+| `capture`    | `"auto"`                                                  | (optional)  |
+| `recurring`  | [`Recurring`](#recurring)                                 | (optional)  |
 
 
 
-## Authorization
+### Authorization
 
-| Property   | Type                                           | Description |
-|------------|------------------------------------------------|-------------|
-| id         | `authly.Identifier`                            |             |
-| merchant   | `authly.Identifier`                            |             |
-| number     | `string`                                       |             |
-| reference  | `string`                                       |             |
-| created    | `isoly.DateTime`                               |             |
-| amount     | `number`                                       |             |
-| currency   | `isoly.Currency`                               |             |
-| card       | `model.Card`                                   |             |
-| descriptor | `string`                                       | (optional)  |
-| recurring  | `AuthorizationRecurring`                       | (optional)  |
-| history    | `AHistory[]`                                   |             |
-| change     | `AChange[]`                                    | (optional)  |
-| capture    | `Capture[]`                                    |             |
-| refund     | `Refund[]`                                     |             |
-| void       | `isoly.DateTime`                               | (optional)  |
-| status     | `Partial<Record<AuthorizationStatus, number>>` |             |
+| Property   | Type                                                             | Description |
+|------------|------------------------------------------------------------------|-------------|
+| id         | `authly.Identifier`                                              |             |
+| merchant   | `authly.Identifier`                                              |             |
+| number     | `string`                                                         |             |
+| reference  | `string`                                                         |             |
+| created    | [`DateTime`](./other.html#datetime)                              |             |
+| amount     | `number`                                                         |             |
+| currency   | [`Currency`](./other.html#currency)                              |             |
+| card       | [`Card`](./card)                                                 |             |
+| descriptor | `string`                                                         | (optional)  |
+| recurring  | [`Recurring`](authorization.html#recurring)                      | (optional)  |
+| history    | `History[]`                                                      |             |
+| change     | [`Change[]`](./Change)                                           | (optional)  |
+| capture    | [`Capture[]`](./Capture)                                         |             |
+| refund     | [`Refund[]`](./Refund)                                           |             |
+| void       | [`DateTime`](./other.html#datetime)                              | (optional)  |
+| status     | [`Partial<Record<Status, number>>`](./authorization.html#status) |             |
 
+
+### Status
+Authorization.Status is string set to `"authorized"`, `"cancelled"`, `"captured"`, `"refunded"` or `"settled"`.
 
 ### Recurring
 Recurring can be defined in four ways: 
- - As a simple string: `"initial"`
- - As a Initial reacurring: `{ type: "initial"; initiator: "cardholder"}`
+ - As a string: `"initial"`
+ - As an Initial reacurring: `{ type: "initial"; initiator: "cardholder"}`
  - As a Subsequent recurring: `{ type: "subsequent"; reference: string; scheduled?: false; initiator: "merchant" | "cardholder"}`
  - As a Scheduled Recurring: `{ type: "subsequent"; reference: string; scheduled: true; initiator: "merchant" }`
+ 
+## Change 
 
+### Creatable
 
-## Change
+| Property | Type     | Description |
+|----------|----------|-------------|
+| `number` | `string` | (optional)  |
+| `amount` | `number` | (optional)  |
+### Change
 
-| Property  | Type     | Description                                                      |
-|-----------|----------|------------------------------------------------------------------|
-| `number`  | `string` | (optional)                                                       |
-| `created` | `string` | Written as `"YYYY-MM-DDThh:mm:ss"`, e.g. `"2020-12-31T23:59:59"` |
-| `amount`  | `number` |                                                                  |
+| Property  | Type                                | Description |
+|-----------|-------------------------------------|-------------|
+| `number`  | `string`                            | (optional)  |
+| `created` | [`DateTime`](./other.html#datetime) |             |
+| `amount`  | `number`                            |             |
+ 
+ ## Operation
 
-## Operation
+ ### Creatable
 
 | Property  | Type                                        | Description                                                                                                           |
 |-----------|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -64,27 +79,4 @@ Recurring can be defined in four ways:
 | `refund`  | [`Refund.Creatable`](../refund-creatable)   | (optional)                                                                                                            |
 | `void`    | `true`                                      | (optional)                                                                                                            |
 
-### Change.Creatable
-
-| Property | Type     | Description |
-|----------|----------|-------------|
-| `number` | `string` | (optional)  |
-| `amount` | `number` | (optional)  |
-
-
-### Capture.Creatable
-
-| Property     | Type     | Description |
-|--------------|----------|-------------|
-| `number`     | `string` | (optional)  |
-| `amount`     | `number` | (optional)  |
-| `auto`       | `true`   | (optional)  |
-| `descriptor` | `string` | (optional)  |
-
-### Refund.Creatable
-
-| Property     | Type     | Description |
-|--------------|----------|-------------|
-| `number`     | `string` | (optional)  |
-| `amount`     | `number` | (optional)  |
-| `descriptor` | `string` | (optional)  |
+### Operation
