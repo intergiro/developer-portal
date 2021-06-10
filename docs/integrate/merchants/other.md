@@ -4,6 +4,10 @@
 ## Currency
 
 String set according to ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish Crowns.
+
+## Alpha2
+
+ISO 3166-1 Alpha-2 code, e.g. `"FR"` for France and `"SE"` for Sweden
 ## Date
 
 String written as `"yyyy-mm-dd"`, e.g. `"2021-12-31"`.
@@ -11,6 +15,10 @@ String written as `"yyyy-mm-dd"`, e.g. `"2021-12-31"`.
 ## DateTime 
 
 String formated as `"YYYY-MM-DDThh:mm:ss"`, e.g. `"2020-12-31T23:59:59"`.
+
+# Scheme
+
+String set as `"unknown"`, `"amex"`, `"dankort"`, `"diners"`, `"discover"`, `"electron"`, `"interpayment"`, `"jcb"`, `"maestro"`, `"mastercard"`, `"unionpay"` or `"visa"`.
 
 ## Item 
 The data type `Item` is used to specify what products are included in an order.
@@ -67,12 +75,12 @@ Data type representing a customer.
 
 ## Address
 
-| Property      | Type     | Description                                                          |
-|---------------|----------|----------------------------------------------------------------------|
-| `street`      | `string` | street address                                                       |
-| `zipCode`     | `string` | area code                                                            |
-| `city`        | `string` | city                                                                 |
-| `countryCode` | `string` | ISO 3166-1 Alpha-2 code e.g. `"FR"` for France and `"SE"` for Sweden |
+| Property      | Type                       | Description    |
+|---------------|----------------------------|----------------|
+| `street`      | `string`                   | street address |
+| `zipCode`     | `string`                   | area code      |
+| `city`        | `string`                   | city           |
+| `countryCode` | [`Alpha2`](./other#alpha2) |                |
 
 ### Example:
 ```json
