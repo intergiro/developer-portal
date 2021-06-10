@@ -1,18 +1,23 @@
 # Verification
 
-| Property   | Type                                                                                                                               | Description                                                                                                                    |
-|------------|------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| `number`   | `string`                                                                                                                           |                                                                                                                                |
-| `items`    | `number | Item | base.Item[]`                                                                                                      |                                                                                                                                |
-| `response` | `| {type: "method" | "challange" | "pares"; data: string}` <br/>`| {type: "method"; ThreeDSServerTransID: string; timeout: true }` | (optional)                                                                                                                     |
-| version    | `"2.1.0" | "2.2.0"`                                                                                                                | (optional)                                                                                                                     |
-| browser    | `Browser`                                                                                                                          | (optional)                                                                                                                     |
-| currency   | `isoly.Currency`                                                                                                                   | ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish Crowns. |
-| card       | `authly.Token | Card.Creatable`                                                                                                    | Read More about Token and Card.Creatable [here](../merchants/card)                                                             |
-| recurring  | `"initial" | "subsequent"`                                                                                                         | (optional)                                                                                                                     |
-| customer   | `Customer`                                                                                                                         | (optional)                                                                                                                     |
-| target     | `string`                                                                                                                           |                                                                                                                                |
+| Property    | Type                            | Description                                                                                                                    |
+|-------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| `number`    | `string`                        |                                                                                                                                |
+| `items`     | `number | Item | Item[]`        | Additional information below                                                                                                   |
+| `response`  | `Response`                      | (optional) Additional information below                                                                                        |
+| `version`   | `"2.1.0" | "2.2.0"`             | (optional)                                                                                                                     |
+| `browser`   | `Browser`                       | (optional) Additional information below                                                                                        |
+| `currency`  | `string`                        | ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish Crowns. |
+| `card`      | `authly.Token | Card.Creatable` | Read More about Token and Card.Creatable [here](../merchants/card)                                                             |
+| `recurring` | `"initial" | "subsequent"`      | (optional) Additional information below                                                                                        |
+| `customer`  | `Customer`                      | (optional)                                                                                                                     |
+| `target`    | `string`                        |                                                                                                                                |
 
+
+## Response
+Response can be defined in two ways:
+- `{type: "method" | "challange" | "pares"; data: string}` or
+- `{type: "method"; ThreeDSServerTransID: string; timeout: true }`
 
 ## Item 
 The data type `Item` is used to specify what products are included in an order.
@@ -45,26 +50,26 @@ Item Example:
 
 ## Browser
 
-| Property     | Type     | Description |
-|--------------|----------|-------------|
-| acceptHeader | `string` | (optional)  |
-| userAgent    | `string` | (optional)  |
-| ip           | `string` | (optional)  |
+| Property       | Type     | Description |
+|----------------|----------|-------------|
+| `acceptHeader` | `string` | (optional)  |
+| `userAgent`    | `string` | (optional)  |
+| `ip`           | `string` | (optional)  |
 
 ## Customer
 Data type representing a customer.
 
 
-| Property       | Type                        | Description                                                                      |
-|----------------|-----------------------------|----------------------------------------------------------------------------------|
-| type           | `"organization" | "person"` | (optional)                                                                       |
-| identityNumber | `IdentityNumber`            | (optional)                                                                       |
-| id             | `string`                    | (optional)                                                                       |
-| number         | `string`                    | (optional)                                                                       |
-| name           | `string | Name`             | (optional)                                                                       |
-| address        | `Address | Addresses`       | (optional)                                                                       |
-| email          | `string | EmailAddresses`   | (optional) one email address as a string or two as [`EmailAddresses`](../other)  |
-| phone          | `string | PhoneNumbers`     | (optional) one phone number as a string or several as [`PhoneNumbers`](../other) |
+| Property         | Type                        | Description                                                                      |
+|------------------|-----------------------------|----------------------------------------------------------------------------------|
+| `type`           | `"organization" | "person"` | (optional)                                                                       |
+| `identityNumber` | `IdentityNumber`            | (optional)                                                                       |
+| `id`             | `string`                    | (optional)                                                                       |
+| `number`         | `string`                    | (optional)                                                                       |
+| `name`           | `string | Name`             | (optional)                                                                       |
+| `address`        | `Address | Addresses`       | (optional)                                                                       |
+| `email`          | `string | EmailAddresses`   | (optional) one email address as a string or two as [`EmailAddresses`](../other)  |
+| `phone`          | `string | PhoneNumbers`     | (optional) one phone number as a string or several as [`PhoneNumbers`](../other) |
 
 
 ## Address
