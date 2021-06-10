@@ -6,7 +6,7 @@ Authorization Creatable
 |--------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | `number`     | `string`                        |                                                                                                                                |
 | `amount`     | `number`                        |                                                                                                                                |
-| `currency`   | `isoly.Currency`                | ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish Crowns. |
+| `currency`   | `string`                        | ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish Crowns. |
 | `card`       | `authly.Token | Card.Creatable` | Read More about Token and Card.Creatable [here](../merchants/card)                                                             |
 | `descriptor` | `string`                        | (optional)                                                                                                                     |
 | `capture`    | `"auto"`                        | (optional)                                                                                                                     |
@@ -22,11 +22,11 @@ Recurring can be defined in four ways:
 
 ## Change
 
-| Property | Type       | Description                                          |
-|----------|------------|------------------------------------------------------|
-| number   | `string`   | (optional)                                           |
-| created  | `DateTime` | `"YYYY-MM-DDThh:mm:ss"` e.g. `"2020-12-31T23:59:59"` |
-| amount   | `number`   |                                                      |
+| Property  | Type     | Description                                                      |
+|-----------|----------|------------------------------------------------------------------|
+| `number`  | `string` | (optional)                                                       |
+| `created` | `string` | Written as `"YYYY-MM-DDThh:mm:ss"`, e.g. `"2020-12-31T23:59:59"` |
+| `amount`  | `number` |                                                                  |
 
 ## Operation
 
@@ -48,17 +48,17 @@ Recurring can be defined in four ways:
 
 ### Capture.Creatable
 
-| Property   | Type     | Description |
-|------------|----------|-------------|
-| number     | `string` | (optional)  |
-| amount     | `number` | (optional)  |
-| auto       | `true`   | (optional)  |
-| descriptor | `string` | (optional)  |
+| Property     | Type     | Description |
+|--------------|----------|-------------|
+| `number`     | `string` | (optional)  |
+| `amount`     | `number` | (optional)  |
+| `auto`       | `true`   | (optional)  |
+| `descriptor` | `string` | (optional)  |
 
 ### Refund.Creatable
 
-| Property   | Type     | Description |
-|------------|----------|-------------|
-| number     | `string` | (optional)  |
-| amount     | `number` | (optional)  |
-| descriptor | `string` | (optional)  |
+| Property     | Type     | Description |
+|--------------|----------|-------------|
+| `number`     | `string` | (optional)  |
+| `amount`     | `number` | (optional)  |
+| `descriptor` | `string` | (optional)  |
