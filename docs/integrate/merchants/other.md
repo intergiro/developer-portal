@@ -1,5 +1,17 @@
 # Other
 
+
+## Currency
+
+String set according to ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish Crowns.
+## Date
+
+String written as `"yyyy-mm-dd"`, e.g. `"2021-12-31"`.
+
+## DateTime 
+
+String formated as `"YYYY-MM-DDThh:mm:ss"`, e.g. `"2020-12-31T23:59:59"`.
+
 ## Item 
 The data type `Item` is used to specify what products are included in an order.
 
