@@ -1,4 +1,4 @@
-# Authorization API
+# Authorization
 In order to create an [Authorization](../merchants-reference/authorization.html), first send a request with the body of the request set as an [Authorization creatable](../merchants-reference/authorization.html#creatable).
 
 ``` {1}

@@ -1,4 +1,4 @@
-# Verification API
+# Verification
 In order to create a [Verification](../merchants-reference/verification.html), first send a request with the body of the request set as an [Verification creatable](../merchants-reference/verification.html#creatable).
 
 ``` {1}
