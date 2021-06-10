@@ -13,7 +13,7 @@ module.exports = {
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
   description: description,
-  
+
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
@@ -44,9 +44,9 @@ module.exports = {
           { text: 'Onboarding', link: '/integrate/onboarding/' },
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
-          // { text: 'Merchants', link: '/integrate/merchants/' },
+          { text: 'Merchants', link: '/integrate/merchants/' },
           { text: 'API reference', link: 'https://b2b.intergiro.com/v3/docs' },
-        ] 
+        ]
       },
       { text: 'Business banking', link: '/direct/' },
     ],
@@ -89,6 +89,16 @@ function getIntegrateSidebar() {
     '/integrate/onboarding/',
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
-    // '/integrate/merchants/',
+    {
+      title: 'Merchants',
+      collapsable: true,
+      children: [
+        '/integrate/merchants/authorization',
+        '/integrate/merchants/capture',
+        '/integrate/merchants/refund',
+        '/integrate/merchants/verification',
+        '/integrate/merchants/card',
+      ]
+    }
   ]
 }
