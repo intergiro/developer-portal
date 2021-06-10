@@ -1,5 +1,7 @@
 
 # Authorization
+
+## Creatable
 Authorization Creatable
 
 | Property     | Type                            | Description                                                                                                                    |
@@ -11,6 +13,30 @@ Authorization Creatable
 | `descriptor` | `string`                        | (optional)                                                                                                                     |
 | `capture`    | `"auto"`                        | (optional)                                                                                                                     |
 | `recurring`  | [`Recurring`](#recurring)       | (optional)                                                                                                                     |
+
+
+
+## Authorization
+
+| Property   | Type                                           | Description |
+|------------|------------------------------------------------|-------------|
+| id         | `authly.Identifier`                            |             |
+| merchant   | `authly.Identifier`                            |             |
+| number     | `string`                                       |             |
+| reference  | `string`                                       |             |
+| created    | `isoly.DateTime`                               |             |
+| amount     | `number`                                       |             |
+| currency   | `isoly.Currency`                               |             |
+| card       | `model.Card`                                   |             |
+| descriptor | `string`                                       | (optional)  |
+| recurring  | `AuthorizationRecurring`                       | (optional)  |
+| history    | `AHistory[]`                                   |             |
+| change     | `AChange[]`                                    | (optional)  |
+| capture    | `Capture[]`                                    |             |
+| refund     | `Refund[]`                                     |             |
+| void       | `isoly.DateTime`                               | (optional)  |
+| status     | `Partial<Record<AuthorizationStatus, number>>` |             |
+
 
 ### Recurring
 Recurring can be defined in four ways: 
@@ -30,13 +56,13 @@ Recurring can be defined in four ways:
 
 ## Operation
 
-| Property  | Type                                      | Description                                                                                                           |
-|-----------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| `id`      | `string`                                  | string length is divisible by 4, and only contains characters `"0"`- `"9"`, `"A"`-`"Z"`, `"a"`-`"z"`, `"-"` and `"_"` |
-| `change`  | [`Change.Creatable`](#change-creatable)   | (optional)                                                                                                            |
-| `capture` | [`Capture.Creatable`](#capture-creatable) | (optional)                                                                                                            |
-| `refund`  | [`Refund.Creatable`](#refund-creatable)   | (optional)                                                                                                            |
-| `void`    | `true`                                    | (optional)                                                                                                            |
+| Property  | Type                                        | Description                                                                                                           |
+|-----------|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| `id`      | `string`                                    | string length is divisible by 4, and only contains characters `"0"`- `"9"`, `"A"`-`"Z"`, `"a"`-`"z"`, `"-"` and `"_"` |
+| `change`  | [`Change.Creatable`](../change-creatable)   | (optional)                                                                                                            |
+| `capture` | [`Capture.Creatable`](../capture-creatable) | (optional)                                                                                                            |
+| `refund`  | [`Refund.Creatable`](../refund-creatable)   | (optional)                                                                                                            |
+| `void`    | `true`                                      | (optional)                                                                                                            |
 
 ### Change.Creatable
 

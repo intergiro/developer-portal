@@ -98,6 +98,7 @@ function getIntegrateSidebar() {
         '/integrate/merchants/refund',
         '/integrate/merchants/verification',
         '/integrate/merchants/card',
+        '/integrate/merchants/other',
       ]
     }
   ]

@@ -1,4 +1,5 @@
 # Capture
+## Creatable
 
 | Property     | Type     | Description |
 |--------------|----------|-------------|
@@ -6,3 +7,5 @@
 | `amount`     | `number` | (optional)  |
 | `auto`       | `true`   | (optional)  |
 | `descriptor` | `number` | (optional)  |
+
+## Capture

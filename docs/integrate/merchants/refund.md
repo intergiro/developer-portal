@@ -1,4 +1,4 @@
-# Refund
+# Refund.Creatable
 
 | Property     | Type     | Description |
 |--------------|----------|-------------|
