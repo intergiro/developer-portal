@@ -20,6 +20,21 @@ String formated as `"YYYY-MM-DDThh:mm:ss"`, e.g. `"2020-12-31T23:59:59"`.
 
 String set as `"unknown"`, `"amex"`, `"dankort"`, `"diners"`, `"discover"`, `"electron"`, `"interpayment"`, `"jcb"`, `"maestro"`, `"mastercard"`, `"unionpay"` or `"visa"`.
 
+## Browser
+
+### Creatable
+
+colorDepth?: number
+	java?: boolean
+	javascript?: boolean
+	locale?: isoly.Locale
+	timezone?: number
+	resolution?: [number, number]
+	parent?: string
+	acceptHeader?: string
+	userAgent?: string
+	ip?: string
+
 ## Item 
 The data type `Item` is used to specify what products are included in an order.
 
@@ -34,7 +49,6 @@ For `Item`, all properties are optional, but if `vat` is included, `price` must 
 | `unit`     | `string` | (optional) unit for measuring the product     |
 | `vat`      | `number` | (optional) VAT per unit                       |
 | `rebate`   | `number` | (optional) rebate per unit                    |
-
 
 Item Example:
 ```json

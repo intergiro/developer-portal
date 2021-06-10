@@ -56,7 +56,7 @@ module.exports = {
       '/integrate/onboarding/': getIntegrateSidebar(),
       '/integrate/card-programmes/': getIntegrateSidebar(),
       '/integrate/embedded-finance/': getIntegrateSidebar(),
-      '/integrate/merchants/': getIntegrateSidebar(),
+      '/integrate/merchants-reference/': getIntegrateSidebar(),
       '/direct/': [
         '',
       ],
@@ -90,16 +90,28 @@ function getIntegrateSidebar() {
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
     {
-      title: 'Merchants',
+      title: 'Merchants API',
       collapsable: true,
       children: [
-        '/integrate/merchants/authorization',
-        '/integrate/merchants/capture',
-        '/integrate/merchants/refund',
-        '/integrate/merchants/verification',
-        '/integrate/merchants/card',
-        '/integrate/merchants/other',
+        '/integrate/merchants-api/authorization',
+        // '/integrate/merchants-api/capture',
+        // '/integrate/merchants-api/refund',
+        '/integrate/merchants-api/verification',
+        // '/integrate/merchants-api/card',
+        // '/integrate/merchants-api/other',
       ]
-    }
+    },
+    {
+      title: 'Merchants Reference',
+      collapsable: true,
+      children: [
+        '/integrate/merchants-reference/authorization',
+        '/integrate/merchants-reference/capture',
+        '/integrate/merchants-reference/refund',
+        '/integrate/merchants-reference/verification',
+        '/integrate/merchants-reference/card',
+        '/integrate/merchants-reference/other',
+      ]
+    },
   ]
 }
