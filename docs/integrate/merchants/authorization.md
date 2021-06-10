@@ -10,7 +10,7 @@ Authorization Creatable
 | `card`       | `authly.Token | Card.Creatable` | Read More about Token and Card.Creatable [here](../merchants/card)                                                             |
 | `descriptor` | `string`                        | (optional)                                                                                                                     |
 | `capture`    | `"auto"`                        | (optional)                                                                                                                     |
-| `recurring`  | `Recurring`                     | (optional)                                                                                                                     |
+| `recurring`  | [`Recurring`](#recurring)       | (optional)                                                                                                                     |
 
 ### Recurring
 Recurring can be defined in four ways: 
@@ -30,13 +30,13 @@ Recurring can be defined in four ways:
 
 ## Operation
 
-| Property  | Type                | Description                                                                                                           |
-|-----------|---------------------|-----------------------------------------------------------------------------------------------------------------------|
-| `id`      | `string`            | string length is divisible by 4, and only contains characters `"0"`- `"9"`, `"A"`-`"Z"`, `"a"`-`"z"`, `"-"` and `"_"` |
-| `change`  | `Change.Creatable`  | (optional)                                                                                                            |
-| `capture` | `Capture.Creatable` | (optional)                                                                                                            |
-| `refund`  | `Refund.Creatable`  | (optional)                                                                                                            |
-| `void`    | `true`              | (optional)                                                                                                            |
+| Property  | Type                                      | Description                                                                                                           |
+|-----------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| `id`      | `string`                                  | string length is divisible by 4, and only contains characters `"0"`- `"9"`, `"A"`-`"Z"`, `"a"`-`"z"`, `"-"` and `"_"` |
+| `change`  | [`Change.Creatable`](#change-creatable)   | (optional)                                                                                                            |
+| `capture` | [`Capture.Creatable`](#capture-creatable) | (optional)                                                                                                            |
+| `refund`  | [`Refund.Creatable`](#refund-creatable)   | (optional)                                                                                                            |
+| `void`    | `true`                                    | (optional)                                                                                                            |
 
 ### Change.Creatable
 
