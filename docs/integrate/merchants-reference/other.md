@@ -2,20 +2,20 @@
 
 ### Settlement.Transaction
 
-| Property      | Type                                         | Description                                                     |
-|---------------|----------------------------------------------|-----------------------------------------------------------------|
-| authorization | `Identifier`                                 | ID in our system                                                |
-| reference     | `string`                                     |                                                                 |
-| type          | `string`                                     | `"authorization"`,` "capture"`, `"refund"`, `"void"` or `"all"` |
-| card          | `string`                                     | `"debit"` or `"credit"`                                         |
-| scheme        | [`Scheme`](./other#scheme)                   |                                                                 |
-| area          | [`Alpha2`](./other#alpha2)                   |                                                                 |
-| created       | [`Date`](./other.html#datetime)              |                                                                 |
-| currency      | [`Currency`](./other.html#currency)          |                                                                 |
-| gross         | `number`                                     |                                                                 |
-| fee           | `number | { scheme: number; total: number }` |                                                                 |
-| net           | `number`                                     |                                                                 |
-| reserve       | `{ amount: number; payout?: Date }`          | (optional)                                                      |
+| Property        | Type                                         | Description                                                     |
+|-----------------|----------------------------------------------|-----------------------------------------------------------------|
+| `authorization` | `Identifier`                                 | ID in our system                                                |
+| `reference`     | `string`                                     |                                                                 |
+| `type`          | `string`                                     | `"authorization"`,` "capture"`, `"refund"`, `"void"` or `"all"` |
+| `card`          | `string`                                     | `"debit"` or `"credit"`                                         |
+| `scheme`        | [`Scheme`](./other#scheme)                   |                                                                 |
+| `area`          | [`Alpha2`](./other#alpha2)                   |                                                                 |
+| `created`       | [`Date`](./other.html#datetime)              |                                                                 |
+| `currency`      | [`Currency`](./other.html#currency)          |                                                                 |
+| `gross`         | `number`                                     |                                                                 |
+| `fee`           | `number | { scheme: number; total: number }` |                                                                 |
+| `net`           | `number`                                     |                                                                 |
+| `reserve`       | `{ amount: number; payout?: Date }`          | (optional)                                                      |
 ## Currency
 
 String set according to ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish Crowns.
@@ -41,23 +41,23 @@ String set as `"unknown"`, `"amex"`, `"dankort"`, `"diners"`, `"discover"`, `"el
 
 ## Browser
 ### Creatable
-| Property   | Type                            | Description                                |
-|------------|---------------------------------|--------------------------------------------|
-| colorDepth | `number`                        | (optional)                                 |
-| java       | `boolean`                       | (optional)                                 |
-| javascript | `boolean`                       | (optional)                                 |
-| locale     | [`Locale`](./other.html#locale) | (optional) `navigator.language`            |
-| timezone   | `number`                        | (optional)                                 |
-| resolution | `[number, number]`              | (optional) `screen.width`, `screen.height` |
-| parent     | `string`                        | (optional)                                 |
+| Property     | Type                            | Description                                |
+|--------------|---------------------------------|--------------------------------------------|
+| `colorDepth` | `number`                        | (optional)                                 |
+| `java`       | `boolean`                       | (optional)                                 |
+| `javascript` | `boolean`                       | (optional)                                 |
+| `locale`     | [`Locale`](./other.html#locale) | (optional) `navigator.language`            |
+| `timezone`   | `number`                        | (optional)                                 |
+| `resolution` | `[number, number]`              | (optional) `screen.width`, `screen.height` |
+| `parent`     | `string`                        | (optional)                                 |
 ### Browser
 The final `Browser` object is the same as the `Browser.Creatable` but with these added fields:
 
-| Property     | Type     | Description |
-|--------------|----------|-------------|
-| acceptHeader | `string` | (optional)  |
-| userAgent    | `string` | (optional)  |
-| ip           | `string` | (optional)  |
+| Property       | Type     | Description |
+|----------------|----------|-------------|
+| `acceptHeader` | `string` | (optional)  |
+| `userAgent`    | `string` | (optional)  |
+| `ip`           | `string` | (optional)  |
 
 
 ## Item 

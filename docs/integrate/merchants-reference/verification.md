@@ -28,27 +28,27 @@ Verification can be defined in two ways:
 For a pares:
 | Property | Type      | Description |
 |----------|-----------|-------------|
-| type     | `"pares"` |             |
-| data     | `Pares`   |             |
+| `type`   | `"pares"` |             |
+| `data`   | `Pares`   |             |
 	  
 where `Pares` is defined as 
 
-| Property       | Type                                | Description                                |
-|----------------|-------------------------------------|--------------------------------------------|
-| cavv           | `string`                            |                                            |
-| xid            | `string`                            |                                            |
-| eci            | `string`                            | `"0"`, `"1"`, `"2"`, `"5"`, `"6"` or `"7"` |
-| status         | `string`                            | `"Y"`, `"U"`, `"A"`, `"N"`                 |
-| amount         | `number`                            | (optional)                                 |
-| cavv_algorithm | `string`                            | (optional)                                 |
-| currency       | [`Currency`](./other.html#currency) | (optional)                                 |
-| last4          | `string`                            | (optional)                                 |
-| merchant_id    | `string`                            | (optional)                                 |
+| Property         | Type                                | Description                                |
+|------------------|-------------------------------------|--------------------------------------------|
+| `cavv`           | `string`                            |                                            |
+| `xid`            | `string`                            |                                            |
+| `eci`            | `string`                            | `"0"`, `"1"`, `"2"`, `"5"`, `"6"` or `"7"` |
+| `status`         | `string`                            | `"Y"`, `"U"`, `"A"`, `"N"`                 |
+| `amount`         | `number`                            | (optional)                                 |
+| `cavv_algorithm` | `string`                            | (optional)                                 |
+| `currency`       | [`Currency`](./other.html#currency) | (optional)                                 |
+| `last4`          | `string`                            | (optional)                                 |
+| `merchant_id`    | `string`                            | (optional)                                 |
 
 or 
 
 For method or challange
 | Property | Type                                                                                                                       | Description                                                               |
 |----------|----------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-| type     | `"method" | "challenge"`                                                                                                   |                                                                           |
-| data     | `{ authentication: string; status: "A" | "N" | "U" | "Y" | "C" | "R"; reference: { server: string ; directory: string }}}` | `server` is the threeDSServerTransID and the `directory` is the dsTransID |
+| `type`   | `"method" | "challenge"`                                                                                                   |                                                                           |
+| `data`   | `{ authentication: string; status: "A" | "N" | "U" | "Y" | "C" | "R"; reference: { server: string ; directory: string }}}` | `server` is the threeDSServerTransID and the `directory` is the dsTransID |

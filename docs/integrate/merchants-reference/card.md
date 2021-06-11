@@ -10,14 +10,14 @@
 | `client`       | `{ip?: string}`                  | (optional)                                                            |
 
 ## Card
-| Property | Type                            | Description                                                        |
-|----------|---------------------------------|--------------------------------------------------------------------|
-| scheme   | [`Scheme`](./other.html#scheme) |                                                                    |
-| iin      | `string`                        | First 6 digits on card                                             |
-| last4    | `string`                        | Last 4 digits on card                                              |
-| expires  | `[number,number]`               | `[month, year]` where month is `1` to `12` and year is `0` to `99` |
-| type     | `string`                        | (optional) `"debit"` or `"credit"`                                 |
-| csc      | `string`                        | (optional) `"matched"`, `"mismatched"` or`"present"`               |
+| Property  | Type                            | Description                                                        |
+|-----------|---------------------------------|--------------------------------------------------------------------|
+| `scheme`  | [`Scheme`](./other.html#scheme) |                                                                    |
+| `iin`     | `string`                        | First 6 digits on card                                             |
+| `last4`   | `string`                        | Last 4 digits on card                                              |
+| `expires` | `[number,number]`               | `[month, year]` where month is `1` to `12` and year is `0` to `99` |
+| `type`    | `string`                        | (optional) `"debit"` or `"credit"`                                 |
+| `csc`     | `string`                        | (optional) `"matched"`, `"mismatched"` or`"present"`               |
 
 
 ## Token
