@@ -98,8 +98,6 @@ function getIntegrateSidebar() {
         '/integrate/merchants-api/capture',
         '/integrate/merchants-api/refund',
         '/integrate/merchants-api/cancel',
-        // '/integrate/merchants-api/card',
-        // '/integrate/merchants-api/other',
       ]
     },
     {
