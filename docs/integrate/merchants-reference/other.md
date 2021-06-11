@@ -4,7 +4,7 @@
 
 | Property      | Type                                         | Description                                                     |
 |---------------|----------------------------------------------|-----------------------------------------------------------------|
-| authorization | `authly.Identifier`                          |                                                                 |
+| authorization | `Identifier`                                 | ID in our system                                                |
 | reference     | `string`                                     |                                                                 |
 | type          | `string`                                     | `"authorization"`,` "capture"`, `"refund"`, `"void"` or `"all"` |
 | card          | `string`                                     | `"debit"` or `"credit"`                                         |

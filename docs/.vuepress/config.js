@@ -94,9 +94,10 @@ function getIntegrateSidebar() {
       collapsable: true,
       children: [
         '/integrate/merchants-api/authorization',
+        '/integrate/merchants-api/verification',
         '/integrate/merchants-api/capture',
         '/integrate/merchants-api/refund',
-        '/integrate/merchants-api/verification',
+        '/integrate/merchants-api/cancel',
         // '/integrate/merchants-api/card',
         // '/integrate/merchants-api/other',
       ]
@@ -106,9 +107,9 @@ function getIntegrateSidebar() {
       collapsable: true,
       children: [
         '/integrate/merchants-reference/authorization',
+        '/integrate/merchants-reference/verification',
         '/integrate/merchants-reference/capture',
         '/integrate/merchants-reference/refund',
-        '/integrate/merchants-reference/verification',
         '/integrate/merchants-reference/card',
         '/integrate/merchants-reference/other',
       ]

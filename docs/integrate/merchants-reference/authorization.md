@@ -17,24 +17,24 @@ Authorization Creatable
 
 ## Authorization
 
-| Property   | Type                                                             | Description |
-|------------|------------------------------------------------------------------|-------------|
-| id         | `authly.Identifier`                                              |             |
-| merchant   | `authly.Identifier`                                              |             |
-| number     | `string`                                                         |             |
-| reference  | `string`                                                         |             |
-| created    | [`DateTime`](./other.html#datetime)                              |             |
-| amount     | `number`                                                         |             |
-| currency   | [`Currency`](./other.html#currency)                              |             |
-| card       | [`Card`](./card)                                                 |             |
-| descriptor | `string`                                                         | (optional)  |
-| recurring  | [`Recurring`](authorization.html#recurring)                      | (optional)  |
-| history    | `History[]`                                                      |             |
-| change     | [`Change[]`](./Change)                                           | (optional)  |
-| capture    | [`Capture[]`](./Capture)                                         |             |
-| refund     | [`Refund[]`](./Refund)                                           |             |
-| void       | [`DateTime`](./other.html#datetime)                              | (optional)  |
-| status     | [`Partial<Record<Status, number>>`](./authorization.html#status) |             |
+| Property   | Type                                                             | Description      |
+|------------|------------------------------------------------------------------|------------------|
+| id         | `string`                                                         | ID in our system |
+| merchant   | `string`                                                         | ID in our system |
+| number     | `string`                                                         |                  |
+| reference  | `string`                                                         |                  |
+| created    | [`DateTime`](./other.html#datetime)                              |                  |
+| amount     | `number`                                                         |                  |
+| currency   | [`Currency`](./other.html#currency)                              |                  |
+| card       | [`Card`](./card)                                                 |                  |
+| descriptor | `string`                                                         | (optional)       |
+| recurring  | [`Recurring`](authorization.html#recurring)                      | (optional)       |
+| history    | `History[]`                                                      |                  |
+| change     | [`Change[]`](./Change)                                           | (optional)       |
+| capture    | [`Capture[]`](./Capture)                                         |                  |
+| refund     | [`Refund[]`](./Refund)                                           |                  |
+| void       | [`DateTime`](./other.html#datetime)                              | (optional)       |
+| status     | [`Partial<Record<Status, number>>`](./authorization.html#status) |                  |
 
 
 ### Status

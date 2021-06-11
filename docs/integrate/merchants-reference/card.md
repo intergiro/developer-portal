@@ -20,8 +20,8 @@
 | csc      | `string`                        | (optional) `"matched"`, `"mismatched"` or`"present"`               |
 
 
-## authly.Token
-The `authly.Token` is a JWT where the body includes a Base64, that in itself encodes a `card.Token` object.
+## Token
+The `Token` is a JWT where the body includes a Base64, that in itself encodes a `card.Token` object.
 Table below shown the contants of a `card.Token`:
 | Property       | Type                            | Description                                                        |
 |----------------|---------------------------------|--------------------------------------------------------------------|
