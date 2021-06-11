@@ -14,7 +14,7 @@ Authorization: Bearer <access_token>
 	currency: "EUR",
 	card: {
 		pan: "4111111111111111",
-		expires: [02, 22],
+		expires: [2, 22],
 		csc: "987"
 	},
 	target: "https://localhost:1337/target/for/iframe/post/"

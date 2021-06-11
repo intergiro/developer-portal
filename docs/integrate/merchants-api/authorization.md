@@ -15,7 +15,7 @@ Authorization: Bearer <access_token>
 	currency: "EUR",
 	card: {
 		pan: "4111111111111111",
-		expires: [02, 22],
+		expires: [2, 22],
 		csc: "987"
 	}
 }
@@ -28,10 +28,10 @@ HTTP 200 OK
 
 {
 	id: "1234567890123456",
-	number: "testNumber",
+	number: "a_unique_identifier",
 	merchant: "testtest",
-	amount: 101.1,
-	currency: "SEK",
+	amount: 23,
+	currency: "EUR",
 	history: [],
 	change: [],
 	capture: [],
@@ -40,8 +40,8 @@ HTTP 200 OK
 	reference: "12341234",
 	card: {
 		csc: "matched",
-		expires: [2, 28],
-		iin: "123456",
+		expires: [2, 22],
+		iin: "411111",
 		last4: "1111",
 		scheme: "visa",
 		type: "debit",
