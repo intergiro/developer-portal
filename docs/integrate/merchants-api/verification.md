@@ -7,6 +7,18 @@ POST /verification
 Host: api.payfunc.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
+
+{
+	number: "a_unique_identifier",
+	items: 3,
+	currency: "EUR",
+	card: {
+		pan: "4111111111111111",
+		expires: [02, 22],
+		csc: "987"
+	},
+	target: "https://localhost:1337/target/for/iframe/post/"
+}
 ```
 
 Example Response:
@@ -18,10 +30,10 @@ HTTP 200 OK
 	type: "challenge",
 	data: {
 		authentication: "testtest",
-		status: "U",
+		status: "Y",
 		reference: {
-			server: "threeD",
-			directory: "dsTransactionId",
+			server: "00000000-0000-0000-0000-000000000000",
+			directory: "11111111-1111-1111-1111-111111111111",
 		},
 	},
 }

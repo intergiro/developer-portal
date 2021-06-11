@@ -14,7 +14,7 @@
 |--------------|-----------------------------------------------------------------|------------------------------------------|
 | `number`     | `string`                                                        | (optional)                               |
 | `created`    | [`DateTime`](./other.html#datetime)                             |                                          |
-| `reference`  | `string`                                                        | (optional)                               |
+| `reference`  | `string`                                                        |                                          |
 | `approved`   | [`DateTime`](./other.html#datetime)                             | (optional)                               |
 | `amount`     | `number`                                                        |                                          |
 | `descriptor` | `string`                                                        | (optional)                               |

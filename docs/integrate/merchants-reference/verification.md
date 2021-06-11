@@ -13,7 +13,7 @@
 | `card`      | `Signed JWT` or [`Card.Creatable`](./card.html#creatable) |                                          |
 | `recurring` | `string`                                                  | (optional) `"initial"` or `"subsequent"` |
 | `customer`  | [`Customer`](./other.html#customer)                       | (optional)                               |
-| `target`    | `string`                                                  |                                          |
+| `target`    | `string`                                                  | iframe target url                        |
 
 
 ## Response

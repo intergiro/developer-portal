@@ -12,7 +12,6 @@ Authorization Creatable
 | `currency`   | [`Currency`](./other.html#currency)                       |                               |
 | `card`       | `Signed JWT` or [`Card.Creatable`](./card.html#creatable) |                               |
 | `descriptor` | `string`                                                  | (optional)                    |
-| `capture`    | `"auto"`                                                  | (optional)                    |
 | `recurring`  | [`Recurring`](#recurring)                                 | (optional)                    |
 
 ## Authorization
