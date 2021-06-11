@@ -1,11 +1,18 @@
-# How to write Rules 
+# How to write a Rule 
 
-To create a Rule on a merchant, where the body of the request is a [`Rule`](./).
+A Rule is a string that can be parsed and divided into the folloing parts.
 
-``` {1}
-PUT /merchant/:id/rule
+`action` `event` if `condition`
 
-Host: api.payfunc.com
-Content-Type: application/json
-Authorization: Bearer <access_token>
-```
+- `action` is as of yet limited to `"reject"`.
+- `event` is can be set as `"capture"`, `"refund"` and ...
+- `condition` is the more complicated part of the rule.
+
+e.g.:
+
+`"reject capture if merchant.captured > 250000"`
+
+
+
+# Rules object
+A Rules object is a `Record<string, Rule[]>` Where one key must be `"master"`
