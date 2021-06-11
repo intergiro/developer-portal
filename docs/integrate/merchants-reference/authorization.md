@@ -7,7 +7,7 @@ Authorization Creatable
 
 | Property     | Type                                                      | Description                   |
 |--------------|-----------------------------------------------------------|-------------------------------|
-| `number`     | `string`                                                  | has to be a Unique identifier |
+| `number`     | `string`                                                  | has to be a unique identifier |
 | `amount`     | `number`                                                  |                               |
 | `currency`   | [`Currency`](./other.html#currency)                       |                               |
 | `card`       | `Signed JWT` or [`Card.Creatable`](./card.html#creatable) |                               |

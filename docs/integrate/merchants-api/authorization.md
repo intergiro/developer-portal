@@ -48,3 +48,23 @@ HTTP 200 OK
 	},
 }
 ```
+Sometimes [verification](./verification.html) will be required. this important field to look for is the `error: "verification required"`. 
+Example of a verification required response:
+```{1,15}
+HTTP 400 Bad Request
+
+{
+  "status": 400,
+  "type": "flawed content",
+  "content": {
+    "type": "verification required",
+    "flaws": [
+      {
+        "type": "reject",
+        "condition": "authorization.amount>15 !(authorization.verification:verified) !(authorization.recurring:subsequent)"
+      }
+    ]
+  },
+  "error": "verification required"
+}
+```
