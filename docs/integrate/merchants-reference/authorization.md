@@ -5,15 +5,15 @@
 
 Authorization Creatable
 
-| Property     | Type                                                      | Description |
-|--------------|-----------------------------------------------------------|-------------|
-| `number`     | `string`                                                  |             |
-| `amount`     | `number`                                                  |             |
-| `currency`   | [`Currency`](./other.html#currency)                       |             |
-| `card`       | `Signed JWT` or [`Card.Creatable`](./card.html#creatable) |             |
-| `descriptor` | `string`                                                  | (optional)  |
-| `capture`    | `"auto"`                                                  | (optional)  |
-| `recurring`  | [`Recurring`](#recurring)                                 | (optional)  |
+| Property     | Type                                                      | Description                   |
+|--------------|-----------------------------------------------------------|-------------------------------|
+| `number`     | `string`                                                  | has to be a Unique identifier |
+| `amount`     | `number`                                                  |                               |
+| `currency`   | [`Currency`](./other.html#currency)                       |                               |
+| `card`       | `Signed JWT` or [`Card.Creatable`](./card.html#creatable) |                               |
+| `descriptor` | `string`                                                  | (optional)                    |
+| `capture`    | `"auto"`                                                  | (optional)                    |
+| `recurring`  | [`Recurring`](#recurring)                                 | (optional)                    |
 
 ## Authorization
 

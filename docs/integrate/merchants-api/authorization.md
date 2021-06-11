@@ -1,12 +1,24 @@
 # Authorization
 In order to create an [Authorization](../merchants-reference/authorization.html), first send a request with the body of the request set as an [Authorization creatable](../merchants-reference/authorization.html#creatable).
 
+Example Authorization request:
 ``` {1}
 POST /authorization
 
 Host: api.payfunc.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
+
+{
+	number: "a_unique_identifier",
+	amount: 23,
+	currency: "EUR",
+	card: {
+		pan: "4111111111111111",
+		expires: [02, 22],
+		csc: "987"
+	}
+}
 ```
 
 Example Response:
