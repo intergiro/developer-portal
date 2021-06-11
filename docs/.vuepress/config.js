@@ -94,7 +94,7 @@ function getIntegrateSidebar() {
       collapsable: true,
       children: [
         '/integrate/merchants-api/authorization',
-        // '/integrate/merchants-api/capture',
+        '/integrate/merchants-api/capture',
         '/integrate/merchants-api/refund',
         '/integrate/merchants-api/verification',
         // '/integrate/merchants-api/card',
