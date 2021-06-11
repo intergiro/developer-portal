@@ -112,5 +112,13 @@ function getIntegrateSidebar() {
         '/integrate/merchants-reference/other',
       ]
     },
+    {
+      title: 'Merchants Rules',
+      collapsable: true,
+      children: [
+        '/integrate/merchants-rules/rule-api',
+        '/integrate/merchants-rules/write',
+      ]
+    },
   ]
 }
