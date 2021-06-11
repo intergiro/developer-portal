@@ -1,6 +1,21 @@
 # Other
 
+### Settlement.Transaction
 
+| Property      | Type                                         | Description                                                     |
+|---------------|----------------------------------------------|-----------------------------------------------------------------|
+| authorization | `authly.Identifier`                          |                                                                 |
+| reference     | `string`                                     |                                                                 |
+| type          | `string`                                     | `"authorization"`,` "capture"`, `"refund"`, `"void"` or `"all"` |
+| card          | `string`                                     | `"debit"` or `"credit"`                                         |
+| scheme        | [`Scheme`](./other#scheme)                   |                                                                 |
+| area          | [`Alpha2`](./other#alpha2)                   |                                                                 |
+| created       | [`Date`](./other.html#datetime)              |                                                                 |
+| currency      | [`Currency`](./other.html#currency)          |                                                                 |
+| gross         | `number`                                     |                                                                 |
+| fee           | `number | { scheme: number; total: number }` |                                                                 |
+| net           | `number`                                     |                                                                 |
+| reserve       | `{ amount: number; payout?: Date }`          | (optional)                                                      |
 ## Currency
 
 String set according to ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish Crowns.
@@ -8,32 +23,42 @@ String set according to ISO 4217 Currency codes, formated as e.g. `"EUR"` for Eu
 ## Alpha2
 
 ISO 3166-1 Alpha-2 code, e.g. `"FR"` for France and `"SE"` for Sweden
+
+## Locale
+String defined by language ISO 639-1, followed by a dash `"-"` then a ISO 3166-1 Alpha-2 code. E.g. `"en-US"` for the English-United States or `"sv-SE"` for Swedish-Sweden. This is defined by `navigator.language` in the browser. All acceptable locales can be found [here](https://github.com/payfunc/isoly/blob/master/Locale.ts).
+
 ## Date
 
-String written as `"yyyy-mm-dd"`, e.g. `"2021-12-31"`.
+String written as `"YYYY-MM-DD"`, e.g. `"2021-12-31"`.
 
 ## DateTime 
 
 String formated as `"YYYY-MM-DDThh:mm:ss"`, e.g. `"2020-12-31T23:59:59"`.
 
-# Scheme
+## Scheme
 
 String set as `"unknown"`, `"amex"`, `"dankort"`, `"diners"`, `"discover"`, `"electron"`, `"interpayment"`, `"jcb"`, `"maestro"`, `"mastercard"`, `"unionpay"` or `"visa"`.
 
 ## Browser
-
 ### Creatable
+| Property   | Type                            | Description                                |
+|------------|---------------------------------|--------------------------------------------|
+| colorDepth | `number`                        | (optional)                                 |
+| java       | `boolean`                       | (optional)                                 |
+| javascript | `boolean`                       | (optional)                                 |
+| locale     | [`Locale`](./other.html#locale) | (optional) `navigator.language`            |
+| timezone   | `number`                        | (optional)                                 |
+| resolution | `[number, number]`              | (optional) `screen.width`, `screen.height` |
+| parent     | `string`                        | (optional)                                 |
+### Browser
+The final `Browser` object is the same as the `Browser.Creatable` but with these added fields:
 
-colorDepth?: number
-	java?: boolean
-	javascript?: boolean
-	locale?: isoly.Locale
-	timezone?: number
-	resolution?: [number, number]
-	parent?: string
-	acceptHeader?: string
-	userAgent?: string
-	ip?: string
+| Property     | Type     | Description |
+|--------------|----------|-------------|
+| acceptHeader | `string` | (optional)  |
+| userAgent    | `string` | (optional)  |
+| ip           | `string` | (optional)  |
+
 
 ## Item 
 The data type `Item` is used to specify what products are included in an order.
@@ -62,14 +87,6 @@ Item Example:
 	"rebate": 0
 }
 ```
-
-## Browser
-
-| Property       | Type     | Description |
-|----------------|----------|-------------|
-| `acceptHeader` | `string` | (optional)  |
-| `userAgent`    | `string` | (optional)  |
-| `ip`           | `string` | (optional)  |
 
 ## Customer
 Data type representing a customer.
