@@ -2,18 +2,18 @@
 
 ## Creatable
 
-| Property    | Type                                                      | Description                             |
-|-------------|-----------------------------------------------------------|-----------------------------------------|
-| `number`    | `string`                                                  |                                         |
-| `items`     | `number | Item | Item[]`                                  | Additional information below            |
-| `response`  | [`Response`](./verification.html#response)                | (optional)                              |
-| `version`   | `"2.1.0" | "2.2.0"`                                       | (optional)                              |
-| `browser`   | `Browser`                                                 | (optional) Additional information below |
-| `currency`  | [`Currency`](./other.html#currency)                       |                                         |
-| `card`      | `Signed JWT` or [`Card.Creatable`](./card.html#creatable) |                                         |
-| `recurring` | `"initial" | "subsequent"`                                | (optional)                              |
-| `customer`  | `Customer`                                                | (optional)                              |
-| `target`    | `string`                                                  |                                         |
+| Property    | Type                                                      | Description                              |
+|-------------|-----------------------------------------------------------|------------------------------------------|
+| `number`    | `string`                                                  |                                          |
+| `items`     | `number | Item | Item[]`                                  | Additional information below             |
+| `response`  | [`Response`](./verification.html#response)                | (optional)                               |
+| `version`   | `"2.1.0" | "2.2.0"`                                       | (optional)                               |
+| `browser`   | `Browser`                                                 | (optional) Additional information below  |
+| `currency`  | [`Currency`](./other.html#currency)                       |                                          |
+| `card`      | `Signed JWT` or [`Card.Creatable`](./card.html#creatable) |                                          |
+| `recurring` | `string`                                                  | (optional) `"initial"` or `"subsequent"` |
+| `customer`  | [`Customer`](./other.html#customer)                       | (optional)                               |
+| `target`    | `string`                                                  |                                          |
 
 
 ## Response
