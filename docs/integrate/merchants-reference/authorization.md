@@ -1,7 +1,7 @@
 
 # Authorization
 
-### Creatable
+## Creatable
 
 Authorization Creatable
 
@@ -15,7 +15,7 @@ Authorization Creatable
 | `capture`    | `"auto"`                                                  | (optional)  |
 | `recurring`  | [`Recurring`](#recurring)                                 | (optional)  |
 
-### Authorization
+## Authorization
 
 | Property   | Type                                                             | Description |
 |------------|------------------------------------------------------------------|-------------|
@@ -47,33 +47,3 @@ Recurring can be defined in four ways:
  - As a Subsequent recurring: `{ type: "subsequent"; reference: string; scheduled?: false; initiator: "merchant" | "cardholder"}`
  - As a Scheduled Recurring: `{ type: "subsequent"; reference: string; scheduled: true; initiator: "merchant" }`
  
-
-## Change 
-
-### Creatable
-
-| Property | Type     | Description |
-|----------|----------|-------------|
-| `number` | `string` | (optional)  |
-| `amount` | `number` | (optional)  |
-### Change
-
-| Property  | Type                                | Description |
-|-----------|-------------------------------------|-------------|
-| `number`  | `string`                            | (optional)  |
-| `created` | [`DateTime`](./other.html#datetime) |             |
-| `amount`  | `number`                            |             |
- 
- ## Operation
-
- ### Creatable
-
-| Property  | Type                                        | Description                                                                                                           |
-|-----------|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| `id`      | `string`                                    | string length is divisible by 4, and only contains characters `"0"`- `"9"`, `"A"`-`"Z"`, `"a"`-`"z"`, `"-"` and `"_"` |
-| `change`  | [`Change.Creatable`](../change-creatable)   | (optional)                                                                                                            |
-| `capture` | [`Capture.Creatable`](../capture-creatable) | (optional)                                                                                                            |
-| `refund`  | [`Refund.Creatable`](../refund-creatable)   | (optional)                                                                                                            |
-| `void`    | `true`                                      | (optional)                                                                                                            |
-
-### Operation
