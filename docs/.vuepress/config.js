@@ -90,34 +90,12 @@ function getIntegrateSidebar() {
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
     {
-      title: 'Merchant API',
+      title: 'Merchant',
       collapsable: true,
       children: [
-        '/integrate/merchant-api/authorization',
-        '/integrate/merchant-api/verification',
-        '/integrate/merchant-api/capture',
-        '/integrate/merchant-api/refund',
-        '/integrate/merchant-api/cancel',
-      ]
-    },
-    {
-      title: 'Merchant Reference',
-      collapsable: true,
-      children: [
-        '/integrate/merchant-reference/authorization',
-        '/integrate/merchant-reference/verification',
-        '/integrate/merchant-reference/capture',
-        '/integrate/merchant-reference/refund',
-        '/integrate/merchant-reference/card',
-        '/integrate/merchant-reference/other',
-      ]
-    },
-    {
-      title: 'Merchant Rules',
-      collapsable: true,
-      children: [
-        '/integrate/merchant-rules/rule-api',
-        '/integrate/merchant-rules/write',
+        '/integrate/merchant/merchant-api',
+        '/integrate/merchant/reference',
+        '/integrate/merchant/rules',
       ]
     },
   ]
