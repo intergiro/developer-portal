@@ -1,5 +1,5 @@
 # Authorization
-In order to create an [Authorization](../merchants-reference/authorization.html), first send a request with the body of the request set as an [Authorization creatable](../merchants-reference/authorization.html#creatable).
+In order to create an [Authorization](../merchant-reference/authorization.html), first send a request with the body of the request set as an [Authorization creatable](../merchant-reference/authorization.html#creatable).
 
 Example Authorization request:
 ``` {1}

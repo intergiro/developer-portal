@@ -44,7 +44,7 @@ module.exports = {
           { text: 'Onboarding', link: '/integrate/onboarding/' },
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
-          { text: 'Merchants', link: '/integrate/merchants/' },
+          { text: 'Merchant', link: '/integrate/merchant/' },
           { text: 'API reference', link: 'https://b2b.intergiro.com/v3/docs' },
         ]
       },
@@ -56,7 +56,7 @@ module.exports = {
       '/integrate/onboarding/': getIntegrateSidebar(),
       '/integrate/card-programmes/': getIntegrateSidebar(),
       '/integrate/embedded-finance/': getIntegrateSidebar(),
-      '/integrate/merchants-reference/': getIntegrateSidebar(),
+      '/integrate/merchant-reference/': getIntegrateSidebar(),
       '/direct/': [
         '',
       ],
@@ -90,34 +90,34 @@ function getIntegrateSidebar() {
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
     {
-      title: 'Merchants API',
+      title: 'Merchant API',
       collapsable: true,
       children: [
-        '/integrate/merchants-api/authorization',
-        '/integrate/merchants-api/verification',
-        '/integrate/merchants-api/capture',
-        '/integrate/merchants-api/refund',
-        '/integrate/merchants-api/cancel',
+        '/integrate/merchant-api/authorization',
+        '/integrate/merchant-api/verification',
+        '/integrate/merchant-api/capture',
+        '/integrate/merchant-api/refund',
+        '/integrate/merchant-api/cancel',
       ]
     },
     {
-      title: 'Merchants Reference',
+      title: 'Merchant Reference',
       collapsable: true,
       children: [
-        '/integrate/merchants-reference/authorization',
-        '/integrate/merchants-reference/verification',
-        '/integrate/merchants-reference/capture',
-        '/integrate/merchants-reference/refund',
-        '/integrate/merchants-reference/card',
-        '/integrate/merchants-reference/other',
+        '/integrate/merchant-reference/authorization',
+        '/integrate/merchant-reference/verification',
+        '/integrate/merchant-reference/capture',
+        '/integrate/merchant-reference/refund',
+        '/integrate/merchant-reference/card',
+        '/integrate/merchant-reference/other',
       ]
     },
     {
-      title: 'Merchants Rules',
+      title: 'Merchant Rules',
       collapsable: true,
       children: [
-        '/integrate/merchants-rules/rule-api',
-        '/integrate/merchants-rules/write',
+        '/integrate/merchant-rules/rule-api',
+        '/integrate/merchant-rules/write',
       ]
     },
   ]

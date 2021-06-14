@@ -1,8 +1,9 @@
-# Refund
-In order to create a [Refund](../merchants-reference/refund.html), first send a request with the body of the request set as an [Refund creatable](../merchants-reference/refund.html#creatable).
+# Capture
+
+In order to create a [Capture](../merchant-reference/capture.html), first send a request with the body of the request set as an [Capture creatable](../merchant-reference/capture.html#creatable).
 
 ``` {1}
-POST authorization/:id/refund
+POST authorization/:id/capture
 
 Host: api.payfunc.com
 Content-Type: application/json
@@ -24,3 +25,4 @@ HTTP 200 OK
   "status": "approved"
 }
 ```
+

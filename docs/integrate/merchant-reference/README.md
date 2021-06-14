@@ -1,4 +1,4 @@
-# Merchants
+# Merchant
 
 <img :src="$withBase('/assets/img/home-splash.jpg')" alt="Business banking">
 
