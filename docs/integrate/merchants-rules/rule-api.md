@@ -1,5 +1,7 @@
 # Rules API
 
+Merchants can have rules added to them. These rules can control if authorizations, captures, refunds or voids get rejected based on some criteria. [Read more of how to write a Rule](./write.html).
+
 ## Patching Rules
 
 Only a private or agent bearer token is authorized to make this call.
