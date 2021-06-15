@@ -40,7 +40,7 @@ module.exports = {
         ariaLabel: 'Integrate Menu',
         link: '/integrate/',
         items: [
-          { text: 'Getting started', link: '/integrate/getting-started/introduction' },
+          { text: 'Getting started', link: '/integrate/getting-started/' },
           { text: 'Onboarding', link: '/integrate/onboarding/' },
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
@@ -91,7 +91,7 @@ function getIntegrateSidebar() {
     '/integrate/card-programmes/',
     {
       title: 'Acquiring',
-      collapsable: true,
+      collapsable: false,
       children: [
         '/integrate/acquiring/introduction',
         '/integrate/acquiring/api',
