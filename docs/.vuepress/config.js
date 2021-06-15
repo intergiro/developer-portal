@@ -44,7 +44,7 @@ module.exports = {
           { text: 'Onboarding', link: '/integrate/onboarding/' },
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
-          { text: 'Merchants', link: '/integrate/merchants/' },
+          { text: 'Acquiring', link: '/integrate/acquiring/' },
           { text: 'API reference', link: 'https://b2b.intergiro.com/v3/docs' },
         ]
       },
@@ -56,7 +56,7 @@ module.exports = {
       '/integrate/onboarding/': getIntegrateSidebar(),
       '/integrate/card-programmes/': getIntegrateSidebar(),
       '/integrate/embedded-finance/': getIntegrateSidebar(),
-      '/integrate/merchants-reference/': getIntegrateSidebar(),
+      '/integrate/acquiring/': getIntegrateSidebar(),
       '/direct/': [
         '',
       ],
@@ -90,27 +90,14 @@ function getIntegrateSidebar() {
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
     {
-      title: 'Merchants API',
+      title: 'Acquiring',
       collapsable: true,
       children: [
-        '/integrate/merchants-api/authorization',
-        '/integrate/merchants-api/verification',
-        '/integrate/merchants-api/capture',
-        '/integrate/merchants-api/refund',
-        '/integrate/merchants-api/cancel',
+        '/integrate/acquiring/introduction',
+        '/integrate/acquiring/api',
+        '/integrate/acquiring/reference',
+        '/integrate/acquiring/rules',
       ]
-    },
-    {
-      title: 'Merchants Reference',
-      collapsable: true,
-      children: [
-        '/integrate/merchants-reference/authorization',
-        '/integrate/merchants-reference/verification',
-        '/integrate/merchants-reference/capture',
-        '/integrate/merchants-reference/refund',
-        '/integrate/merchants-reference/card',
-        '/integrate/merchants-reference/other',
-      ]
-    },
+    }
   ]
 }
