@@ -13,7 +13,7 @@ module.exports = {
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
   description: description,
-  
+
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
@@ -44,9 +44,9 @@ module.exports = {
           { text: 'Onboarding', link: '/integrate/onboarding/' },
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
-          // { text: 'Merchants', link: '/integrate/merchants/' },
+          { text: 'Acquiring', link: '/integrate/acquiring/' },
           { text: 'API reference', link: 'https://b2b.intergiro.com/v3/docs' },
-        ] 
+        ]
       },
       { text: 'Business banking', link: '/direct/' },
     ],
@@ -56,7 +56,7 @@ module.exports = {
       '/integrate/onboarding/': getIntegrateSidebar(),
       '/integrate/card-programmes/': getIntegrateSidebar(),
       '/integrate/embedded-finance/': getIntegrateSidebar(),
-      '/integrate/merchants/': getIntegrateSidebar(),
+      '/integrate/acquiring/': getIntegrateSidebar(),
       '/direct/': [
         '',
       ],
@@ -89,6 +89,15 @@ function getIntegrateSidebar() {
     '/integrate/onboarding/',
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
-    // '/integrate/merchants/',
+    {
+      title: 'Acquiring',
+      collapsable: true,
+      children: [
+        '/integrate/acquiring/introduction',
+        '/integrate/acquiring/api',
+        '/integrate/acquiring/reference',
+        '/integrate/acquiring/rules',
+      ]
+    }
   ]
 }
