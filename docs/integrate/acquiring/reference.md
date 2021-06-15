@@ -43,7 +43,7 @@ Authorization.Status is string set to `"authorized"`, `"cancelled"`, `"captured"
 
 #### Recurring
 Recurring can be defined in four ways: 
- - As a string: `"initial"`
+ - As the string `"initial"`
  - As an Initial reacurring: `{ type: "initial"; initiator: "cardholder"}`
  - As a Subsequent recurring: `{ type: "subsequent"; reference: string; scheduled?: false; initiator: "merchant" | "cardholder"}`
  - As a Scheduled Recurring: `{ type: "subsequent"; reference: string; scheduled: true; initiator: "merchant" }`
