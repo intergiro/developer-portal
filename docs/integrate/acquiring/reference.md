@@ -7,35 +7,35 @@
 
 Authorization Creatable
 
-| Property     | Type                                                      | Description                   |
-|--------------|-----------------------------------------------------------|-------------------------------|
-| `number`     | `string`                                                  | has to be a unique identifier |
-| `amount`     | `number`                                                  |                               |
-| `currency`   | [`Currency`](./reference.html#currency)                   |                               |
-| `card`       | `Signed JWT` or [`Card.Creatable`](./reference.html#card) |                               |
-| `descriptor` | `string`                                                  | (optional)                    |
-| `recurring`  | [`Recurring`](./reference.html#recurring)                 | (optional)                    |
+| Property     | Type                                                      | Description                   | Optional |
+|--------------|-----------------------------------------------------------|-------------------------------|----------|
+| `number`     | `string`                                                  | has to be a unique identifier |          |
+| `amount`     | `number`                                                  |                               |          |
+| `currency`   | [`Currency`](./reference.html#currency)                   |                               |          |
+| `card`       | `Signed JWT` or [`Card.Creatable`](./reference.html#card) |                               |          |
+| `descriptor` | `string`                                                  |                               | Yes      |
+| `recurring`  | [`Recurring`](./reference.html#recurring)                 |                               | Yes      |
 
 ### Authorization
 
-| Property     | Type                                                         | Description      |
-|--------------|--------------------------------------------------------------|------------------|
-| `id`         | `string`                                                     | ID in our system |
-| `merchant`   | `string`                                                     | ID in our system |
-| `number`     | `string`                                                     |                  |
-| `reference`  | `string`                                                     |                  |
-| `created`    | [`DateTime`](./reference.html#datetime)                      |                  |
-| `amount`     | `number`                                                     |                  |
-| `currency`   | [`Currency`](./reference.html#currency)                      |                  |
-| `card`       | [`Card`](./card)                                             |                  |
-| `descriptor` | `string`                                                     | (optional)       |
-| `recurring`  | [`Recurring`](authorization.html#recurring)                  | (optional)       |
-| `history`    | `History[]`                                                  |                  |
-| `change`     | [`Change[]`](./Change)                                       | (optional)       |
-| `capture`    | [`Capture[]`](./Capture)                                     |                  |
-| `refund`     | [`Refund[]`](./Refund)                                       |                  |
-| `void`       | [`DateTime`](./reference.html#datetime)                      | (optional)       |
-| `status`     | [`Partial<Record<Status, number>>`](./reference.html#status) |                  |
+| Property     | Type                                                         | Description      | Optional |
+|--------------|--------------------------------------------------------------|------------------|----------|
+| `id`         | `string`                                                     | ID in our system |          |
+| `merchant`   | `string`                                                     | ID in our system |          |
+| `number`     | `string`                                                     |                  |          |
+| `reference`  | `string`                                                     |                  |          |
+| `created`    | [`DateTime`](./reference.html#datetime)                      |                  |          |
+| `amount`     | `number`                                                     |                  |          |
+| `currency`   | [`Currency`](./reference.html#currency)                      |                  |          |
+| `card`       | [`Card`](./card)                                             |                  |          |
+| `descriptor` | `string`                                                     |                  | Yes      |
+| `recurring`  | [`Recurring`](authorization.html#recurring)                  |                  | Yes      |
+| `history`    | `History[]`                                                  |                  |          |
+| `change`     | [`Change[]`](./Change)                                       |                  | Yes      |
+| `capture`    | [`Capture[]`](./Capture)                                     |                  |          |
+| `refund`     | [`Refund[]`](./Refund)                                       |                  |          |
+| `void`       | [`DateTime`](./reference.html#datetime)                      |                  | Yes      |
+| `status`     | [`Partial<Record<Status, number>>`](./reference.html#status) |                  |          |
 
 
 #### Status
@@ -52,18 +52,18 @@ Recurring can be defined in four ways:
 
 ### Creatable
 
-| Property    | Type                                                      | Description                              |
-|-------------|-----------------------------------------------------------|------------------------------------------|
-| `number`    | `string`                                                  |                                          |
-| `items`     | [`number | Item | Item[]`](reference.html#item)           | Additional information below             |
-| `response`  | [`Response`](./reference.html#response)                   | (optional)                               |
-| `version`   | `"2.1.0" | "2.2.0"`                                       | (optional)                               |
-| `browser`   | [`Browser`](./reference.html#browser)                     | (optional) Additional information below  |
-| `currency`  | [`Currency`](./reference.html#currency)                   |                                          |
-| `card`      | `Signed JWT` or [`Card.Creatable`](./card.html#creatable) |                                          |
-| `recurring` | `string`                                                  | (optional) `"initial"` or `"subsequent"` |
-| `customer`  | [`Customer`](./reference.html#customer)                   | (optional)                               |
-| `target`    | `string`                                                  | iframe target url                        |
+| Property    | Type                                                      | Description                   | Optional |
+|-------------|-----------------------------------------------------------|-------------------------------|----------|
+| `number`    | `string`                                                  |                               |          |
+| `items`     | [`number | Item | Item[]`](reference.html#item)           |                               |          |
+| `response`  | [`Response`](./reference.html#response)                   |                               | Yes      |
+| `version`   | `"2.1.0" | "2.2.0"`                                       |                               | Yes      |
+| `browser`   | [`Browser`](./reference.html#browser)                     |                               | Yes      |
+| `currency`  | [`Currency`](./reference.html#currency)                   |                               |          |
+| `card`      | `Signed JWT` or [`Card.Creatable`](./card.html#creatable) |                               |          |
+| `recurring` | `string`                                                  | `"initial"` or `"subsequent"` | Yes      |
+| `customer`  | [`Customer`](./reference.html#customer)                   |                               | Yes      |
+| `target`    | `string`                                                  | iframe target url             |          |
 
 
 ### Response
@@ -83,17 +83,17 @@ For a pares:
 	  
 where `Pares` is defined as 
 
-| Property         | Type                                    | Description                                |
-|------------------|-----------------------------------------|--------------------------------------------|
-| `cavv`           | `string`                                |                                            |
-| `xid`            | `string`                                |                                            |
-| `eci`            | `string`                                | `"0"`, `"1"`, `"2"`, `"5"`, `"6"` or `"7"` |
-| `status`         | `string`                                | `"Y"`, `"U"`, `"A"`, `"N"`                 |
-| `amount`         | `number`                                | (optional)                                 |
-| `cavv_algorithm` | `string`                                | (optional)                                 |
-| `currency`       | [`Currency`](./reference.html#currency) | (optional)                                 |
-| `last4`          | `string`                                | (optional)                                 |
-| `merchant_id`    | `string`                                | (optional)                                 |
+| Property         | Type                                    | Description                                | Optional |
+|------------------|-----------------------------------------|--------------------------------------------|----------|
+| `cavv`           | `string`                                |                                            |          |
+| `xid`            | `string`                                |                                            |          |
+| `eci`            | `string`                                | `"0"`, `"1"`, `"2"`, `"5"`, `"6"` or `"7"` |          |
+| `status`         | `string`                                | `"Y"`, `"U"`, `"A"`, `"N"`                 |          |
+| `amount`         | `number`                                |                                            | Yes      |
+| `cavv_algorithm` | `string`                                |                                            | Yes      |
+| `currency`       | [`Currency`](./reference.html#currency) |                                            | Yes      |
+| `last4`          | `string`                                |                                            | Yes      |
+| `merchant_id`    | `string`                                |                                            | Yes      |
 
 or 
 
@@ -108,103 +108,103 @@ For method or challange
 ## Capture
 ### Creatable
 
-| Property     | Type     | Description |
-|--------------|----------|-------------|
-| `number`     | `string` | (optional)  |
-| `amount`     | `number` | (optional)  |
-| `descriptor` | `number` | (optional)  |
+| Property     | Type     | Optional |
+|--------------|----------|----------|
+| `number`     | `string` | Yes      |
+| `amount`     | `number` | Yes      |
+| `descriptor` | `number` | Yes      |
 
 ### Capture
 
-| Property     | Type                                                                | Description                              |
-|--------------|---------------------------------------------------------------------|------------------------------------------|
-| `number`     | `string`                                                            | (optional)                               |
-| `created`    | [`DateTime`](./reference.html#datetime)                             |                                          |
-| `reference`  | `string`                                                            |                                          |
-| `approved`   | [`DateTime`](./reference.html#datetime)                             | (optional)                               |
-| `amount`     | `number`                                                            |                                          |
-| `settlement` | [`Settlement.Transaction`](./reference.html#settlement-transaction) | (optional)                               |
-| `descriptor` | `string`                                                            | (optional)                               |
-| `status`     | `string`                                                            | `"approved"`, `"pending"` or `"settled"` |
+| Property     | Type                                                                | Description                              | Optional |
+|--------------|---------------------------------------------------------------------|------------------------------------------|----------|
+| `number`     | `string`                                                            |                                          | Yes      |
+| `created`    | [`DateTime`](./reference.html#datetime)                             |                                          |          |
+| `reference`  | `string`                                                            |                                          |          |
+| `approved`   | [`DateTime`](./reference.html#datetime)                             |                                          | Yes      |
+| `amount`     | `number`                                                            |                                          |          |
+| `settlement` | [`Settlement.Transaction`](./reference.html#settlement-transaction) |                                          | Yes      |
+| `descriptor` | `string`                                                            |                                          | Yes      |
+| `status`     | `string`                                                            | `"approved"`, `"pending"` or `"settled"` |          |
 
 
 ## Refund
 ### Creatable
 
-| Property     | Type     | Description |
-|--------------|----------|-------------|
-| `number`     | `string` | (optional)  |
-| `amount`     | `number` | (optional)  |
-| `descriptor` | `number` | (optional)  |
+| Property     | Type     | Optional |
+|--------------|----------|----------|
+| `number`     | `string` | Yes      |
+| `amount`     | `number` | Yes      |
+| `descriptor` | `number` | Yes      |
 
 
 ### Refund
 
-| Property     | Type                                                                | Description                              |
-|--------------|---------------------------------------------------------------------|------------------------------------------|
-| `number`     | `string`                                                            | (optional)                               |
-| `created`    | [`DateTime`](./reference.html#datetime)                             |                                          |
-| `reference`  | `string`                                                            |                                          |
-| `approved`   | [`DateTime`](./reference.html#datetime)                             | (optional)                               |
-| `amount`     | `number`                                                            |                                          |
-| `descriptor` | `string`                                                            | (optional)                               |
-| `settlement` | [`Settlement.Transaction`](./reference.html#settlement-transaction) | (optional)                               |
-| `status`     | `string`                                                            | `"approved"`, `"pending"` or `"settled"` |
+| Property     | Type                                                                | Description                              | Optional |
+|--------------|---------------------------------------------------------------------|------------------------------------------|----------|
+| `number`     | `string`                                                            |                                          | Yes      |
+| `created`    | [`DateTime`](./reference.html#datetime)                             |                                          |          |
+| `reference`  | `string`                                                            |                                          |          |
+| `approved`   | [`DateTime`](./reference.html#datetime)                             |                                          | Yes      |
+| `amount`     | `number`                                                            |                                          |          |
+| `descriptor` | `string`                                                            |                                          | Yes      |
+| `settlement` | [`Settlement.Transaction`](./reference.html#settlement-transaction) |                                          | Yes      |
+| `status`     | `string`                                                            | `"approved"`, `"pending"` or `"settled"` |          |
 
 
 ## Card
 
 ### Creatable
-| Property       | Type                                            | Description                                                           |
-|----------------|-------------------------------------------------|-----------------------------------------------------------------------|
-| `pan`          | `string`                                        | Primary Account Number. Includes 12-19 characters, no spaces allowed. |
-| `expires`      | `[number,number]`                               | `[month, year]` where month is `1` to `12` and year is `0` to `99`    |
-| `csc`          | `string`                                        | (optional)                                                            |
-| `verification` | [`Verification`](./reference.html#verification) | (optional)                                                            |
-| `client`       | `{ip?: string}`                                 | (optional)                                                            |
+| Property       | Type                                            | Description                                                           | Optional |
+|----------------|-------------------------------------------------|-----------------------------------------------------------------------|----------|
+| `pan`          | `string`                                        | Primary Account Number. Includes 12-19 characters, no spaces allowed. |          |
+| `expires`      | `[number,number]`                               | `[month, year]` where month is `1` to `12` and year is `0` to `99`    |          |
+| `csc`          | `string`                                        |                                                                       | Yes      |
+| `verification` | [`Verification`](./reference.html#verification) |                                                                       | Yes      |
+| `client`       | `{ip?: string}`                                 |                                                                       | Yes      |
 
 ### Card
-| Property  | Type                                | Description                                                        |
-|-----------|-------------------------------------|--------------------------------------------------------------------|
-| `scheme`  | [`Scheme`](./reference.html#scheme) |                                                                    |
-| `iin`     | `string`                            | First 6 digits on card                                             |
-| `last4`   | `string`                            | Last 4 digits on card                                              |
-| `expires` | `[number,number]`                   | `[month, year]` where month is `1` to `12` and year is `0` to `99` |
-| `type`    | `string`                            | (optional) `"debit"` or `"credit"`                                 |
-| `csc`     | `string`                            | (optional) `"matched"`, `"mismatched"` or`"present"`               |
+| Property  | Type                                | Description                                                        | Optional |
+|-----------|-------------------------------------|--------------------------------------------------------------------|----------|
+| `scheme`  | [`Scheme`](./reference.html#scheme) |                                                                    |          |
+| `iin`     | `string`                            | First 6 digits on card                                             |          |
+| `last4`   | `string`                            | Last 4 digits on card                                              |          |
+| `expires` | `[number,number]`                   | `[month, year]` where month is `1` to `12` and year is `0` to `99` |          |
+| `type`    | `string`                            | `"debit"` or `"credit"`                                            | Yes      |
+| `csc`     | `string`                            | `"matched"`, `"mismatched"` or`"present"`                          | Yes      |
 
 
 ### Token
 The `Token` is a JWT where the body includes a Base64, that in itself encodes a `card.Token` object.
 Table below shown the contants of a `card.Token`:
-| Property       | Type                                | Description                                                        |
-|----------------|-------------------------------------|--------------------------------------------------------------------|
-| `issuer`       | `"card"`                            |                                                                    |
-| `created`      | [`Date`](./reference.html#datetime) |                                                                    |
-| `audience`     | `string`                            | `"production"` or `"development"`                                  |
-| `encrypted`    | `string`                            |                                                                    |
-| `expires`      | `[number,number]`                   | `[month, year]` where month is `1` to `12` and year is `0` to `99` |
-| `verification` | [`Verification`](#verification)     | (optional)                                                         |
+| Property       | Type                                | Description                                                        | Optional |
+|----------------|-------------------------------------|--------------------------------------------------------------------|----------|
+| `issuer`       | `"card"`                            |                                                                    |          |
+| `created`      | [`Date`](./reference.html#datetime) |                                                                    |          |
+| `audience`     | `string`                            | `"production"` or `"development"`                                  |          |
+| `encrypted`    | `string`                            |                                                                    |          |
+| `expires`      | `[number,number]`                   | `[month, year]` where month is `1` to `12` and year is `0` to `99` |          |
+| `verification` | [`Verification`](#verification)     |                                                                    | Yes      |
 
 
 ## Other
 
 ### Settlement.Transaction
 
-| Property        | Type                                         | Description                                                     |
-|-----------------|----------------------------------------------|-----------------------------------------------------------------|
-| `authorization` | `Identifier`                                 | ID in our system                                                |
-| `reference`     | `string`                                     |                                                                 |
-| `type`          | `string`                                     | `"authorization"`,` "capture"`, `"refund"`, `"void"` or `"all"` |
-| `card`          | `string`                                     | `"debit"` or `"credit"`                                         |
-| `scheme`        | [`Scheme`](./reference.html#scheme)          |                                                                 |
-| `area`          | [`Alpha2`](./reference.html#alpha2)          |                                                                 |
-| `created`       | [`Date`](./reference.html#datetime)          |                                                                 |
-| `currency`      | [`Currency`](./reference.html#currency)      |                                                                 |
-| `gross`         | `number`                                     |                                                                 |
-| `fee`           | `number | { scheme: number; total: number }` |                                                                 |
-| `net`           | `number`                                     |                                                                 |
-| `reserve`       | `{ amount: number; payout?: Date }`          | (optional)                                                      |
+| Property        | Type                                         | Description                                                     | Optional |
+|-----------------|----------------------------------------------|-----------------------------------------------------------------|----------|
+| `authorization` | `Identifier`                                 | ID in our system                                                |          |
+| `reference`     | `string`                                     |                                                                 |          |
+| `type`          | `string`                                     | `"authorization"`,` "capture"`, `"refund"`, `"void"` or `"all"` |          |
+| `card`          | `string`                                     | `"debit"` or `"credit"`                                         |          |
+| `scheme`        | [`Scheme`](./reference.html#scheme)          |                                                                 |          |
+| `area`          | [`Alpha2`](./reference.html#alpha2)          |                                                                 |          |
+| `created`       | [`Date`](./reference.html#datetime)          |                                                                 |          |
+| `currency`      | [`Currency`](./reference.html#currency)      |                                                                 |          |
+| `gross`         | `number`                                     |                                                                 |          |
+| `fee`           | `number | { scheme: number; total: number }` |                                                                 |          |
+| `net`           | `number`                                     |                                                                 |          |
+| `reserve`       | `{ amount: number; payout?: Date }`          |                                                                 | Yes      |
 ### Currency
 
 String set according to ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish Crowns.
@@ -230,23 +230,23 @@ String set as `"unknown"`, `"amex"`, `"dankort"`, `"diners"`, `"discover"`, `"el
 
 ### Browser
 #### Creatable
-| Property     | Type                                | Description                                |
-|--------------|-------------------------------------|--------------------------------------------|
-| `colorDepth` | `number`                            | (optional)                                 |
-| `java`       | `boolean`                           | (optional)                                 |
-| `javascript` | `boolean`                           | (optional)                                 |
-| `locale`     | [`Locale`](./reference.html#locale) | (optional) `navigator.language`            |
-| `timezone`   | `number`                            | (optional)                                 |
-| `resolution` | `[number, number]`                  | (optional) `screen.width`, `screen.height` |
-| `parent`     | `string`                            | (optional)                                 |
+| Property     | Type                                | Description                     | Optional |
+|--------------|-------------------------------------|---------------------------------|----------|
+| `colorDepth` | `number`                            |                                 | Yes      |
+| `java`       | `boolean`                           |                                 | Yes      |
+| `javascript` | `boolean`                           |                                 | Yes      |
+| `locale`     | [`Locale`](./reference.html#locale) | `navigator.language`            | Yes      |
+| `timezone`   | `number`                            |                                 | Yes      |
+| `resolution` | `[number, number]`                  | `screen.width`, `screen.height` | Yes      |
+| `parent`     | `string`                            |                                 | Yes      |
 #### Browser
 The final `Browser` object is the same as the `Browser.Creatable` but with these added fields:
 
-| Property       | Type     | Description |
-|----------------|----------|-------------|
-| `acceptHeader` | `string` | (optional)  |
-| `userAgent`    | `string` | (optional)  |
-| `ip`           | `string` | (optional)  |
+| Property       | Type     | Optional |
+|----------------|----------|----------|
+| `acceptHeader` | `string` | Yes      |
+| `userAgent`    | `string` | Yes      |
+| `ip`           | `string` | Yes      |
 
 
 ### Item 
@@ -254,15 +254,15 @@ The data type `Item` is used to specify what products are included in an order.
 
 For `Item`, all properties are optional, but if `vat` is included, `price` must be included too. Quantity will be treated as 1 if it's not included.
 
-| Property   | Type     | Description                                   |
-|------------|----------|-----------------------------------------------|
-| `number`   | `string` | (optional) product number in your system      |
-| `name`     | `string` | (optional) name or description of the product |
-| `price`    | `number` | (optional) price per unit (excluding VAT)     |
-| `quantity` | `number` | (optional) number of units                    |
-| `unit`     | `string` | (optional) unit for measuring the product     |
-| `vat`      | `number` | (optional) VAT per unit                       |
-| `rebate`   | `number` | (optional) rebate per unit                    |
+| Property   | Type     | Description                        | Optional |
+|------------|----------|------------------------------------|----------|
+| `number`   | `string` | product number in your system      | Yes      |
+| `name`     | `string` | name or description of the product | Yes      |
+| `price`    | `number` | price per unit (excluding VAT)     | Yes      |
+| `quantity` | `number` | number of units                    | Yes      |
+| `unit`     | `string` | unit for measuring the product     | Yes      |
+| `vat`      | `number` | VAT per unit                       | Yes      |
+| `rebate`   | `number` | rebate per unit                    | Yes      |
 
 Item Example:
 ```json
@@ -281,16 +281,16 @@ Item Example:
 Data type representing a customer.
 
 
-| Property         | Type                                                         | Description                                                                          |
-|------------------|--------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| `type`           | `"organization" | "person"`                                  | (optional)                                                                           |
-| `identityNumber` | `string`                                                     | (optional)                                                                           |
-| `id`             | `string`                                                     | (optional)                                                                           |
-| `number`         | `string`                                                     | (optional)                                                                           |
-| `name`           | `string | Name`                                              | (optional)                                                                           |
-| `address`        | [`Address | Addresses`](./reference.html#addresses)          | (optional)                                                                           |
-| `email`          | [`string | EmailAddresses`](./reference.html#emailaddresses) | (optional) one email address as a string or two as [`EmailAddresses`](../reference)  |
-| `phone`          | [`string | PhoneNumbers`](./reference.html#phonenumbers)     | (optional) one phone number as a string or several as [`PhoneNumbers`](../reference) |
+| Property         | Type                                                         | Description                                                               | Optional |
+|------------------|--------------------------------------------------------------|---------------------------------------------------------------------------|----------|
+| `type`           | `"organization" | "person"`                                  |                                                                           | Yes      |
+| `identityNumber` | `string`                                                     |                                                                           | Yes      |
+| `id`             | `string`                                                     |                                                                           | Yes      |
+| `number`         | `string`                                                     |                                                                           | Yes      |
+| `name`           | `string | Name`                                              |                                                                           | Yes      |
+| `address`        | [`Address | Addresses`](./reference.html#addresses)          |                                                                           | Yes      |
+| `email`          | [`string | EmailAddresses`](./reference.html#emailaddresses) | one email address as a string or two as [`EmailAddresses`](../reference)  | Yes      |
+| `phone`          | [`string | PhoneNumbers`](./reference.html#phonenumbers)     | one phone number as a string or several as [`PhoneNumbers`](../reference) | Yes      |
 
 
 ### Address
@@ -314,21 +314,21 @@ Data type representing a customer.
 
 ### Addresses
 
-| Property   | Type      | Description                     |
-|------------|-----------|---------------------------------|
-| `primary`  | `Address` | use Address datatype            |
-| `billing`  | `Address` | (optional) use Address datatype |
-| `delivery` | `Address` | (optional) use Address datatype |
-| `visit`    | `Address` | (optional) use Address datatype |
+| Property   | Type                                  | Optional |
+|------------|---------------------------------------|----------|
+| `primary`  | [`Address`](./reference.html#address) |          |
+| `billing`  | [`Address`](./reference.html#address) | Yes      |
+| `delivery` | [`Address`](./reference.html#address) | Yes      |
+| `visit`    | [`Address`](./reference.html#address) | Yes      |
 
 ### EmailAddresses
 
 For `EmailAddresses` atleast one `primary` of `billing` must be defined.
 
-| Property  | Type     | Description                      |
-|-----------|----------|----------------------------------|
-| `primary` | `string` | (optional) primary email address |
-| `billing` | `string` | (optional) billing email address |
+| Property  | Type     | Description           | Optional |
+|-----------|----------|-----------------------|----------|
+| `primary` | `string` | primary email address | Yes      |
+| `billing` | `string` | billing email address | Yes      |
 
 Example:
 ```json
@@ -342,8 +342,8 @@ Example:
 
 For `PhoneNumbers` atleast one property must be defined.
 
-| Property    | Type     | Description                     |
-|-------------|----------|---------------------------------|
-| `primary`   | `string` | (optional) primary phone number |
-| `cellphone` | `string` | (optional) cellphone number     |
-| `landline`  | `string` | (optional) landline number      |
+| Property    | Type     | Description          | Optional |
+|-------------|----------|----------------------|----------|
+| `primary`   | `string` | primary phone number | Yes      |
+| `cellphone` | `string` | cellphone number     | Yes      |
+| `landline`  | `string` | landline number      | Yes      |
