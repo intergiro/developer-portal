@@ -14,9 +14,9 @@ Authorization: Bearer <access_token>
 
 ## Session
 
-API keys are used for logging in and are provided separately. Make sure to secure it properly and feel free to contact Integration manager in case of questions.
+API keys are used for logging in and are provided separately. Make sure to secure it properly and feel free to contact the Integration manager in case of questions.
 
-Session API endpoints allow to obtain and subsequently renew access tokens.
+Session API endpoints allow you to obtain and subsequently renew access tokens.
 
 ### Logging in
 
@@ -80,5 +80,5 @@ HTTP 200 OK
 }
 ```
 
-Whether it's the first time logging in or refreshing existing expired session, always keep latest `refresh_token` for the next renewal.
+Whether it's the first time logging in or refreshing existing expired session, always keep the latest `refresh_token` for the next renewal.
 
