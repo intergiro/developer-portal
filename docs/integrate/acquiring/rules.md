@@ -76,7 +76,7 @@ Example rule:
 | `|`          | Or                       | `!authorization.currency:(EUR) | !authorization.card.csc:present`     |
 | ` `          | And                      | `!authorization.recurring:subsequent !authorization.card.csc:present` |
 
-Spacing is important when writting a condition. 
+Spacing is important when writing a condition. 
 
 When writing `20-12-24` is a string whereas `20 - 12 - 24` is a number. 
 
@@ -84,4 +84,4 @@ Space can also be used as an AND-operator to chain several conditions together.
 
 
 ### Rules
-A `Rules` object is of type `Record<string, Rule[]>`. The key specifies who has made the rule. The key can for example be `"merchant"`, `"agent"` or `"master"`. The Rules specifeid by the key `"master"` are rules setup by the acquirer.
+A `Rules` object is of type `Record<string, Rule[]>`. The key specifies who has made the rule. The key can for example be `"merchant"`, `"agent"` or `"master"`. The Rules specified by the key `"master"` are rules set up by the acquirer.
