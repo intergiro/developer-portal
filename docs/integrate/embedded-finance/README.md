@@ -81,7 +81,7 @@ There are two ways to transfer money:
 
 ### Make a transfer
 
-Internal transfers allow to instantly move funds between same-currency accounts **belonging to the same individual**. This can serve as a good way to fund someone's dedicated card account with the funds from their another account.
+Internal transfers enable instant movement of funds between same-currency accounts **belonging to the same individual**. This can serve as a good way to fund someone's dedicated card account with the funds from another of their accounts.
 
 Example move funds request:
 
