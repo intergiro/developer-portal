@@ -44,9 +44,9 @@ Authorization.Status is string set to `"authorized"`, `"cancelled"`, `"captured"
 #### Recurring
 Recurring can be defined in four ways: 
  - As the string `"initial"`
- - As an Initial reacurring: `{ type: "initial"; initiator: "cardholder"}`
+ - As an Initial recurring: `{ type: "initial"; initiator: "cardholder"}`
  - As a Subsequent recurring: `{ type: "subsequent"; reference: string; scheduled?: false; initiator: "merchant" | "cardholder"}`
- - As a Scheduled Recurring: `{ type: "subsequent"; reference: string; scheduled: true; initiator: "merchant" }`
+ - As a Scheduled recurring: `{ type: "subsequent"; reference: string; scheduled: true; initiator: "merchant" }`
  
 ## Verification
 
@@ -176,7 +176,7 @@ For method or challange
 
 ### Token
 The `Token` is a JWT where the body includes a Base64, that in itself encodes a `card.Token` object.
-Table below shown the contants of a `card.Token`:
+Table below shown the contents of a `card.Token`:
 | Property       | Type                                | Description                                                        | Optional |
 |----------------|-------------------------------------|--------------------------------------------------------------------|----------|
 | `issuer`       | `"card"`                            |                                                                    |          |
@@ -207,7 +207,7 @@ Table below shown the contants of a `card.Token`:
 | `reserve`       | `{ amount: number; payout?: Date }`          |                                                                 | Yes      |
 ### Currency
 
-String set according to ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish Crowns.
+String set according to ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish krona.
 
 ### Alpha2
 
