@@ -49,6 +49,15 @@ module.exports = {
         ]
       },
       // { text: 'Business banking', link: '/direct/' },
+      {
+        text: 'Merchant',
+        ariaLabel: 'Merchant Menu',
+        link: '/merchant/',
+        items: [
+          { text: 'Account Page', link: '/merchant/account-page/' },
+        ]
+      },
+      { text: 'Business banking', link: '/direct/' },
     ],
     sidebar: {
       '/integrate/': getIntegrateSidebar(),
@@ -57,6 +66,8 @@ module.exports = {
       '/integrate/card-programmes/': getIntegrateSidebar(),
       '/integrate/embedded-finance/': getIntegrateSidebar(),
       '/integrate/acquiring/': getIntegrateSidebar(),
+      '/merchant/': getMerchantSidebar(),
+      '/merchant/account-page/': getMerchantSidebar(),
       '/direct/': [
         '',
       ],
@@ -98,6 +109,11 @@ function getIntegrateSidebar() {
         '/integrate/acquiring/reference',
         '/integrate/acquiring/rules',
       ]
-    }
+    },
+  ]
+}
+function getMerchantSidebar() {
+  return [
+    '/merchant/account-page'
   ]
 }
