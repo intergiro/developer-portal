@@ -10,9 +10,9 @@ Only a private or agent bearer token is authorized to make this call.
 
 Example PATCH request:
 ``` {1}
-PATCH /merchant/:id/rule
+PATCH /v1/merchant/:id/rule
 
-Host: api.payfunc.com
+Host: merchant.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <private or agent access_token>
 
@@ -32,9 +32,9 @@ Only an acquirer can make this call (agent access token with id="master").
 
 Example PUT Rule request:
 ``` {1}
-PUT /merchant/:id/rule
+PUT /v1/merchant/:id/rule
 
-Host: api.payfunc.com
+Host: merchant.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <master access_token>
 

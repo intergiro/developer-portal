@@ -68,7 +68,7 @@ Recurring can be defined in four ways:
 
 ### Response
 Response can be defined in two ways:
-- `{type: "method" | "challange" | "pares"; data: string}` or
+- `{type: "method" | "challenge" | "pares"; data: string}` or
 - `{type: "method"; ThreeDSServerTransID: string; timeout: true }`
 
 
@@ -244,8 +244,8 @@ The final `Browser` object is the same as the `Browser.Creatable` but with these
 
 | Property       | Type     | Optional |
 |----------------|----------|----------|
-| `acceptHeader` | `string` | Yes      |
-| `userAgent`    | `string` | Yes      |
+| `accept_header` | `string` | Yes      |
+| `user_agent`    | `string` | Yes      |
 | `ip`           | `string` | Yes      |
 
 
@@ -284,7 +284,7 @@ Data type representing a customer.
 | Property         | Type                                                         | Description                                                               | Optional |
 |------------------|--------------------------------------------------------------|---------------------------------------------------------------------------|----------|
 | `type`           | `"organization" | "person"`                                  |                                                                           | Yes      |
-| `identityNumber` | `string`                                                     |                                                                           | Yes      |
+| `identity_number` | `string`                                                     |                                                                           | Yes      |
 | `id`             | `string`                                                     |                                                                           | Yes      |
 | `number`         | `string`                                                     |                                                                           | Yes      |
 | `name`           | `string | Name`                                              |                                                                           | Yes      |
@@ -298,17 +298,17 @@ Data type representing a customer.
 | Property      | Type                                | Description    |
 |---------------|-------------------------------------|----------------|
 | `street`      | `string`                            | street address |
-| `zipCode`     | `string`                            | area code      |
+| `zip_code`     | `string`                            | area code      |
 | `city`        | `string`                            | city           |
-| `countryCode` | [`Alpha2`](./reference.html#alpha2) |                |
+| `country_code` | [`Alpha2`](./reference.html#alpha2) |                |
 
 #### Example:
 ```json
 {
     "street": "Storgatan 1",
-    "zipCode": "111 23",
+    "zip_code": "111 23",
     "city": "Stockholm",
-    "countryCode": "SE"
+    "country_code": "SE"
 }
 ```
 

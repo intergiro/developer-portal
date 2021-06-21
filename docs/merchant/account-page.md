@@ -22,7 +22,7 @@ In order to create an Account API key, an account id and a private key is needed
 
 Example request:
 ``` {1}
-POST /account/<accountId>
+POST /v1/account/<accountId>
 
 Host: merchant.intergiro.com
 Content-Type: application/json
@@ -37,7 +37,7 @@ Customized theming can be set to the account page by specifying specific styling
 
 ```json
 cosmetic = {
-    "fontFamily":"Open Sans, sans-serif",
+    "font_family":"Open Sans, sans-serif",
     "header":{"background":"86,86,86","color":"255,255,255"},
     "body":{"background":"227,227,227","color":"0,0,0"},
     "success":{"background":"81,196,115","color":"255,255,255"}
@@ -51,7 +51,7 @@ Note: Colors are specified using RGB comma separated string e.g. "0,0,255" for b
 Example implementation with a customized theme: 
 ```html
 <intergiro-account api-key="<your-account-key>" cosmetic='{
-    "fontFamily":"Open Sans, sans-serif",
+    "font_family":"Open Sans, sans-serif",
     "header":{"background":"86,86,86","color":"255,255,255"},
     "body":{"background":"227,227,227","color":"0,0,0"},
     "success":{"background":"81,196,115","color":"255,255,255"}
