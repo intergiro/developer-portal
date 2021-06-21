@@ -45,11 +45,19 @@ module.exports = {
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
           { text: 'Acquiring', link: '/integrate/acquiring/' },
-          { text: 'Merchant', link: '/integrate/merchant/' },
           { text: 'API reference', link: 'https://b2b.intergiro.com/v3/docs' },
         ]
       },
       // { text: 'Business banking', link: '/direct/' },
+      {
+        text: 'Merchant',
+        ariaLabel: 'Merchant Menu',
+        link: '/merchant/',
+        items: [
+          { text: 'Account Page', link: '/merchant/account-page/' },
+        ]
+      },
+      { text: 'Business banking', link: '/direct/' },
     ],
     sidebar: {
       '/integrate/': getIntegrateSidebar(),
@@ -58,7 +66,8 @@ module.exports = {
       '/integrate/card-programmes/': getIntegrateSidebar(),
       '/integrate/embedded-finance/': getIntegrateSidebar(),
       '/integrate/acquiring/': getIntegrateSidebar(),
-      '/integrate/merchant/': getIntegrateSidebar(),
+      '/merchant/': getMerchantSidebar(),
+      '/merchant/account-page/': getMerchantSidebar(),
       '/direct/': [
         '',
       ],
@@ -101,12 +110,10 @@ function getIntegrateSidebar() {
         '/integrate/acquiring/rules',
       ]
     },
-    {
-      title: 'Merchant',
-      collapsable: false,
-      children: [
-        '/integrate/merchant/account-page',
-      ]
-    },
+  ]
+}
+function getMerchantSidebar() {
+  return [
+    '/merchant/account-page'
   ]
 }
