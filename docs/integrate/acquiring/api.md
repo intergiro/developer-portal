@@ -50,7 +50,7 @@ HTTP 200 OK
 	},
 }
 ```
-Sometimes [verification](./reference.html#verification) will be required. this important field to look for is the `error: "verification required"`. 
+Sometimes [verification](./reference.html#verification) will be required. The important field to look for is the `error: "verification required"`. 
 Example of a verification required response:
 ```{1,15}
 HTTP 400 Bad Request

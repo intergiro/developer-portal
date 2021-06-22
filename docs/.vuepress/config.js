@@ -54,7 +54,11 @@ module.exports = {
         ariaLabel: 'Merchant Menu',
         link: '/merchant/',
         items: [
-          { text: 'Account Page', link: '/merchant/account-page/' },
+          { text: 'Integration Guide', link: '/merchant/integration-guide/customer-registration' },
+          { text: 'Customer Registration', link: '/merchant/customer-registration' },
+          { text: 'Customer Integration Guide', link: '/merchant/customer-integration' },
+          { text: 'Reference', link: '/merchant/reference/customer' },
+          { text: 'Customer Page', link: '/merchant/customer-page/' },
         ]
       },
       { text: 'Business banking', link: '/direct/' },
@@ -67,7 +71,7 @@ module.exports = {
       '/integrate/embedded-finance/': getIntegrateSidebar(),
       '/integrate/acquiring/': getIntegrateSidebar(),
       '/merchant/': getMerchantSidebar(),
-      '/merchant/account-page/': getMerchantSidebar(),
+      '/merchant/customer-page/': getMerchantSidebar(),
       '/direct/': [
         '',
       ],
@@ -115,6 +119,31 @@ function getIntegrateSidebar() {
 }
 function getMerchantSidebar() {
   return [
-    '/merchant/account-page'
+    {
+      title: 'Integration Guide',
+      collapsable: false,
+      children: [
+        '/merchant/integration-guide/customer-registration',
+        '/merchant/integration-guide/create-customer',
+        '/merchant/integration-guide/patch-customer',
+        // '/merchant/integration-guide/balance',
+        '/merchant/integration-guide/change-contact-information',
+        '/merchant/integration-guide/fetch-customer',
+        '/merchant/integration-guide/list-customers',
+        '/merchant/integration-guide/create-customer-page-login',
+        '/merchant/integration-guide/customer-methods',
+        '/merchant/integration-guide/customer-subscriptions',
+        '/merchant/integration-guide/create-customer-api-key',
+      ]
+    },
+    {
+      title: 'Reference',
+      collapsable: false,
+      children: [
+        '/merchant/reference/customer',
+        '/merchant/reference/subscription'
+      ]
+    },
+    '/merchant/customer-page'
   ]
 }

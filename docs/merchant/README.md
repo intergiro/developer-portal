@@ -1,7 +1,7 @@
 <script>
 module.exports = {
   created(){
-    this.$router.push('/merchant/account-page')
+    this.$router.push('/merchant/customer-page')
   }
 }
 </script>

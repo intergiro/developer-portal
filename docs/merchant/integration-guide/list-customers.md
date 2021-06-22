@@ -1,0 +1,39 @@
+# List Customers
+To list all Customers, just make a simple GET request with private authorization.
+
+#### Request
+```json
+GET /customer
+Authentication: Bearer <private.api.key> 
+```
+
+#### Response
+A successful response will be an Array of [`Customer`](../reference/customer.html#customer) objects.
+```json
+[
+    {
+    "id": "<PayFunc customer identifier>",
+    "number": "<your customer identifier>",
+    "method": "<Customer Method Array>",
+    "subscription": "<Customer subscription Array>",
+    "contact": {
+        "type": "organisation" or "person",
+        "identityNumber": "<identity number>",
+        "id": "<your contact Id>",
+        "name": "<contact name>",
+        "address": {
+            "street": "<street name>",
+            "zipCode": "<zip code>",
+            "city": "<city name>",
+            "countryCode": "<alpha 2 country code according to ISO 3166>"
+        },
+        "email": "<contact email>",
+        "phone": "<contact phone number>"
+        },
+        "schedule": "<customer payment schedule>",
+    },
+]
+```
+<!-- Part of the response
+"total": "<total customer balance>",
+"balance": "<items paid with customer balance>", -->
