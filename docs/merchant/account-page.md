@@ -24,7 +24,7 @@ Example request:
 ``` {1}
 POST /v1/account/<accountId>
 
-Host: merchant.intergiro.com
+Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <private.api.key>
 

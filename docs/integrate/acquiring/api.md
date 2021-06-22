@@ -7,7 +7,7 @@ Example Authorization request:
 ``` {1}
 POST /v1/authorization
 
-Host: merchant.intergiro.com
+Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -77,7 +77,7 @@ In order to create a [Verification](./reference.html#verification), first send a
 ``` {1}
 POST /v1/verification
 
-Host: merchant.intergiro.com
+Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -119,7 +119,7 @@ In order to create a [Capture](./reference.html#capture), first send a request w
 ``` {1}
 POST /v1/authorization/:id/capture
 
-Host: merchant.intergiro.com
+Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -146,7 +146,7 @@ In order to create a [Refund](./reference.html#refund), first send a request wit
 ``` {1}
 POST /v1/authorization/:id/refund
 
-Host: merchant.intergiro.com
+Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -174,7 +174,7 @@ Only non-captured authorizations can be canceled.
 ``` {1}
 DELETE /v1/authorization/:id
 
-Host: merchant.intergiro.com
+Host: b2b.intergiro.com
 Authorization: Bearer <access_token>
 ```
 
