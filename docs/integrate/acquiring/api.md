@@ -5,9 +5,9 @@ In order to create an [Authorization](./reference.html#authorization), first sen
 
 Example Authorization request:
 ``` {1}
-POST /authorization
+POST /v1/authorization
 
-Host: api.payfunc.com
+Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -75,9 +75,9 @@ HTTP 400 Bad Request
 In order to create a [Verification](./reference.html#verification), first send a request with the body of the request set as an [Verification creatable](./reference.html#verification).
 
 ``` {1}
-POST /verification
+POST /v1/verification
 
-Host: api.payfunc.com
+Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -117,9 +117,9 @@ HTTP 200 OK
 In order to create a [Capture](./reference.html#capture), first send a request with the body of the request set as an [Capture creatable](./reference.html#capture).
 
 ``` {1}
-POST authorization/:id/capture
+POST /v1/authorization/:id/capture
 
-Host: api.payfunc.com
+Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -144,9 +144,9 @@ HTTP 200 OK
 In order to create a [Refund](./reference.html#refund), first send a request with the body of the request set as an [Refund creatable](./reference.html#refund).
 
 ``` {1}
-POST authorization/:id/refund
+POST /v1/authorization/:id/refund
 
-Host: api.payfunc.com
+Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -172,9 +172,9 @@ HTTP 200 OK
 Only non-captured authorizations can be canceled.
 
 ``` {1}
-DELETE authorization/:id
+DELETE /v1/authorization/:id
 
-Host: api.payfunc.com
+Host: b2b.intergiro.com
 Authorization: Bearer <access_token>
 ```
 

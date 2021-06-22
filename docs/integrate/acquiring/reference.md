@@ -68,7 +68,7 @@ Recurring can be defined in four ways:
 
 ### Response
 Response can be defined in two ways:
-- `{type: "method" | "challange" | "pares"; data: string}` or
+- `{type: "method" | "challenge" | "pares"; data: string}` or
 - `{type: "method"; ThreeDSServerTransID: string; timeout: true }`
 
 
@@ -230,23 +230,23 @@ String set as `"unknown"`, `"amex"`, `"dankort"`, `"diners"`, `"discover"`, `"el
 
 ### Browser
 #### Creatable
-| Property     | Type                                | Description                     | Optional |
-|--------------|-------------------------------------|---------------------------------|----------|
-| `colorDepth` | `number`                            |                                 | Yes      |
-| `java`       | `boolean`                           |                                 | Yes      |
-| `javascript` | `boolean`                           |                                 | Yes      |
-| `locale`     | [`Locale`](./reference.html#locale) | `navigator.language`            | Yes      |
-| `timezone`   | `number`                            |                                 | Yes      |
-| `resolution` | `[number, number]`                  | `screen.width`, `screen.height` | Yes      |
-| `parent`     | `string`                            |                                 | Yes      |
+| Property      | Type                                | Description                     | Optional |
+|---------------|-------------------------------------|---------------------------------|----------|
+| `color_depth` | `number`                            |                                 | Yes      |
+| `java`        | `boolean`                           |                                 | Yes      |
+| `javascript`  | `boolean`                           |                                 | Yes      |
+| `locale`      | [`Locale`](./reference.html#locale) | `navigator.language`            | Yes      |
+| `timezone`    | `number`                            |                                 | Yes      |
+| `resolution`  | `[number, number]`                  | `screen.width`, `screen.height` | Yes      |
+| `parent`      | `string`                            |                                 | Yes      |
 #### Browser
 The final `Browser` object is the same as the `Browser.Creatable` but with these added fields:
 
-| Property       | Type     | Optional |
-|----------------|----------|----------|
-| `acceptHeader` | `string` | Yes      |
-| `userAgent`    | `string` | Yes      |
-| `ip`           | `string` | Yes      |
+| Property        | Type     | Optional |
+|-----------------|----------|----------|
+| `accept_header` | `string` | Yes      |
+| `user_agent`    | `string` | Yes      |
+| `ip`            | `string` | Yes      |
 
 
 ### Item 
@@ -281,34 +281,34 @@ Item Example:
 Data type representing a customer.
 
 
-| Property         | Type                                                         | Description                                                               | Optional |
-|------------------|--------------------------------------------------------------|---------------------------------------------------------------------------|----------|
-| `type`           | `"organization" | "person"`                                  |                                                                           | Yes      |
-| `identityNumber` | `string`                                                     |                                                                           | Yes      |
-| `id`             | `string`                                                     |                                                                           | Yes      |
-| `number`         | `string`                                                     |                                                                           | Yes      |
-| `name`           | `string | Name`                                              |                                                                           | Yes      |
-| `address`        | [`Address | Addresses`](./reference.html#addresses)          |                                                                           | Yes      |
-| `email`          | [`string | EmailAddresses`](./reference.html#emailaddresses) | one email address as a string or two as [`EmailAddresses`](../reference)  | Yes      |
-| `phone`          | [`string | PhoneNumbers`](./reference.html#phonenumbers)     | one phone number as a string or several as [`PhoneNumbers`](../reference) | Yes      |
+| Property          | Type                                                         | Description                                                               | Optional |
+|-------------------|--------------------------------------------------------------|---------------------------------------------------------------------------|----------|
+| `type`            | `"organization" | "person"`                                  |                                                                           | Yes      |
+| `identity_number` | `string`                                                     |                                                                           | Yes      |
+| `id`              | `string`                                                     |                                                                           | Yes      |
+| `number`          | `string`                                                     |                                                                           | Yes      |
+| `name`            | `string | Name`                                              |                                                                           | Yes      |
+| `address`         | [`Address | Addresses`](./reference.html#addresses)          |                                                                           | Yes      |
+| `email`           | [`string | EmailAddresses`](./reference.html#emailaddresses) | one email address as a string or two as [`EmailAddresses`](../reference)  | Yes      |
+| `phone`           | [`string | PhoneNumbers`](./reference.html#phonenumbers)     | one phone number as a string or several as [`PhoneNumbers`](../reference) | Yes      |
 
 
 ### Address
 
-| Property      | Type                                | Description    |
-|---------------|-------------------------------------|----------------|
-| `street`      | `string`                            | street address |
-| `zipCode`     | `string`                            | area code      |
-| `city`        | `string`                            | city           |
-| `countryCode` | [`Alpha2`](./reference.html#alpha2) |                |
+| Property       | Type                                | Description    |
+|----------------|-------------------------------------|----------------|
+| `street`       | `string`                            | street address |
+| `zip_code`     | `string`                            | area code      |
+| `city`         | `string`                            | city           |
+| `country_code` | [`Alpha2`](./reference.html#alpha2) |                |
 
 #### Example:
 ```json
 {
     "street": "Storgatan 1",
-    "zipCode": "111 23",
+    "zip_code": "111 23",
     "city": "Stockholm",
-    "countryCode": "SE"
+    "country_code": "SE"
 }
 ```
 
