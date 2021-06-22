@@ -108,6 +108,7 @@ function getIntegrateSidebar() {
         '/integrate/acquiring/api',
         '/integrate/acquiring/reference',
         '/integrate/acquiring/rules',
+        '/integrate/acquiring/states',
       ]
     },
   ]
