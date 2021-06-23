@@ -2,7 +2,7 @@
 
 ## Receiving callbacks
 
-When creating an [`order`](./reference#order) you can provide a callback url under the field [`callback`](./callback). 
+When creating an [`order`](./reference/order) you can provide a callback url under the field [`callback`](). 
 When the order is created or changed (charged, cancelled, refunded, or pended) information about the order is posted to the callback url.
 The callback has the following structure for a successfull operation: 
 
@@ -14,7 +14,7 @@ Content-Type: "application/jwt; charset=utf-8"
 signed.order.token
 ```
 
-If the [`order`](./reference#order) is not properly created or changed, an [`error`](./reference#error) will be posted to the callback url with `Content-Type: "application/json; charset=utf-8"`.
+If the [`order`](./reference/order) is not properly created or changed, an [`Error`](./reference/error) will be posted to the callback url with `Content-Type: "application/json; charset=utf-8"`.
 
 ## Verify tokens
 The signed tokens are json web tokens (jwt). The tokens are signed using HS256 algorithm. To manually verify the token, use the following public key. 
