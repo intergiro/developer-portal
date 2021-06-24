@@ -19,16 +19,11 @@ If the [`order`](./reference/order) is not properly created or changed, an [`Err
 ## Verify tokens
 The signed tokens are json web tokens (jwt). The tokens are signed using HS256 algorithm. To manually verify the token, use the following public key. 
 
-<dl>
-<dt>Public key:</dt>
-<dd>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4b69lzXDidPJ2Ot
-QIQtuYFlVWO1IBDXvN8iWyFph3HSP18EWCdZ6+5RcMgdyEfxWByurM7kbCg
-ORMGqBm66n8XNBs78Rkva3jMudSoOHunsfI3Iu75dd8DJp3J2plti2eudbR
-w9v7T8F7f+MG9kITwXH5LHJ/bTA9R5JurcsyNY51iGpZ5spI+59GgJ8NomM
-yFKwkYcyPU3Elg+XiEK2vSmG3Onigo7Xo76CXPAyTRilwfvyNYM1s6a2P31
-fm8e0y98bwPxiv/qVNOQ8xu409R8gMC9ieyPeuR6pRR9/IK0vdcL62NhRQo
-v6rd89exAxte909dpCHVqeDpSyNfgu6wIDAQAB
-</dd></dl>
+**Public key:**
+```
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4b69lzXDidPJ2OtQIQtuYFlVWO1IBDXvN8iWyFph3HSP18EWCdZ6+5RcMgdyEfxWByurM7kbCgORMGqBm66n8XNBs78Rkva3jMudSoOHunsfI3Iu75dd8DJp3J2plti2eudbRw9v7T8F7f+MG9kITwXH5LHJ/bTA9R5JurcsyNY51iGpZ5spI+59GgJ8NomMyFKwkYcyPU3Elg+XiEK2vSmG3Onigo7Xo76CXPAyTRilwfvyNYM1s6a2P31fm8e0y98bwPxiv/qVNOQ8xu409R8gMC9ieyPeuR6pRR9/IK0vdcL62NhRQov6rd89exAxte909dpCHVqeDpSyNfgu6wIDAQAB
+```
+
 
 For information on how to implement verification of JWTs and available libraries, visit [jwt.io](https://jwt.io).
 
