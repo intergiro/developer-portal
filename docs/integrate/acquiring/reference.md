@@ -18,24 +18,24 @@ Authorization Creatable
 
 ### Authorization
 
-| Property     | Type                                                         | Description      | Optional |
-|--------------|--------------------------------------------------------------|------------------|----------|
-| `id`         | `string`                                                     | ID in our system |          |
-| `merchant`   | `string`                                                     | ID in our system |          |
-| `number`     | `string`                                                     |                  |          |
-| `reference`  | `string`                                                     |                  |          |
-| `created`    | [`DateTime`](./reference.html#datetime)                      |                  |          |
-| `amount`     | `number`                                                     |                  |          |
-| `currency`   | [`Currency`](./reference.html#currency)                      |                  |          |
-| `card`       | [`Card`](./card)                                             |                  |          |
-| `descriptor` | `string`                                                     |                  | Yes      |
-| `recurring`  | [`Recurring`](authorization.html#recurring)                  |                  | Yes      |
-| `history`    | `History[]`                                                  |                  |          |
-| `change`     | [`Change[]`](./Change)                                       |                  | Yes      |
-| `capture`    | [`Capture[]`](./Capture)                                     |                  |          |
-| `refund`     | [`Refund[]`](./Refund)                                       |                  |          |
-| `void`       | [`DateTime`](./reference.html#datetime)                      |                  | Yes      |
-| `status`     | [`Partial<Record<Status, number>>`](./reference.html#status) |                  |          |
+| Property     | Type                                                         | Description                                     | Optional |
+|--------------|--------------------------------------------------------------|-------------------------------------------------|----------|
+| `id`         | `string`                                                     | Intergiro's internal generated unique ID number |          |
+| `merchant`   | `string`                                                     | Intergiro's internal generated unique ID number |          |
+| `number`     | `string`                                                     | Number specified by integrator (must be unique) |          |
+| `reference`  | `string`                                                     | Scheme dependent external reference number      |          |
+| `created`    | [`DateTime`](./reference.html#datetime)                      |                                                 |          |
+| `amount`     | `number`                                                     |                                                 |          |
+| `currency`   | [`Currency`](./reference.html#currency)                      |                                                 |          |
+| `card`       | [`Card`](./card)                                             |                                                 |          |
+| `descriptor` | `string`                                                     |                                                 | Yes      |
+| `recurring`  | [`Recurring`](authorization.html#recurring)                  |                                                 | Yes      |
+| `history`    | `History[]`                                                  |                                                 |          |
+| `change`     | [`Change[]`](./Change)                                       |                                                 | Yes      |
+| `capture`    | [`Capture[]`](./Capture)                                     |                                                 |          |
+| `refund`     | [`Refund[]`](./Refund)                                       |                                                 |          |
+| `void`       | [`DateTime`](./reference.html#datetime)                      |                                                 | Yes      |
+| `status`     | [`Partial<Record<Status, number>>`](./reference.html#status) |                                                 |          |
 
 
 #### Status
