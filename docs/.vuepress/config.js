@@ -54,8 +54,6 @@ module.exports = {
         link: '/merchant/',
         items: [
           { text: 'Integration Guide', link: '/merchant/integration-guide/customer-registration' },
-          { text: 'Customer Registration', link: '/merchant/customer-registration' },
-          { text: 'Customer Integration Guide', link: '/merchant/customer-integration' },
           { text: 'Reference', link: '/merchant/reference/customer' },
           { text: 'Customer Page', link: '/merchant/customer-page/' },
         ]
