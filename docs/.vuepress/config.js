@@ -48,7 +48,6 @@ module.exports = {
           { text: 'API reference', link: 'https://b2b.intergiro.com/v3/docs' },
         ]
       },
-      // { text: 'Business banking', link: '/direct/' },
       {
         text: 'Merchant',
         ariaLabel: 'Merchant Menu',
