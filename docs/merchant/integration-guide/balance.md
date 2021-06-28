@@ -30,11 +30,11 @@ Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 A successful response will return the updated [`Customer`](../reference/customer.html#customer).
 
 ### Adding funds to Balance
-Adding funds to the balance can be done via the regular **Order Endpoint ???**. 
+Adding funds to the balance can be done by sending a [order creatable](../reference/order.html#order) to the order endpoint.
 To charge the balance of an customer, specify the `charge` field of the Customer payment as `"balance"`.
 Once the payment is authorized, it will automatically credit the balance with the total of the payment and [charge](#) the order.
 
-An order that failed authorization will set the Custoomer status to `"pending"` and retry authorization as specified in [retrying failed customer orders](#).
+An order that failed authorization will set the Customer status to `"pending"` and retry authorization as specified in [retrying failed customer orders](#).
 
 #### Request
 ``` {1}
