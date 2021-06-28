@@ -44,7 +44,7 @@
 | `id`       | `string`                                                             | Identifier in our system.                                            |          |
 | `number`   | `string`                                                             | Order number in your system.                                         | Yes      |
 | `created`  | [`DateTime`](../../integrate/acquiring/reference#datetime)           | Date and the time of the order.                                      |          |
-| `customer` | [`string | Contact`](../../integrate/acquiring/reference#contact)    | Customer contact information or [customer id](./reference#customer). | Yes      |
+| `customer` | [`string | Contact`](../../integrate/acquiring/reference#contact)    | [customer id](./reference#customer). or Customer contact information | Yes      |
 | `items`    | [`number | Item | Item[]`](../../integrate/acquiring/reference#item) |                                                                      |          |
 | `currency` | [`Currency`](../../integrate/acquiring/reference#currency)           |                                                                      |          |
 | `payment`  | [`Card Payment`](./payment)                                          | see Payment data type                                                |          |
