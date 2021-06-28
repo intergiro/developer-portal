@@ -66,12 +66,12 @@ Once the user has entered their card information and successfully performed the 
 
 
 ## Registration for existing Customers
-To implement onboarding for an already existing Customer, implement the onboarding dialog in the same way as the registration dialog for creating an account.
-Only change the `<intergiro-customer-registration>` html to specify the account as a stringified [`Customer`](../reference/customer.html#customer) object instead of specifying the number field.
+To implement onboarding for an already existing Customer, implement the onboarding dialog in the same way as the registration dialog for creating a customer.
+Only change the `<intergiro-customer-registration>` html to specify the customer as a stringified [`Customer`](../reference/customer.html#customer) object instead of specifying the number field.
 
 ```html
 <intergiro-customer-registration
-  account="<stringified-customer-object>"
+  customer="<stringified-customer-object>"
   api-key="<public-api-key>"
 ></intergiro-customer-registration>
 ```

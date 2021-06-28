@@ -1,7 +1,7 @@
 # Subscription
 When creating a subscription, the Creatable Subscription datatype will be used.
 
-When calling the subscription endpoint to add a subscription to an account, add a Creatable Subscription Object.
+When calling the subscription endpoint to add a subscription to a customer, add a Creatable Subscription Object.
 The schedule and items field allow both for very specific and complex structures as well as simple payment models.
 If no start date is specified, the start date will be set as the current date.
 ### Creatable

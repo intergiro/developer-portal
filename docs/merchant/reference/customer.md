@@ -5,15 +5,15 @@ When creating an Customer, The “Customer Creatable” datatype is used. In the
 ## Creatable
 If you do not specify a currency when creating a customer, it will default to swedish crowns "SEK". 
 
-| Property   | Type                                                                                     | Description                                                                   | Optional |
-|------------|------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|----------|
-| `id`       | `string`                                                                                 | Unique 16-letter identifier in our system                                     | Yes      |
-| `number`   | `string`                                                                                 | Account number in your system                                                 | Yes      |
-| `contact`  | [`Contact`](../../integrate/acquiring/reference.html#contact)                            |                                                                               | Yes      |
-| `method`   | `Method.Creatable[]`                                                                     | See [`Method`](#account-payment-method) data type, may include an empty array |          |
-| `currency` | [`Currency`](../../integrate/acquiring/reference.html#currency)                          | 3-letter currency code, e.g. "SEK"                                            | Yes      |
-| `schedule` | [`Schedule`](./subscription.html#scheme) or [`Frequency`](./subscription.html#frequency) | see [`Schedule`](./subscription.html#scheme) data type                        | Yes      |
-| `limit`    | `number`                                                                                 | Credit limit in the specified currency for the account                        | Yes      |
+| Property   | Type                                                                                     | Description                                                           | Optional |
+|------------|------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|----------|
+| `id`       | `string`                                                                                 | Unique 16-letter identifier in our system                             | Yes      |
+| `number`   | `string`                                                                                 | Customer number in your system                                        | Yes      |
+| `contact`  | [`Contact`](../../integrate/acquiring/reference.html#contact)                            |                                                                       | Yes      |
+| `method`   | `Method.Creatable[]`                                                                     | See [`Method`](#customermethod) data type, may include an empty array |          |
+| `currency` | [`Currency`](../../integrate/acquiring/reference.html#currency)                          | 3-letter currency code, e.g. "SEK"                                    | Yes      |
+| `schedule` | [`Schedule`](./subscription.html#scheme) or [`Frequency`](./subscription.html#frequency) | see [`Schedule`](./subscription.html#scheme) data type                | Yes      |
+| `limit`    | `number`                                                                                 | Credit limit in the specified currency for the customer               | Yes      |
 
 ## Customer
 Responses from the Customer endpoint will contain a `Customer` object, which includes an `"id"` and may include a `"status"`, subscriptions and `"link"` fields in addition to the ones in the Creatable type. 
@@ -30,7 +30,7 @@ Responses from the Customer endpoint will contain a `Customer` object, which inc
 | `currency`     | [`Currency`](../../integrate/acquiring/reference.html#currency) |                                                                     |          |
 
 ## CustomerMethod
-For automatic payment with an account, a payment method has to be created first. 
+For automatic payment with a customer, a payment method has to be created first. 
 This can be done either with already tokenized cards or through the [Registration](#) Process.
 ### Creatable
 | Property | Type      | Description                   |
@@ -75,7 +75,7 @@ Information associated to single use login links for the customer page.
 ##### Example:
 ```json
 {
-    "url": "http://localhost:7071/account/1234567890abcdef/link/0987654321098765",
+    "url": "http://localhost:7071/customer/1234567890abcdef/link/0987654321098765",
     "id": "0987654321098765",
     "created": "2020-12-08T09:19:42.835Z",
     "expires": "2020-12-11T09:19:42.835Z",
