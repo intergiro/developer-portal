@@ -122,6 +122,7 @@ function getMerchantSidebar() {
       children: [
         '/merchant/integration-guide/customer-registration',
         '/merchant/integration-guide/create-customer',
+        '/merchant/integration-guide/create-customer-order',
         '/merchant/integration-guide/patch-customer',
         // '/merchant/integration-guide/balance',
         '/merchant/integration-guide/change-contact-information',
