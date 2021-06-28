@@ -3,7 +3,6 @@ To update the `"limit"`, `"schedule"` and `"currency"` fields of the Customer, y
 Note that it is only possible to change the `"currency"` field of the customer if the `"total"` field of the customer equals 0. 
 This endpoint can also be called with an empty JSON object as body. 
 In any case, calling this endpoint will fix deprecated customers with invalid due dates.
-<!-- In any case, calling this endpoint will fix deprecated customers with invalid balance configurations and due dates. -->
 
 #### Request 
 ``` {1}

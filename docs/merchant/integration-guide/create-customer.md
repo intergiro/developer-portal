@@ -32,7 +32,3 @@ Authentication: Bearer <public.api.key> | Bearer <private.api.key>
   "currency": "<customer currency>"
 }
 ```
-
-<!-- Part of the reponse
-"total": "<total customer balance>",
-"balance": "<items paid with customer balance>", -->

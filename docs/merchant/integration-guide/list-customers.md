@@ -36,6 +36,3 @@ A successful response will be an Array of [`Customer`](../reference/customer.htm
     },
 ]
 ```
-<!-- Part of the response
-"total": "<total customer balance>",
-"balance": "<items paid with customer balance>", -->

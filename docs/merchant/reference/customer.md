@@ -17,9 +17,6 @@ If you do not specify a currency when creating a customer, it will default to sw
 
 ## Customer
 Responses from the Customer endpoint will contain a `Customer` object, which includes an `"id"` and may include a `"status"`, subscriptions and `"link"` fields in addition to the ones in the Creatable type. 
-<!-- Newly created Customers will also have their balance initialised.
-The "balance" field in the customer has all of the [`Items`](../item) in it that have been billed towards the account total, but not yet put into an order. 
-See the [`Balance Endpoint`](../../api/account/#balance) for a more detailed explanation. -->
 
 | Property       | Type                                                            | Description                                                         | Optional |
 |----------------|-----------------------------------------------------------------|---------------------------------------------------------------------|----------|
