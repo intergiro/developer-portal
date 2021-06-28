@@ -8,6 +8,7 @@
 | `items`    | [`number | Item | Item[]`](../../integrate/acquiring/reference#item) |                                                            |          |
 | `currency` | [`Currency`](../../integrate/acquiring/reference#currency)           |                                                            |          |
 | `payment`  | [`Payment.Creatable`](./payment)                                     | see Payment data type                                      |          |
+| `category` | `"purchase"` or `"withdrawal"`                                       | Defaults to "purchase"                                     | Yes      |
 | `theme`    | `string`                                                             | i.e. "intergiro" or "dark"                                 | Yes      |
 | `meta`     | `any`                                                                | Data used by the merchant.                                 | Yes      |
 | `callback` | [`string`](./callback)                                               | URL to receive the callbacks.                              | Yes      |
@@ -48,6 +49,7 @@
 | `currency` | [`Currency`](../../integrate/acquiring/reference#currency)           |                                                                      |          |
 | `payment`  | [`Payment.Creatable`](./payment)                                     | see Payment data type                                                |          |
 | `event`    | [`Event[]`](./event)                                                 | see Event data type                                                  | Yes      |
+| `category` | `"purchase"` or `"withdrawal"`                                       | Defaults to "purchase"                                               | Yes      |
 | `theme`    | `string`                                                             | i.e. "intergiro" or "dark"                                           | Yes      |
 | `meta`     | `any`                                                                | Data used by the merchant.                                           | Yes      |
 | `callback` | [`string`](./callback)                                               | URL to receive the callbacks.                                        | Yes      |
