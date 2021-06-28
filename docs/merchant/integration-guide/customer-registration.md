@@ -14,8 +14,8 @@ It can either be integrated in an existing web application or be used in native 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Customer Registration</title>
-	<script src="https://api.payfunc.com/ui/onboard/payfunc-onboard.js"></script>
-	<link href="https://theme.payfunc.com/light/index.css" rel="stylesheet">
+	<script src="https://merchant.intergiro.com/ui/onboard/intergiro-onboard.js"></script>
+	<link href="https:/cdn.merchant.intergiro.com/themes/light/index.css" rel="stylesheet">
 </head>
 <body>
     <header><h1>Customer Registration</h1></header>
