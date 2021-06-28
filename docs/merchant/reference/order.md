@@ -47,7 +47,7 @@
 | `customer` | [`string | Contact`](../../integrate/acquiring/reference#contact)    | Customer contact information or [customer id](./reference#customer). | Yes      |
 | `items`    | [`number | Item | Item[]`](../../integrate/acquiring/reference#item) |                                                                      |          |
 | `currency` | [`Currency`](../../integrate/acquiring/reference#currency)           |                                                                      |          |
-| `payment`  | [`Payment.Creatable`](./payment)                                     | see Payment data type                                                |          |
+| `payment`  | [`Card Payment`](./payment)                                          | see Payment data type                                                |          |
 | `event`    | [`Event[]`](./event)                                                 | see Event data type                                                  | Yes      |
 | `category` | `"purchase"` or `"withdrawal"`                                       | Defaults to "purchase"                                               | Yes      |
 | `theme`    | `string`                                                             | i.e. "intergiro" or "dark"                                           | Yes      |
