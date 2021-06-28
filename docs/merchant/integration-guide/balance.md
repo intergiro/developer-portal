@@ -40,7 +40,7 @@ An order that failed authorization will set the Customer status to `"pending"` a
 ``` {1}
 POST /v1/order
 
-Host: merchant.intergiro.com/
+Host: merchant.intergiro.com
 Content-Type: application/json
 Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 
@@ -57,7 +57,7 @@ Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 ```
 
 #### Response
-A successful response will be as detailed in the [`Order Endpoint API`](../order#card-account-payment).
+A successful response will be as detailed in the [`Order Endpoint API`](../order#card-customer-payment).
 
 ### Settling Balance
 Calling this endpoint will settle the balance and move all Items that are charged towards the balance, but have not been settled yet, to an Order. 
@@ -70,7 +70,7 @@ If the balance already partially paid for the items specified in the "balance" f
 
 The order will be an customer order with the "charge" field in the "payment" field set to "balance" and will be automatically charged. 
 Only a successful payment will update the "total" field of the customer. 
-A failed payment will retry authorization as specified in [`retrying failed customer orders.`](../order#retry-failed-account-payments)
+A failed payment will retry authorization as specified in [`retrying failed customer orders.`](../reference/order#retry-failed-customer-payments)
 
 #### Request
 
@@ -85,7 +85,7 @@ A response will be a json object specifying how many customers updated their bal
 If all customers are correctly set up, the errors field should always equal 0.
 ```json
 {
-  "updated":"<amount of updated customers>",
-  "errors":"<amount of customers generating an error>"
+  "updated": "<amount of updated customers>",
+  "errors": "<amount of customers generating an error>"
 }
 ```
