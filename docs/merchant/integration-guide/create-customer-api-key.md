@@ -1,7 +1,9 @@
 # Creating an Customer API key
 #### Request
 ```{1}
-POST https://api.payfunc.com/customer/<customerId>
+POST /v1/customer/<customerId>
+
+Host: merchant.intergiro.com
 Authentication: Bearer <private.api.key>
 
 ```

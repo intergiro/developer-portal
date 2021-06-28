@@ -79,7 +79,10 @@ A `PATCH` request requires a partial [`Subscription Creatable`](../reference/sub
 In both cases a future "due" date will be replaced by a calculated "due" date. As the backend will not set a "due" date past the "end" date, this endpoint can be used to end a subscription both immediately as well as at a future date. 
 #### Request
 ```{1}
-PUT | PATCH /customer/<customerId>/subscription/<subscriptionId>
+PUT | PATCH /v1/customer/<customerId>/subscription/<subscriptionId>
+
+Host: merchant.intergiro.com
+Content-Type: application/json
 Authentication: Bearer <private.api.key> 
 {
 	"number": "aaa-001",
@@ -110,7 +113,9 @@ A request to this endpoint can either be made with a "private" authorization key
 
 #### Request
 ```{1}
-DELETE /customer/<customerId>/subscription/<subscriptionId>
+DELETE /v1/customer/<customerId>/subscription/<subscriptionId>
+
+Host: merchant.intergiro.com
 Authentication: Bearer <private.api.key> |  <customer.api.key>
 ```
 

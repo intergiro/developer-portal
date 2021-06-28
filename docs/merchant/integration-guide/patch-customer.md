@@ -7,7 +7,12 @@ In any case, calling this endpoint will fix deprecated customers with invalid du
 
 #### Request 
 ``` {1}
-PATCH https://merchant.intergiro.com/customer/<customerId>
+PATCH /v1/customer/<customerId>
+
+Host: merchant.intergiro.com
+Content-Type: application/json
+Authentication: Authentication: Bearer <public.api.key> or Bearer <customer.api.key>
+
 {
     "limit": "<updated limit>",
     "currency": "<updated currency>",

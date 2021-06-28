@@ -7,7 +7,10 @@ and [`payment methods`](./customer-methods.html#customer-methods) if you already
 
 #### Request
 ``` {1}
-POST https://merchant.intergiro.com/customer
+POST /v1/customer
+
+Host: merchant.intergiro.com
+Content-Type: application/json
 Authentication: Bearer <public.api.key> or Bearer <private.api.key>
 
 {

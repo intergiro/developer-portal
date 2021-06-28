@@ -3,7 +3,9 @@ To list all Customers, just make a simple GET request with private authorization
 
 #### Request
 ```json
-GET /customer
+GET /v1/customer
+
+Merchant: merchant.intergiro.com
 Authentication: Bearer <private.api.key> 
 ```
 
