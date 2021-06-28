@@ -6,7 +6,7 @@ With the `"customer"` authorization key you have to specify `"me"` as the custom
 
 #### Request
 ```{1}
-POST /customer/<customerId>/method
+POST /v1/customer/<customerId>/method
 
 Host: merchant.intergiro.com
 Authentication: Bearer <public.api.key> | Bearer <private.api.key>

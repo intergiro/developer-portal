@@ -5,7 +5,7 @@
 #### Request
 To add a subscription make a call to the subscription endpoint. The body can be any valid [`Subscription Creatable`](../reference/subscription.html#subscription) Object.
 ```{1}
-POST /customer/<customerId>/subscription
+POST /v1/customer/<customerId>/subscription
 
 Host: merchant.intergiro.com
 Authentication: Bearer <private.api.key> 

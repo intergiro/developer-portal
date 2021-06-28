@@ -9,7 +9,7 @@ The body of a valid request should either be a strictly positive, nonzero `numbe
 
 #### Request
 ``` {1}
-POST customer/<customerId>/balance
+POST /v1/customer/<customerId>/balance
 
 Host: merchant.intergiro.com 
 Conent-Type: application/json
@@ -38,7 +38,7 @@ An order that failed authorization will set the Custoomer status to `"pending"` 
 
 #### Request
 ``` {1}
-POST /order
+POST /v1/order
 
 Host: merchant.intergiro.com/
 Content-Type: application/json
