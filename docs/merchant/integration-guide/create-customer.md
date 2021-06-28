@@ -11,7 +11,7 @@ POST /v1/customer
 
 Host: merchant.intergiro.com
 Content-Type: application/json
-Authentication: Bearer <public.api.key> or Bearer <private.api.key>
+Authentication: Bearer <public.api.key> | Bearer <private.api.key>
 
 {
     "number": "<Customer identifier>",

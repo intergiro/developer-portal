@@ -11,7 +11,7 @@ PATCH /v1/customer/<customerId>
 
 Host: merchant.intergiro.com
 Content-Type: application/json
-Authentication: Authentication: Bearer <public.api.key> or Bearer <customer.api.key>
+Authentication: Bearer <public.api.key> | Bearer <customer.api.key>
 
 {
     "limit": "<updated limit>",
