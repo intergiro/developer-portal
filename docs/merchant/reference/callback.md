@@ -2,7 +2,7 @@
 
 ## Receiving callbacks
 
-When creating an [`order`](./reference/order) you can provide a callback url under the field [`callback`](). 
+When creating an [`order`](./reference/order) you can provide a callback url under the field `callback`. 
 When the order is created or changed (charged, cancelled, refunded, or pended) information about the order is posted to the callback url.
 The callback has the following structure for a successfull operation: 
 
