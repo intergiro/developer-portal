@@ -1,7 +1,7 @@
 # Creating a Customer Order
 
-To create a customer order post an [Order Creatable](../reference/order.html#order) to the order endpoint.
-The requirements for the order is that the customer id is set and that `payment` is set to `{ "type": "customer" }`.
+To create a customer order post an [Order Creatable](../reference/order.html#order) to the order endpoint, 
+the `customer` field must be set to an customer id and the `payment` field must be a [Customer Payment Creatable](../reference/payment.html#customer-payment-creatable).
 
 #### Request
 ``` {1}
@@ -26,7 +26,7 @@ Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 {
     "id": "<Identifier of order in Intergiro's system>",
     "created": "<datetime of order>",
-    "customer": "<id of customer or contact information>",
+    "customer": "<id of customer or contact infromation>",
     "items": "<numer or item information or array of items objects>",
     "currency": "<Currency of order>",
     "payment": "<Card payment>",
