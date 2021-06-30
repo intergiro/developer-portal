@@ -26,7 +26,7 @@ Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 {
     "id": "<Identifier of order in Intergiro's system>",
     "created": "<datetime of order>",
-    "customer": "<id of customer or contact infromation>",
+    "customer": "<id of customer or contact information>",
     "items": "<numer or item information or array of items objects>",
     "currency": "<Currency of order>",
     "payment": "<Card payment>",
