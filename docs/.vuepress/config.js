@@ -110,6 +110,7 @@ function getIntegrateSidebar() {
         '/integrate/acquiring/reference',
         '/integrate/acquiring/rules',
         '/integrate/acquiring/states',
+        '/integrate/acquiring/card-input',
       ]
     },
   ]
