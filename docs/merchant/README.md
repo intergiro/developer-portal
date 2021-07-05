@@ -1,6 +1,6 @@
 <script>
 module.exports = {
-  created(){
+  mounted(){
     this.$router.push('/merchant/account-page')
   }
 }
