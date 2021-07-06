@@ -62,7 +62,7 @@ Recurring can be defined in four ways:
 | `currency`  | [`Currency`](./reference.html#currency)                   |                               |          |
 | `card`      | `Signed JWT` or [`Card.Creatable`](./card.html#creatable) |                               |          |
 | `recurring` | `string`                                                  | `"initial"` or `"subsequent"` | Yes      |
-| `customer`  | [`Customer`](./reference.html#customer)                   |                               | Yes      |
+| `contact`   | [`Contact`](./reference.html#contact)                     |                               | Yes      |
 | `target`    | `string`                                                  | iframe target url             |          |
 
 
@@ -277,21 +277,25 @@ Item Example:
 }
 ```
 
-### Customer
-Data type representing a customer.
+### Contact
+Data type representing a contact.
 
+| Property          | Type                                                                               | Description                                                               | Optional |
+|-------------------|------------------------------------------------------------------------------------|---------------------------------------------------------------------------|----------|
+| `type`            | `"organization"` or `"person"`                                                     |                                                                           | Yes      |
+| `identity_number` | `string`                                                                           |                                                                           | Yes      |
+| `id`              | `string`                                                                           |                                                                           | Yes      |
+| `number`          | `string`                                                                           |                                                                           | Yes      |
+| `name`            | `string` or [`Name`](./reference.html#name)                                        |                                                                           | Yes      |
+| `address`         | [`Address`](./reference.html#address) or [`Addresses`](./reference.html#addresses) |                                                                           | Yes      |
+| `email`           | `string` or [`EmailAddresses`](./reference.html#emailaddresses)                    | one email address as a string or two as [`EmailAddresses`](../reference)  | Yes      |
+| `phone`           | `string` or [`PhoneNumbers`](./reference.html#phonenumbers)                        | one phone number as a string or several as [`PhoneNumbers`](../reference) | Yes      |
 
-| Property          | Type                                                         | Description                                                               | Optional |
-|-------------------|--------------------------------------------------------------|---------------------------------------------------------------------------|----------|
-| `type`            | `"organization" | "person"`                                  |                                                                           | Yes      |
-| `identity_number` | `string`                                                     |                                                                           | Yes      |
-| `id`              | `string`                                                     |                                                                           | Yes      |
-| `number`          | `string`                                                     |                                                                           | Yes      |
-| `name`            | `string | Name`                                              |                                                                           | Yes      |
-| `address`         | [`Address | Addresses`](./reference.html#addresses)          |                                                                           | Yes      |
-| `email`           | [`string | EmailAddresses`](./reference.html#emailaddresses) | one email address as a string or two as [`EmailAddresses`](../reference)  | Yes      |
-| `phone`           | [`string | PhoneNumbers`](./reference.html#phonenumbers)     | one phone number as a string or several as [`PhoneNumbers`](../reference) | Yes      |
-
+### Name
+| Property | Type     | Optional |
+|----------|----------|----------|
+| `first`  | `string` | Yes      |
+| `last`   | `string` | Yes      |
 
 ### Address
 
