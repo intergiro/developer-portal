@@ -1,17 +1,17 @@
 # Order
 
 ## Creatable
-| Property   | Type                                                                 | Description                                                | Optional |
-|------------|----------------------------------------------------------------------|------------------------------------------------------------|----------|
-| `number`   | `string`                                                             | Order number in your system.                               | Yes      |
-| `customer` | [`string | Contact`](../../integrate/acquiring/reference#contact)    | Customer contact information or [customer id](./customer). | Yes      |
-| `items`    | [`number | Item | Item[]`](../../integrate/acquiring/reference#item) |                                                            |          |
-| `currency` | [`Currency`](../../integrate/acquiring/reference#currency)           |                                                            |          |
-| `payment`  | [`Payment.Creatable`](./payment)                                     | see Payment data type                                      |          |
-| `category` | `"purchase"` or `"withdrawal"`                                       | Defaults to "purchase"                                     | Yes      |
-| `theme`    | `string`                                                             | i.e. "intergiro" or "dark"                                 | Yes      |
-| `meta`     | `any`                                                                | Data used by the merchant.                                 | Yes      |
-| `callback` | [`string`](./callback)                                               | URL to receive the callbacks.                              | Yes      |
+| Property   | Type                                                                      | Description                                                | Optional |
+|------------|---------------------------------------------------------------------------|------------------------------------------------------------|----------|
+| `number`   | `string`                                                                  | Order number in your system.                               | Yes      |
+| `customer` | [`string | Contact`](../../integrate/acquiring/reference.html#contact)    | Customer contact information or [customer id](./customer). | Yes      |
+| `items`    | [`number | Item | Item[]`](../../integrate/acquiring/reference.html#item) |                                                            |          |
+| `currency` | [`Currency`](../../integrate/acquiring/reference.html#currency)           |                                                            |          |
+| `payment`  | [`Payment.Creatable`](./payment)                                          | see Payment data type                                      |          |
+| `category` | `"purchase"` or `"withdrawal"`                                            | Defaults to "purchase"                                     | Yes      |
+| `theme`    | `string`                                                                  | i.e. "intergiro" or "dark"                                 | Yes      |
+| `meta`     | `any`                                                                     | Data used by the merchant.                                 | Yes      |
+| `callback` | [`string`](./callback)                                                    | URL to receive the callbacks.                              | Yes      |
 
 ```
 {
@@ -39,21 +39,21 @@
 ```
 
 ## Order response
-| Property   | Type                                                                 | Description                                                          | Optional |
-|------------|----------------------------------------------------------------------|----------------------------------------------------------------------|----------|
-| `id`       | `string`                                                             | Identifier in our system.                                            |          |
-| `number`   | `string`                                                             | Order number in your system.                                         | Yes      |
-| `created`  | [`DateTime`](../../integrate/acquiring/reference#datetime)           | Date and the time of the order.                                      |          |
-| `customer` | [`string | Contact`](../../integrate/acquiring/reference#contact)    | [customer id](./reference#customer). or Customer contact information | Yes      |
-| `items`    | [`number | Item | Item[]`](../../integrate/acquiring/reference#item) |                                                                      |          |
-| `currency` | [`Currency`](../../integrate/acquiring/reference#currency)           |                                                                      |          |
-| `payment`  | [`Card Payment`](./payment)                                          | see Payment data type                                                |          |
-| `event`    | [`Event[]`](./event)                                                 | see Event data type                                                  | Yes      |
-| `category` | `"purchase"` or `"withdrawal"`                                       | Defaults to "purchase"                                               | Yes      |
-| `theme`    | `string`                                                             | i.e. "intergiro" or "dark"                                           | Yes      |
-| `meta`     | `any`                                                                | Data used by the merchant.                                           | Yes      |
-| `callback` | [`string`](./callback)                                               | URL to receive the callbacks.                                        | Yes      |
-| `language` | `string`                                                             | Two character language code, i.e. sv for swedish                     | Yes      |
+| Property   | Type                                                                      | Description                                                               | Optional |
+|------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------|----------|
+| `id`       | `string`                                                                  | Identifier in our system.                                                 |          |
+| `number`   | `string`                                                                  | Order number in your system.                                              | Yes      |
+| `created`  | [`DateTime`](../../integrate/acquiring/reference.html#datetime)           | Date and the time of the order.                                           |          |
+| `customer` | [`string | Contact`](../../integrate/acquiring/reference.html#contact)    | [customer id](./reference/customer.html). or Customer contact information | Yes      |
+| `items`    | [`number | Item | Item[]`](../../integrate/acquiring/reference.html#item) |                                                                           |          |
+| `currency` | [`Currency`](../../integrate/acquiring/reference.html#currency)           |                                                                           |          |
+| `payment`  | [`Card Payment`](./payment)                                               | see Payment data type                                                     |          |
+| `event`    | [`Event[]`](./event)                                                      | see Event data type                                                       | Yes      |
+| `category` | `"purchase"` or `"withdrawal"`                                            | Defaults to "purchase"                                                    | Yes      |
+| `theme`    | `string`                                                                  | i.e. "intergiro" or "dark"                                                | Yes      |
+| `meta`     | `any`                                                                     | Data used by the merchant.                                                | Yes      |
+| `callback` | [`string`](./callback)                                                    | URL to receive the callbacks.                                             | Yes      |
+| `language` | `string`                                                                  | Two character language code, i.e. sv for swedish                          | Yes      |
 
 ```
 {
