@@ -120,6 +120,7 @@ function getMerchantSidebar() {
       title: 'Integration Guide',
       collapsable: false,
       children: [
+        '/merchant/integration-guide/introduction',
         '/merchant/integration-guide/customer-registration',
         '/merchant/integration-guide/create-customer',
         '/merchant/integration-guide/create-customer-order',
