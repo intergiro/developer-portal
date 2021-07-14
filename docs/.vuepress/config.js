@@ -133,7 +133,8 @@ function getMerchantSidebar() {
         '/merchant/integration-guide/customer-methods',
         '/merchant/integration-guide/customer-subscriptions',
         '/merchant/integration-guide/create-customer-api-key',
-        '/merchant/integration-guide/create-top-up-payment'
+        '/merchant/integration-guide/create-top-up-payment',
+        '/merchant/integration-guide/order',
       ]
     },
     {
