@@ -86,7 +86,7 @@ cosmetic='{"dangerColor": "#de4747"}'
 ```
 or 
  ``` JSON
-cosmetic='{"dangerColor": "rgb(222, 71, 71)"}'
+cosmetic='{"dangerColor": "222, 71, 71"}'
 ```
 
 ### Example 1
