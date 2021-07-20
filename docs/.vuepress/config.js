@@ -117,6 +117,15 @@ function getIntegrateSidebar() {
 function getMerchantSidebar() {
   return [
     {
+      title: 'Card Input',
+      collapsable: false,
+      children: [
+        '/merchant/card-input/embed',
+        '/merchant/card-input/style'
+
+      ]
+    },
+    {
       title: 'Integration Guide',
       collapsable: false,
       children: [
