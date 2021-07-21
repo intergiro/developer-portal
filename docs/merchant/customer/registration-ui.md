@@ -1,8 +1,8 @@
-# Customer Registration
+# Registration UI
 Customer Registration guides your users through the process of registration. It handles the full process of entering the card information as well as performing the full 3D secure authentication procedure. Once everything is done you will receive a customer number that you then can use to perform payments towards the user’s card without the need for any interaction with the user.
 
 
-## Integrating Customer Registration
+## Customer Registration
 The Customer Registration user interface is web based. 
 It can either be integrated in an existing web application or be used in native application via webview.
 
@@ -34,7 +34,7 @@ A fully working example is available on [GitHub](https://github.com/payfunc/onbo
 
 Inside the form text-input field can also be used with the property `name` set to `"name"`, `"email"` and `"phone"` to set contact information.
 ```html
-<form action="done" method="get">
+<form action="done" method="get"> to Existing Customer
     <input type="text" name="name" placeholder="Name"/>
     <input type="email" name="email" placeholder="Email"/>
     <input type="tel" name="phone" placeholder="Phone"/>
@@ -64,8 +64,7 @@ Once the user has entered their card information and successfully performed the 
 }
 ```
 
-
-## Registration for existing Customers
+## Adding Payment Methods
 To implement onboarding for an already existing Customer, implement the onboarding dialog in the same way as the registration dialog for creating a customer.
 Only change the `<intergiro-customer-registration>` html to specify the customer as a stringified [`Customer`](../reference/customer.html#customer) object instead of specifying the number field.
 

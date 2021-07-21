@@ -53,7 +53,7 @@ module.exports = {
         ariaLabel: 'Merchant Menu',
         link: '/merchant/',
         items: [
-          { text: 'Integration Guide', link: '/merchant/integration-guide/customer-registration' },
+          { text: 'Customer', link: '/merchant/integration-guide/customer-registration' },
           { text: 'Reference', link: '/merchant/reference/customer' },
           { text: 'Customer Page', link: '/merchant/customer-page/' },
         ]
@@ -136,18 +136,54 @@ function getMerchantSidebar() {
       title: 'Integration Guide',
       collapsable: false,
       children: [
-        '/merchant/integration-guide/customer-registration',
-        '/merchant/integration-guide/create-customer',
-        '/merchant/integration-guide/create-customer-order',
-        '/merchant/integration-guide/patch-customer',
+        '/merchant/integration-guide/introduction',
         // '/merchant/integration-guide/balance',
-        '/merchant/integration-guide/change-contact-information',
-        '/merchant/integration-guide/fetch-customer',
-        '/merchant/integration-guide/list-customers',
-        '/merchant/integration-guide/create-customer-page-login',
-        '/merchant/integration-guide/customer-methods',
-        '/merchant/integration-guide/customer-subscriptions',
-        '/merchant/integration-guide/create-customer-api-key',
+        // '/merchant/integration-guide/create-top-up-payment',
+      ]
+    },
+    {
+      title: 'Order API',
+      collapsable: false,
+      children: [
+        '/merchant/order/create',
+        '/merchant/order/change',
+        '/merchant/order/list',
+      ]
+    },
+    {
+      title: 'Card Input UI',
+      collapsable: false,
+      children: [
+        '/merchant/card-input/embed',
+        '/merchant/card-input/verfication',
+        '/merchant/card-input/style',
+      ]
+    },
+    {
+      title: 'Checkout UI',
+      collapsable: false,
+      children: [
+        '/merchant/checkout/embed',
+        '/merchant/checkout/redirect',
+        '/merchant/checkout/features',
+        '/merchant/checkout/style',
+      ]
+    },
+    {
+      title: 'Customer API',
+      collapsable: false,
+      children: [
+        '/merchant/customer/registration-ui',
+        '/merchant/customer/create',
+        '/merchant/customer/create-api-key',
+        '/merchant/customer/create-order',
+        '/merchant/customer/change',
+        '/merchant/customer/change-contact-information',
+        '/merchant/customer/fetch',
+        '/merchant/customer/list',
+        '/merchant/customer/create-page-login',
+        '/merchant/customer/payment-methods',
+        '/merchant/customer/subscriptions',
       ]
     },
     {
