@@ -29,7 +29,7 @@ The layout parameter is optional and has three possible values: standard, row or
 <img :src="$withBase('/assets/img/merchant/card-input/column.png')" alt="Column">
 
 ## Cosmetics
-The cosmetic parameter should be set to a stringified JSON as described below. Cosmetics are optional and can be used in parts.
+The cosmetic parameter should be set to a JSON or a stringified JSON as described below. Cosmetics are optional and can be used in parts.
 ``` html
 <intergiro-card-input
   api-key="<public-api-key>"
@@ -44,7 +44,7 @@ The cosmetic parameter should be set to a stringified JSON as described below. C
 </intergiro-card-input>
 ```
 ### Fonts
-The fontFamily field can consist of several fonts and are separated by comma. Changes the font in the component. 
+The fontFamily field can consist of several fonts and are separated by comma. The property `text.color` changes the text color.
 ``` html
 <intergiro-card-input
   api-key="<public-api-key>"
@@ -56,7 +56,7 @@ The fontFamily field can consist of several fonts and are separated by comma. Ch
 ```
 
 ### Borders
-The borders inside the component can be with four parameters.
+The borders inside the component can be changed with four parameters.
 - `"width"` can be set to pixels (px) or em values. Changes the witdh of the borders.
 - `"radius"` can be set to pixels (px) or em values. Changes the "roundness" of the corners.
 - `"color"` can be set to rgb or hex vales. Changes the color of the borders.
@@ -73,13 +73,12 @@ cosmetic='{"gap": "1em"}'
 ```
 
 ### Colors
-All colors can be changed. 
-- The text color is changed through the `"color"` field of the `"text"` property.
-- The Background color is changed through the `"background"` field of the `"text"` property.
-- The border color is changed through the `"color"` field of the `"border"` property.
-- The color of the error symbol is changed through the `"dangerColor"` property.
+Colors should be specified in rgb or hex values.
 
-Colors should be rgb or hex values as seen below.
+- The text color is changed through the `"text.color"` property.
+- The background color is changed through the `"text.background"` property.
+- The border color is changed through the `"border.color"` property.
+- The color of the error symbol is changed through the `"dangerColor"` property.
 
  ``` JSON
 cosmetic='{"dangerColor": "#de4747"}'
