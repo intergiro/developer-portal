@@ -126,6 +126,13 @@ function getMerchantSidebar() {
       ]
     },
     {
+      title: 'Checkout',
+      collapsable: false,
+      children: [
+        '/merchant/checkout/cosmetic'
+      ]
+    },
+    {
       title: 'Integration Guide',
       collapsable: false,
       children: [
