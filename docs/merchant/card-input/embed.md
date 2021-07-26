@@ -1,20 +1,21 @@
 # Embeddable Widget
-<!-- Intergiro Card Input can be to tokenize cards, verification for 
+Intergiro Card Input is a component that is used for tokenizing cards for 
 
-- order
-- authorization
-- verification
-- customer -->
+- [Orders](../order/create)
+- [Authorizations](../../integrate/acquiring/api#authorization)
+- [Verifications](../../integrate/acquiring/api#verification)
+- [Customers](../customer/create)
 
+This is a simple example of how Intergiro Card Input can be implemented, which will alert you the created card token. 
 
-``` html
+``` html + js
 <!DOCTYPE html>
 <html>
 <head>
   <script type="module" src="https://merchant.intergiro.com/ui/index.esm.js"></script>
-  <script nomodule src="https://merchant.intergiro.com/ui/index.js"><script>
+  <script nomodule src="https://merchant.intergiro.com/ui/index.js"></script>
   <link href="https://merchant.intergiro.com/theme/intergiro/index.css" rel="stylesheet">
-<script defer>
+  <script>
 		async function tokenize() {
 			const element = document.querySelector("intergiro-card-input")
 			card = await element.submit()
