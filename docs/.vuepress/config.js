@@ -45,7 +45,7 @@ module.exports = {
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
           { text: 'Payment gateway', link: '/integrate/payment-gateway/' },
-          { text: 'Acquiring', link: '/integrate/acquiring/' },
+          // { text: 'Acquiring', link: '/integrate/acquiring/' },
           { text: 'API reference', link: 'https://b2b.intergiro.com/v3/docs' },
         ]
       },
@@ -68,7 +68,7 @@ module.exports = {
       '/integrate/embedded-finance/': getIntegrateSidebar(),
       '/integrate/card-programmes/': getIntegrateSidebar(),
       '/integrate/payment-gateway/': getIntegrateSidebar(),
-      '/integrate/acquiring/': getIntegrateSidebar(),
+      // '/integrate/acquiring/': getIntegrateSidebar(),
       '/merchant/': getMerchantSidebar(),
       '/merchant/customer-page/': getMerchantSidebar(),
       '/direct/': [
@@ -104,17 +104,17 @@ function getIntegrateSidebar() {
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
     '/integrate/payment-gateway/',
-    {
-      title: 'Acquiring',
-      collapsable: false,
-      children: [
-        '/integrate/acquiring/introduction',
-        '/integrate/acquiring/api',
-        '/integrate/acquiring/reference',
-        '/integrate/acquiring/rules',
-        '/integrate/acquiring/states',
-      ]
-    },
+    // {
+    //   title: 'Acquiring',
+    //   collapsable: false,
+    //   children: [
+    //     '/integrate/acquiring/introduction',
+    //     '/integrate/acquiring/api',
+    //     '/integrate/acquiring/reference',
+    //     '/integrate/acquiring/rules',
+    //     '/integrate/acquiring/states',
+    //   ]
+    // },
   ]
 }
 function getMerchantSidebar() {
