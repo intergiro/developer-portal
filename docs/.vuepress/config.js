@@ -44,6 +44,7 @@ module.exports = {
           { text: 'Onboarding', link: '/integrate/onboarding/' },
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
+          { text: 'Payment gateway', link: '/integrate/payment-gateway/' },
           { text: 'Acquiring', link: '/integrate/acquiring/' },
           { text: 'API reference', link: 'https://b2b.intergiro.com/v3/docs' },
         ]
@@ -64,8 +65,9 @@ module.exports = {
       '/integrate/': getIntegrateSidebar(),
       '/integrate/getting-started/': getIntegrateSidebar(),
       '/integrate/onboarding/': getIntegrateSidebar(),
-      '/integrate/card-programmes/': getIntegrateSidebar(),
       '/integrate/embedded-finance/': getIntegrateSidebar(),
+      '/integrate/card-programmes/': getIntegrateSidebar(),
+      '/integrate/payment-gateway/': getIntegrateSidebar(),
       '/integrate/acquiring/': getIntegrateSidebar(),
       '/merchant/': getMerchantSidebar(),
       '/merchant/customer-page/': getMerchantSidebar(),
@@ -101,6 +103,7 @@ function getIntegrateSidebar() {
     '/integrate/onboarding/',
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
+    '/integrate/payment-gateway/',
     {
       title: 'Acquiring',
       collapsable: false,
@@ -122,7 +125,6 @@ function getMerchantSidebar() {
       children: [
         '/merchant/card-input/embed',
         '/merchant/card-input/style'
-
       ]
     },
     {
