@@ -219,7 +219,7 @@ First steps requires adding Intergiro Integrate SDK library onto your website.
 
 #### Step 3: Submit payment
 
-```html{20,29-33}
+```html{20,29-41}
 <!DOCTYPE html>
 <html>
 <head>
@@ -240,19 +240,27 @@ First steps requires adding Intergiro Integrate SDK library onto your website.
     })
       .then(result => result.json())
       .then(({ token }) => {
-        const components = integrate.components()     // initialize components library
-        const card = components.get('card-input')     // create card input component
+        const components = integrate.components()
+        const card = components.get('card-input')
         const container = document.getElementById('card-input')
-        card.mount(container)                         // mount card component onto the page
+        card.mount(container)
 
         const button = document.getElementsByTagName('button')[0]
-        button.onclick = async function(e) {
+        button.onclick = function(e) {
           e.preventDefault()
-          await integrate.confirmPaymentMethod(token, {
-            payment_method: {
-              card: card,
-            }
-          })
+          integrate
+            .confirmPaymentMethod(token, {
+              payment_method: {
+                card: card,
+              }
+            })
+            .then(result => {
+              if (result.error) {
+                console.error(result.error)
+              } else {
+                console.log(result.data)
+              }
+            })
         }
       })
   </script>
