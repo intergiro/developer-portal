@@ -1,7 +1,7 @@
 # Cosmetics
 Intergiro Checkout can be stylized in many different ways to enable you to fit it to your theme.
 The cosmetic parameter should be set to a JSON object or stringified JSON as described below. Cosmetics are optional and can be used in parts.
-``` tsx
+``` jsx
 cosmetic={{
 	header: { background: "134, 146, 166", color: "0, 32, 84" },
 	text: { background: "212, 213, 214", color: "0, 32, 84" },
@@ -11,15 +11,14 @@ cosmetic={{
 	dangerColor: "131, 21, 3",
 }}
 ```
-``` tsx
-cosmetic={JSON.stringify({
-	header: { background: "134, 146, 166", color: "0, 32, 84" },
-	text: { background: "212, 213, 214", color: "0, 32, 84" },
-	submit: { background: "112, 145, 124", color: "212, 213, 214" },
-	border: { color: "134, 146, 166" },
-	fontFamily: "Ubuntu",
-	dangerColor: "131, 21, 3",
-})}
+``` json
+cosmetic='{
+	"header": { "background": "134, 146, 166", "color": "0, 32, 84" },
+	"text": { "background": "212, 213, 214", "color": "0, 32, 84" },
+	"submit": { "background": "112, 145, 124", "color": "212, 213, 214" },
+	"border": { "color": "134, 146, 166" },
+	"fontFamily": "Ubuntu",
+	"dangerColor": "131, 21, 3"}'
 ```
 ## Fonts
 The fontFamily field can consist of several fonts and are separated by comma. The `text.color` property changes the color of the text.
@@ -35,7 +34,7 @@ The border color inside the card input fields can be changed through the `border
 
 
 ``` tsx
-cosmetic={border: color: "134, 146, 166"}
+cosmetic={border: { color: "134, 146, 166" } }
 ```
 
 ## Colors
@@ -50,17 +49,30 @@ Colors should be specified in rgb values.
 cosmetic={dangerColor: "222, 71, 71"}
 ```
 
-## Example
+## Example 1
 
 <img :src="$withBase('/assets/img/merchant/checkout/greyBlueExample.png')" alt="Row">
 
-``` tsx
-cosmetic={{
-	header: { background: "134, 146, 166", color: "0, 32, 84" },
-	text: { background: "212, 213, 214", color: "0, 32, 84" },
-	submit: { background: "112, 145, 124", color: "212, 213, 214" },
-	border: { color: "134, 146, 166" },
-	fontFamily: "Ubuntu",
-	dangerColor: "131, 21, 3",
-}}
+``` json
+cosmetic='{
+	"header": { "background": "134, 146, 166", "color": "0, 32, 84" },
+	"text": { "background": "212, 213, 214", "color": "0, 32, 84" },
+	"submit": { "background": "112, 145, 124", "color": "212, 213, 214" },
+	"border": { "color": "134, 146, 166" },
+	"fontFamily": "Ubuntu",
+	"dangerColor": "131, 21, 3"}'
+```
+
+## Example 2
+
+<img :src="$withBase('/assets/img/merchant/checkout/greenBlackExample.png')" alt="Row">
+
+``` json
+cosmetic='{
+		"header": { "background": "0, 109, 119", "color": "204, 226, 228" },
+		"text": { "background": "245, 248, 250", "color": " 51, 71, 91" },
+		"submit": { "background": "50, 51, 50", "color": "255, 255, 255" },
+		"border": { "color": "134, 146, 166" },
+		"fontFamily": "Ubuntu",
+		"dangerColor": "255, 0, 0"}'
 ```

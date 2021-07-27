@@ -18,7 +18,7 @@ Single component example implementation. Possible component identifiers are `"me
 
 
 ## Customer API key
-In order to create an Customer API key, an customer id and a private key is needed. Depending on the private key used to create the customer keys, certain features may be explicitly disabled or enabled. 
+In order to create a Customer API key, a customer id and a private key is needed. Depending on the private key used to create the customer keys, certain features may be explicitly disabled or enabled. 
 
 Example request:
 ``` {1}
@@ -30,7 +30,7 @@ Authorization: Bearer <private.api.key>
 
 ```
 
-A successful response will return an Customer API key.
+A successful response will return a Customer API key.
 
 ## Customized theming
 Customized theming can be set to the customer page by specifying specific styling attributes. This is done by entering a stringified JSON object into the `cosmetic` attribute. All available styling options are seen in the figure below.
