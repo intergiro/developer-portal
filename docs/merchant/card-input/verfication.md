@@ -30,7 +30,7 @@ Example of a verification required error.
 ## Order
 How to use card input to create an order and verifying the payment with 3D Secure. 
 - First use card input to tokenize the card. Then place the card token in `order.payment.card` of the order creatable and `post` it to the order endpoint with the order creatable in the body as a stringified JSON. 
-- The response from the order endpoint can either be a [order response] or a `verification required` error. In the case of a `verification required` error submit the card token together with the error to card input.
+- The response from the order endpoint can either be a [order response](../reference/order#response) or a `verification required` error. In the case of a `verification required` error submit the card token together with the error to card input.
 - The response will now either be a verification or `verification required` error, keep on submitting the card token and the verification required error to card input until 3D succeeds or fails.
 
 ``` html
@@ -70,8 +70,7 @@ How to use card input to create an order and verifying the payment with 3D Secur
 					: await response.text()
 				if (response.ok == true) {
 					alert(JSON.stringify(result));
-				}
-				else {
+				} else {
 					result = create(order, card, result)
 				}
 			} else {
@@ -82,7 +81,6 @@ How to use card input to create an order and verifying the payment with 3D Secur
 		}
 	</script>
 </head>
-
 <body style="width: 100%; max-width: 20em; margin-left: auto; margin-right: auto;">
 	<main>
 		<intergiro-card-input class="input"
@@ -91,9 +89,7 @@ How to use card input to create an order and verifying the payment with 3D Secur
 		<button type="submit" onclick="create(order)">Submit</button>
 	</main>
 </body>
-
 </html>
-
 ```
 
 ## Customer
@@ -135,8 +131,7 @@ How to create a customer with a card token for recurring payments, using Intergi
 					: await response.text()
 				if (response.ok == true) {
 					alert(Json.stringify(result))
-				}
-				else {
+				} else {
 					result = create(customer, card, result)
 				}
 			} else {

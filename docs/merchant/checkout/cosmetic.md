@@ -34,7 +34,7 @@ The border color inside the card input fields can be changed through the `border
 
 
 ``` tsx
-cosmetic={border: { color: "134, 146, 166" } }
+cosmetic={{border: { color: "134, 146, 166" } }}
 ```
 
 ## Colors
@@ -46,7 +46,7 @@ Colors should be specified in rgb values.
 - The color of the error symbol is changed through the `"dangerColor"` property.
 
  ``` tsx
-cosmetic={dangerColor: "222, 71, 71"}
+cosmetic={{dangerColor: "222, 71, 71" }}
 ```
 
 ## Example 1
