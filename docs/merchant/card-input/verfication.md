@@ -28,7 +28,7 @@ Submit a [card token](./embed) together with a `verification required` error thr
 ```
 Example of a verification required error.
 ## Order
-How to use card input to verify an order with 3D Secure. 
+How to use card input to create an order and verifying the payment with 3D Secure. 
 - First use card input to tokenize the card. Then place the card token in `order.payment.card` of the order creatable and `post` it to the order endpoint with the order creatable in the body as a stringified JSON. 
 - The response from the order endpoint can either be a [order response] or a `verification required` error. In the case of a `verification required` error submit the card token together with the error to card input.
 - The response will now either be a verification or `verification required` error, keep on submitting the card token and the verification required error to card input until 3D succeeds or fails.
@@ -97,6 +97,7 @@ How to use card input to verify an order with 3D Secure.
 ```
 
 ## Customer
+How to create a customer with a card token for recurring payments, using Intergiro Card Input.
 
 - Tokenize the card by submitting to Intergiro Card Input.
 - Put the card in `customer.method=[{type="token", card}]` (note that method is an array) post to [create customer](../customer/create) endpoint.
