@@ -2,36 +2,8 @@
 
 This section describes how to do 3D Secure using `<intergiro-card-input>`. If you wish to have full control you can build it yourself using the [Verification API](../../integrate/acquiring/api#verification).
 
-Create an authorization with 3D Secure trying step by step.
-
-Use card input to do 3d,
-
-create customer with card token.
-
-create normal order.
-
-To initiate 3D secure from Intergiro Card Input submit a card token together with a "verification required" error.
-
-``` html
-<script>
-		async function tokenize() {
-			const element = document.querySelector("intergiro-card-input")
-			card = await element.submit()
-			error = 
-            
-		}
-</script>
-</head>
-<body>
-  <main>
-    <intergiro-card-input class="input" api-key="<public.api.key>"></intergiro-card-input>
-    <button type="submit" onclick="tokenize()">Tokenize</button>
-  </main>
-</body>
-</html>
-```
 ## 3D Secure
-Submit a `card token` together with a `verification required` error through the card input to initialize 3D. Keep submitting the verification required errors until the process ends with an approval or a denial.
+Submit a [card token](./embed) together with a `verification required` error through the card input to initialize 3D Secure. Keep submitting the verification required errors until the process ends with an approval or a denial.
 
 ``` json
 {
@@ -56,7 +28,7 @@ Submit a `card token` together with a `verification required` error through the 
 ```
 Example of a verification required error.
 ## Order
-How to use card input to verify an order with 3d secure. 
+How to use card input to verify an order with 3D Secure. 
 - First use card input to tokenize the card. Then place the card token in `order.payment.card` of the order creatable and `post` it to the order endpoint with the order creatable in the body as a stringified JSON. 
 - The response from the order endpoint can either be a [order response] or a `verification required` error. In the case of a `verification required` error submit the card token together with the error to card input.
 - The response will now either be a verification or `verification required` error, keep on submitting the card token and the verification required error to card input until 3D succeeds or fails.
@@ -66,9 +38,9 @@ How to use card input to verify an order with 3d secure.
 <html>
 
 <head>
-	<script type="module" src="https://ui.payfunc.com/component/payfunc-component/payfunc-component.esm.js"></script>
-	<script nomodule src="https://ui.payfunc.com/component/payfunc-component/payfunc-component.js"></script>
-	<link href="https://theme.payfunc.com/light/index.css" rel="stylesheet">
+  <script type="module" src="https://merchant.intergiro.com/ui/index.esm.js"></script>
+  <script nomodule src="https://merchant.intergiro.com/ui/index.js"></script>
+  <link href="https://merchant.intergiro.com/theme/intergiro/index.css" rel="stylesheet">
 
 	<script defer>
 		const order = {
@@ -136,10 +108,9 @@ How to use card input to verify an order with 3d secure.
 <html>
 
 <head>
-	<script type="module" src="https://ui.payfunc.com/component/payfunc-component/payfunc-component.esm.js"></script>
-	<script nomodule src="https://ui.payfunc.com/component/payfunc-component/payfunc-component.js"></script>
-	<link href="https://theme.payfunc.com/light/index.css" rel="stylesheet">
-
+  <script type="module" src="https://merchant.intergiro.com/ui/index.esm.js"></script>
+  <script nomodule src="https://merchant.intergiro.com/ui/index.js"></script>
+  <link href="https://merchant.intergiro.com/theme/intergiro/index.css" rel="stylesheet">
 	<script defer>
 		async function create(customer, card, error) {
 			const element = document.querySelector("intergiro-card-input")
@@ -190,3 +161,4 @@ How to use card input to verify an order with 3d secure.
 ```
 
 <!-- ## Authorization -->
+<!-- Create an authorization with 3D Secure trying step by step.-->

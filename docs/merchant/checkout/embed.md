@@ -1,6 +1,6 @@
 # Embedable Component
 
-The Intergiro Checkout component can tokenize cards, handle 3d secure and create orders. Below is a simple example of how to implement and how it will display-
+The Intergiro Checkout component can tokenize cards, handle 3d Secure and create orders. Below is a simple example of how to implement and how it will display-
 
 ``` html
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
 # Registration UI
-Customer Registration guides your users through the process of registration. It handles the full process of entering the card information as well as performing the full 3D secure authentication procedure. Once everything is done you will receive a customer number that you then can use to perform payments towards the user’s card without the need for any interaction with the user.
+Customer Registration guides your users through the process of registration. It handles the full process of entering the card information as well as performing the full 3D Secure authentication procedure. Once everything is done you will receive a customer number that you then can use to perform payments towards the user’s card without the need for any interaction with the user.
 
 
 ## Registration
