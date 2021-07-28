@@ -142,7 +142,7 @@ function getMerchantSidebar() {
       collapsable: false,
       children: [
         '/merchant/card-input/embed',
-        '/merchant/card-input/verfication',
+        '/merchant/card-input/verification',
         '/merchant/card-input/style',
       ]
     },
