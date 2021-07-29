@@ -18,7 +18,7 @@ This is a simple example of how Intergiro Card Input can be implemented, which w
   <script defer>
 		async function tokenize() {
 			const element = document.querySelector("intergiro-card-input")
-			card = await element.submit()
+			const card = await element.submit()
 			alert("Your token is: " + card)
 		}
 	</script>

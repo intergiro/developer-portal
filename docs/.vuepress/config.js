@@ -53,6 +53,7 @@ module.exports = {
         ariaLabel: 'Merchant Menu',
         link: '/merchant/',
         items: [
+          { text: 'Integration Guide', link: '/merchant/integration-guide/introduction' },
           { text: 'Card Input UI', link: '/merchant/card-input/embed' },
           { text: 'Checkout UI', link: '/merchant/checkout/embed' },
           { text: 'Order API', link: '/merchant/customer/create' },
@@ -119,15 +120,16 @@ function getIntegrateSidebar() {
 }
 function getMerchantSidebar() {
   return [
-    // {
-    //   title: 'Integration Guide',
-    //   collapsable: false,
-    //   children: [
-    //     '/merchant/integration-guide/introduction',
-    //     // '/merchant/integration-guide/balance',
-    //     // '/merchant/integration-guide/create-top-up-payment',
-    //   ]
-    // },
+    {
+      title: 'Integration Guide',
+      collapsable: false,
+      children: [
+        '/merchant/integration-guide/introduction',
+        '/merchant/integration-guide/psp',
+        // '/merchant/integration-guide/balance',
+        // '/merchant/integration-guide/create-top-up-payment',
+      ]
+    },
     {
       title: 'Order API',
       collapsable: false,
