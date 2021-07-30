@@ -1,4 +1,4 @@
-# List Customers
+# List
 To list all Customers, just make a simple GET request with private authorization.
 
 #### Request

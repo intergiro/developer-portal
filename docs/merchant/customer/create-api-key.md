@@ -1,4 +1,4 @@
-# Creating an Customer API key
+# Creating an API key
 #### Request
 ```{1}
 POST /v1/customer/<customerId>
@@ -8,5 +8,5 @@ Authentication: Bearer <private.api.key>
 
 ```
 #### Response
-A successful response will return an Customer API Key.
+A successful response will return a Customer API Key.
 

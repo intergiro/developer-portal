@@ -4,6 +4,7 @@ Intergiro Card Input can be stylized in many different ways to enable you to fit
 - The layout lets you change the structure of the input fields.
 
 - The cosmetic lets you change the color and shape of the inputs.
+
 ## Layout
 The layout parameter is optional and has three possible values: standard, row or column.
 
@@ -30,6 +31,9 @@ The layout parameter is optional and has three possible values: standard, row or
 
 ## Cosmetics
 The cosmetic parameter should be set to a JSON or a stringified JSON as described below. Cosmetics are optional and can be used in parts.
+
+<img :src="$withBase('/assets/img/merchant/card-input/card-input-cosmetic.png')" alt="Card-input styling summary">
+
 ``` html
 <intergiro-card-input
   api-key="<public-api-key>"
@@ -85,7 +89,7 @@ cosmetic='{"dangerColor": "#de4747"}'
 ```
 or 
  ``` JSON
-cosmetic='{"dangerColor": "rgb(222, 71, 71)"}'
+cosmetic='{"dangerColor": "222, 71, 71"}'
 ```
 
 ### Example 1

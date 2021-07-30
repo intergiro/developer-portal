@@ -31,7 +31,7 @@ A successful response will return the updated [`Customer`](../reference/customer
 
 ### Adding funds to Balance
 Adding funds to the balance can be done by sending a [order creatable](../reference/order.html#order) to the order endpoint.
-To charge the balance of an customer, specify the `charge` field of the Customer payment as `"balance"`.
+To charge the balance of a customer, specify the `charge` field of the Customer payment as `"balance"`.
 Once the payment is authorized, it will automatically credit the balance with the total of the payment and [charge](#) the order.
 
 An order that failed authorization will set the Customer status to `"pending"` and retry authorization as specified in [retrying failed customer orders](#).
@@ -68,7 +68,7 @@ With the "customer" authorization key you have to specify "me" as the customer i
 
 If the balance already partially paid for the items specified in the "balance" field of the customer, that amount will be added to the order as its own item.
 
-The order will be an customer order with the "charge" field in the "payment" field set to "balance" and will be automatically charged. 
+The order will be a customer order with the "charge" field in the "payment" field set to "balance" and will be automatically charged. 
 Only a successful payment will update the "total" field of the customer. 
 A failed payment will retry authorization as specified in [`retrying failed customer orders.`](../reference/order#retry-failed-customer-payments)
 
