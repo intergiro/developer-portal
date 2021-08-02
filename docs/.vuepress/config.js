@@ -138,7 +138,7 @@ function getMerchantSidebar() {
       collapsable: false,
       children: [
         '/merchant/checkout/embed',
-        '/merchant/checkout/redirect',
+        // '/merchant/checkout/redirect',
         '/merchant/checkout/features',
         '/merchant/checkout/cosmetic',
       ]

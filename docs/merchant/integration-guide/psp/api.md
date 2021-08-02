@@ -1,10 +1,10 @@
 # PSP APIs
 
-| Service                                                               | UI                                        | API                  |
-|-----------------------------------------------------------------------|-------------------------------------------|----------------------|
-| Creating orders for one off relations with your users.                | [Checkout](../../checkout/embed)          | [Order](../../order) |
-| Registeringing payment options for ongoing relations with your users. | [Onboard](../../customer/registration-ui) | [Customer]()         |
-| Tokenizing sensitive card information to minimize your PCI scope.     | [Card Input](../../card-input/embed)      | Card                 |
+| Service                                                            | UI                                        | API                               |
+|--------------------------------------------------------------------|-------------------------------------------|-----------------------------------|
+| Creating orders for one off relations with your users.             | [Checkout](../../checkout/embed)          | [Order](../../order)              |
+| Registering payment options for ongoing relations with your users. | [Onboard](../../customer/registration-ui) | [Customer](../../customer/create) |
+| Tokenizing sensitive card information to minimize your PCI scope.  | [Card Input](../../card-input/embed)      | [Card](../../card-api/create)     |
 
 ## [Creating orders UI](../../checkout/embed)
 Checkout is used for creating orders and authorize payments associated with orders for one off relations. 
@@ -31,7 +31,7 @@ For more information and code example please read more at [Intergiro Card Input]
 
 - [Card API](../../card-api/create) 
     - [Card tokenization](../../card-api/create)
-    - [3D Secure handling](../../card-api/verification) TODO
+    - [3D Secure handling](../../card-api/verification)
 - [Order API](../../order/create)
     - [Creating orders](../../order/create)
     - [Changing orders](../../order/change)

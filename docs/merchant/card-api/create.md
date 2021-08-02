@@ -15,13 +15,13 @@ Host: merchant.intergiro.com
 Content-Type: application/json
 Authentication: Bearer <customer.api.key> | Bearer <public.api.key>
 {
-	"pan": "<card.pan>",
-	"cvc": "<card.cvc>",
-	"expires": [<card.expires.month>, <card.expires.year>]
+	"pan": "<card number>",
+	"csc": "<card security code>",
+	"expires": [<card expires month>, <card expires year>]
 }
 ```
 
 #### Response
 ```json
-<signed.jwt>
+<signed.card.token>
 ```
