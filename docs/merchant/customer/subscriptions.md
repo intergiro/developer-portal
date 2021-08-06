@@ -1,4 +1,4 @@
-# Customer Subscriptions
+# Subscriptions
 
 ## Adding a Subscription
 
