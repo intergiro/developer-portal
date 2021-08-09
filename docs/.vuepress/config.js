@@ -190,8 +190,13 @@ function getMerchantSidebar() {
       title: 'Reference',
       collapsable: false,
       children: [
+        '/merchant/reference/order',
+        '/merchant/reference/payment',
+        '/merchant/reference/event',
         '/merchant/reference/customer',
-        '/merchant/reference/subscription'
+        '/merchant/reference/subscription',
+        '/merchant/reference/callback',
+        '/merchant/reference/error',
       ]
     },
     '/merchant/customer-page'
