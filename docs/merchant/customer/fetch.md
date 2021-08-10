@@ -13,7 +13,7 @@ Authentication: Bearer <private.api.key> | Bearer <customer.api.key>
 #### Response
 ```json
 {
-    "id": "<PayFunc customer identifier>",
+    "id": "<Intergiro customer identifier>",
     "number": "<your customer identifier>",
     "method": "<Customer Method Array>",
     "subscription": "<Customer subscription Array>",

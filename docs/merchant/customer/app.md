@@ -1,15 +1,25 @@
-# Customer Page
+# App
 
-Intergiro Customer is a personal page that is provided to all your customers, to make it easy to update payment and contact information, and to provide easy access to all orders associated to the customer.
+Intergiro Customer is a personal app that is provided to all your customers, to make it easy to update payment and contact information, and to provide easy access to all orders associated to the customer.
 
 ## Website integration
- The customer page can be integrated into your website as an embedded page. The `<intergiro-customer>` component can be used to access the entire customer page, or to access individual components of the page, such as the payment methods, order history or subscriptions.
+ The customer app can be integrated into your website as an embedded component. The `<intergiro-customer>` component can be used to access the entire customer app, or to access individual components of the app, such as the payment methods, order history or subscriptions.
  
-To integrate the customer page to your website, a unique [customer key](#customer-api-key) is needed for each customer. [Customer keys](#customer-api-key) are valid for three days until they expire and should thereafter be renewed.
+To integrate the customer app to your website, a unique [customer key](#customer-api-key) is needed for each customer. [Customer keys](#customer-api-key) are valid for three days until they expire and should thereafter be renewed.
 
-Full customer page example implementation: 
+Full customer app example implementation: 
 ```html
-<intergiro-customer api-key="<your-customer-key>"></intergiro-customer>
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+	<script type="module" src="https://customer.merchant.intergiro.com/intergiro-customer.esm.js"></script>
+	<script nomodule src="https://customer.merchant.intergiro.com/intergiro-customer.js"></script>
+	<link href="https://merchant.intergiro.com/intergiro/index.css" rel="stylesheet" />
+</head>
+<body>
+    <intergiro-customer api-key="<your-customer-key>"></intergiro-customer>
+</body>
+</html>
 ```
 Single component example implementation. Possible component identifiers are `"method"`, `"orders"` or `"subscription"`. 
 ```html
@@ -33,7 +43,7 @@ Authorization: Bearer <private.api.key>
 A successful response will return a Customer API key.
 
 ## Customized theming
-Customized theming can be set to the customer page by specifying specific styling attributes. This is done by entering a stringified JSON object into the `cosmetic` attribute. All available styling options are seen in the figure below.
+Customized theming can be set to the customer app by specifying specific styling attributes. This is done by entering a stringified JSON object into the `cosmetic` attribute. All available styling options are seen in the figure below.
 
 ```json
 cosmetic = {

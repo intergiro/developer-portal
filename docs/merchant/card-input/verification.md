@@ -3,7 +3,7 @@
 This section describes how to do 3D Secure using `<intergiro-card-input>`. If you wish to have full control over the 3D Secure process you can build it yourself using the [Verification API](../../integrate/acquiring/api#verification).
 
 ## 3D Secure
-Submit a [card token](./embed) together with a `verification required` error through the card input to initialize the 3D Secure cycle. This can render an invisible iframe for frictionless flow or a visible ifram that requires user interaction. The 3D Sercure process may require several steps in order to succeed, in the response will contain a new verification required error which is to be submitted to card input together with the card token.
+Submit a [card token](./embed) together with a `verification required` error through the card input to initialize the 3D Secure cycle. This can render an invisible iframe for frictionless flow or a visible ifram that requires user interaction. The 3D Sercure process may require several steps in order to succeed. The response will contain a new verification required error which is to be submitted to card input together with the card token.
 
 ``` json
 {
@@ -57,7 +57,7 @@ How to use card input to create an order and verifying the payment with 3D Secur
 			let result
 			if (typeof card == "string") {
 				order.payment.card = card
-				const response = await fetch("https://api.payfunc.com/order", {
+				const response = await fetch("https://merchant.intergiro.com/order", {
 					headers: {
 						"Accept": "application/json",
 						"Content-Type": "application/json",
@@ -118,7 +118,7 @@ How to create a customer with a card token for recurring payments, using Intergi
 			if (typeof card == "string") {
 				customer = customer ?? { method: [{ type: "token" }] }
 				customer.method[0].card = card
-				const response = await fetch("https://api.payfunc.com/customer", {
+				const response = await fetch("https://merchant.intergiro.com/customer", {
 					headers: {
 						"Accept": "application/json",
 						"Content-Type": "application/json",

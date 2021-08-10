@@ -9,14 +9,18 @@ Don't sweat it, you can start somewhere and change solution step by step.
 - Otherwise, or when in doubt, use our [PSP APIs](./psp/api).
 
 
-| API           | Subset                                                           | Acquiring    | Order                | Subscription         |
-|---------------|------------------------------------------------------------------|--------------|----------------------|----------------------|
-| Acquiring     | [Authorization API](../../integrate/acquiring/api#authorization) | yes          |                      |                      |
-| Acquiring,PSP | [Verification API](../../integrate/acquiring/api#verification)   | yes          | Custom UI (optional) | Custom UI (optional) |
-| PSP           | [Order API](../order/create)                                     |              | Custom UI            |                      |
-| PSP           | [Customer API](../customer/introduction)                         |              |                      | yes                  |
-| PSP           | [Customer Subscription API](../customer/introduction)            |              |                      | yes                  |
-| Acquiring,PSP | [Card API](../card-api/create)                                   | optional     | optional             |                      |
-| PSP           | [Registration UI](../customer/registration-ui)                   |              |                      | Standard UI          |
-| PSP           | [Checkout UI](../checkout/embed)                                 |              | Standard UI          |                      |
-| Acquiring,PSP | [Card Input UI](../card-input/embed)                             | Minimize PCI |                      | Custom UI            |
+| API           | Subset                                                           | Acquiring          | Order                | Subscription         |
+|---------------|------------------------------------------------------------------|--------------------|----------------------|----------------------|
+| Acquiring     | [Authorization API](../../integrate/acquiring/api#authorization) | yes                |                      |                      |
+| Acquiring,PSP | [Verification API](../../integrate/acquiring/api#verification)   | yes                | Custom UI (optional) | Custom UI (optional) |
+| PSP           | [Order API](../order/create)                                     |                    | Custom UI (optional) |                      |
+| PSP           | [Customer API](../customer/introduction)                         |                    |                      | yes                  |
+| PSP           | [Customer Subscription API](../customer/introduction)            |                    |                      | yes                  |
+| Acquiring,PSP | [Card API](../card-api/create)                                   | optional           |                      |                      |
+| PSP           | [Registration UI](../customer/registration-ui)                   |                    |                      | Standard UI          |
+| PSP           | [Checkout UI](../checkout/embed)                                 |                    | Standard UI          |                      |
+| Acquiring,PSP | [Card Input UI](../card-input/embed)                             | Minimize PCI scope | Custom UI (optional) | Custom UI (optional) |
+
+- Standard UI: a complete solution with our UI components.
+- Custom UI: if you want to build your own UI, including some or none of our UI components.
+- Minimize PCI scope: avoid handling card information.

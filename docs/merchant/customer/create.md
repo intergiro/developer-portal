@@ -2,8 +2,8 @@
 
 We strongly recommend creating customers by integrating [Customer Registration](./registration-ui.html#registration-ui). 
 However creating a customer can also be done via a call to the customer creation endpoint.
-When integrating through the endpoint the customer can be initialized with [`Contact information`](../../integrate/acquiring/reference.html#contact) 
-and [`payment methods`](./customer-methods.html#customer-methods) if you already have tokenized card information. Otherwise [Card Input](../card-input/embed) can be used to generate a card token.
+When integrating through the endpoint a customer can be initialized with [`Contact information`](../../integrate/acquiring/reference.html#contact) 
+and a [`payment method`](./payment-methods) with a tokenized card. [Card Input](../card-input/embed) can be used to generate a card token.
 
 #### Request
 ``` HTTP {1}

@@ -1,5 +1,5 @@
 # Embeddable Widget
-Intergiro Card Input is a component that is used for tokenizing cards that can be used with 
+Intergiro Card Input is a component that can be used for tokenizing cards or handle [3D Secure verification](./verification). The tokenized cards can be used with 
 
 - [Order API](../order/create)
 - [Authorization API](../../integrate/acquiring/api#authorization)

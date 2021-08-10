@@ -21,7 +21,8 @@ It can either be integrated in an existing web application or be used in native 
     <header><h1>Customer Registration</h1></header>
     <main>
         <form action="done" method="get">
-            <intergiro-customer-registration number="<your-customer-number>" api-key="<public-api-key>">
+            <intergiro-customer-registration 
+              api-key="<public-api-key>">
             </intergiro-customer-registration>
 	    </form>
     </main>

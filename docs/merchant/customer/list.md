@@ -14,7 +14,7 @@ A successful response will be an Array of [`Customer`](../reference/customer.htm
 ```json
 [
     {
-    "id": "<PayFunc customer identifier>",
+    "id": "<Intergiro customer identifier>",
     "number": "<your customer identifier>",
     "method": "<Customer Method Array>",
     "subscription": "<Customer subscription Array>",

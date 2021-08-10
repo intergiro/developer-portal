@@ -60,7 +60,6 @@ module.exports = {
           { text: 'Order API', link: '/merchant/customer/create' },
           { text: 'Customer API', link: '/merchant/customer/registration-ui' },
           { text: 'Reference', link: '/merchant/reference/customer' },
-          { text: 'Customer Page', link: '/merchant/customer-page/' },
         ]
       },
       { text: 'Business banking', link: '/direct/' },
@@ -74,7 +73,6 @@ module.exports = {
       '/integrate/payment-gateway/': getIntegrateSidebar(),
       // '/integrate/acquiring/': getIntegrateSidebar(),
       '/merchant/': getMerchantSidebar(),
-      '/merchant/customer-page/': getMerchantSidebar(),
       '/direct/': [
         '',
       ],
@@ -169,7 +167,7 @@ function getMerchantSidebar() {
       ]
     },
     {
-      title: 'Customer API',
+      title: 'Customer',
       collapsable: false,
       children: [
         '/merchant/customer/registration-ui',
@@ -177,13 +175,14 @@ function getMerchantSidebar() {
         '/merchant/customer/create-api-key',
         '/merchant/customer/create-order',
         '/merchant/customer/balance',
-        '/merchant/customer/change',
+        '/merchant/customer/change-details',
         '/merchant/customer/change-contact-information',
         '/merchant/customer/fetch',
         '/merchant/customer/list',
-        '/merchant/customer/create-page-login',
+        '/merchant/customer/create-app-login',
         '/merchant/customer/payment-methods',
         '/merchant/customer/subscriptions',
+        '/merchant/customer/app',
       ]
     },
     {
@@ -194,6 +193,5 @@ function getMerchantSidebar() {
         '/merchant/reference/subscription'
       ]
     },
-    '/merchant/customer-page'
   ]
 }
