@@ -1,5 +1,5 @@
 # Create App Login
-To give access to the [`Customer App`](./app) to the contact, you can send them a single use login Link via email. For this feature to be available, a constant email has to be set.
+To give access to the [`Customer App`](./app.html) to the contact, you can send them a single use login Link via email. For this feature to be available, a constant email has to be set.
 #### Request
 To create such a login link send the following request to the customer app login. A request to this endpoint can either be made with a `"private"` authorization key or with the `"customer"` authorization key. With the `"customer"` authorization key you have to specify `"me"` as the customer id, for `"private"` authorization specify the customer id.
 ```{1}

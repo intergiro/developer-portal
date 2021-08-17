@@ -1,16 +1,16 @@
-# Embedable Component
+# Embeddable Component
 
 The Intergiro Checkout component can tokenize cards, handle 3d Secure and create orders.
 
 The attributes to Intergiro Checkout.
-| Field       | Type                                                                                                                       | Description                  |
-|-------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| `currency`  | [Currency](../../integrate/acquiring/reference.html#currency)                                                              | Currency of the order        |
-| `items`     | `number`, [Item](../../integrate/acquiring/reference.html#item) or [Item](../../integrate/acquiring/reference.html#item)[] | Amount or items ordered      |
-| `api-key`   | `<public.api.key>`                                                                                                         |                              |
-| `features`  | `"contact" | "transfer" | "contact transfer"`                                                                              | See [`features`](./features) |
-| `cosmetics` | [`Cosmetics`](./cosmetic)                                                                                                  |                              |
-| `number`    | `string`                                                                                                                   | order number                 |
+| Field       | Type                                                                                             | Description                       |
+|-------------|--------------------------------------------------------------------------------------------------|-----------------------------------|
+| `currency`  | [Currency](../acquiring/reference.html#currency)                                                 | Currency of the order             |
+| `items`     | `number`, [Item](../acquiring/reference.html#item) or [Item](../acquiring/reference.html#item)[] | Amount or items ordered           |
+| `api-key`   | `<public.api.key>`                                                                               |                                   |
+| `features`  | `"contact" | "transfer" | "contact transfer"`                                                    | See [`features`](./features.html) |
+| `cosmetics` | [`Cosmetics`](./cosmetic.html)                                                                   |                                   |
+| `number`    | `string`                                                                                         | order number                      |
 
  Below is a simple example of how to implement and how it will display.
 

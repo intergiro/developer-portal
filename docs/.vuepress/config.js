@@ -106,17 +106,6 @@ function getIntegrateSidebar() {
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
     '/integrate/payment-gateway/',
-    // {
-    //   title: 'Acquiring',
-    //   collapsable: false,
-    //   children: [
-    //     '/integrate/acquiring/introduction',
-    //     '/integrate/acquiring/api',
-    //     '/integrate/acquiring/reference',
-    //     '/integrate/acquiring/rules',
-    //     '/integrate/acquiring/states',
-    //   ]
-    // },
   ]
 }
 function getMerchantSidebar() {
@@ -183,6 +172,17 @@ function getMerchantSidebar() {
         '/merchant/customer/payment-methods',
         '/merchant/customer/subscriptions',
         '/merchant/customer/app',
+      ]
+    },
+    {
+      title: 'Acquiring',
+      collapsable: false,
+      children: [
+        '/merchant/acquiring/introduction',
+        '/merchant/acquiring/api',
+        '/merchant/acquiring/reference',
+        '/merchant/acquiring/rules',
+        '/merchant/acquiring/states',
       ]
     },
     {

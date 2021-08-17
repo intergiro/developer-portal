@@ -5,15 +5,15 @@ When calling the subscription endpoint to add a subscription to a customer, add 
 The schedule and items field allow both for very specific and complex structures as well as simple payment models.
 If no start date is specified, the start date will be set as the current date.
 ### Creatable
-| Property   | Type                                                                            | Description                                     | Optional |
-|------------|---------------------------------------------------------------------------------|-------------------------------------------------|----------|
-| `number`   | `string`                                                                        | Number specified by integrator (must be unique) | Yes      |
-| `items`    | `number` or [`Item` or `Item[]`](../../integrate/acquiring/reference.html#item) |                                                 |          |
-| `currency` | [`Currency`](../../integrate/acquiring/reference.html#currency)                 |                                                 |          |
-| `schedule` | [`Schedule`](#schedule) or [`Frequency`](#frequency)                            |                                                 |          |
-| `start`    | [`Date`](../../integrate/acquiring/reference.html#date)                         |                                                 | Yes      |
-| `end`      | [`Date`](../../integrate/acquiring/reference.html#date)                         |                                                 | Yes      |
-| `callback` | `string`                                                                        |                                                 | Yes      |
+| Property   | Type                                                               | Description                                     | Optional |
+|------------|--------------------------------------------------------------------|-------------------------------------------------|----------|
+| `number`   | `string`                                                           | Number specified by integrator (must be unique) | Yes      |
+| `items`    | `number` or [`Item` or `Item[]`](../acquiring/reference.html#item) |                                                 |          |
+| `currency` | [`Currency`](../acquiring/reference.html#currency)                 |                                                 |          |
+| `schedule` | [`Schedule`](#schedule) or [`Frequency`](#frequency)               |                                                 |          |
+| `start`    | [`Date`](../acquiring/reference.html#date)                         |                                                 | Yes      |
+| `end`      | [`Date`](../acquiring/reference.html#date)                         |                                                 | Yes      |
+| `callback` | `string`                                                           |                                                 | Yes      |
 
 #### Simple Example:
 ```json
@@ -55,17 +55,17 @@ If no start date is specified, the start date will be set as the current date.
 Responses from the Subscription endpoint will be of the completed Subscription type, which always includes a start date as well as a 4-letter identifier, which is unique per customer. The "due" field contains the date in ISO format at which the next order charging the subscription will be placed into the system. At this point the system automatically calculates the next "due" date as long as it is not past the "end" date of the subscription.
 
 ### Subscription
-| Property   | Type                                                                            | Description                                              | Optional |
-|------------|---------------------------------------------------------------------------------|----------------------------------------------------------|----------|
-| `id`       | `string`                                                                        | Intergiro's internal 4-letter generated unique ID number |          |
-| `number`   | `string`                                                                        | Number specified by integrator (must be unique)          | Yes      |
-| `items`    | `number` or [`Item` or `Item[]`](../../integrate/acquiring/reference.html#item) |                                                          |          |
-| `currency` | [`Currency`](../../integrate/acquiring/reference.html#currency)                 |                                                          |          |
-| `schedule` | [`Schedule`](#schedule) or [`Frequency`](#frequency)                            |                                                          |          |
-| `start`    | [`Date`](../../integrate/acquiring/reference.html#date)                         |                                                          | Yes      |
-| `end`      | [`Date`](../../integrate/acquiring/reference.html#date)                         |                                                          | Yes      |
-| `due`      | [`Date`](../../integrate/acquiring/reference.html#date)                         |                                                          | Yes      |
-| `callback` | `string`                                                                        |                                                          | Yes      |
+| Property   | Type                                                               | Description                                              | Optional |
+|------------|--------------------------------------------------------------------|----------------------------------------------------------|----------|
+| `id`       | `string`                                                           | Intergiro's internal 4-letter generated unique ID number |          |
+| `number`   | `string`                                                           | Number specified by integrator (must be unique)          | Yes      |
+| `items`    | `number` or [`Item` or `Item[]`](../acquiring/reference.html#item) |                                                          |          |
+| `currency` | [`Currency`](../acquiring/reference.html#currency)                 |                                                          |          |
+| `schedule` | [`Schedule`](#schedule) or [`Frequency`](#frequency)               |                                                          |          |
+| `start`    | [`Date`](../acquiring/reference.html#date)                         |                                                          | Yes      |
+| `end`      | [`Date`](../acquiring/reference.html#date)                         |                                                          | Yes      |
+| `due`      | [`Date`](../acquiring/reference.html#date)                         |                                                          | Yes      |
+| `callback` | `string`                                                           |                                                          | Yes      |
 
 #### Example:
 ```json

@@ -27,13 +27,13 @@ Authorization Creatable
 | `created`    | [`DateTime`](./reference.html#datetime)                      |                                                 |          |
 | `amount`     | `number`                                                     |                                                 |          |
 | `currency`   | [`Currency`](./reference.html#currency)                      |                                                 |          |
-| `card`       | [`Card`](./card)                                             |                                                 |          |
+| `card`       | [`Card`](./card.html)                                        |                                                 |          |
 | `descriptor` | `string`                                                     |                                                 | Yes      |
 | `recurring`  | [`Recurring`](authorization.html#recurring)                  |                                                 | Yes      |
 | `history`    | `History[]`                                                  |                                                 |          |
-| `change`     | [`Change[]`](./Change)                                       |                                                 | Yes      |
-| `capture`    | [`Capture[]`](./Capture)                                     |                                                 |          |
-| `refund`     | [`Refund[]`](./Refund)                                       |                                                 |          |
+| `change`     | [`Change[]`](./Change.html)                                  |                                                 | Yes      |
+| `capture`    | [`Capture[]`](./Capture.html)                                |                                                 |          |
+| `refund`     | [`Refund[]`](./Refund.html)                                  |                                                 |          |
 | `void`       | [`DateTime`](./reference.html#datetime)                      |                                                 | Yes      |
 | `status`     | [`Partial<Record<Status, number>>`](./reference.html#status) |                                                 |          |
 
@@ -177,14 +177,14 @@ For method or challange
 ### Token
 The `Token` is a JWT where the body includes a Base64, that in itself encodes a `card.Token` object.
 Table below shown the contents of a `card.Token`:
-| Property       | Type                                | Description                                                        | Optional |
-|----------------|-------------------------------------|--------------------------------------------------------------------|----------|
-| `issuer`       | `"card"`                            |                                                                    |          |
-| `created`      | [`Date`](./reference.html#datetime) |                                                                    |          |
-| `audience`     | `string`                            | `"production"` or `"development"`                                  |          |
-| `encrypted`    | `string`                            |                                                                    |          |
-| `expires`      | `[number,number]`                   | `[month, year]` where month is `1` to `12` and year is `0` to `99` |          |
-| `verification` | [`Verification`](#verification)     |                                                                    | Yes      |
+| Property       | Type                                 | Description                                                        | Optional |
+|----------------|--------------------------------------|--------------------------------------------------------------------|----------|
+| `issuer`       | `"card"`                             |                                                                    |          |
+| `created`      | [`Date`](./reference.html#datetime)  |                                                                    |          |
+| `audience`     | `string`                             | `"production"` or `"development"`                                  |          |
+| `encrypted`    | `string`                             |                                                                    |          |
+| `expires`      | `[number,number]`                    | `[month, year]` where month is `1` to `12` and year is `0` to `99` |          |
+| `verification` | [`Verification`](#verification.html) |                                                                    | Yes      |
 
 
 ## Other
@@ -280,16 +280,16 @@ Item Example:
 ### Contact
 Data type representing a contact.
 
-| Property          | Type                                                                               | Description                                                               | Optional |
-|-------------------|------------------------------------------------------------------------------------|---------------------------------------------------------------------------|----------|
-| `type`            | `"organization"` or `"person"`                                                     |                                                                           | Yes      |
-| `identity_number` | `string`                                                                           |                                                                           | Yes      |
-| `id`              | `string`                                                                           |                                                                           | Yes      |
-| `number`          | `string`                                                                           |                                                                           | Yes      |
-| `name`            | `string` or [`Name`](./reference.html#name)                                        |                                                                           | Yes      |
-| `address`         | [`Address`](./reference.html#address) or [`Addresses`](./reference.html#addresses) |                                                                           | Yes      |
-| `email`           | `string` or [`EmailAddresses`](./reference.html#emailaddresses)                    | one email address as a string or two as [`EmailAddresses`](../reference)  | Yes      |
-| `phone`           | `string` or [`PhoneNumbers`](./reference.html#phonenumbers)                        | one phone number as a string or several as [`PhoneNumbers`](../reference) | Yes      |
+| Property          | Type                                                                               | Description                                                                    | Optional |
+|-------------------|------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|----------|
+| `type`            | `"organization"` or `"person"`                                                     |                                                                                | Yes      |
+| `identity_number` | `string`                                                                           |                                                                                | Yes      |
+| `id`              | `string`                                                                           |                                                                                | Yes      |
+| `number`          | `string`                                                                           |                                                                                | Yes      |
+| `name`            | `string` or [`Name`](./reference.html#name)                                        |                                                                                | Yes      |
+| `address`         | [`Address`](./reference.html#address) or [`Addresses`](./reference.html#addresses) |                                                                                | Yes      |
+| `email`           | `string` or [`EmailAddresses`](./reference.html#emailaddresses)                    | one email address as a string or two as [`EmailAddresses`](../reference.html)  | Yes      |
+| `phone`           | `string` or [`PhoneNumbers`](./reference.html#phonenumbers)                        | one phone number as a string or several as [`PhoneNumbers`](../reference.html) | Yes      |
 
 ### Name
 | Property | Type     | Optional |

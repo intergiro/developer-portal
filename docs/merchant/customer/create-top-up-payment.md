@@ -6,7 +6,7 @@ A callback will be sent to the callback URL when the order is created or changed
 
 If you require any further data from the callback to process the transaction, add it to the meta field.
 
-Topups are compatible with [customer payments](./create-customer-order)
+Topups are compatible with [customer payments](./create-customer-order.html)
 
 ``` {1}
 POST /v1/order

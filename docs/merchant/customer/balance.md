@@ -5,7 +5,7 @@ Adding items to Balance, Adding funds to the Balance and settling the Balance.
 ### Adding items to Balance
 If a customer pays for an item with their balance, you can add that item to the balance using the customer-balance-item endpoint. 
 In this case just make a simple post request. 
-The body of a valid request should either be a strictly positive, nonzero `number`, an [`Item`](../../integrate/acquiring/reference.html#item) or an array of [`Items`](../../integrate/acquiring/reference.html#item).
+The body of a valid request should either be a strictly positive, nonzero `number`, an [`Item`](../acquiring/reference.html#item) or an array of [`Items`](../acquiring/reference.html#item).
 
 #### Request
 ``` {1}

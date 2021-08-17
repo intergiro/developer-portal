@@ -3,7 +3,7 @@
 To change the contact information associated to a customer make a `PUT` request to the following endpoint. 
 A request to this endpoint can either be made with a `"private"` authorization key or with the `"customer"` authorization key. 
 With the `"customer"` authorization key you have to specify `"me"` as the customer id, for `"private"` authorization specify the customer id of the customer you wish to change.
-The body of the request should be a valid [`Contact`](../../integrate/acquiring/reference.html#contact) data type.
+The body of the request should be a valid [`Contact`](../acquiring/reference.html#contact) data type.
 #### Request
 ```{1}
 PUT /v1/customer/<customer_id>/contact
