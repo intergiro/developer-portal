@@ -9,7 +9,7 @@ The body of a valid request should either be a strictly positive, nonzero `numbe
 
 #### Request
 ``` {1}
-POST /v1/customer/<customerId>/balance
+POST /v1/customer/<customer_id>/balance
 
 Host: merchant.intergiro.com 
 Conent-Type: application/json
@@ -48,7 +48,7 @@ Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
     "number": "your order identifier",
     "items": "<Item or number indicating the charge to the balance>",
     "currency": "<Currency 3 digit identifier>",
-    "customer": "<customerIdentifier>",
+    "customer": "<customer_id>",
     "payment": {
         "type": "customer",
         "charge": "balance"
@@ -75,7 +75,7 @@ A failed payment will retry authorization as specified in [`retrying failed cust
 #### Request
 
 ```{1}
-DELETE /v1/customer/<customerId>/balance
+DELETE /v1/customer/<customer_id>/balance
 
 Host: merchant.intergiro.com
 Authentication: Bearer <customer.api.key> | Bearer <private.api.key>

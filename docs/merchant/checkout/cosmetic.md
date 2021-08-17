@@ -7,8 +7,8 @@ cosmetic={{
 	text: { background: "212, 213, 214", color: "0, 32, 84" },
 	submit: { background: "112, 145, 124", color: "212, 213, 214" },
 	border: { color: "134, 146, 166" },
-	fontFamily: "Ubuntu",
-	dangerColor: "131, 21, 3",
+	font_family: "Ubuntu",
+	danger_color: "131, 21, 3",
 }}
 ```
 ``` json
@@ -17,15 +17,15 @@ cosmetic='{
 	"text": { "background": "212, 213, 214", "color": "0, 32, 84" },
 	"submit": { "background": "112, 145, 124", "color": "212, 213, 214" },
 	"border": { "color": "134, 146, 166" },
-	"fontFamily": "Ubuntu",
-	"dangerColor": "131, 21, 3"}'
+	"font_family": "Ubuntu",
+	"danger_color": "131, 21, 3"}'
 ```
 ## Fonts
-The fontFamily field can consist of several fonts and are separated by comma. The `text.color` property changes the color of the text.
+The font_family field can consist of several fonts and are separated by comma. The `text.color` property changes the color of the text.
 ``` tsx
 cosmetic={{ 
-	text: {color: "0, 32, 84"},
-	fontFamily: "Arial, Verdana",
+	text: { color: "0, 32, 84" },
+	font_family: "Arial, Verdana",
 }}
 ```
 
@@ -34,7 +34,7 @@ The border color inside the card input fields can be changed through the `border
 
 
 ``` tsx
-cosmetic={{border: { color: "134, 146, 166" } }}
+cosmetic={{ border: { color: "134, 146, 166" } }}
 ```
 
 ## Colors
@@ -43,10 +43,10 @@ Colors should be specified in rgb values.
 - The text color is changed through the `"text.color"` property.
 - The background color of the card input fields is changed through the `"text.background"` property.
 - The border color of the card input fields is changed through the `"border.color"` property.
-- The color of the error symbol is changed through the `"dangerColor"` property.
+- The color of the error symbol is changed through the `"danger_color"` property.
 
  ``` tsx
-cosmetic={{dangerColor: "222, 71, 71" }}
+cosmetic={{ danger_color: "222, 71, 71" }}
 ```
 
 ## Example 1
@@ -59,8 +59,8 @@ cosmetic='{
 	"text": { "background": "212, 213, 214", "color": "0, 32, 84" },
 	"submit": { "background": "112, 145, 124", "color": "212, 213, 214" },
 	"border": { "color": "134, 146, 166" },
-	"fontFamily": "Ubuntu",
-	"dangerColor": "131, 21, 3"}'
+	"font_family": "Ubuntu",
+	"danger_color": "131, 21, 3"}'
 ```
 
 ## Example 2
@@ -73,6 +73,6 @@ cosmetic='{
 		"text": { "background": "245, 248, 250", "color": " 51, 71, 91" },
 		"submit": { "background": "50, 51, 50", "color": "255, 255, 255" },
 		"border": { "color": "134, 146, 166" },
-		"fontFamily": "Ubuntu",
-		"dangerColor": "255, 0, 0"}'
+		"font_family": "Ubuntu",
+		"danger_color": "255, 0, 0"}'
 ```

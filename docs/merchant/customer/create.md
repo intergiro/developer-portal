@@ -21,7 +21,7 @@ Authentication: Bearer <public.api.key | private.api.key>
       "type": "token",
       "client": {
         "browser": {
-          "colorDepth": 24,
+          "color_depth": 24,
           "resolution": [
             2560,
             1440

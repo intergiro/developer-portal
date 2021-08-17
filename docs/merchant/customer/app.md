@@ -32,7 +32,7 @@ In order to create a Customer API key, a customer id and a private key is needed
 
 Example request:
 ``` {1}
-POST /v1/customer/<customerId>
+POST /v1/customer/<customer_id>
 
 Host: merchant.intergiro.com
 Content-Type: application/json
