@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "3ac8dd56-6d6e-4d8c-9fb3-2d85eab1bffb",
+		"name": "Card API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Card Create",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"pan\": \"<card number>\",\n\t\"csc\": \"<card security code>\",\n\t\"expires\": [<card expires month>, <card expires year>]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.payfunc.com/card",
+					"protocol": "https",
+					"host": [
+						"api",
+						"payfunc",
+						"com"
+					],
+					"path": [
+						"card"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Card Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"postman.setEnvironmentVariable(\"token\", responseBody);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{publicKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pan\": \"4111111111111111\",\n    \"csc\": \"987\",\n    \"expires\": [\n        \"12\",\n        \"35\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/card/{{token}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"card",
+						"{{token}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Card Get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
