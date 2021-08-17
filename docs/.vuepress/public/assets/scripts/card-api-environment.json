@@ -1,0 +1,24 @@
+{
+    "id": "548f468a-962c-450e-95f3-5378516d0ebf",
+    "name": "Card API Environment",
+    "values": [
+        {
+            "key": "baseUrl",
+            "value": "https://merchant.intergiro.com",
+            "enabled": true
+        },
+        {
+            "key": "token",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "publicKey",
+            "value": "",
+            "enabled": true
+        }
+    ],
+    "_postman_variable_scope": "environment",
+    "_postman_exported_at": "2021-08-17T09:58:01.579Z",
+    "_postman_exported_using": "Postman/8.10.0"
+}
