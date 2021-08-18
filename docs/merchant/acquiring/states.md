@@ -47,7 +47,7 @@ Where `card` field is defined as [`Card`](./reference.html#card) except `csc` is
 | `captured`  | See definition below                    |                                                 | Yes      |
 | `refunded`  | See definition below                    |                                                 | Yes      |
 | `voided`    | [`DateTime`](./reference.html#datetime) |                                                 | Yes      |
-| `recurring` | `string`                                | `"initial"` or `"subsequent"`                   |          |
+| `recurring` | `string`                                | `"initial"` or `"subsequent"`                   | Yes      |
 
 `captured` field:
 | Property | Type                                    | Optional |
@@ -71,25 +71,26 @@ This Authorization type is a State used for frontend and is not to be confused w
 | `authorization` | See definition below                                   |                                                        |
 
 `authorization` field:
-| Property       | Type                                      | Description                                     | Optional |
-|----------------|-------------------------------------------|-------------------------------------------------|----------|
-| `id`           | `string`                                  | Intergiro's internal generated unique ID number |          |
-| `number`       | `string`                                  | Number specified by integrator (must be unique) |          |
-| `reference`    | `string`                                  | Scheme dependent external reference number      |          |
-| `amount`       | `number`                                  |                                                 |          |
-| `currency`     | [`Currency`](./reference.html#currency)   |                                                 |          |
-| `card`         | [`Card`](./reference.html#card)           |                                                 |          |
-| `descriptor`   | `string`                                  |                                                 | Yes      |
-| `recurring`    | [`Recurring`](./reference.html#recurring) |                                                 | Yes      |
-| `verification` | `string`                                  | `"verified"`, `"unavailable"` or `"rejected"`   | Yes      |
-| `history`      | `History[]`                               |                                                 |          |
-| `change`       | `Change[]`                                |                                                 | Yes      |
-| `captured`     | See definition below                      |                                                 |          |
-| `refunded`     | See definition below                      |                                                 |          |
-| `settled`      | See definition below                      |                                                 |          |
-| `voided`       | [`DateTime`](./reference.html#datetime)   |                                                 | Yes      |
-| `status `      | [`Status[]`](./reference.html#status)     |                                                 |          |
-| `created`      | [`DateTime`](./reference.html#datetime)   |                                                 |          |
+| Property       | Type                                      | Description                                     | Optional |   |
+|----------------|-------------------------------------------|-------------------------------------------------|----------|---|
+| `id`           | `string`                                  | Intergiro's internal generated unique ID number |          |   |
+| `number`       | `string`                                  | Number specified by integrator (must be unique) |          |   |
+| `reference`    | `string`                                  | Scheme dependent external reference number      |          |   |
+| `amount`       | `number`                                  |                                                 |          |   |
+| `currency`     | [`Currency`](./reference.html#currency)   |                                                 |          |   |
+| `card`         | [`Card`](./reference.html#card)           |                                                 |          |   |
+| `descriptor`   | `string`                                  |                                                 | Yes      |   |
+| `recurring`    | [`Recurring`](./reference.html#recurring) |                                                 | Yes      |   |
+| `verification` | `string`                                  | `"verified"`, `"unavailable"` or `"rejected"`   | Yes      |   |
+| `history`      | `History[]`                               |                                                 |          |   |
+| `change`       | `Change[]`                                |                                                 | Yes      |   |
+| `captured`     | See definition below                      |                                                 |          |   |
+| `refunded`     | See definition below                      |                                                 |          |   |
+| `settled`      | See definition below                      |                                                 |          |   |
+| `voided`       | [`DateTime`](./reference.html#datetime)   |                                                 | Yes      |   |
+| `status `      | [`Status[]`](./reference.html#status)     |                                                 |          |   |
+| `created`      | [`DateTime`](./reference.html#datetime)   |                                                 |          |   |
+| `category`     | `string`                                  | `"purchase" | "withdrawal"`                     |          |   |
 
 
 `captured` field:

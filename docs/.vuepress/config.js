@@ -186,6 +186,17 @@ function getMerchantSidebar() {
       ]
     },
     {
+      title: 'Acquiring',
+      collapsable: false,
+      children: [
+        '/merchant/acquiring/introduction',
+        '/merchant/acquiring/api',
+        '/merchant/acquiring/reference',
+        '/merchant/acquiring/rules',
+        '/merchant/acquiring/states',
+      ]
+    },
+    {
       title: 'Reference',
       collapsable: false,
       children: [

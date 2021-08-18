@@ -14,7 +14,9 @@ Authorization Creatable
 | `currency`   | [`Currency`](./reference.html#currency)                   |                               |          |
 | `card`       | `Signed JWT` or [`Card.Creatable`](./reference.html#card) |                               |          |
 | `descriptor` | `string`                                                  |                               | Yes      |
+| `capture`    | `auto`                                                    |                               | Yes      |
 | `recurring`  | [`Recurring`](./reference.html#recurring)                 |                               | Yes      |
+| `category`   | `"purchase" | "withdrawal"`                               |                               | Yes      |
 
 ### Authorization
 
@@ -27,15 +29,16 @@ Authorization Creatable
 | `created`    | [`DateTime`](./reference.html#datetime)                      |                                                 |          |
 | `amount`     | `number`                                                     |                                                 |          |
 | `currency`   | [`Currency`](./reference.html#currency)                      |                                                 |          |
-| `card`       | [`Card`](./card.html)                                        |                                                 |          |
+| `card`       | [`Card`](./reference.html#card)                              |                                                 |          |
 | `descriptor` | `string`                                                     |                                                 | Yes      |
-| `recurring`  | [`Recurring`](authorization.html#recurring)                  |                                                 | Yes      |
+| `recurring`  | [`Recurring`](reference.html#recurring)                      |                                                 | Yes      |
 | `history`    | `History[]`                                                  |                                                 |          |
-| `change`     | [`Change[]`](./Change.html)                                  |                                                 | Yes      |
-| `capture`    | [`Capture[]`](./Capture.html)                                |                                                 |          |
-| `refund`     | [`Refund[]`](./Refund.html)                                  |                                                 |          |
+| `change`     | [`Change[]`](./reference.html#change)                        |                                                 | Yes      |
+| `capture`    | [`Capture[]`](./reference.html#capture)                      |                                                 |          |
+| `refund`     | [`Refund[]`](./reference.html#refund)                        |                                                 |          |
 | `void`       | [`DateTime`](./reference.html#datetime)                      |                                                 | Yes      |
 | `status`     | [`Partial<Record<Status, number>>`](./reference.html#status) |                                                 |          |
+| `category`   | `"purchase" | "withdrawal"`                                  |                                                 | Yes      |
 
 
 #### Status
@@ -52,18 +55,19 @@ Recurring can be defined in four ways:
 
 ### Creatable
 
-| Property    | Type                                                      | Description                   | Optional |
-|-------------|-----------------------------------------------------------|-------------------------------|----------|
-| `number`    | `string`                                                  |                               |          |
-| `items`     | [`number | Item | Item[]`](reference.html#item)           |                               |          |
-| `response`  | [`Response`](./reference.html#response)                   |                               | Yes      |
-| `version`   | `"2.1.0" | "2.2.0"`                                       |                               | Yes      |
-| `browser`   | [`Browser`](./reference.html#browser)                     |                               | Yes      |
-| `currency`  | [`Currency`](./reference.html#currency)                   |                               |          |
-| `card`      | `Signed JWT` or [`Card.Creatable`](./card.html#creatable) |                               |          |
-| `recurring` | `string`                                                  | `"initial"` or `"subsequent"` | Yes      |
-| `contact`   | [`Contact`](./reference.html#contact)                     |                               | Yes      |
-| `target`    | `string`                                                  | iframe target url             |          |
+| Property    | Type                                                                     | Description       | Optional |
+|-------------|--------------------------------------------------------------------------|-------------------|----------|
+| `number`    | `string`                                                                 |                   |          |
+| `items`     | [`number | Item | Item[]`](reference.html#item)                          |                   |          |
+| `response`  | [`Response`](./reference.html#response)                                  |                   | Yes      |
+| `version`   | `"2.1.0" | "2.2.0"`                                                      |                   | Yes      |
+| `browser`   | [`Browser`](./reference.html#browser)                                    |                   | Yes      |
+| `currency`  | [`Currency`](./reference.html#currency)                                  |                   |          |
+| `card`      | `Signed JWT` or [`Card.Creatable`](./reference.html#creatable-6) |                   |          |
+| `recurring` | [`Recurring`](reference.html#recurring)                                  |                   | Yes      |
+| `contact`   | [`Contact`](./reference.html#contact)                                    |                   | Yes      |
+| `target`    | `string`                                                                 | iframe target url |          |
+| `category`  | `"purchase" | "withdrawal"`                                              |                   | Yes      |
 
 
 ### Response
@@ -94,6 +98,7 @@ where `Pares` is defined as
 | `currency`       | [`Currency`](./reference.html#currency) |                                            | Yes      |
 | `last4`          | `string`                                |                                            | Yes      |
 | `merchant_id`    | `string`                                |                                            | Yes      |
+| `category`       | `"purchase" | "withdrawal"`             |                                            | Yes      |
 
 or 
 
@@ -104,6 +109,24 @@ For method or challange
 | `data`   | `{ authentication: string; status: "A" | "N" | "U" | "Y" | "C" | "R"; reference: { server: string ; directory: string }}}` | `server` is the threeDSServerTransID and the `directory` is the dsTransID |
 
 
+## Change
+### Creatable
+
+| Property | Type     | Optional |
+|----------|----------|----------|
+| `number` | `string` | Yes      |
+| `amount` | `number` | Yes      |
+
+### Change
+
+| Property  | Type                                    | Description | Optional |
+|-----------|-----------------------------------------|-------------|----------|
+| `number`  | `string`                                |             | Yes      |
+| `created` | [`DateTime`](./reference.html#datetime) |             |          |
+| `amount`  | `number`                                |             |          |
+
+
+
 
 ## Capture
 ### Creatable
@@ -112,6 +135,7 @@ For method or challange
 |--------------|----------|----------|
 | `number`     | `string` | Yes      |
 | `amount`     | `number` | Yes      |
+| `auto`       | `true`   | Yes      |
 | `descriptor` | `number` | Yes      |
 
 ### Capture
@@ -120,9 +144,10 @@ For method or challange
 |--------------|---------------------------------------------------------------------|------------------------------------------|----------|
 | `number`     | `string`                                                            |                                          | Yes      |
 | `created`    | [`DateTime`](./reference.html#datetime)                             |                                          |          |
-| `reference`  | `string`                                                            |                                          |          |
+| `reference`  | `string`                                                            |                                          | Yes      |
 | `approved`   | [`DateTime`](./reference.html#datetime)                             |                                          | Yes      |
 | `amount`     | `number`                                                            |                                          |          |
+| `auto`       | `true`                                                              |                                          | Yes      |
 | `settlement` | [`Settlement.Transaction`](./reference.html#settlement-transaction) |                                          | Yes      |
 | `descriptor` | `string`                                                            |                                          | Yes      |
 | `status`     | `string`                                                            | `"approved"`, `"pending"` or `"settled"` |          |
