@@ -186,14 +186,45 @@ function getMerchantSidebar() {
       ]
     },
     {
-      title: 'Acquiring',
+      title: 'Authorization',
       collapsable: false,
       children: [
-        '/merchant/acquiring/introduction',
-        '/merchant/acquiring/api',
-        '/merchant/acquiring/reference',
-        '/merchant/acquiring/rules',
-        '/merchant/acquiring/states',
+        '/merchant/authorization/create',
+        '/merchant/authorization/capture',
+        '/merchant/authorization/cancel',
+        '/merchant/authorization/refund',
+        '/merchant/authorization/states',
+        '/merchant/authorization/list',
+        '/merchant/authorization/fetch',
+        '/merchant/authorization/reference',
+      ]
+    },
+    {
+      title: 'Settlement',
+      collapsable: false,
+      children: [
+        '/merchant/settlement/list',
+        '/merchant/settlement/reference',
+      ]
+    },
+    {
+      title: 'Verification',
+      collapsable: false,
+      children: [
+        '/merchant/verification/create',
+        '/merchant/verification/reference',
+      ]
+    },
+    {
+      title: 'Merchant',
+      collapsable: false,
+      children: [
+        '/merchant/merchant/create',
+        '/merchant/merchant/change',
+        '/merchant/merchant/fetch',
+        '/merchant/merchant/rules',
+        '/merchant/merchant/list',
+        '/merchant/merchant/reference',
       ]
     },
     {
