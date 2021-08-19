@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "e67d407c-d4e2-486a-8259-1710d3cfa47c",
+		"name": "Merchant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Merchant create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{private_or_agent_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"number\": \"Temporary\",\n  \"type\": \"test\",\n  \"agent\": \"master\",\n  \"reference\": \"00000066\",\n  \"descriptor\": \"Temporary\",\n  \"name\": \"Temporary Merchant\",\n  \"reconciliation\": {\n    \"account\": \"Temporary Account\",\n    \"currency\": \"EUR\",\n    \"fees\": {\n      \"capture\": 0.1,\n      \"refund\": 0.1,\n      \"eea\": {\n        \"visa\": {\n          \"percentage\": 1.2\n        },\n        \"mastercard\": {\n          \"percentage\": 1.2\n        }\n      },\n      \"other\": {\n        \"visa\": {\n          \"percentage\": 1.5\n        },\n        \"mastercard\": {\n          \"percentage\": 1.5\n        }\n      }\n    },\n    \"reserves\": {\n      \"percentage\": 20,\n      \"days\": 50\n    }\n  },\n  \"country\": \"SE\",\n  \"currency\": \"EUR\",\n  \"categoryCode\": \"7372\",\n  \"rules\": {\n    \"master\": [\n      \"reject authorization if !authorization.verification:verified !authorization.recurring:subsequent\",\n      \"reject authorization if authorization.recurring:initial !authorization.verification:verified\",\n      \"reject authorization if !authorization.recurring:subsequent !authorization.card.csc:present\"\n    ]\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}//merchant",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"",
+						"merchant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merchant fetch",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{private_or_agent_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/merchant/{{authorization_id}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"merchant",
+						"{{authorization_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merchant Patch",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{private_or_agent_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"number\": \"Temporary\",\n  \"type\": \"test\",\n  \"agent\": \"master\",\n  \"reference\": \"00000066\",\n  \"descriptor\": \"Temporary\",\n  \"name\": \"Temporary Merchant\",\n  \"reconciliation\": {\n    \"account\": \"Temporary Account\",\n    \"currency\": \"EUR\",\n    \"fees\": {\n      \"capture\": 0.1,\n      \"refund\": 0.1,\n      \"eea\": {\n        \"visa\": {\n          \"percentage\": 1.2\n        },\n        \"mastercard\": {\n          \"percentage\": 1.2\n        }\n      },\n      \"other\": {\n        \"visa\": {\n          \"percentage\": 1.5\n        },\n        \"mastercard\": {\n          \"percentage\": 1.5\n        }\n      }\n    },\n    \"reserves\": {\n      \"percentage\": 20,\n      \"days\": 50\n    }\n  },\n  \"country\": \"NO\",\n  \"currency\": \"EUR\",\n  \"category_code\": \"7372\",\n  \"rules\": {\n    \"master\": [\n      \"reject authorization if !authorization.verification:verified !authorization.recurring:subsequent\",\n      \"reject authorization if authorization.recurring:initial !authorization.verification:verified\",\n      \"reject authorization if !authorization.recurring:subsequent !authorization.card.csc:present\"\n    ]\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/merchant/{{authorization_id}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"merchant",
+						"{{authorization_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merchant Master Rules Patch",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{agent_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"master\": [\n    \"reject authorization if authorization.amount>15 !(authorization.verification:verified) !(authorization.recurring.type:subsequent)\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/merchant/{{authorization_id}}/rule",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"merchant",
+						"{{authorization_id}}",
+						"rule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merchant Rules Patch",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{agentKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"merchant\": [\n    \"reject authorization if authorization.amount>15 !(authorization.verification:verified) !(authorization.recurring.type:subsequent)\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/merchant/{{authorization_id}}/rule",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"merchant",
+						"{{authorization_id}}",
+						"rule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merchant Rules Put",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{private_or_agent_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"merchant\": [\n    \"reject authorization if authorization.amount>15 !(authorization.verification:verified) !(authorization.recurring.type:subsequent)\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/merchant/{{authorization_id}}/rule",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"merchant",
+						"{{authorization_id}}",
+						"rule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merchant Master Rules Put",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{agent_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"master\": [\n    \"reject authorization if authorization.amount>15 !(authorization.verification:verified) !(authorization.recurring.type:subsequent)\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/merchant/{{authorization_id}}/rule",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"merchant",
+						"{{authorization_id}}",
+						"rule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merchant list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{private_or_agent_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.payfunc.com/merchant",
+					"protocol": "https",
+					"host": [
+						"api",
+						"payfunc",
+						"com"
+					],
+					"path": [
+						"merchant"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

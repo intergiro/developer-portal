@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "fe61b099-10d3-459b-bdfa-dbf32066331c",
+		"name": "Authorization",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorization create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = pm.response.json();",
+							"if(body?.id){",
+							"    pm.environment.set(\"authorizationId\", body?.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{publicKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"number\": \"Number\",\n    \"amount\": 3,\n    \"currency\": \"EUR\",\n    \"card\": {\n        \"pan\": \"4111111111111111\",\n        \"expires\": [\n            12,\n            22\n        ],\n        \"csc\": \"977\"\n    },\n    \"descriptor\": \"Merchant Descriptor\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{acquirerUrl}}/authorization/",
+					"host": [
+						"{{acquirerUrl}}"
+					],
+					"path": [
+						"authorization",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authorization capture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{privateKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{acquirerUrl}}/authorization/{{authorizationId}}/capture",
+					"host": [
+						"{{acquirerUrl}}"
+					],
+					"path": [
+						"authorization",
+						"{{authorizationId}}",
+						"capture"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authorization refund",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{privateKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 3\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{acquirerUrl}}/authorization/{{authorizationId}}/refund",
+					"host": [
+						"{{acquirerUrl}}"
+					],
+					"path": [
+						"authorization",
+						"{{authorizationId}}",
+						"refund"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authorization fetch",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{privateKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{acquirerUrl}}/authorization/{{authorizationId}}",
+					"host": [
+						"{{acquirerUrl}}"
+					],
+					"path": [
+						"authorization",
+						"{{authorizationId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authorization remove",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{privateKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{acquirerUrl}}/authorization/{{authorizationId}}",
+					"host": [
+						"{{acquirerUrl}}"
+					],
+					"path": [
+						"authorization",
+						"{{authorizationId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authorization list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{privateKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{acquirerUrl}}/authorization",
+					"host": [
+						"{{acquirerUrl}}"
+					],
+					"path": [
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

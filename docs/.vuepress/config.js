@@ -197,6 +197,7 @@ function getMerchantSidebar() {
         '/merchant/authorization/list',
         '/merchant/authorization/fetch',
         '/merchant/authorization/reference',
+        '/merchant/authorization/postman',
       ]
     },
     {
@@ -213,6 +214,7 @@ function getMerchantSidebar() {
       children: [
         '/merchant/verification/create',
         '/merchant/verification/reference',
+        '/merchant/verification/postman',
       ]
     },
     {
@@ -225,6 +227,7 @@ function getMerchantSidebar() {
         '/merchant/merchant/rules',
         '/merchant/merchant/list',
         '/merchant/merchant/reference',
+        '/merchant/merchant/postman',
       ]
     },
     {
