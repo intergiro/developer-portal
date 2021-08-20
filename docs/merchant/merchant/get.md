@@ -1,6 +1,6 @@
-# Fetch
+# Get
 
-The fetch call is used to get information about a specific merchant.
+The get call is used to get information about a specific merchant.
 
 ``` {1}
 GET /v1/merchant/:id

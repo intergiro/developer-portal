@@ -133,7 +133,7 @@
 			"response": []
 		},
 		{
-			"name": "Authorization fetch",
+			"name": "Authorization get",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},

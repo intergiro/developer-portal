@@ -43,7 +43,7 @@
 			"response": []
 		},
 		{
-			"name": "Merchant fetch",
+			"name": "Merchant get",
 			"request": {
 				"auth": {
 					"type": "bearer",

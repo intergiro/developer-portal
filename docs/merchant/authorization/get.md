@@ -1,6 +1,6 @@
-# Fetch
+# Get
 
-Fetching a specific authorization.
+Getting a specific authorization.
 
 ``` {1}
 GET /v1/authorization/:id

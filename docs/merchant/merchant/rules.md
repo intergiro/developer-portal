@@ -4,7 +4,7 @@ A `Rules` object is of type `Record<string, Rule[]>`. The key specifies who has 
 
 A merchant can have rules added to them. These rules can control if authorizations, captures, refunds or voids get rejected based on some criteria. [Read more of how to write a Rule](./rules.html#how-to-write-a-rule).
 
-Merchant rules can be [changed simultaneously with merchant information with a PATCH call](./change) or seperatly with a PATCH or PUT call to merchant/merchant_id/rule.
+Merchant rules can be [updated simultaneously with merchant information with a PATCH call](./update) or seperatly with a PATCH or PUT call to merchant/merchant_id/rule.
 
 The Rules specified by the key `"master"` are rules set up by the acquirer. A PUT call replaces the Record with the rules from the body, while a PATCH call only replaces the array with the same property name as the one in the body.
 
