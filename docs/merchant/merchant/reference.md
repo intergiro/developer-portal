@@ -34,10 +34,7 @@
 | `account`  | [`Account`](#account) or Record<[`Currency`]() or `"default"`, [`Account`](#account)> |             |          |
 | `costPlus` | `true`                                                                                |             | Yes      |
 | `fees`     | `Fee`                                                                                 |             | Yes      |
-| `reserves` | `{
-		percentage: number
-		days?: number
-	}`                                                                                       |             | Yes      |
+| `reserves` | `{ percentage: number; days?: number }`                                               |             | Yes      |
 
 ### Account
 
@@ -47,3 +44,18 @@ An account is either a `string` or the following data type.
 |----------|----------|-------------|----------|
 | `bic`    | `string` |             |          |
 | `iban`   | `string` |             |          |
+
+### Fee 
+
+| Property      | Type          | Description | Optional |
+|---------------|---------------|-------------|----------|
+| [`Operation`] | `number`      |             |          |
+| [`Country`]   | `Transaction` |             |          |
+| `eea`         | `Transaction` |             | Yes      |
+| `other`       | `Transaction` |             |          |
+
+#### Transaction
+
+| Property     | Type                                                                                                                                              | Description | Optional |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------|----------|
+| [`scheme`]() | `{ debit: { percentage: number; minimum?: number } credit: { percentage: number; minimum?: number } } | { percentage: number; minimum?: number }` |             |          |
