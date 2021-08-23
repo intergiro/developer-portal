@@ -55,6 +55,7 @@ module.exports = {
         link: '/merchant/',
         items: [
           { text: 'Integration Guide', link: '/merchant/integration-guide/introduction' },
+          { text: 'Card API', link:   '/merchant/card-api/create', },
           { text: 'Card Input UI', link: '/merchant/card-input/embed' },
           { text: 'Checkout UI', link: '/merchant/checkout/embed' },
           { text: 'Order API', link: '/merchant/customer/create' },
