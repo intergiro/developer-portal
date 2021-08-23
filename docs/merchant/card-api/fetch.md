@@ -4,7 +4,7 @@ To fetch information about a card, make a GET call to the card endpoint with the
 
 #### Request
 ``` {1}
-GET /card/<cardToken>
+GET v1/card/:card_token
 
 Host: merchant.intergiro.com
 Content-Type: application/json

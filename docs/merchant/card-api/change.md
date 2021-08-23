@@ -4,7 +4,7 @@ To update information of a card, send a PUT request to the card endpoint with th
 
 #### Request
 ``` {1}
-PUT /card/<cardToken>
+PUT v1/card/:card_token
 
 Host: merchant.intergiro.com
 Content-Type: application/json
