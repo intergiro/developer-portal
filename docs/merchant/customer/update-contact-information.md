@@ -6,7 +6,7 @@ With the `"customer"` authorization key you have to specify `"me"` as the custom
 The body of the request should be a valid [`Contact`](../acquiring/reference.html#contact) data type.
 #### Request
 ```{1}
-PUT /v1/customer/<customer_id>/contact
+PUT /v1/customer/:customer_id/contact
 
 Host: merchant.intergiro.com
 Content-Type: applicaiton/json

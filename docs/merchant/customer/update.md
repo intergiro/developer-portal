@@ -6,7 +6,7 @@ In any case, calling this endpoint will fix deprecated customers with invalid du
 
 #### Request 
 ``` {1}
-PATCH /v1/customer/<customer_id>
+PATCH /v1/customer/:customer_id
 
 Host: merchant.intergiro.com
 Content-Type: application/json

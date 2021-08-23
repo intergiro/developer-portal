@@ -4,7 +4,7 @@ With the "customer" authorization key you have to specify "me" as the customer i
 
 #### Request
 ```json
-GET /v1/customer/<customer_id>
+GET /v1/customer/:customer_id
 
 Host: merchant.intergiro.com
 Authentication: Bearer <private.api.key> | Bearer <customer.api.key>

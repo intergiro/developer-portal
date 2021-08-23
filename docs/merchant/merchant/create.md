@@ -1,6 +1,6 @@
 # Create
 
-A Intergiro Merchant is created by posting a [Merchant](./reference#merchant) to the merchant endpoint.
+A Intergiro Merchant is created by posting a [Merchant](./reference.html#merchant) without the id property to the merchant endpoint.
 
 ``` {1}
 POST /v1/merchant

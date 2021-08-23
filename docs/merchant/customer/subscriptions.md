@@ -5,7 +5,7 @@
 #### Request
 To add a subscription make a call to the subscription endpoint. The body can be any valid [`Subscription Creatable`](../reference/subscription.html#subscription) Object.
 ```{1}
-POST /v1/customer/<customer_id>/subscription
+POST /v1/customer/:customer_id/subscription
 
 Host: merchant.intergiro.com
 Authentication: Bearer <private.api.key> 
@@ -81,7 +81,7 @@ A `PATCH` request requires a partial [`Subscription Creatable`](../reference/sub
 In both cases a future "due" date will be replaced by a calculated "due" date. As the backend will not set a "due" date past the "end" date, this endpoint can be used to end a subscription both immediately as well as at a future date. 
 #### Request
 ```{1}
-PUT | PATCH /v1/customer/<customer_id>/subscription/<subscription_id>
+PUT | PATCH /v1/customer/:customer_id/subscription/:subscription_id
 
 Host: merchant.intergiro.com
 Content-Type: application/json
@@ -115,7 +115,7 @@ A request to this endpoint can either be made with a "private" authorization key
 
 #### Request
 ```{1}
-DELETE /v1/customer/<customer_id>/subscription/<subscription_id>
+DELETE /v1/customer/:customer_id/subscription/:subscription_id
 
 Host: merchant.intergiro.com
 Authentication: Bearer <private.api.key> |  <customer.api.key>

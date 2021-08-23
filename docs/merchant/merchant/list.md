@@ -1,6 +1,6 @@
 # List
 
-List all [merchants](./reference#merchant) available to the access_token.
+List all [merchants](./reference.html#merchant) available to the access_token.
 
 ``` {1}
 GET /v1/merchant/
@@ -10,4 +10,4 @@ Content-Type: application/json
 Authorization: Bearer <access_token>
 ```
 
-The response contains an array of [Merchants](./reference#merchant).
+The response contains an array of [Merchants](./reference.html#merchant).

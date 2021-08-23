@@ -13,13 +13,13 @@
 ## Card
 
 ### Creatable
-| Property       | Type                                            | Description                                                           | Optional |
-|----------------|-------------------------------------------------|-----------------------------------------------------------------------|----------|
-| `pan`          | `string`                                        | Primary Account Number. Includes 12-19 characters, no spaces allowed. |          |
-| `expires`      | `[number,number]`                               | `[month, year]` where month is `1` to `12` and year is `0` to `99`    |          |
-| `csc`          | `string`                                        |                                                                       | Yes      |
-| `verification` | [`Verification`](./reference.html#verification) |                                                                       | Yes      |
-| `client`       | `{ip?: string}`                                 |                                                                       | Yes      |
+| Property       | Type                                                          | Description                                                           | Optional |
+|----------------|---------------------------------------------------------------|-----------------------------------------------------------------------|----------|
+| `pan`          | `string`                                                      | Primary Account Number. Includes 12-19 characters, no spaces allowed. |          |
+| `expires`      | `[number,number]`                                             | `[month, year]` where month is `1` to `12` and year is `0` to `99`    |          |
+| `csc`          | `string`                                                      |                                                                       | Yes      |
+| `verification` | [`Verification`](../verification/reference.html#verification) |                                                                       | Yes      |
+| `client`       | `{ip?: string}`                                               |                                                                       | Yes      |
 
 ### Card
 | Property  | Type                                | Description                                                        | Optional |
@@ -47,22 +47,6 @@ Table below shown the contents of a `card.Token`:
 
 ## Other
 
-### Settlement.Transaction
-
-| Property        | Type                                         | Description                                                     | Optional |
-|-----------------|----------------------------------------------|-----------------------------------------------------------------|----------|
-| `authorization` | `Identifier`                                 | ID in our system                                                |          |
-| `reference`     | `string`                                     |                                                                 |          |
-| `type`          | `string`                                     | `"authorization"`,` "capture"`, `"refund"`, `"void"` or `"all"` |          |
-| `card`          | `string`                                     | `"debit"` or `"credit"`                                         |          |
-| `scheme`        | [`Scheme`](./reference.html#scheme)          |                                                                 |          |
-| `area`          | [`Alpha2`](./reference.html#alpha2)          |                                                                 |          |
-| `created`       | [`Date`](./reference.html#datetime)          |                                                                 |          |
-| `currency`      | [`Currency`](./reference.html#currency)      |                                                                 |          |
-| `gross`         | `number`                                     |                                                                 |          |
-| `fee`           | `number | { scheme: number; total: number }` |                                                                 |          |
-| `net`           | `number`                                     |                                                                 |          |
-| `reserve`       | `{ amount: number; payout?: Date }`          |                                                                 | Yes      |
 ### Currency
 
 String set according to ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish krona.

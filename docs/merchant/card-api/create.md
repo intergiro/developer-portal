@@ -9,7 +9,7 @@ To create a card token post an [Card Creatable](../acquiring/reference.html#crea
 
 #### Request
 ``` {1}
-POST /card
+POST /v1/card
 
 Host: merchant.intergiro.com
 Content-Type: application/json

@@ -110,13 +110,13 @@ This Authorization type is a State used for frontend and is not to be confused w
 
 
 `settled` field:
-| Property  | Type                                                                  | Optional |
-|-----------|-----------------------------------------------------------------------|----------|
-| `history` | [`Settlement.Transaction[]`](./reference.html#settlement-transaction) |          |
-| `gross`   | `number`                                                              |          |
-| `fee`     | `number`                                                              |          |
-| `net`     | `number`                                                              |          |
-| `latest`  | [`DateTime`](./reference.html#datetime)                               | Yes      |
+| Property  | Type                                                                              | Optional |
+|-----------|-----------------------------------------------------------------------------------|----------|
+| `history` | [`Settlement.Transaction[]`](../settlement/reference.html#settlement-transaction) |          |
+| `gross`   | `number`                                                                          |          |
+| `fee`     | `number`                                                                          |          |
+| `net`     | `number`                                                                          |          |
+| `latest`  | [`DateTime`](./reference.html#datetime)                                           | Yes      |
 
 ## FailedAuthorization
 
