@@ -45,7 +45,6 @@ module.exports = {
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
           { text: 'Payment gateway', link: '/integrate/payment-gateway/' },
-          // { text: 'Acquiring', link: '/integrate/acquiring/' },
           { text: 'API reference', link: 'https://b2b.intergiro.com/v3/docs' },
         ]
       },
@@ -55,10 +54,16 @@ module.exports = {
         link: '/merchant/',
         items: [
           { text: 'Integration Guide', link: '/merchant/integration-guide/introduction' },
-          { text: 'Card Input UI', link: '/merchant/card-input/embed' },
           { text: 'Checkout UI', link: '/merchant/checkout/embed' },
-          { text: 'Order API', link: '/merchant/customer/create' },
+          { text: 'Order API', link: '/merchant/order/create' },
+          { text: 'Card Input UI', link: '/merchant/card-input/embed' },
+          { text: 'Card API', link: '/merchant/card-api/create' },
           { text: 'Customer API', link: '/merchant/customer/registration-ui' },
+          { text: 'Acquiring', link: '/merchant/acquiring/introduction' },
+          { text: 'Authorization', link: '/merchant/authorization/create' },
+          { text: 'Settlement', link: '/merchant/settlement/list' },
+          { text: 'Verification', link: '/merchant/verification/create' },
+          { text: 'Merchant', link: '/merchant/merchant/create' },
           { text: 'Reference', link: '/merchant/reference/customer' },
         ]
       },
@@ -71,7 +76,6 @@ module.exports = {
       '/integrate/embedded-finance/': getIntegrateSidebar(),
       '/integrate/card-programmes/': getIntegrateSidebar(),
       '/integrate/payment-gateway/': getIntegrateSidebar(),
-      // '/integrate/acquiring/': getIntegrateSidebar(),
       '/merchant/': getMerchantSidebar(),
       '/direct/': [
         '',
