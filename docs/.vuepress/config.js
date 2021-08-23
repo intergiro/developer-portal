@@ -164,9 +164,9 @@ function getMerchantSidebar() {
         '/merchant/customer/create-api-key',
         '/merchant/customer/create-order',
         '/merchant/customer/balance',
-        '/merchant/customer/change-details',
-        '/merchant/customer/change-contact-information',
-        '/merchant/customer/fetch',
+        '/merchant/customer/update-details',
+        '/merchant/customer/update-contact-information',
+        '/merchant/customer/get',
         '/merchant/customer/list',
         '/merchant/customer/create-app-login',
         '/merchant/customer/payment-methods',
@@ -183,6 +183,51 @@ function getMerchantSidebar() {
         '/merchant/acquiring/reference',
         '/merchant/acquiring/rules',
         '/merchant/acquiring/states',
+      ]
+    },
+    {
+      title: 'Authorization',
+      collapsable: false,
+      children: [
+        '/merchant/authorization/create',
+        '/merchant/authorization/capture',
+        '/merchant/authorization/cancel',
+        '/merchant/authorization/refund',
+        '/merchant/authorization/states',
+        '/merchant/authorization/list',
+        '/merchant/authorization/get',
+        '/merchant/authorization/reference',
+        '/merchant/authorization/postman',
+      ]
+    },
+    {
+      title: 'Settlement',
+      collapsable: false,
+      children: [
+        '/merchant/settlement/list',
+        '/merchant/settlement/reference',
+      ]
+    },
+    {
+      title: 'Verification',
+      collapsable: false,
+      children: [
+        '/merchant/verification/create',
+        '/merchant/verification/reference',
+        '/merchant/verification/postman',
+      ]
+    },
+    {
+      title: 'Merchant',
+      collapsable: false,
+      children: [
+        '/merchant/merchant/create',
+        '/merchant/merchant/update',
+        '/merchant/merchant/get',
+        '/merchant/merchant/rules',
+        '/merchant/merchant/list',
+        '/merchant/merchant/reference',
+        '/merchant/merchant/postman',
       ]
     },
     {

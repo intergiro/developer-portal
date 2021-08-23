@@ -74,7 +74,7 @@ The response will be an array containing all subscriptions on the customer.
 ]
 ```
 ## Changing a Subscription
-To change subscription data, make either a `PUT` or a `PATCH` request to the endpoint, specifying the 4 letter identifier of the subscription. 
+To update subscription data, make either a `PUT` or a `PATCH` request to the endpoint, specifying the 4 letter identifier of the subscription. 
 A `PUT` request will need to have a valid [`Subscription Creatable`](../reference/subscription.html#subscription) Object as the body and replace the subscription, while keeping the same subscription id. 
 A `PATCH` request requires a partial [`Subscription Creatable`](../reference/subscription.html#subscription) Object as the body and only update the fields that are present in the request body.
 

@@ -120,10 +120,10 @@ This Authorization type is a State used for frontend and is not to be confused w
 
 ## FailedAuthorization
 
-| Property        | Type                                                   | Description                                            |
-|-----------------|--------------------------------------------------------|--------------------------------------------------------|
-| `merchant`      | [`Merchant`](./states.html#merchant) or `{id: string}` | id is Intergiro's internal generated unique identifier |
-| `authorization` | See definition below                                   |                                                        |
+| Property        | Type                                                         | Description                                            |
+|-----------------|--------------------------------------------------------------|--------------------------------------------------------|
+| `merchant`      | [`Merchant`](./states.html#state-merchant) or `{id: string}` | id is Intergiro's internal generated unique identifier |
+| `authorization` | See definition below                                         |                                                        |
 
 `authorization` field: 
 | Property       | Type                                      | Description                                     | Optional |
@@ -145,7 +145,7 @@ This Authorization type is a State used for frontend and is not to be confused w
 ## Card
 The Card State has the same definition as [`Card`](./reference.html#card) except `expires` is set to a [`Date`](./reference.html#date) instead of `[number, number]`.
 
-## Merchant 
+## State Merchant 
 All fields are required.
 
 | Property     | Type                                    | Description                                     |
