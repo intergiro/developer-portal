@@ -59,11 +59,11 @@ module.exports = {
           { text: 'Card Input UI', link: '/merchant/card-input/embed' },
           { text: 'Card API', link: '/merchant/card-api/create' },
           { text: 'Customer API', link: '/merchant/customer/registration-ui' },
-          { text: 'Acquiring', link: '/merchant/acquiring/introduction' },
           { text: 'Authorization', link: '/merchant/authorization/create' },
           { text: 'Settlement', link: '/merchant/settlement/list' },
           { text: 'Verification', link: '/merchant/verification/create' },
           { text: 'Merchant', link: '/merchant/merchant/create' },
+          { text: 'Common References', link: '/merchant/common/reference' }
         ]
       },
       { text: 'Business banking', link: '/direct/' },
@@ -176,14 +176,6 @@ function getMerchantSidebar() {
         '/merchant/customer/subscriptions',
         '/merchant/customer/app',
         '/merchant/customer/reference',
-      ]
-    },
-    {
-      title: 'Acquiring',
-      collapsable: false,
-      children: [
-        '/merchant/acquiring/introduction',
-        '/merchant/acquiring/api',
       ]
     },
     {
