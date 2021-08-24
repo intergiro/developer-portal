@@ -184,7 +184,6 @@ function getMerchantSidebar() {
       children: [
         '/merchant/acquiring/introduction',
         '/merchant/acquiring/api',
-        '/merchant/acquiring/reference',
       ]
     },
     {
@@ -230,6 +229,13 @@ function getMerchantSidebar() {
         '/merchant/merchant/list',
         '/merchant/merchant/reference',
         '/merchant/merchant/postman',
+      ]
+    },
+    {
+      title: 'Common',
+      collapsable: false,
+      children: [
+        '/merchant/common/reference',
       ]
     },
   ]

@@ -11,25 +11,25 @@ If you do not specify a currency when creating a customer, it will default to sw
 |------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------|----------|
 | `id`       | `string`                                                                             | Unique 16-letter identifier in our system                             | Yes      |
 | `number`   | `string`                                                                             | Customer number in your system                                        | Yes      |
-| `contact`  | [`Contact`](../acquiring/reference.html#contact)                                     |                                                                       | Yes      |
+| `contact`  | [`Contact`](../common/reference.html#contact)                                        |                                                                       | Yes      |
 | `method`   | `Method.Creatable[]`                                                                 | See [`Method`](#customermethod) data type, may include an empty array |          |
-| `currency` | [`Currency`](../acquiring/reference.html#currency)                                   | 3-letter currency code, e.g. "SEK"                                    | Yes      |
+| `currency` | [`Currency`](../common/reference.html#currency)                                      | 3-letter currency code, e.g. "SEK"                                    | Yes      |
 | `schedule` | [`Schedule`](./reference.html#schedule) or [`Frequency`](./reference.html#frequency) | see [`Schedule`](./reference.html#schedule) data type                 | Yes      |
 | `limit`    | `number`                                                                             | Credit limit in the specified currency for the customer               | Yes      |
 
 ### Customer
 Responses from the Customer endpoint will contain a `Customer` object, which includes an `"id"` and may include a `"status"`, subscriptions and `"link"` fields in addition to the ones in the Creatable type. 
 
-| Property       | Type                                               | Description                                                         | Optional |
-|----------------|----------------------------------------------------|---------------------------------------------------------------------|----------|
-| `id`           | `string`                                           |                                                                     |          |
-| `number`       | `string`                                           |                                                                     | Yes      |
-| `contact`      | [`Contact`](../acquiring/reference.html#contact)   |                                                                     | Yes      |
-| `method`       | [`CustomerMethod`](#customermethod)                |                                                                     |          |
-| `link`         | [`CustomerLink`](#customerlink)                    |                                                                     | Yes      |
-| `status`       | `string`                                           | `"active"`, `"created"`, `"inactive"`, `"pending"` or `"suspended"` | Yes      |
-| `subscription` | [`Subscription[]`](./reference.html#subscription)  |                                                                     | Yes      |
-| `currency`     | [`Currency`](../acquiring/reference.html#currency) |                                                                     |          |
+| Property       | Type                                              | Description                                                         | Optional |
+|----------------|---------------------------------------------------|---------------------------------------------------------------------|----------|
+| `id`           | `string`                                          |                                                                     |          |
+| `number`       | `string`                                          |                                                                     | Yes      |
+| `contact`      | [`Contact`](../common/reference.html#contact)     |                                                                     | Yes      |
+| `method`       | [`CustomerMethod`](#customermethod)               |                                                                     |          |
+| `link`         | [`CustomerLink`](#customerlink)                   |                                                                     | Yes      |
+| `status`       | `string`                                          | `"active"`, `"created"`, `"inactive"`, `"pending"` or `"suspended"` | Yes      |
+| `subscription` | [`Subscription[]`](./reference.html#subscription) |                                                                     | Yes      |
+| `currency`     | [`Currency`](../common/reference.html#currency)   |                                                                     |          |
 
 ### CustomerMethod
 For automatic payment with a customer, a payment method has to be created first. 
@@ -42,16 +42,16 @@ This can be done either with already tokenized cards or through the [Registratio
 
 #### CustomerMethod
 
-| Property   | Type                                               | Description                                                        | Optional |
-|------------|----------------------------------------------------|--------------------------------------------------------------------|----------|
-| `type`     | `string`                                           | `"card"` or `"token"`                                              |          |
-| `created`  | [`DateTime`](../acquiring/reference.html#datetime) |                                                                    |          |
-| `token`    | authly.Token                                       |                                                                    |          |
-| `scheme`   | [`Scheme`](../acquiring/reference.html#scheme)     |                                                                    |          |
-| `iin`      | `string`                                           | First 6 digits on card                                             |          |
-| `last4`    | `string`                                           | Last 4 digits on card                                              |          |
-| `expires`  | `[number, number]`                                 | `[month, year]` where month is `1` to `12` and year is `0` to `99` |          |
-| `acquirer` | `string`                                           | `"intergiro"` or `"clearhaus"`                                     | Yes      |
+| Property   | Type                                            | Description                                                        | Optional |
+|------------|-------------------------------------------------|--------------------------------------------------------------------|----------|
+| `type`     | `string`                                        | `"card"` or `"token"`                                              |          |
+| `created`  | [`DateTime`](../common/reference.html#datetime) |                                                                    |          |
+| `token`    | authly.Token                                    |                                                                    |          |
+| `scheme`   | [`Scheme`](../common/reference.html#scheme)     |                                                                    |          |
+| `iin`      | `string`                                        | First 6 digits on card                                             |          |
+| `last4`    | `string`                                        | Last 4 digits on card                                              |          |
+| `expires`  | `[number, number]`                              | `[month, year]` where month is `1` to `12` and year is `0` to `99` |          |
+| `acquirer` | `string`                                        | `"intergiro"` or `"clearhaus"`                                     | Yes      |
 ##### Example:
 ```json
 {
@@ -67,13 +67,13 @@ This can be done either with already tokenized cards or through the [Registratio
 
 ### CustomerLink
 Information associated to single use login links for the customer page.
-| Property  | Type                                               | Description | Optional |
-|-----------|----------------------------------------------------|-------------|----------|
-| `url`     | `string`                                           |             |          |
-| `created` | [`DateTime`](../acquiring/reference.html#datetime) |             |          |
-| `expires` | [`DateTime`](../acquiring/reference.html#datetime) |             |          |
-| `key`     | authly.Token                                       |             | Yes      |
-| `contact` | `string`                                           |             | Yes      |
+| Property  | Type                                            | Description | Optional |
+|-----------|-------------------------------------------------|-------------|----------|
+| `url`     | `string`                                        |             |          |
+| `created` | [`DateTime`](../common/reference.html#datetime) |             |          |
+| `expires` | [`DateTime`](../common/reference.html#datetime) |             |          |
+| `key`     | authly.Token                                    |             | Yes      |
+| `contact` | `string`                                        |             | Yes      |
 ###### Example:
 ```json
 {
@@ -94,15 +94,15 @@ When calling the subscription endpoint to add a subscription to a customer, add 
 The schedule and items field allow both for very specific and complex structures as well as simple payment models.
 If no start date is specified, the start date will be set as the current date.
 ### Creatable
-| Property   | Type                                                               | Description                                     | Optional |
-|------------|--------------------------------------------------------------------|-------------------------------------------------|----------|
-| `number`   | `string`                                                           | Number specified by integrator (must be unique) | Yes      |
-| `items`    | `number` or [`Item` or `Item[]`](../acquiring/reference.html#item) |                                                 |          |
-| `currency` | [`Currency`](../acquiring/reference.html#currency)                 |                                                 |          |
-| `schedule` | [`Schedule`](#schedule) or [`Frequency`](#frequency)               |                                                 |          |
-| `start`    | [`Date`](../acquiring/reference.html#date)                         |                                                 | Yes      |
-| `end`      | [`Date`](../acquiring/reference.html#date)                         |                                                 | Yes      |
-| `callback` | `string`                                                           |                                                 | Yes      |
+| Property   | Type                                                            | Description                                     | Optional |
+|------------|-----------------------------------------------------------------|-------------------------------------------------|----------|
+| `number`   | `string`                                                        | Number specified by integrator (must be unique) | Yes      |
+| `items`    | `number` or [`Item` or `Item[]`](../common/reference.html#item) |                                                 |          |
+| `currency` | [`Currency`](../common/reference.html#currency)                 |                                                 |          |
+| `schedule` | [`Schedule`](#schedule) or [`Frequency`](#frequency)            |                                                 |          |
+| `start`    | [`Date`](../common/reference.html#date)                         |                                                 | Yes      |
+| `end`      | [`Date`](../common/reference.html#date)                         |                                                 | Yes      |
+| `callback` | `string`                                                        |                                                 | Yes      |
 
 #### Simple Example:
 ```json
@@ -144,17 +144,17 @@ If no start date is specified, the start date will be set as the current date.
 Responses from the Subscription endpoint will be of the completed Subscription type, which always includes a start date as well as a 4-letter identifier, which is unique per customer. The "due" field contains the date in ISO format at which the next order charging the subscription will be placed into the system. At this point the system automatically calculates the next "due" date as long as it is not past the "end" date of the subscription.
 
 #### Subscription
-| Property   | Type                                                               | Description                                              | Optional |
-|------------|--------------------------------------------------------------------|----------------------------------------------------------|----------|
-| `id`       | `string`                                                           | Intergiro's internal 4-letter generated unique ID number |          |
-| `number`   | `string`                                                           | Number specified by integrator (must be unique)          | Yes      |
-| `items`    | `number` or [`Item` or `Item[]`](../acquiring/reference.html#item) |                                                          |          |
-| `currency` | [`Currency`](../acquiring/reference.html#currency)                 |                                                          |          |
-| `schedule` | [`Schedule`](#schedule) or [`Frequency`](#frequency)               |                                                          |          |
-| `start`    | [`Date`](../acquiring/reference.html#date)                         |                                                          | Yes      |
-| `end`      | [`Date`](../acquiring/reference.html#date)                         |                                                          | Yes      |
-| `due`      | [`Date`](../acquiring/reference.html#date)                         |                                                          | Yes      |
-| `callback` | `string`                                                           |                                                          | Yes      |
+| Property   | Type                                                            | Description                                              | Optional |
+|------------|-----------------------------------------------------------------|----------------------------------------------------------|----------|
+| `id`       | `string`                                                        | Intergiro's internal 4-letter generated unique ID number |          |
+| `number`   | `string`                                                        | Number specified by integrator (must be unique)          | Yes      |
+| `items`    | `number` or [`Item` or `Item[]`](../common/reference.html#item) |                                                          |          |
+| `currency` | [`Currency`](../common/reference.html#currency)                 |                                                          |          |
+| `schedule` | [`Schedule`](#schedule) or [`Frequency`](#frequency)            |                                                          |          |
+| `start`    | [`Date`](../common/reference.html#date)                         |                                                          | Yes      |
+| `end`      | [`Date`](../common/reference.html#date)                         |                                                          | Yes      |
+| `due`      | [`Date`](../common/reference.html#date)                         |                                                          | Yes      |
+| `callback` | `string`                                                        |                                                          | Yes      |
 
 ##### Example:
 ```json

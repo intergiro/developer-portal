@@ -9,7 +9,7 @@ Authorization Creatable
 |--------------|----------------------------------------------------------------------|-------------------------------|----------|
 | `number`     | `string`                                                             | has to be a unique identifier |          |
 | `amount`     | `number`                                                             |                               |          |
-| `currency`   | [`Currency`](../acquiring/reference.html#currency)                   |                               |          |
+| `currency`   | [`Currency`](../common/reference.html#currency)                      |                               |          |
 | `card`       | `Signed JWT` or [`Card.Creatable`](../acquiring/reference.html#card) |                               |          |
 | `descriptor` | `string`                                                             |                               | Yes      |
 | `capture`    | `auto`                                                               |                               | Yes      |
@@ -24,9 +24,9 @@ Authorization Creatable
 | `merchant`   | `string`                                                     | Intergiro's internal generated unique ID number |          |
 | `number`     | `string`                                                     | Number specified by integrator (must be unique) |          |
 | `reference`  | `string`                                                     | Scheme dependent external reference number      |          |
-| `created`    | [`DateTime`](../acquiring/reference.html#datetime)           |                                                 |          |
+| `created`    | [`DateTime`](../common/reference.html#datetime)              |                                                 |          |
 | `amount`     | `number`                                                     |                                                 |          |
-| `currency`   | [`Currency`](../acquiring/reference.html#currency)           |                                                 |          |
+| `currency`   | [`Currency`](../common/reference.html#currency)              |                                                 |          |
 | `card`       | [`Card`](../acquiring/reference.html#card)                   |                                                 |          |
 | `descriptor` | `string`                                                     |                                                 | Yes      |
 | `recurring`  | [`Recurring`](reference.html#recurring)                      |                                                 | Yes      |
@@ -34,7 +34,7 @@ Authorization Creatable
 | `change`     | [`Change[]`](./reference.html#change)                        |                                                 | Yes      |
 | `capture`    | [`Capture[]`](./reference.html#capture)                      |                                                 |          |
 | `refund`     | [`Refund[]`](./reference.html#refund)                        |                                                 |          |
-| `void`       | [`DateTime`](../acquiring/reference.html#datetime)           |                                                 | Yes      |
+| `void`       | [`DateTime`](../common/reference.html#datetime)              |                                                 | Yes      |
 | `status`     | [`Partial<Record<Status, number>>`](./reference.html#status) |                                                 |          |
 | `category`   | `"purchase" | "withdrawal"`                                  |                                                 | Yes      |
 
@@ -58,11 +58,11 @@ Recurring can be defined in four ways:
 
 ### Change
 
-| Property  | Type                                               | Description | Optional |
-|-----------|----------------------------------------------------|-------------|----------|
-| `number`  | `string`                                           |             | Yes      |
-| `created` | [`DateTime`](../acquiring/reference.html#datetime) |             |          |
-| `amount`  | `number`                                           |             |          |
+| Property  | Type                                            | Description | Optional |
+|-----------|-------------------------------------------------|-------------|----------|
+| `number`  | `string`                                        |             | Yes      |
+| `created` | [`DateTime`](../common/reference.html#datetime) |             |          |
+| `amount`  | `number`                                        |             |          |
 
 
 
@@ -82,9 +82,9 @@ Recurring can be defined in four ways:
 | Property     | Type                                                                            | Description                              | Optional |
 |--------------|---------------------------------------------------------------------------------|------------------------------------------|----------|
 | `number`     | `string`                                                                        |                                          | Yes      |
-| `created`    | [`DateTime`](../acquiring/reference.html#datetime)                              |                                          |          |
+| `created`    | [`DateTime`](../common/reference.html#datetime)                                 |                                          |          |
 | `reference`  | `string`                                                                        |                                          | Yes      |
-| `approved`   | [`DateTime`](../acquiring/reference.html#datetime)                              |                                          | Yes      |
+| `approved`   | [`DateTime`](../common/reference.html#datetime)                                 |                                          | Yes      |
 | `amount`     | `number`                                                                        |                                          |          |
 | `auto`       | `true`                                                                          |                                          | Yes      |
 | `settlement` | [`Settlement.Transaction`](../settlement/reference.html#settlement-transaction) |                                          | Yes      |
@@ -107,9 +107,9 @@ Recurring can be defined in four ways:
 | Property     | Type                                                                            | Description                              | Optional |
 |--------------|---------------------------------------------------------------------------------|------------------------------------------|----------|
 | `number`     | `string`                                                                        |                                          | Yes      |
-| `created`    | [`DateTime`](../acquiring/reference.html#datetime)                              |                                          |          |
+| `created`    | [`DateTime`](../common/reference.html#datetime)                                 |                                          |          |
 | `reference`  | `string`                                                                        |                                          |          |
-| `approved`   | [`DateTime`](../acquiring/reference.html#datetime)                              |                                          | Yes      |
+| `approved`   | [`DateTime`](../common/reference.html#datetime)                                 |                                          | Yes      |
 | `amount`     | `number`                                                                        |                                          |          |
 | `descriptor` | `string`                                                                        |                                          | Yes      |
 | `settlement` | [`Settlement.Transaction`](../settlement/reference.html#settlement-transaction) |                                          | Yes      |

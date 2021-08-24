@@ -2,76 +2,31 @@
 # Reference
 
 
-
-
-
-
-
-
-
-
-## Card
-
-### Creatable
-| Property       | Type                                                          | Description                                                           | Optional |
-|----------------|---------------------------------------------------------------|-----------------------------------------------------------------------|----------|
-| `pan`          | `string`                                                      | Primary Account Number. Includes 12-19 characters, no spaces allowed. |          |
-| `expires`      | `[number,number]`                                             | `[month, year]` where month is `1` to `12` and year is `0` to `99`    |          |
-| `csc`          | `string`                                                      |                                                                       | Yes      |
-| `verification` | [`Verification`](../verification/reference.html#verification) |                                                                       | Yes      |
-| `client`       | `{ip?: string}`                                               |                                                                       | Yes      |
-
-### Card
-| Property  | Type                                | Description                                                        | Optional |
-|-----------|-------------------------------------|--------------------------------------------------------------------|----------|
-| `scheme`  | [`Scheme`](./reference.html#scheme) |                                                                    |          |
-| `iin`     | `string`                            | First 6 digits on card                                             |          |
-| `last4`   | `string`                            | Last 4 digits on card                                              |          |
-| `expires` | `[number,number]`                   | `[month, year]` where month is `1` to `12` and year is `0` to `99` |          |
-| `type`    | `string`                            | `"debit"` or `"credit"`                                            | Yes      |
-| `csc`     | `string`                            | `"matched"`, `"mismatched"` or`"present"`                          | Yes      |
-
-
-### Token
-The `Token` is a JWT where the body includes a Base64, that in itself encodes a `card.Token` object.
-Table below shown the contents of a `card.Token`:
-| Property       | Type                                 | Description                                                        | Optional |
-|----------------|--------------------------------------|--------------------------------------------------------------------|----------|
-| `issuer`       | `"card"`                             |                                                                    |          |
-| `created`      | [`Date`](./reference.html#datetime)  |                                                                    |          |
-| `audience`     | `string`                             | `"production"` or `"development"`                                  |          |
-| `encrypted`    | `string`                             |                                                                    |          |
-| `expires`      | `[number,number]`                    | `[month, year]` where month is `1` to `12` and year is `0` to `99` |          |
-| `verification` | [`Verification`](#verification.html) |                                                                    | Yes      |
-
-
-## Other
-
-### Currency
+## Currency
 
 String set according to ISO 4217 Currency codes, formated as e.g. `"EUR"` for Euros, `"USD"` for United Stated Dollar, and `"SEK"` for Swedish krona.
 
-### Alpha2
+## Alpha2
 
 ISO 3166-1 Alpha-2 code, e.g. `"FR"` for France and `"SE"` for Sweden
 
-### Locale
+## Locale
 String defined by language ISO 639-1, followed by a dash `"-"` then a ISO 3166-1 Alpha-2 code. E.g. `"en-US"` for the English-United States or `"sv-SE"` for Swedish-Sweden. This is defined by `navigator.language` in the browser. All acceptable locales can be found [here](https://github.com/payfunc/isoly/blob/master/Locale.ts).
 
-### Date
+## Date
 
 String written as `"YYYY-MM-DD"`, e.g. `"2021-12-31"`.
 
-### DateTime 
+## DateTime 
 
 String formated as `"YYYY-MM-DDThh:mm:ss"`, e.g. `"2020-12-31T23:59:59"`.
 
-### Scheme
+## Scheme
 
 String set as `"unknown"`, `"amex"`, `"dankort"`, `"diners"`, `"discover"`, `"electron"`, `"interpayment"`, `"jcb"`, `"maestro"`, `"mastercard"`, `"unionpay"` or `"visa"`.
 
-### Browser
-#### Creatable
+## Browser
+### Creatable
 | Property      | Type                                | Description                     | Optional |
 |---------------|-------------------------------------|---------------------------------|----------|
 | `color_depth` | `number`                            |                                 | Yes      |
@@ -81,7 +36,7 @@ String set as `"unknown"`, `"amex"`, `"dankort"`, `"diners"`, `"discover"`, `"el
 | `timezone`    | `number`                            |                                 | Yes      |
 | `resolution`  | `[number, number]`                  | `screen.width`, `screen.height` | Yes      |
 | `parent`      | `string`                            |                                 | Yes      |
-#### Browser
+### Browser
 The final `Browser` object is the same as the `Browser.Creatable` but with these added fields:
 
 | Property        | Type     | Optional |
@@ -91,7 +46,7 @@ The final `Browser` object is the same as the `Browser.Creatable` but with these
 | `ip`            | `string` | Yes      |
 
 
-### Item 
+## Item 
 The data type `Item` is used to specify what products are included in an order.
 
 For `Item`, all properties are optional, but if `vat` is included, `price` must be included too. Quantity will be treated as 1 if it's not included.
@@ -119,7 +74,7 @@ Item Example:
 }
 ```
 
-### Contact
+## Contact
 Data type representing a contact.
 
 | Property          | Type                                                                               | Description                                                                    | Optional |
@@ -133,13 +88,13 @@ Data type representing a contact.
 | `email`           | `string` or [`EmailAddresses`](./reference.html#emailaddresses)                    | one email address as a string or two as [`EmailAddresses`](../reference.html)  | Yes      |
 | `phone`           | `string` or [`PhoneNumbers`](./reference.html#phonenumbers)                        | one phone number as a string or several as [`PhoneNumbers`](../reference.html) | Yes      |
 
-### Name
+## Name
 | Property | Type     | Optional |
 |----------|----------|----------|
 | `first`  | `string` | Yes      |
 | `last`   | `string` | Yes      |
 
-### Address
+## Address
 
 | Property       | Type                                | Description    |
 |----------------|-------------------------------------|----------------|
@@ -148,7 +103,7 @@ Data type representing a contact.
 | `city`         | `string`                            | city           |
 | `country_code` | [`Alpha2`](./reference.html#alpha2) |                |
 
-#### Example:
+### Example:
 ```json
 {
     "street": "Storgatan 1",
@@ -158,7 +113,7 @@ Data type representing a contact.
 }
 ```
 
-### Addresses
+## Addresses
 
 | Property   | Type                                  | Optional |
 |------------|---------------------------------------|----------|
@@ -167,7 +122,7 @@ Data type representing a contact.
 | `delivery` | [`Address`](./reference.html#address) | Yes      |
 | `visit`    | [`Address`](./reference.html#address) | Yes      |
 
-### EmailAddresses
+## EmailAddresses
 
 For `EmailAddresses` atleast one `primary` of `billing` must be defined.
 
@@ -184,7 +139,7 @@ Example:
 }
 ```
 
-### PhoneNumbers
+## PhoneNumbers
 
 For `PhoneNumbers` atleast one property must be defined.
 
