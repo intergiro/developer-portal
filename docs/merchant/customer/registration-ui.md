@@ -67,7 +67,7 @@ Once the user has entered their card information and successfully performed the 
 
 ## Adding Payment Methods
 To implement onboarding for an already existing Customer, implement the onboarding dialog in the same way as the registration dialog for creating a customer.
-Only change the `<intergiro-customer-registration>` html to specify the customer as a stringified [`Customer`](../reference/customer.html#customer) object instead of specifying the number field.
+Only change the `<intergiro-customer-registration>` html to specify the customer as a stringified [`Customer`](./reference.html#customer) object instead of specifying the number field.
 
 ```html
 <intergiro-customer-registration

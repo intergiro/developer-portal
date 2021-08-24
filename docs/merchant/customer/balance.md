@@ -27,7 +27,7 @@ Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 ```
 
 #### Response
-A successful response will return the updated [`Customer`](../reference/customer.html#customer).
+A successful response will return the updated [`Customer`](./reference.html#customer).
 
 ### Adding funds to Balance
 Adding funds to the balance can be done by sending a [order creatable](../reference/order.html#order) to the order endpoint.

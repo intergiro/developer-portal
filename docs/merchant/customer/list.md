@@ -10,7 +10,7 @@ Authentication: Bearer <private.api.key>
 ```
 
 #### Response
-A successful response will be an Array of [`Customer`](../reference/customer.html#customer) objects.
+A successful response will be an Array of [`Customer`](./reference.html#customer) objects.
 ```json
 [
     {

@@ -64,7 +64,6 @@ module.exports = {
           { text: 'Settlement', link: '/merchant/settlement/list' },
           { text: 'Verification', link: '/merchant/verification/create' },
           { text: 'Merchant', link: '/merchant/merchant/create' },
-          { text: 'Reference', link: '/merchant/reference/customer' },
         ]
       },
       { text: 'Business banking', link: '/direct/' },
@@ -176,6 +175,7 @@ function getMerchantSidebar() {
         '/merchant/customer/payment-methods',
         '/merchant/customer/subscriptions',
         '/merchant/customer/app',
+        '/merchant/customer/reference',
       ]
     },
     {
@@ -232,14 +232,6 @@ function getMerchantSidebar() {
         '/merchant/merchant/list',
         '/merchant/merchant/reference',
         '/merchant/merchant/postman',
-      ]
-    },
-    {
-      title: 'Reference',
-      collapsable: false,
-      children: [
-        '/merchant/reference/customer',
-        '/merchant/reference/subscription'
       ]
     },
   ]

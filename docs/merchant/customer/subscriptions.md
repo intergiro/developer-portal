@@ -3,7 +3,7 @@
 ## Adding a Subscription
 
 #### Request
-To add a subscription make a call to the subscription endpoint. The body can be any valid [`Subscription Creatable`](../reference/subscription.html#subscription) Object.
+To add a subscription make a call to the subscription endpoint. The body can be any valid [`Subscription Creatable`](./reference.html#subscription) Object.
 ```{1}
 POST /v1/customer/:customer_id/subscription
 
@@ -75,8 +75,8 @@ The response will be an array containing all subscriptions on the customer.
 ```
 ## Changing a Subscription
 To update subscription data, make either a `PUT` or a `PATCH` request to the endpoint, specifying the 4 letter identifier of the subscription. 
-A `PUT` request will need to have a valid [`Subscription Creatable`](../reference/subscription.html#subscription) Object as the body and replace the subscription, while keeping the same subscription id. 
-A `PATCH` request requires a partial [`Subscription Creatable`](../reference/subscription.html#subscription) Object as the body and only update the fields that are present in the request body.
+A `PUT` request will need to have a valid [`Subscription Creatable`](./reference.html#subscription) Object as the body and replace the subscription, while keeping the same subscription id. 
+A `PATCH` request requires a partial [`Subscription Creatable`](./reference.html#subscription) Object as the body and only update the fields that are present in the request body.
 
 In both cases a future "due" date will be replaced by a calculated "due" date. As the backend will not set a "due" date past the "end" date, this endpoint can be used to end a subscription both immediately as well as at a future date. 
 #### Request

@@ -11,7 +11,7 @@ Authentication: Bearer <private.api.key> | Bearer <customer.api.key>
 ```
 
 #### Example response
-The response should be a [`Customer`](../reference/customer.html#customer) object.
+The response should be a [`Customer`](./reference.html#customer) object.
 ```json
 {
     "id": "Uw8hDZb4T-YX17O-",

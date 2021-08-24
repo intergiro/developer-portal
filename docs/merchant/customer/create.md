@@ -47,16 +47,22 @@ Authentication: Bearer <public.api.key | private.api.key>
 {
   "id": "<Intergiro customer identifier>",
   "number": "<your customer number>",
-  "customer": <contact information>,
+  "contact": <contact information>,
   "method": [<payment method>],
   "status": "<Customer Status>",
+  "total": <Customer Balance>,
   "schedule": "<customer payment schedule>",
   "currency": "<customer currency>"
 }
 ```
 ``` JSON
 {
+  "id": "SMmmIYXgLFTgE8qW",
   "number": "customer-number-001",
+  "contact": {
+    "name": "Joe Smith",
+    "email": "joe.smith@example.com"
+  },
   "method": [
     {
       "type": "card",
@@ -72,15 +78,10 @@ Authentication: Bearer <public.api.key | private.api.key>
       "token": "<card.token>"
     }
   ],
-  "contact": {
-    "name": "Joe Smith",
-    "email": "joe.smith@example.com"
-  },
   "status": "active",
   "total": 0,
   "balance": [],
-  "currency": "SEK",
   "schedule": "monthly",
-  "id": "SMmmIYXgLFTgE8qW"
+  "currency": "SEK"
 }
 ```
