@@ -228,6 +228,7 @@ function getMerchantSidebar() {
       collapsable: false,
       children: [
         '/merchant/common/reference',
+        '/merchant/common/error',
       ]
     },
   ]
