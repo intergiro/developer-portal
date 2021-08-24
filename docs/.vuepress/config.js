@@ -158,9 +158,10 @@ function getMerchantSidebar() {
       collapsable: false,
       children: [
         '/merchant/card-api/create',
-        '/merchant/card-api/change',
-        '/merchant/card-api/fetch',
+        '/merchant/card-api/update',
+        '/merchant/card-api/get',
         '/merchant/card-api/postman',
+        '/merchant/card-api/reference',
       ]
     },
     {

@@ -1,6 +1,6 @@
 # Create
 
-To create a card token post a [Card Creatable](../../integrate/acquiring/reference.html#creatable-5) to the card endpoint. The card token generated can be used together with: 
+To create a [Card Token](./reference.html#token), post a [Card Creatable](./reference.html#card-creatable) to the card endpoint. The card token generated can be used together with: 
 
 - [Order API](../order/create.html)
 - [Authorization API](../acquiring/api.html#authorization)

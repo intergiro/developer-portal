@@ -1,6 +1,6 @@
-# Fetch
+# Get
 
-To fetch information about a card, make a GET call to the card endpoint with the card token included in the url. 
+To fetch information about a card, make a GET call to the card endpoint with the card token included in the url. The endpoint will return a [Card](./reference.html#card).
 
 #### Request
 ``` {1}
