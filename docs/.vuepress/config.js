@@ -57,6 +57,7 @@ module.exports = {
           { text: 'Integration Guide', link: '/merchant/integration-guide/introduction' },
           { text: 'Card API', link:   '/merchant/card-api/create', },
           { text: 'Card Input UI', link: '/merchant/card-input/embed' },
+          { text: 'Card API', link: '/merchant/card-api/create' },
           { text: 'Checkout UI', link: '/merchant/checkout/embed' },
           { text: 'Order API', link: '/merchant/customer/create' },
           { text: 'Customer API', link: '/merchant/customer/registration-ui' },
@@ -167,9 +168,10 @@ function getMerchantSidebar() {
       collapsable: false,
       children: [
         '/merchant/card-api/create',
-        '/merchant/card-api/change',
-        '/merchant/card-api/fetch',
+        '/merchant/card-api/update',
+        '/merchant/card-api/get',
         '/merchant/card-api/postman',
+        '/merchant/card-api/reference',
       ]
     },
     {
