@@ -2,8 +2,8 @@
 Intergiro Card Input is a component that can be used for tokenizing cards or handle [3D Secure verification](./verification.html). The tokenized cards can be used with 
 
 - [Order API](../order/create.html)
-- [Authorization API](../acquiring/api.html#authorization)
-- [Verification API](../acquiring/api.html#verification)
+- [Authorization API](../authorization/create.html)
+- [Verification API](../verification/create.html)
 - [Customer API](../customer/create.html)
 
 This is a simple example of how Intergiro Card Input can be implemented, which will alert you the created card token. 

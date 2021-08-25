@@ -1,6 +1,6 @@
 # Update
 
-To update information of a card, send a PUT request to the card endpoint with the [card token](./reference.html#token) in the url. The body of the request should be a [Card Creatable](../../integrate/acquiring/reference.html#creatable-5). The response will be the updated [card token](./reference.html#token).
+To update information of a card, send a PUT request to the card endpoint with the [card token](./reference.html#token) in the url. The body of the request should be a [Card Creatable](./reference.html). The response will be the updated [card token](./reference.html#token).
 
 #### Request
 ``` {1}
