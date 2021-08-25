@@ -3,17 +3,17 @@
 ## Order
 
 ### Creatable
-| Property   | Type                                                      | Description                                                | Optional |
-|------------|-----------------------------------------------------------|------------------------------------------------------------|----------|
-| `number`   | `string`                                                  | Order number in your system.                               | Yes      |
-| `customer` | [`string | Contact`](../common/reference.html#contact)    | Customer contact information or [customer id](./customer). | Yes      |
-| `items`    | [`number | Item | Item[]`](../common/reference.html#item) |                                                            |          |
-| `currency` | [`Currency`](../common/reference.html#currency)           |                                                            |          |
-| `payment`  | [`Payment.Creatable`](./payment)                          | see Payment data type                                      |          |
-| `category` | `"purchase"` or `"withdrawal"`                            | Defaults to "purchase"                                     | Yes      |
-| `theme`    | `string`                                                  | i.e. "intergiro" or "dark"                                 | Yes      |
-| `meta`     | `any`                                                     | Data used by the merchant.                                 | Yes      |
-| `callback` | [`string`](./callback)                                    | URL to receive the callbacks.                              | Yes      |
+| Property   | Type                                                                                                                                     | Description                                                | Optional |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|----------|
+| `number`   | `string`                                                                                                                                 | Order number in your system.                               | Yes      |
+| `customer` | [`string | Contact`](../common/reference.html#contact)                                                                                   | Customer contact information or [customer id](./customer). | Yes      |
+| `items`    | [`number | Item | Item[]`](../common/reference.html#item)                                                                                |                                                            |          |
+| `currency` | [`Currency`](../common/reference.html#currency)                                                                                          |                                                            |          |
+| `payment`  | [`Payment.Card.Creatable`](./reference.html#card-payment) \| [`Payment.Customer.Creatable`](../customer/reference.html#customer-payment) |                                                            |          |
+| `category` | `"purchase"` or `"withdrawal"`                                                                                                           | Defaults to "purchase"                                     | Yes      |
+| `theme`    | `string`                                                                                                                                 | i.e. "intergiro" or "dark"                                 | Yes      |
+| `meta`     | `any`                                                                                                                                    | Data used by the merchant.                                 | Yes      |
+| `callback` | [`string`](./callback)                                                                                                                   | URL to receive the callbacks.                              | Yes      |
 
 #### Example
 ``` json
@@ -50,7 +50,7 @@
 | `customer` | [`string | Contact`](../common/reference.html#contact)    | [customer id](./reference/customer.html). or Customer contact information | Yes      |
 | `items`    | [`number | Item | Item[]`](../common/reference.html#item) |                                                                           |          |
 | `currency` | [`Currency`](../common/reference.html#currency)           |                                                                           |          |
-| `payment`  | [`Card Payment`](./payment)                               | see Payment data type                                                     |          |
+| `payment`  | [`Card Payment`](./reference.html#card-payment)           | see Payment data type                                                     |          |
 | `event`    | [`Event[]`](./event)                                      | see Event data type                                                       | Yes      |
 | `category` | `"purchase"` or `"withdrawal"`                            | Defaults to "purchase"                                                    | Yes      |
 | `theme`    | `string`                                                  | i.e. "intergiro" or "dark"                                                | Yes      |
@@ -87,3 +87,30 @@
     "created": "1970-01-01T12:00:00.001Z"
 }
 ```
+
+## Card Payment
+
+### Card Payment Creatable
+| Property    | Type                                                               | Description                                 | Optional |
+|-------------|--------------------------------------------------------------------|---------------------------------------------|----------|
+| `type`      | `"card"`                                                           |                                             |          |
+| `card`      | `JWT`                                                              | Contains encrypted card information.        |          |
+| `client`    | [`{ip:string; browser:Browser}`](../common/reference.html#browser) |                                             | Yes      |
+| `scheduled` | `true`                                                             | Indicates that this is a scheduled payment. | Yes      |
+
+### Card Payment
+| Property          | Type                                            | Description                                                         | Optional |
+|-------------------|-------------------------------------------------|---------------------------------------------------------------------|----------|
+| `type`            | `"card"`                                        |                                                                     |          |
+| `created`         | [`DateTime`](../common/reference.html#datetime) | Date and the time when the payment was processed.                   |          |
+| `card`            | `JWT`                                           | Contains encrypted card information.                                | Yes      |
+| `scheme`          | `string`                                        | Indicates the card scheme.                                          |          |
+| `iin`             | `string`                                        | First 6 digits on card.                                             |          |
+| `last4`           | `string`                                        | Last 4 digits on card.                                              |          |
+| `expires`         | `[number,number]`                               | `[month, year]` where month is `1` to `12` and year is `0` to `99`. |          |
+| `scheduled`       | `true`                                          | Indicates that this was a scheduled payment.                        | Yes      |
+| `service`         | `"intergiro"`                                   |                                                                     |          |
+| `status`          | `string`                                        |                                                                     |          |
+| `descriptor`      | `string`                                        | Text on Statement.                                                  | Yes      |
+| `reference`       | `string`                                        | Reference number of the acquirer.                                   |          |
+| `schemeReference` | `string`                                        | Reference number of the payment scheme.                             | Yes      |

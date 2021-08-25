@@ -1,7 +1,7 @@
 # Creating an Order
 
 To create a customer order post an [Order Creatable](../order/reference.html#order) to the order endpoint, 
-the `customer` field must be set to a customer id and the `payment` field must be a [Customer Payment Creatable](../reference/payment.html#customer-payment-creatable).
+the `customer` field must be set to a customer id and the `payment` field must be a [Customer Payment Creatable](./reference.html#customer-payment).
 
 #### Request
 ``` {1}

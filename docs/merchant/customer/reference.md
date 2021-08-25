@@ -87,6 +87,23 @@ Information associated to single use login links for the customer page.
 }
 ```
 
+## Customer Payment
+### Customer Payment Creatable
+| Property    | Type         | Description                                                    | Optional |
+|-------------|--------------|----------------------------------------------------------------|----------|
+| `type`      | `"customer"` |                                                                |          |
+| `schedule`  | `number[]`   | Time in days for which this payment is supposed to be retried. | Yes      |
+| `charge`    | `"auto"`     | On success, this order will be immediately charged.            | Yes      |
+| `scheduled` | `true`       | Indicates that this is a scheduled payment.                    | Yes      |
+
+### Customer Payment
+| Property   | Type                                            | Description                                                    | Optional |
+|------------|-------------------------------------------------|----------------------------------------------------------------|----------|
+| `type`     | `"customer"`                                    |                                                                |          |
+| `schedule` | `number[]`                                      | Time in days for which this payment is supposed to be retried. | Yes      |
+| `charge`   | `"auto"`                                        | On success, this order will be immediately charged.            | Yes      |
+| `due`      | [`DateTime`](../common/reference.html#datetime) | Date specifying when this order is due.                        | Yes      |
+
 ## Subscription
 When creating a subscription, the Creatable Subscription datatype will be used.
 

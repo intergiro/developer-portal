@@ -30,7 +30,7 @@ Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 A successful response will return the updated [`Customer`](./reference.html#customer).
 
 ### Adding funds to Balance
-Adding funds to the balance can be done by sending a [order creatable](../order/reference.html#order) to the order endpoint.
+Adding funds to the balance can be done by sending an [order creatable](../order/reference.html#order) to the order endpoint.
 To charge the balance of a customer, specify the `charge` field of the Customer payment as `"balance"`.
 Once the payment is authorized, it will automatically credit the balance with the total of the payment and [charge](#) the order.
 
