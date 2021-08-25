@@ -1,6 +1,6 @@
 # Change
 
-To change an order use a patch request with with an array where each element contains an id of the order and an array of [Event Creatables](../reference/event.html#creatable) for that changes you want to be made.
+To change an order use a patch request with with an array where each element contains an id of the order and an array of [Event Creatables](./reference.html#event) for that changes you want to be made.
 
 #### Request 
 ``` {1}

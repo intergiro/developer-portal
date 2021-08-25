@@ -51,7 +51,7 @@
 | `items`    | [`number | Item | Item[]`](../common/reference.html#item) |                                                                           |          |
 | `currency` | [`Currency`](../common/reference.html#currency)           |                                                                           |          |
 | `payment`  | [`Card Payment`](./reference.html#card-payment)           | see Payment data type                                                     |          |
-| `event`    | [`Event[]`](./event)                                      | see Event data type                                                       | Yes      |
+| `event`    | [`Event[]`](./reference.html#event)                       | see Event data type                                                       | Yes      |
 | `category` | `"purchase"` or `"withdrawal"`                            | Defaults to "purchase"                                                    | Yes      |
 | `theme`    | `string`                                                  | i.e. "intergiro" or "dark"                                                | Yes      |
 | `meta`     | `any`                                                     | Data used by the merchant.                                                | Yes      |
@@ -87,6 +87,33 @@
     "created": "1970-01-01T12:00:00.001Z"
 }
 ```
+
+## Event
+### Type
+The following are valid types of events: `"cancel"`, `"charge"`, `"defer"`, `"order"`, `"refund" `.
+
+### Creatable
+| Property     | Type                                                      | Description                                                       | Optional |
+|--------------|-----------------------------------------------------------|-------------------------------------------------------------------|----------|
+| `type`       | [`Event.Type`](#type)                                     | The Type of event to be created.                                  |          |
+| `items`      | [`number | Item | Item[]`](../common/reference.html#item) | Amounts or items that are referenced by the event, if applicable. | Yes      |
+| `descriptor` | `string`                                                  | Merchant defined descriptor of the event.                         | Yes      |
+
+### Event
+| Property     | Type                                                      | Description                                                       | Optional |
+|--------------|-----------------------------------------------------------|-------------------------------------------------------------------|----------|
+| `type`       | [`Event.Type`](#Type)                                     | The Type of the event.                                            |          |
+| `items`      | [`number | Item | Item[]`](../common/reference.html#item) | Amounts or items that are referenced by the event, if applicable. | Yes      |
+| `reference`  | `string`                                                  | Reference number of the acquirer.                                 | Yes      |
+| `date`       | [`DateTime`](../common/reference.html#datetime)           | Time of the event creation.                                       | Yes      |
+| `descriptor` | `string`                                                  | Merchant defined descriptor of the event.                         | Yes      |
+
+### Fail Event
+| Property   | Type                                  | Description                         | Optional |
+|------------|---------------------------------------|-------------------------------------|----------|
+| `type`     | `"fail"`                              |                                     |          |
+| `original` | [`Event.Type`](#type)                 | Type of the failed event.           |          |
+| `error`    | [`Error`](../common/error.html#error) | Error that lead to the failed event | Yes      |
 
 ## Card Payment
 
