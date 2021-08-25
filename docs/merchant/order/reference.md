@@ -13,7 +13,7 @@
 | `category` | `"purchase"` or `"withdrawal"`                                                                                                           | Defaults to "purchase"                                     | Yes      |
 | `theme`    | `string`                                                                                                                                 | i.e. "intergiro" or "dark"                                 | Yes      |
 | `meta`     | `any`                                                                                                                                    | Data used by the merchant.                                 | Yes      |
-| `callback` | [`string`](./callback)                                                                                                                   | URL to receive the callbacks.                              | Yes      |
+| `callback` | [`string`](./callback.html#callback)                                                                                                     | URL to receive the callbacks.                              | Yes      |
 
 #### Example
 ``` json
@@ -55,7 +55,7 @@
 | `category` | `"purchase"` or `"withdrawal"`                            | Defaults to "purchase"                                                    | Yes      |
 | `theme`    | `string`                                                  | i.e. "intergiro" or "dark"                                                | Yes      |
 | `meta`     | `any`                                                     | Data used by the merchant.                                                | Yes      |
-| `callback` | [`string`](./callback)                                    | URL to receive the callbacks.                                             | Yes      |
+| `callback` | [`string`](./callback.html#callback)                      | URL to receive the callbacks.                                             | Yes      |
 | `language` | `string`                                                  | Two character language code, i.e. sv for swedish                          | Yes      |
 
 #### Example
