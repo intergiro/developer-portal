@@ -5,16 +5,16 @@
 
 Authorization Creatable
 
-| Property     | Type                                                                 | Description                   | Optional |
-|--------------|----------------------------------------------------------------------|-------------------------------|----------|
-| `number`     | `string`                                                             | has to be a unique identifier |          |
-| `amount`     | `number`                                                             |                               |          |
-| `currency`   | [`Currency`](../common/reference.html#currency)                      |                               |          |
-| `card`       | `Signed JWT` or [`Card.Creatable`](../acquiring/reference.html#card) |                               |          |
-| `descriptor` | `string`                                                             |                               | Yes      |
-| `capture`    | `auto`                                                               |                               | Yes      |
-| `recurring`  | [`Recurring`](./reference.html#recurring)                            |                               | Yes      |
-| `category`   | `"purchase" | "withdrawal"`                                          |                               | Yes      |
+| Property     | Type                                                           | Description                   | Optional |
+|--------------|----------------------------------------------------------------|-------------------------------|----------|
+| `number`     | `string`                                                       | has to be a unique identifier |          |
+| `amount`     | `number`                                                       |                               |          |
+| `currency`   | [`Currency`](../common/reference.html#currency)                |                               |          |
+| `card`       | `Signed JWT` or [`Card.Creatable`](../card-api/reference.html) |                               |          |
+| `descriptor` | `string`                                                       |                               | Yes      |
+| `capture`    | `auto`                                                         |                               | Yes      |
+| `recurring`  | [`Recurring`](./reference.html#recurring)                      |                               | Yes      |
+| `category`   | `"purchase" | "withdrawal"`                                    |                               | Yes      |
 
 ### Authorization
 
@@ -27,7 +27,7 @@ Authorization Creatable
 | `created`    | [`DateTime`](../common/reference.html#datetime)              |                                                 |          |
 | `amount`     | `number`                                                     |                                                 |          |
 | `currency`   | [`Currency`](../common/reference.html#currency)              |                                                 |          |
-| `card`       | [`Card`](../acquiring/reference.html#card)                   |                                                 |          |
+| `card`       | [`Card`](../card-api/reference.html#card)                    |                                                 |          |
 | `descriptor` | `string`                                                     |                                                 | Yes      |
 | `recurring`  | [`Recurring`](reference.html#recurring)                      |                                                 | Yes      |
 | `history`    | `History[]`                                                  |                                                 |          |

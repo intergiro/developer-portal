@@ -24,7 +24,7 @@ On authorization a state first goes through pre-authorization then post-authoriz
 | `verification` | `string`                                        | `"verified"`, `"unavailable"` or `"rejected"`   | Yes      |
 | `recurring`    | [`Recurring`](./reference.html#recurring)       |                                                 | Yes      |
 
-Where `card` field is defined as [`Card`](../acquiring/reference.html#card) except `csc` is optional and if it is set, is only allowed to be set to the string `"present"`.
+Where `card` field is defined as [`Card`](../card-api/reference.html#card) except `csc` is optional and if it is set, is only allowed to be set to the string `"present"`.
 
 ## PostAuthorization
 
@@ -41,7 +41,7 @@ Where `card` field is defined as [`Card`](../acquiring/reference.html#card) exce
 |-------------|-------------------------------------------------|-------------------------------------------------|----------|
 | `amount`    | `number`                                        |                                                 |          |
 | `currency`  | [`Currency`](../common/reference.html#currency) |                                                 |          |
-| `card`      | [`Card`](../acquiring/reference.html#card)      |                                                 |          |
+| `card`      | [`Card`](../card-api/reference.html#card)       |                                                 |          |
 | `created`   | [`DateTime`](../common/reference.html#datetime) |                                                 |          |
 | `number`    | `string`                                        | Number specified by integrator (must be unique) | Yes      |
 | `captured`  | See definition below                            |                                                 | Yes      |
@@ -78,7 +78,7 @@ This Authorization type is a State used for frontend and is not to be confused w
 | `reference`    | `string`                                        | Scheme dependent external reference number      |          |   |
 | `amount`       | `number`                                        |                                                 |          |   |
 | `currency`     | [`Currency`](../common/reference.html#currency) |                                                 |          |   |
-| `card`         | [`Card`](../acquiring/reference.html#card)      |                                                 |          |   |
+| `card`         | [`Card`](../card-api/reference.html#card)       |                                                 |          |   |
 | `descriptor`   | `string`                                        |                                                 | Yes      |   |
 | `recurring`    | [`Recurring`](./reference.html#recurring)       |                                                 | Yes      |   |
 | `verification` | `string`                                        | `"verified"`, `"unavailable"` or `"rejected"`   | Yes      |   |
@@ -132,7 +132,7 @@ This Authorization type is a State used for frontend and is not to be confused w
 | `number`       | `string`                                        | Number specified by integrator (must be unique) |          |
 | `amount`       | `number`                                        |                                                 | Yes      |
 | `currency`     | [`Currency`](../common/reference.html#currency) |                                                 | Yes      |
-| `card`         | [`Card`](../acquiring/reference.html#card)      |                                                 | Yes      |
+| `card`         | [`Card`](../card-api/reference.html#card)       |                                                 | Yes      |
 | `capture`      | `"auto"`                                        |                                                 | Yes      |
 | `descriptor`   | `string`                                        |                                                 | Yes      |
 | `recurring`    | [`Recurring`](./reference.html#recurring)       |                                                 | Yes      |
@@ -143,7 +143,7 @@ This Authorization type is a State used for frontend and is not to be confused w
 | `created`      | [`DateTime`](../common/reference.html#datetime) |                                                 |          |
 
 ## Card
-The Card State has the same definition as [`Card`](./reference.html#card) except `expires` is set to a [`Date`](../common/reference.html#date) instead of `[number, number]`.
+The Card State has the same definition as [`Card`](../card-api/reference.html#card) except `expires` is set to a [`Date`](../common/reference.html#date) instead of `[number, number]`.
 
 ## State Merchant 
 All fields are required.
