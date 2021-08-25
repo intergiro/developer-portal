@@ -2,15 +2,15 @@
 
 | Service                                                            | UI                                             | API                                    |
 |--------------------------------------------------------------------|------------------------------------------------|----------------------------------------|
-| Creating orders for one off relations with your users.             | [Checkout](../../checkout/embed.html)          | [Order](../../order.html)              |
+| Creating orders for one off relations with your users.             | [Checkout](../../checkout/embed.html)          | [Order](../../order/create.html)       |
 | Registering payment options for ongoing relations with your users. | [Onboard](../../customer/registration-ui.html) | [Customer](../../customer/create.html) |
 | Tokenizing sensitive card information to minimize your PCI scope.  | [Card Input](../../card-input/embed.html)      | [Card](../../card-api/create.html)     |
 
-## [Creating orders UI](../../checkout/embed)
+## [Creating orders UI](../../checkout/embed.html)
 Checkout is used for creating orders and authorize payments associated with orders for one off relations. 
 Take a look at [Checkout UI](../../checkout/embed.html) for code examples and a more detailed description, where information about how to customize the component is available under [Checkout Cosmetics](../../checkout/cosmetics.html) and [Checkout Features](../../checkout/features.html).
 
-## [Registering Customers UI](../../customer/registration-ui) 
+## [Registering Customers UI](../../customer/registration-ui.html) 
 The [Intergiro Customer Registration UI](../../customer/registration-ui.html) component lets your users register contact and card information that gets authorized for future payments, such as subscriptions or other recurring payments.
 
 ## Minimize PCI scope

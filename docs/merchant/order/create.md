@@ -1,6 +1,6 @@
 # Create
 
-To create an order post an [Order Creatable](../reference/order.html#order) to the order endpoint. The `payment` field must be a [Card Payment Creatable](../reference/payment.html#card-payment-creatable)
+To create an order post an [Order Creatable](./reference.html#order) to the order endpoint. The `payment` field must be a [Card Payment Creatable](../reference/payment.html#card-payment-creatable)
 
 #### Request
 ``` {1}

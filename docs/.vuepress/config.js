@@ -140,6 +140,7 @@ function getMerchantSidebar() {
         '/merchant/order/create',
         '/merchant/order/change',
         '/merchant/order/list',
+        '/merchant/order/reference',
       ]
     },
     {

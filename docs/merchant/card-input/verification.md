@@ -1,6 +1,6 @@
 # Verification
 
-This section describes how to do 3D Secure using `<intergiro-card-input>`. If you wish to have full control over the 3D Secure process you can build it yourself using the [Verification API](../acquiring/api.html#verification).
+This section describes how to do 3D Secure using `<intergiro-card-input>`. If you wish to have full control over the 3D Secure process you can build it yourself using the [Verification API](../verification/create.html#create).
 
 ## 3D Secure
 Submit a [card token](./embed.html) together with a `verification required` error through the card input to initialize the 3D Secure cycle. This can render an invisible iframe for frictionless flow or a visible ifram that requires user interaction. The 3D Sercure process may require several steps in order to succeed. The response will contain a new verification required error which is to be submitted to card input together with the card token.
@@ -30,7 +30,7 @@ Example of a verification required error.
 ## Order
 How to use card input to create an order and verifying the payment with 3D Secure. 
 - Tokenize the card by submitting to Intergiro Card Input.
-- Put the card in `order.payment.card` in the [order creatable](../reference/order.html#creatable), post to [create order](../order/create.html) endpoint.
+- Put the card in `order.payment.card` in the [order creatable](../order/reference.html#order), post to [create order](../order/create.html#create) endpoint.
 - If the response is a `verification required` error, please submit this error together with the card token to Intergiro Card Input, this will initialize 3D Secure cycle.
 - Post the new card token to the [create order](../order/create.html) endpoint.
 - The last two steps might have to be done multiple times until the response is either an `order` or any error other than `verification required`.

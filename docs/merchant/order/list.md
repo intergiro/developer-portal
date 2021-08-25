@@ -15,4 +15,4 @@ Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 
 #### Response 
 
-The response should be an array of [orders](../reference/order.html#order).
+The response should be an array of [orders](./reference.html#order-2).
