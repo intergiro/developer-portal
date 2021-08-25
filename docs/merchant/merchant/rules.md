@@ -13,7 +13,7 @@ The Rules specified by the key `"master"` are rules set up by the acquirer. A PU
 Only a private or agent bearer token is authorized to make this call.
 
 Example PATCH request:
-``` {1}
+``` {1} JSON
 PATCH /v1/merchant/:id/rule
 
 Host: b2b.intergiro.com
@@ -35,7 +35,7 @@ Authorization: Bearer <private or agent access_token>
 Only an acquirer can make this call (agent access token with id="master").
 
 Example PUT Rule request:
-``` {1}
+``` {1} JSON
 PUT /v1/merchant/:id/rule
 
 Host: b2b.intergiro.com

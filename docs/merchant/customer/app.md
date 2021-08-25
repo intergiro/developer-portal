@@ -37,7 +37,6 @@ POST /v1/customer/:customer_id
 Host: merchant.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <private.api.key>
-
 ```
 
 A successful response will return a Customer API key.

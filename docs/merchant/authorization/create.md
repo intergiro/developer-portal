@@ -3,7 +3,7 @@
 In order to create an [Authorization](./reference.html#authorization), first send a request with the body of the request set as an [Authorization creatable](./reference.html#authorization).
 
 Example Authorization request:
-``` {1}
+``` {1} JSON
 POST /v1/authorization
 
 Host: merchant.intergiro.com
@@ -24,7 +24,7 @@ Authorization: Bearer <access_token>
 
 Example Response:
 
-``` {1}
+``` {1} JSON
 HTTP 200 OK
 
 {
@@ -51,7 +51,7 @@ HTTP 200 OK
 ```
 Sometimes [verification](./reference.html#verification) will be required. The important field to look for is the `error: "verification required"`. 
 Example of a verification required response:
-```{1,15}
+```{1,15} JSON
 HTTP 400 Bad Request
 
 {

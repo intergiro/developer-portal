@@ -5,7 +5,7 @@ This endpoint can also be called with an empty JSON object as body.
 In any case, calling this endpoint will fix deprecated customers with invalid due dates.
 
 #### Request 
-``` {1}
+``` {1} JSON
 PATCH /v1/customer/:customer_id
 
 Host: merchant.intergiro.com

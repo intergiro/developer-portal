@@ -3,7 +3,7 @@
 To create an order post an [Order Creatable](./reference.html#order) to the order endpoint. The `payment` field must be a [Card Payment Creatable](./reference.html#card-payment)
 
 #### Request
-``` {1}
+``` {1} JSON
 POST /v1/order
 
 Host: merchant.intergiro.com
@@ -11,10 +11,10 @@ Content-Type: application/json
 Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 {
 	"items": <number or item information or array of items objects>,
-	"currency": <currency of the transaction>,
+	"currency": "<currency of the transaction>",
 	"payment": {
 		"type": "card"
-        "card": <card JWT>
+        "card": "<card JWT>"
 	}
 }
 ```

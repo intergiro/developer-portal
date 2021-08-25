@@ -13,7 +13,7 @@ Authentication: Bearer <customer.api.key> | Bearer <public.api.key>
 ```
 
 #### Response
-``` 
+``` json
 {
     "scheme": "<card scheme>",
     "iin": "<card iin>",

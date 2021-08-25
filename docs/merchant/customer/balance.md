@@ -8,7 +8,7 @@ In this case just make a simple post request.
 The body of a valid request should either be a strictly positive, nonzero `number`, an [`Item`](../common/reference.html#item) or an array of [`Items`](../common/reference.html#item).
 
 #### Request
-``` {1}
+``` {1} JSON
 POST /v1/customer/:customer_id/balance
 
 Host: merchant.intergiro.com 
@@ -37,7 +37,7 @@ Once the payment is authorized, it will automatically credit the balance with th
 An order that failed authorization will set the Customer status to `"pending"` and retry authorization as specified in [retrying failed customer orders](#).
 
 #### Request
-``` {1}
+``` {1} JSON
 POST /v1/order
 
 Host: merchant.intergiro.com

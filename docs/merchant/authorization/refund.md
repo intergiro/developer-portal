@@ -15,7 +15,7 @@ Authorization: Bearer <access_token>
 ```
 
 Example Response:
-``` {1}
+``` {1} JSON
 HTTP 200 OK
 
 {

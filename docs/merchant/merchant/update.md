@@ -2,7 +2,7 @@
 
 To update the merchant information send a patch with a `Partial<Merchant>` in the body and the merchant id in the url to the merchant endpoint.
 
-``` {1}
+``` {1} JSON
 PATCH /v1/merchant/:id
 
 Host: merchant.intergiro.com

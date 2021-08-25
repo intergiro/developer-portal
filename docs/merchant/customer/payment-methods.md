@@ -5,7 +5,7 @@ A request to this endpoint can either be made with a `"private"` authorization k
 With the `"customer"` authorization key you have to specify `"me"` as the customer id, for `"private"` authorization specify the customer id of the customer you wish to update.
 
 #### Request
-```{1}
+```{1} JSON
 POST /v1/customer/:customer_id/method
 
 Host: merchant.intergiro.com
@@ -13,6 +13,6 @@ Authentication: Bearer <public.api.key> | Bearer <private.api.key>
 
 {
     "type": "token",
-    "card":"<tokenized card information>",
+    "card": "<tokenized card information>",
 }
 ```

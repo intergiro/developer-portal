@@ -2,7 +2,7 @@
 
 In order to create a [Capture](./reference.html#capture), first send a request with the body of the request set as an [Capture creatable](./reference.html#capture).
 
-``` {1}
+``` {1} JSON
 POST /v1/authorization/:id/capture
 
 Host: merchant.intergiro.com
@@ -15,7 +15,7 @@ Authorization: Bearer <access_token>
 ```
 
 Example Response:
-``` {1}
+``` {1} JSON
 HTTP 200 OK
 
 {

@@ -8,7 +8,7 @@ To create a [Card Token](./reference.html#token), post a [Card Creatable](./refe
 - [Customer API](../customer/create.html)
 
 #### Request
-``` {1}
+``` {1} JSON
 POST /v1/card
 
 Host: merchant.intergiro.com

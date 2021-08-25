@@ -5,7 +5,7 @@ A request to this endpoint can either be made with a `"private"` authorization k
 With the `"customer"` authorization key you have to specify `"me"` as the customer id, for `"private"` authorization specify the customer id of the customer you wish to update.
 The body of the request should be a valid [`Contact`](../common/reference.html#contact) data type.
 #### Request
-```{1}
+```{1} JSON
 PUT /v1/customer/:customer_id/contact
 
 Host: merchant.intergiro.com

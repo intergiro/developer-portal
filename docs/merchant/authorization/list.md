@@ -10,7 +10,7 @@ Authorization: Bearer <access_token>
 ```
 
 Example response for succesful cancelation:
-``` {1}
+``` {1} JSON
 HTTP 200 OK
 
 [{

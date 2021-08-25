@@ -9,7 +9,7 @@ If you require any further data from the callback to process the transaction, ad
 Topups are compatible with [customer payments](./create-customer-order.html)
 
 ``` {1}
-POST /v1/order
+POST /v1/order JSON
 
 Host: merchant.intergiro.com
 Content-Type: application/json

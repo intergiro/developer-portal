@@ -10,7 +10,7 @@ The callback has the following structure for a successfull operation:
 POST <callback url>
 Content-Type: "application/jwt; charset=utf-8"
 
-"<signed.order.token>"
+<signed.order.token>
 ```
 
 If the [`order`](./reference.html#order) is not properly created or changed, an [`Error`](../common/error.html#error) will be posted to the callback url with `Content-Type: "application/json; charset=utf-8"`.

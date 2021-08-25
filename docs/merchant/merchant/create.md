@@ -2,7 +2,7 @@
 
 A Intergiro Merchant is created by posting a [Merchant](./reference.html#merchant) without the id property to the merchant endpoint.
 
-``` {1}
+``` {1} JSON
 POST /v1/merchant
 
 Host: merchant.intergiro.com
@@ -59,7 +59,7 @@ Authorization: Bearer <access_token>
 
 Example Response:
 
-``` {1}
+``` {1} JSON
 HTTP 200 OK
 
 {

@@ -4,11 +4,12 @@
 
 #### Request
 To add a subscription make a call to the subscription endpoint. The body can be any valid [`Subscription Creatable`](./reference.html#subscription) Object.
-```{1}
+```{1} JSON
 POST /v1/customer/:customer_id/subscription
 
 Host: merchant.intergiro.com
 Authentication: Bearer <private.api.key> 
+
 {
 	"number": "aaa-001",
 	"items": [
@@ -80,12 +81,13 @@ A `PATCH` request requires a partial [`Subscription Creatable`](./reference.html
 
 In both cases a future "due" date will be replaced by a calculated "due" date. As the backend will not set a "due" date past the "end" date, this endpoint can be used to end a subscription both immediately as well as at a future date. 
 #### Request
-```{1}
+```{1} JSON
 PUT | PATCH /v1/customer/:customer_id/subscription/:subscription_id
 
 Host: merchant.intergiro.com
 Content-Type: application/json
 Authentication: Bearer <private.api.key> 
+
 {
 	"number": "aaa-001",
 	"items": [

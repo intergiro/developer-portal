@@ -4,7 +4,7 @@ To create a customer order post an [Order Creatable](../order/reference.html#ord
 the `customer` field must be set to a customer id and the `payment` field must be a [Customer Payment Creatable](./reference.html#customer-payment).
 
 #### Request
-``` {1}
+``` {1} JSON
 POST /v1/order
 
 Host: merchant.intergiro.com
