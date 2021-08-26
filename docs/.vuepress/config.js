@@ -142,6 +142,7 @@ function getMerchantSidebar() {
         '/merchant/order/list',
         '/merchant/order/callback',
         '/merchant/order/reference',
+        '/merchant/order/postman',
       ]
     },
     {
@@ -182,6 +183,7 @@ function getMerchantSidebar() {
         '/merchant/customer/subscriptions',
         '/merchant/customer/app',
         '/merchant/customer/reference',
+        '/merchant/customer/postman',
       ]
     },
     {
