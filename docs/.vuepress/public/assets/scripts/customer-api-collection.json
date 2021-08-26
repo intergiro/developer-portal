@@ -1,0 +1,934 @@
+{
+    "info": {
+        "_postman_id": "2b08bd8e-4152-40d0-921c-7791520ea5ec",
+        "name": "Customer API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Payment Method Create",
+            "item": [
+                {
+                    "name": "Card Create",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "postman.setEnvironmentVariable(\"cardToken\", responseBody);",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{publicKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"pan\": \"4111111111111111\",\n    \"csc\": \"987\",\n    \"expires\": [\n        \"12\",\n        \"30\"\n    ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/card",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "card"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Payment Method 3D2 Method Request",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"3d method verification error\", function () {",
+                                    "var jsonData = JSON.parse(responseBody)",
+                                    "pm.expect(jsonData.content.details.data.type).to.equal(\"method\")",
+                                    "postman.setEnvironmentVariable(\"methodUrl\", jsonData.content.details.url)",
+                                    "postman.setEnvironmentVariable(\"transactionId\", jsonData.content.details.data.threeDSServerTransID)",
+                                    "",
+                                    "let token = pm.environment.get(\"cardToken\").split(\".\",3)[1]",
+                                    "token = atob(token)",
+                                    "let json = JSON.parse(token)",
+                                    "const methodNotificationUrl = pm.environment.get(\"baseUrl\") + \"/card/\" +",
+                                    "\t\t\t\t\t\t\tjson.enc + json.xpr[0].toString().padStart(2,\"0\") + json.xpr[1].toString().padStart(2,\"0\") + \"/verification?mode=show\"",
+                                    "postman.setEnvironmentVariable(\"methodNotificationUrl\", methodNotificationUrl)",
+                                    "const methodData = btoa(JSON.stringify({",
+                                    "        threeDSServerTransID: jsonData.content.details.data.threeDSServerTransID,",
+                                    "        threeDSMethodNotificationURL: methodNotificationUrl",
+                                    "    })).replace(/\\+/g, '-').replace(/\\//g, '_')",
+                                    "postman.setEnvironmentVariable(\"methodData\", methodData)",
+                                    "pm.expect(typeof methodData == \"string\" && methodData.length > 10)",
+                                    "})"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{privateKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n\t\"type\" : \"token\",\n    \"card\" : \"{{cardToken}}\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/customer/{{customerId}}/method",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "customer",
+                                "{{customerId}}",
+                                "method"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "3D2 method call",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    const methodCallbackData = btoa(JSON.stringify({",
+                                    "        threeDSServerTransID: pm.environment.get(\"transactionId\")",
+                                    "    }))",
+                                    "    postman.setEnvironmentVariable(\"methodCallbackData\", methodCallbackData)",
+                                    "   ",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {
+                            "accept": true
+                        }
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{publicKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "type": "text",
+                                "value": "text/html"
+                            }
+                        ],
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "threeDSMethodData",
+                                    "value": "{{methodData}}",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "",
+                                    "value": "",
+                                    "type": "text",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "",
+                                    "value": "",
+                                    "type": "text",
+                                    "disabled": true
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{methodUrl}}",
+                            "host": [
+                                "{{methodUrl}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "3D2 method html autopost+verification",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    postman.setEnvironmentVariable(\"cardToken\",responseBody)",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {
+                            "accept": true
+                        }
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{publicKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "type": "text",
+                                "value": "text/html"
+                            }
+                        ],
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "threeDSMethodData",
+                                    "value": "{{methodCallbackData}}",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "",
+                                    "value": "",
+                                    "type": "text",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "",
+                                    "value": "",
+                                    "type": "text",
+                                    "disabled": true
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{methodNotificationUrl}}",
+                            "host": [
+                                "{{methodNotificationUrl}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Payment Method 3D2 Challenge Request",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"3d challenge verification error\", function () {",
+                                    "var jsonData = JSON.parse(responseBody);",
+                                    "    pm.expect(jsonData.content.details.data.type).to.equal(\"challenge\")",
+                                    "    const transactionId = jsonData.content.details.data.threeDSServerTransID",
+                                    "    postman.setEnvironmentVariable(\"transactionId\", transactionId)",
+                                    "    postman.setEnvironmentVariable(\"challengeUrl\", jsonData.content.details.url)",
+                                    "",
+                                    "    let token = pm.environment.get(\"cardToken\").split(\".\",3)[1]",
+                                    "    token = atob(token)",
+                                    "    let json = JSON.parse(token)",
+                                    "   ",
+                                    "    const challengeCallbackUrl = pm.variables.get(\"baseUrl\") +",
+                                    "\t\t\t\t\t\t\t\"/card/\" +",
+                                    "\t\t\t\t\t\t\tjson.enc + json.xpr[0].toString().padStart(2,\"0\") + json.xpr[1].toString().padStart(2,\"0\") + \"/verification?mode=show\"",
+                                    "    ",
+                                    "     postman.setEnvironmentVariable(\"challengeCallbackUrl\", challengeCallbackUrl)",
+                                    "    const acsTransactionId = jsonData.content.details.data.acsTransID",
+                                    "     postman.setEnvironmentVariable(\"acsTransactionId\", acsTransactionId)",
+                                    "    const messageVersion = jsonData.content.details.data.messageVersion",
+                                    "    postman.setEnvironmentVariable(\"messageVersion\", messageVersion)",
+                                    "    const challengeMessageType = jsonData.content.details.data.messageType",
+                                    "     postman.setEnvironmentVariable(\"challengeMessageType\", challengeMessageType)",
+                                    "    const challengeWindowSize = jsonData.content.details.data.challengeWindowSize",
+                                    "     postman.setEnvironmentVariable(\"challengeWindowSize\", challengeWindowSize)",
+                                    "    const challengeData = btoa(JSON.stringify({",
+                                    "        threeDSServerTransID: transactionId,",
+                                    "        acsTransID: acsTransactionId,",
+                                    "        messageVersion: messageVersion,",
+                                    "        messageType: challengeMessageType,",
+                                    "        challengeWindowSize: challengeWindowSize,",
+                                    "    })).replace(/\\+/g, '-').replace(/\\//g, '_')",
+                                    "     postman.setEnvironmentVariable(\"challengeData\", challengeData)",
+                                    "    pm.expect(typeof challengeData == \"string\" && challengeData.length > 10)",
+                                    "})"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{privateKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n\t\"type\" : \"token\",\n    \"card\" : \"{{cardToken}}\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/customer/{{customerId}}/method",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "customer",
+                                "{{customerId}}",
+                                "method"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "3D2 Challenge Call",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    const $ = cheerio.load(responseBody);",
+                                    "    const challengeNotificationUrl = ($('form').attr('action'))",
+                                    "    postman.setEnvironmentVariable(\"challengeNotificationUrl\", challengeNotificationUrl)",
+                                    "    pm.expect(typeof challengeNotificationUrl == \"string\" && challengeNotificationUrl.length > 3)",
+                                    "    const transactionId = ($('input[name=\"threeDSServerTransID\"]').val())",
+                                    "    postman.setEnvironmentVariable(\"transactionId\", transactionId)",
+                                    "    console.log(\"transactionId\", transactionId)",
+                                    "    const challengeStatus = ($('input[name=\"challengeStatus\"]').val())",
+                                    "    console.log(\"challengeStatus\", challengeStatus)",
+                                    "    postman.setEnvironmentVariable(\"challengeStatus\", challengeStatus ?? \"pass\")",
+                                    "    const challengeCallbackData = btoa(JSON.stringify({",
+                                    "        threeDSServerTransID: transactionId,",
+                                    "        challengeStatus: challengeStatus  ",
+                                    "    }))",
+                                    "    console.log(\"challengeCallbackData\", challengeCallbackData)",
+                                    "    postman.setEnvironmentVariable(\"challengeCallbackData\", challengeCallbackData)",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{publicKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "creq",
+                                    "value": "{{challengeData}}",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{challengeUrl}}",
+                            "host": [
+                                "{{challengeUrl}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "3D2 Challenge html autopost",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    const $ = cheerio.load(responseBody);",
+                                    "    const challengeEndNotificationUrl = ($('form[id=\"endform\"]').attr('action'))",
+                                    "    pm.expect(typeof challengeEndNotificationUrl == \"string\" && challengeEndNotificationUrl.length > 3)",
+                                    "    postman.setEnvironmentVariable(\"challengeEndNotificationUrl\", challengeEndNotificationUrl)",
+                                    "    const challengeCallbackData = ($('input[name=\"cres\"]').val())",
+                                    "    postman.setEnvironmentVariable(\"challengeCallbackData\", challengeCallbackData)",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{publicKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "cres",
+                                    "value": "{{challengeCallbackData}}",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "challengeStatus",
+                                    "value": "{{challengeStatus}}",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "threeDSServerTransID",
+                                    "value": "{{transactionId}}",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{challengeNotificationUrl}}?cres={{challengeCallbackData}}&challengeStatus={{challengeStatus}}&threeDSServerTransID={{transactionId}}",
+                            "host": [
+                                "{{challengeNotificationUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "cres",
+                                    "value": "{{challengeCallbackData}}"
+                                },
+                                {
+                                    "key": "challengeStatus",
+                                    "value": "{{challengeStatus}}"
+                                },
+                                {
+                                    "key": "threeDSServerTransID",
+                                    "value": "{{transactionId}}"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "3D2 challenge html verification",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    postman.setEnvironmentVariable(\"cardToken\",responseBody)",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{publicKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "cres",
+                                    "value": "{{challengeCallbackData}}",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{challengeCallbackUrl}}",
+                            "host": [
+                                "{{challengeCallbackUrl}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Payment Method Create",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{privateKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n\t\"type\" : \"token\",\n    \"card\" : \"{{cardToken}}\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/customer/{{customerId}}/method",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "customer",
+                                "{{customerId}}",
+                                "method"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Get",
+            "item": [
+                {
+                    "name": "Get by ID",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{privateKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/customer/{{customerId}}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "customer",
+                                "{{customerId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List all",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{privateKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/customer",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "customer"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Subscription",
+            "item": [
+                {
+                    "name": "Subscription Create",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "var jsonData = JSON.parse(responseBody);",
+                                    "postman.setEnvironmentVariable(\"subscriptionId\", jsonData[jsonData.length -1].id);",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{privateKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"items\": 50,\n    \"currency\": \"EUR\",\n    \"schedule\": \"monthly\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/customer/{{customerId}}/subscription",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "customer",
+                                "{{customerId}}",
+                                "subscription"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Subscription Change",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{privateKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"items\": {\n        \"price\": 50,\n        \"quantity\": 2\n    },\n    \"end\": \"2030-09-22\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/customer/{{customerId}}/subscription/{{subscriptionId}}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "customer",
+                                "{{customerId}}",
+                                "subscription",
+                                "{{subscriptionId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Subscription Cancel",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{privateKey}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/customer/{{customerId}}/subscription/{{subscriptionId}}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "customer",
+                                "{{customerId}}",
+                                "subscription",
+                                "{{subscriptionId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Customer Create",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "var jsonData = JSON.parse(responseBody);",
+                            "postman.setEnvironmentVariable(\"customerId\", jsonData.id);",
+                            ""
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{publicKey}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"method\": []\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/customer",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "customer"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Customer Contact Set",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{privateKey}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"number\": \"example-customer-number\",\n    \"name\": {\n        \"first\": \"example\",\n        \"last\": \"name\"\n    },\n    \"type\": \"person\",\n    \"email\": \"example@email.com\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/customer/{{customerId}}/contact",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "customer",
+                        "{{customerId}}",
+                        "contact"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Customer Key Create",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "var jsonData = JSON.parse(responseBody);",
+                            "postman.setEnvironmentVariable(\"customerId\", jsonData.id);",
+                            ""
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{privateKey}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/customer/{{customerId}}",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "customer",
+                        "{{customerId}}"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Customer Order",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{privateKey}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"items\": 10,\n    \"customer\": \"{{customerId}}\",\n    \"currency\": \"EUR\",\n    \"payment\": {\n        \"type\": \"customer\"\n    }\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/order",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "order"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}

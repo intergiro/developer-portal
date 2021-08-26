@@ -21,7 +21,8 @@ It can either be integrated in an existing web application or be used in native 
     <header><h1>Customer Registration</h1></header>
     <main>
         <form action="done" method="get">
-            <intergiro-customer-registration number="<your-customer-number>" api-key="<public-api-key>">
+            <intergiro-customer-registration 
+              api-key="<public-api-key>">
             </intergiro-customer-registration>
 	    </form>
     </main>
@@ -30,7 +31,7 @@ It can either be integrated in an existing web application or be used in native 
 ```
 A fully working example is available on [GitHub](https://github.com/payfunc/onboard-example).
 
-<img :src="$withBase('/assets/img/merchant/customer-registration.jpg')" alt="Customer Registration">
+<img :src="$withBase('/assets/img/merchant/customer-registration.png')" alt="Customer Registration">
 
 Inside the form text-input field can also be used with the property `name` set to `"name"`, `"email"` and `"phone"` to set contact information.
 ```html
@@ -43,7 +44,7 @@ Inside the form text-input field can also be used with the property `name` set t
 </form>
 ```
 
-<img :src="$withBase('/assets/img/merchant/customer-registration-w-contact.jpg')" alt="Customer Registration">
+<img :src="$withBase('/assets/img/merchant/customer-registration-w-contact.png')" alt="Customer Registration">
 
 Once the user has entered their card information and successfully performed the 3D Secure authentication the form will be submitted with the following data in the `customer` field.
 
@@ -66,7 +67,7 @@ Once the user has entered their card information and successfully performed the 
 
 ## Adding Payment Methods
 To implement onboarding for an already existing Customer, implement the onboarding dialog in the same way as the registration dialog for creating a customer.
-Only change the `<intergiro-customer-registration>` html to specify the customer as a stringified [`Customer`](../reference/customer.html#customer) object instead of specifying the number field.
+Only change the `<intergiro-customer-registration>` html to specify the customer as a stringified [`Customer`](./reference.html#customer) object instead of specifying the number field.
 
 ```html
 <intergiro-customer-registration

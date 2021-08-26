@@ -1,15 +1,15 @@
 # Create
 
-To create a card token post an [Card Creatable](../../integrate/acquiring/reference.html#creatable-5) to the card endpoint. The card token generated can be used together with: 
+To create a [Card Token](./reference.html#token), post a [Card Creatable](./reference.html#card-creatable) to the card endpoint. The card token generated can be used together with: 
 
-- [Order API](../order/create)
-- [Authorization API](../../integrate/acquiring/api#authorization)
-- [Verification API](../../integrate/acquiring/api#verification)
-- [Customer API](../customer/create)
+- [Order API](../order/create.html)
+- [Authorization API](../authorization/create.html)
+- [Verification API](../verification/create.html)
+- [Customer API](../customer/create.html)
 
 #### Request
-``` {1}
-POST /card
+``` {1} JSON
+POST /v1/card
 
 Host: merchant.intergiro.com
 Content-Type: application/json
@@ -25,3 +25,4 @@ Authentication: Bearer <customer.api.key> | Bearer <public.api.key>
 ```json
 <signed.card.token>
 ```
+

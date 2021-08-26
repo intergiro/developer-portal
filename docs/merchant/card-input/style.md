@@ -17,14 +17,14 @@ The layout parameter is optional and has three possible values: standard, row or
 ### Row
 
 ```html
-<intergiro-card-input api-key="<public.api.key>" layout="standard"></intergiro-card-input>
+<intergiro-card-input api-key="<public.api.key>" layout="row"></intergiro-card-input>
 ```
 <img :src="$withBase('/assets/img/merchant/card-input/row.png')" alt="Row">
 
 ### Column
 
 ```html
-<intergiro-card-input api-key="<public.api.key>" layout="standard"></intergiro-card-input>
+<intergiro-card-input api-key="<public.api.key>" layout="column"></intergiro-card-input>
 ```
 
 <img :src="$withBase('/assets/img/merchant/card-input/column.png')" alt="Column">
@@ -42,54 +42,54 @@ The cosmetic parameter should be set to a JSON or a stringified JSON as describe
 		"text": {"background": "#e7e7e7", "color": "black"}, 
 		"border": {"width": "1px", "radius": "5px", "color": "#000", "style": "solid"},
 		"background": "white",
-		"fontFamily": "Arial, Verdana",
-		"dangerColor": "#de4747"
+		"font_family": "Arial, Verdana",
+		"danger_color": "#de4747"
 	}'>
 </intergiro-card-input>
 ```
 ### Fonts
-The fontFamily field can consist of several fonts and are separated by comma. The property `text.color` changes the text color.
+The font_family field can consist of several fonts and are separated by comma. The property `text.color` changes the text color.
 ``` html
 <intergiro-card-input
   api-key="<public-api-key>"
   cosmetic='{ 
         "text": {"color": "#566c68"},
-		"fontFamily": "Arial, Verdana",
+		"font_family": "Arial, Verdana",
 	}'>
 </intergiro-card-input>
 ```
 
 ### Borders
 The borders inside the component can be changed with four parameters.
-- `"width"` can be set to pixels (px) or em values. Changes the witdh of the borders.
-- `"radius"` can be set to pixels (px) or em values. Changes the "roundness" of the corners.
-- `"color"` can be set to rgb or hex vales. Changes the color of the borders.
-- `"style"` can be set to `"dotted"`, `"dashed"`, `"solid"`, `"double"`, `"groove"`, `"ridge"`, `"inset"`, `"outset"`, `"none"` or `"hidden"`. Changes the border effect.
+- `"width"` Changes the witdh of the borders.
+- `"radius"` Changes the "roundness" of the corners.
+- `"color"` Changes the color of the borders (not compatible with alpha values). 
+- `"style"` Changes the border style.
 
 ``` JSON
 cosmetic='{"border": {"width": "1px", "radius": "5px", "color": "#000", "style": "solid"}}'
 ```
 ### Gap
-To change the distance between the input fields the `"gap"` parameter can be used with either pixel (px) or em values.
+To change the distance between the input fields the `"gap"` parameter can be used with all units of length allowed by css.
 
 ```JSON
 cosmetic='{"gap": "1em"}'
 ```
 
 ### Colors
-Colors should be specified in rgb or hex values.
+Colors should be specified in rgb, color names, hsl or hex values without alpha values.
 
 - The text color is changed through the `"text.color"` property.
 - The background color is changed through the `"text.background"` property.
 - The border color is changed through the `"border.color"` property.
-- The color of the error symbol is changed through the `"dangerColor"` property.
+- The color of the error symbol is changed through the `"danger_color"` property.
 
  ``` JSON
-cosmetic='{"dangerColor": "#de4747"}'
+cosmetic='{"danger_color": "#de4747"}'
 ```
 or 
  ``` JSON
-cosmetic='{"dangerColor": "222, 71, 71"}'
+cosmetic='{"danger_color": "222, 71, 71"}'
 ```
 
 ### Example 1
@@ -102,8 +102,8 @@ cosmetic='{"dangerColor": "222, 71, 71"}'
 		"gap": "0.2em", 
 		"text": {"background": "#ccfff0", "color": "#566c68"}, 
 		"border": {"radius": "10px", "style": "none"},
-		"fontFamily": "Ubuntu",
-		"dangerColor": "#de4747"
+		"font_family": "Ubuntu",
+		"danger_color": "#de4747"
 	    }' 
     layout="row">
 </intergiro-card-input>
@@ -117,8 +117,8 @@ cosmetic='{"dangerColor": "222, 71, 71"}'
 	cosmetic='{
 	    "text": {"background": "#fff8d9", "color": "#202020"}, 
 	    "border": {"width": ".5px", "radius": "0px", "color": "#e9d789", "style": "solid"},
-	    "fontFamily": "Georgia",
-	    "dangerColor": "#de4747"
+	    "font_family": "Georgia",
+	    "danger_color": "#de4747"
 	    }' 
 	layout="standard">
 </intergiro-card-input>
@@ -134,8 +134,8 @@ cosmetic='{"dangerColor": "222, 71, 71"}'
         "gap": "0.3em", 
         "text": {"background": "#e7e7e7", "color": "black"}, 
         "border": {"width": "1px", "radius": "5px", "color": "#000", "style": "solid"},
-        "fontFamily": "Arial, Verdana",
-        "dangerColor": "#de4747"
+        "font_family": "Arial, Verdana",
+        "danger_color": "#de4747"
     }' 
     layout="column">
 </intergiro-card-input>

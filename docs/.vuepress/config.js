@@ -45,7 +45,6 @@ module.exports = {
           { text: 'Card programmes', link: '/integrate/card-programmes/' },
           { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
           { text: 'Payment gateway', link: '/integrate/payment-gateway/' },
-          // { text: 'Acquiring', link: '/integrate/acquiring/' },
           { text: 'API reference', link: 'https://b2b.intergiro.com/v3/docs' },
         ]
       },
@@ -55,12 +54,16 @@ module.exports = {
         link: '/merchant/',
         items: [
           { text: 'Integration Guide', link: '/merchant/integration-guide/introduction' },
-          { text: 'Card Input UI', link: '/merchant/card-input/embed' },
           { text: 'Checkout UI', link: '/merchant/checkout/embed' },
-          { text: 'Order API', link: '/merchant/customer/create' },
+          { text: 'Order API', link: '/merchant/order/create' },
+          { text: 'Card Input UI', link: '/merchant/card-input/embed' },
+          { text: 'Card API', link: '/merchant/card-api/create' },
           { text: 'Customer API', link: '/merchant/customer/registration-ui' },
-          { text: 'Reference', link: '/merchant/reference/customer' },
-          { text: 'Customer Page', link: '/merchant/customer-page/' },
+          { text: 'Authorization', link: '/merchant/authorization/create' },
+          { text: 'Settlement', link: '/merchant/settlement/list' },
+          { text: 'Verification', link: '/merchant/verification/create' },
+          { text: 'Merchant', link: '/merchant/merchant/create' },
+          { text: 'Common References', link: '/merchant/common/reference' }
         ]
       },
       { text: 'Business banking', link: '/direct/' },
@@ -72,9 +75,7 @@ module.exports = {
       '/integrate/embedded-finance/': getIntegrateSidebar(),
       '/integrate/card-programmes/': getIntegrateSidebar(),
       '/integrate/payment-gateway/': getIntegrateSidebar(),
-      // '/integrate/acquiring/': getIntegrateSidebar(),
       '/merchant/': getMerchantSidebar(),
-      '/merchant/customer-page/': getMerchantSidebar(),
       '/direct/': [
         '',
       ],
@@ -108,17 +109,6 @@ function getIntegrateSidebar() {
     '/integrate/embedded-finance/',
     '/integrate/card-programmes/',
     '/integrate/payment-gateway/',
-    // {
-    //   title: 'Acquiring',
-    //   collapsable: false,
-    //   children: [
-    //     '/integrate/acquiring/introduction',
-    //     '/integrate/acquiring/api',
-    //     '/integrate/acquiring/reference',
-    //     '/integrate/acquiring/rules',
-    //     '/integrate/acquiring/states',
-    //   ]
-    // },
   ]
 }
 function getMerchantSidebar() {
@@ -150,6 +140,9 @@ function getMerchantSidebar() {
         '/merchant/order/create',
         '/merchant/order/change',
         '/merchant/order/list',
+        '/merchant/order/callback',
+        '/merchant/order/reference',
+        '/merchant/order/postman',
       ]
     },
     {
@@ -166,10 +159,14 @@ function getMerchantSidebar() {
       collapsable: false,
       children: [
         '/merchant/card-api/create',
+        '/merchant/card-api/update',
+        '/merchant/card-api/get',
+        '/merchant/card-api/postman',
+        '/merchant/card-api/reference',
       ]
     },
     {
-      title: 'Customer API',
+      title: 'Customer',
       collapsable: false,
       children: [
         '/merchant/customer/registration-ui',
@@ -177,23 +174,70 @@ function getMerchantSidebar() {
         '/merchant/customer/create-api-key',
         '/merchant/customer/create-order',
         '/merchant/customer/balance',
-        '/merchant/customer/change',
-        '/merchant/customer/change-contact-information',
-        '/merchant/customer/fetch',
+        '/merchant/customer/update-details',
+        '/merchant/customer/update-contact-information',
+        '/merchant/customer/get',
         '/merchant/customer/list',
-        '/merchant/customer/create-page-login',
+        '/merchant/customer/create-app-login',
         '/merchant/customer/payment-methods',
         '/merchant/customer/subscriptions',
+        '/merchant/customer/app',
+        '/merchant/customer/reference',
+        '/merchant/customer/postman',
       ]
     },
     {
-      title: 'Reference',
+      title: 'Authorization',
       collapsable: false,
       children: [
-        '/merchant/reference/customer',
-        '/merchant/reference/subscription'
+        '/merchant/authorization/create',
+        '/merchant/authorization/capture',
+        '/merchant/authorization/cancel',
+        '/merchant/authorization/refund',
+        '/merchant/authorization/states',
+        '/merchant/authorization/list',
+        '/merchant/authorization/get',
+        '/merchant/authorization/reference',
+        '/merchant/authorization/postman',
       ]
     },
-    '/merchant/customer-page'
+    {
+      title: 'Settlement',
+      collapsable: false,
+      children: [
+        '/merchant/settlement/list',
+        '/merchant/settlement/reference',
+      ]
+    },
+    {
+      title: 'Verification',
+      collapsable: false,
+      children: [
+        '/merchant/verification/create',
+        '/merchant/verification/reference',
+        '/merchant/verification/postman',
+      ]
+    },
+    {
+      title: 'Merchant',
+      collapsable: false,
+      children: [
+        '/merchant/merchant/create',
+        '/merchant/merchant/update',
+        '/merchant/merchant/get',
+        '/merchant/merchant/rules',
+        '/merchant/merchant/list',
+        '/merchant/merchant/reference',
+        '/merchant/merchant/postman',
+      ]
+    },
+    {
+      title: 'Common',
+      collapsable: false,
+      children: [
+        '/merchant/common/reference',
+        '/merchant/common/error',
+      ]
+    },
   ]
 }

@@ -5,11 +5,11 @@ Adding items to Balance, Adding funds to the Balance and settling the Balance.
 ### Adding items to Balance
 If a customer pays for an item with their balance, you can add that item to the balance using the customer-balance-item endpoint. 
 In this case just make a simple post request. 
-The body of a valid request should either be a strictly positive, nonzero `number`, an [`Item`](../../integrate/acquiring/reference.html#item) or an array of [`Items`](../../integrate/acquiring/reference.html#item).
+The body of a valid request should either be a strictly positive, nonzero `number`, an [`Item`](../common/reference.html#item) or an array of [`Items`](../common/reference.html#item).
 
 #### Request
-``` {1}
-POST /v1/customer/<customerId>/balance
+``` {1} JSON
+POST /v1/customer/:customer_id/balance
 
 Host: merchant.intergiro.com 
 Conent-Type: application/json
@@ -27,17 +27,17 @@ Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 ```
 
 #### Response
-A successful response will return the updated [`Customer`](../reference/customer.html#customer).
+A successful response will return the updated [`Customer`](./reference.html#customer).
 
 ### Adding funds to Balance
-Adding funds to the balance can be done by sending a [order creatable](../reference/order.html#order) to the order endpoint.
+Adding funds to the balance can be done by sending an [order creatable](../order/reference.html#order) to the order endpoint.
 To charge the balance of a customer, specify the `charge` field of the Customer payment as `"balance"`.
 Once the payment is authorized, it will automatically credit the balance with the total of the payment and [charge](#) the order.
 
 An order that failed authorization will set the Customer status to `"pending"` and retry authorization as specified in [retrying failed customer orders](#).
 
 #### Request
-``` {1}
+``` {1} JSON
 POST /v1/order
 
 Host: merchant.intergiro.com
@@ -48,7 +48,7 @@ Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
     "number": "your order identifier",
     "items": "<Item or number indicating the charge to the balance>",
     "currency": "<Currency 3 digit identifier>",
-    "customer": "<customerIdentifier>",
+    "customer": "<customer_id>",
     "payment": {
         "type": "customer",
         "charge": "balance"
@@ -75,7 +75,7 @@ A failed payment will retry authorization as specified in [`retrying failed cust
 #### Request
 
 ```{1}
-DELETE /v1/customer/<customerId>/balance
+DELETE /v1/customer/:customer_id/balance
 
 Host: merchant.intergiro.com
 Authentication: Bearer <customer.api.key> | Bearer <private.api.key>

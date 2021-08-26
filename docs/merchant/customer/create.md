@@ -2,8 +2,8 @@
 
 We strongly recommend creating customers by integrating [Customer Registration](./registration-ui.html#registration-ui). 
 However creating a customer can also be done via a call to the customer creation endpoint.
-When integrating through the endpoint the customer can be initialized with [`Contact information`](../../integrate/acquiring/reference.html#contact) 
-and [`payment methods`](./customer-methods.html#customer-methods) if you already have tokenized card information. Otherwise [Card Input](../card-input/embed) can be used to generate a card token.
+When integrating through the endpoint a customer can be initialized with [`Contact information`](../common/reference.html#contact) 
+and a [`payment method`](./payment-methods.html) with a tokenized card. [Card Input](../card-input/embed.html) can be used to generate a card token.
 
 #### Request
 ``` HTTP {1}
@@ -21,7 +21,7 @@ Authentication: Bearer <public.api.key | private.api.key>
       "type": "token",
       "client": {
         "browser": {
-          "colorDepth": 24,
+          "color_depth": 24,
           "resolution": [
             2560,
             1440
@@ -47,16 +47,22 @@ Authentication: Bearer <public.api.key | private.api.key>
 {
   "id": "<Intergiro customer identifier>",
   "number": "<your customer number>",
-  "customer": <contact information>,
+  "contact": <contact information>,
   "method": [<payment method>],
   "status": "<Customer Status>",
+  "total": <Customer Balance>,
   "schedule": "<customer payment schedule>",
   "currency": "<customer currency>"
 }
 ```
 ``` JSON
 {
+  "id": "SMmmIYXgLFTgE8qW",
   "number": "customer-number-001",
+  "contact": {
+    "name": "Joe Smith",
+    "email": "joe.smith@example.com"
+  },
   "method": [
     {
       "type": "card",
@@ -72,15 +78,10 @@ Authentication: Bearer <public.api.key | private.api.key>
       "token": "<card.token>"
     }
   ],
-  "contact": {
-    "name": "Joe Smith",
-    "email": "joe.smith@example.com"
-  },
   "status": "active",
   "total": 0,
   "balance": [],
-  "currency": "SEK",
   "schedule": "monthly",
-  "id": "SMmmIYXgLFTgE8qW"
+  "currency": "SEK"
 }
 ```

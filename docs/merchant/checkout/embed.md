@@ -1,6 +1,18 @@
-# Embedable Component
+# Embeddable Component
 
-The Intergiro Checkout component can tokenize cards, handle 3d Secure and create orders. Below is a simple example of how to implement and how it will display.
+The Intergiro Checkout component can tokenize cards, handle 3d Secure and create orders.
+
+The attributes to Intergiro Checkout.
+| Field       | Type                                                                                           | Description                       |
+|-------------|------------------------------------------------------------------------------------------------|-----------------------------------|
+| `currency`  | [`Currency`](../common/reference.html#currency)                                                | Currency of the order             |
+| `items`     | `number`, [`Item`](../common/reference.html#item) or [`Item[]`](../common/reference.html#item) | Amount or items ordered           |
+| `api-key`   | `<public.api.key>`                                                                             |                                   |
+| `features`  | `"contact" | "transfer" | "contact transfer"`                                                  | See [`features`](./features.html) |
+| `cosmetics` | [`Cosmetics`](./cosmetic.html)                                                                 |                                   |
+| `number`    | `string`                                                                                       | order number                      |
+
+ Below is a simple example of how to implement and how it will display.
 
 ``` html
 <!DOCTYPE html>
@@ -15,8 +27,8 @@ The Intergiro Checkout component can tokenize cards, handle 3d Secure and create
 <body style="width: 100%; max-width: 20em; margin-left: auto; margin-right: auto;">
 	<main>
 		<form action="<url-to-done-page>" method="get">
-			<payfunc-checkout items=150 currency="EUR" api-key="<public.api.key>">
-			</payfunc-checkout>
+			<intergiro-checkout items=150 currency="EUR" api-key="<public.api.key>">
+			</intergiro-checkout>
 		</form>
 	</main>
 </body>
