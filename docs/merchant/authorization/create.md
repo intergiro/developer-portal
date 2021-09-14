@@ -49,7 +49,9 @@ HTTP 200 OK
 	},
 }
 ```
-Sometimes [verification](../verification/create.html#create) will be required. The important field to look for is the `error: "verification required"`. 
+
+If a verification required error is returned, proceed to the [verification](../verification/create.html#create) endpoint. The important field to look for is the `error: "verification required"`. 
+
 Example of a verification required response:
 ```{1,15} JSON
 HTTP 400 Bad Request

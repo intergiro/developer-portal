@@ -11,7 +11,7 @@ Public API-keys are used to create new orders, new customers and new card tokens
 The public API-key is safe to use in the browser of your consumers.
 
 ## Private API-keys
-Private API-keys are the most potent API-key and let’s you do everything available in the API. 
+
 Private API-keys should be protected and only be used on systems you trust. 
 Private API-keys can among other things be used to list all your orders and charge, cancel and refund orders.
 
