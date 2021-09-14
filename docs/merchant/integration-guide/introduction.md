@@ -25,3 +25,5 @@ Don't sweat it, you can start somewhere and change solution step by step.
 - Standard UI: A complete solution with our UI components.
 - Custom UI: If you want to build your own UI, including some or none of our UI components.
 - Minimize PCI scope: avoid handling card information.
+
+All endpoints uses JWT tokens for authentication ([Read more here](./authentication.html)).
