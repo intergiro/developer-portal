@@ -12,7 +12,7 @@ Authorization Creatable
 | `currency`   | [`Currency`](../common/reference.html#currency)                |                               |          |
 | `card`       | `Signed JWT` or [`Card.Creatable`](../card-api/reference.html) |                               |          |
 | `descriptor` | `string`                                                       |                               | Yes      |
-| `capture`    | `auto`                                                         |                               | Yes      |
+| `capture`    | `"auto"`                                                       |                               | Yes      |
 | `recurring`  | [`Recurring`](./reference.html#recurring)                      |                               | Yes      |
 | `category`   | `"purchase" | "withdrawal"`                                    |                               | Yes      |
 
