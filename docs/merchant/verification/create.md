@@ -68,12 +68,12 @@ HTTP 400 Bad Request
 \
 <img :src="$withBase('/assets/img/merchant/verification/3dflow.png')" alt="3dsecure">
 
-If a verification error is returned, a frontend iframe has to be rendered based on the data in the verification error as specified in the Frontend iframe section. During one verification cycle this may have to be done several times.
+If a verification error is returned, a frontend iframe has to be rendered based on the data in the verification error as specified in the Frontend iframe section below. During one verification cycle this may have to be done several times.
 
 ### Frontend iframe
 
 A frontend iframe is rendered in the cardholder browser, for the purpose of authentication.
-The details in the verification error specifies how the iframe should be rendered. Whether the iframe should be rendered visible or not is determined by the visible property of the details in the verification error response. Inside the iframe there must be a form that posts the data to the url specified in the verification error response with the HTML iframe as the target. How the data should be added to the form depends on the type.
+The details in the verification error specifies how the iframe should be rendered. Whether the iframe should be rendered visible or not is determined by the `visible` property of the details in the verification error response. Inside the iframe there must be a form that posts the data to the url specified in the verification error response with the HTML iframe as the target. How the data should be added to the form depends on the type.
 
 ### Method
 ``` JSON
@@ -87,9 +87,9 @@ The details in the verification error specifies how the iframe should be rendere
   }
 }
 ```
-Example of the details of the verification response with type method.
+Example of the `details` in the verification response with type method.
 
-Stringify the json including the threeDSServerTransID and a Requestor callback URL. The callback URL has to match the target field that you specify in the verification creatable. Then base Base-64-URL encode the data and add it to the input field `threeDSMethodData`.
+Stringify the json including the threeDSServerTransID and a Requestor callback URL. The callback URL has to match the target field that you specify in the verification creatable. Then Base-64-URL encode the data and add it to the input field `threeDSMethodData`.
 
 ``` JSON
 {
@@ -104,13 +104,12 @@ When the 3DS Method is finished, the hidden iframe will HTTP POST a form to the 
 The POST body will contain the value threeDSMethodData, which can be used to identify the request.
 
 ``` JS
-threeDSMethodData=eyJ0aHJlZURTTWV0aG9kRGF0YSI6ICJkNDYxZjEwNS0xNzkyLTQwN2YtOTVmZi05YTQ5NmZkOT
-                  E4YTkifQ
+threeDSMethodData=eyJ0aHJlZURTTWV0aG9kRGF0YSI6ICJkNDYxZjEwNS0xNzkyLTQwN2YtOTVmZi05YTQ5NmZkOTE4YTkifQ
 ```
 Example of a Method response
 
 ### Challenge
-Stringify a json including everything from the data except the type. Then Base-64-URL encode the data and add it to the input field `creq`.
+Stringify a json including everything from the data in the details except the type. Then Base-64-URL encode the data and add it to the input field `creq`.
 
 ``` JSON
 {
