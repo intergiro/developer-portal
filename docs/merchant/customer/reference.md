@@ -3,7 +3,7 @@
 ## Customer
 
 When creating a Customer, the “Customer Creatable” datatype is used. 
-In the response from the endpoint an object of the Customer data type will be returned.
+In the response from the endpoint, an object of the Customer data type will be returned.
 
 ### Creatable
 If you do not specify a currency when creating a customer, it will default to swedish crowns "SEK". 
