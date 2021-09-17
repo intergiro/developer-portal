@@ -73,7 +73,7 @@ If a verification error is returned, a frontend iframe has to be rendered based 
 ### Frontend iframe
 
 A frontend iframe is rendered in the cardholder browser, for the purpose of authentication.
-The details in the verification error specifies how the iframe should be rendered. Whether the iframe should be rendered visible or not is determined by the `visible` property of the details in the verification error response. Inside the iframe there must be a form that posts the data to the url specified in the verification error response with the HTML iframe as the target. How the data should be added to the form depends on the type.
+The `details` in the verification error specifies how the iframe should be rendered. Whether the iframe should be rendered visible or not is determined by the `visible` property of the `details` in the verification error response. Inside the iframe there must be a form that posts the data to the url specified in the verification error response with the HTML iframe as the target. How the data should be added to the form depends on the type.
 
 ### Method
 ``` JSON
@@ -126,7 +126,7 @@ Stringify a json including everything from the data in the details except the ty
   }
 }
 ```
-Example of the details of the verification response with type challenge.
+Example of the `details` in the verification response with type challenge.
 
 The iframe will post the challenge response to the URL specified in the verification creatable target field.
 
