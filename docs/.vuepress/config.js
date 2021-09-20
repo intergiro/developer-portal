@@ -119,6 +119,8 @@ function getMerchantSidebar() {
       children: [
         '/merchant/integration-guide/introduction',
         '/merchant/integration-guide/psp/api',
+        '/merchant/integration-guide/acquiring/api',
+        '/merchant/integration-guide/authentication',
         // '/merchant/integration-guide/balance',
         // '/merchant/integration-guide/create-top-up-payment',
       ]

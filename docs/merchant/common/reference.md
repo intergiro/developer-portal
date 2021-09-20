@@ -19,7 +19,7 @@ String written as `"YYYY-MM-DD"`, e.g. `"2021-12-31"`.
 
 ## DateTime 
 
-String formated as `"YYYY-MM-DDThh:mm:ss"`, e.g. `"2020-12-31T23:59:59"`.
+String formated as `"YYYY-MM-DDThh:mm:ss.fffK"`, e.g. `"2020-12-31T23:59:59.999Z"`.
 
 ## Scheme
 

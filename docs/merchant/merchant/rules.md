@@ -56,13 +56,13 @@ A Rule is a string that can be parsed and divided into the folloing parts.
 
 - `action` is as of yet limited to `"reject"`.
 - `operation` can be set as `"authorization"`, `"capture"`, `"refund"` or `"void"`.
-- `condition` is a boolean expression, created using information from either a [Pre-](./states.html#preauthorization) or [PostAuthorization](./states.html#postauthorization).
+- `condition` is a boolean expression, created using information from either a [Pre-](../authorization/states.html#preauthorization) or [PostAuthorization](../authorization/states.html#postauthorization).
 
 Example rule:
 
 `"reject capture if merchant.captured > 250000"`
 
-A rule always applies to a [state](./states.html). An `"authorization"` operation is applied to the [PreAuthorization State](./states.html#preauthorization), e.g. The Rule `"reject authorization if merchant.captured > 250000"` will be used to possibly reject an authorization attempt. Whereas, all other operations (`"capture"`, `"refund"` and `"void"`) are applied to the [PostAuthorization State](./states.html#postauthorization).
+A rule always applies to an [authorization state](../authorization/states.html). An `"authorization"` operation is applied to the [PreAuthorization State](../authorization/states.html#preauthorization), e.g. The Rule `"reject authorization if merchant.captured > 250000"` will be used to possibly reject an authorization attempt. Whereas, all other operations (`"capture"`, `"refund"` and `"void"`) are applied to the [PostAuthorization State](../authorization/states.html#postauthorization).
 
 ### Condition
 

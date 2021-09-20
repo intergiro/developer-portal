@@ -24,7 +24,7 @@ On authorization a state first goes through pre-authorization then post-authoriz
 | `verification` | `string`                                        | `"verified"`, `"unavailable"` or `"rejected"`   | Yes      |
 | `recurring`    | [`Recurring`](./reference.html#recurring)       |                                                 | Yes      |
 
-Where `card` field is defined as [`Card`](../card-api/reference.html#card) except `csc` is optional and if it is set, is only allowed to be set to the string `"present"`.
+The `card` field is defined as [`Card`](../card-api/reference.html#card) except `csc` is optional and if it is set, is only allowed to be set to the string `"present"`.
 
 ## PostAuthorization
 

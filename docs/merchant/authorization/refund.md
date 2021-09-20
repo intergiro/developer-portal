@@ -2,7 +2,7 @@
 
 In order to create a [Refund](./reference.html#refund), first send a request with the body of the request set as an [Refund creatable](./reference.html#refund).
 
-``` {1}
+``` {1} JSON
 POST /v1/authorization/:id/refund
 
 Host: merchant.intergiro.com
