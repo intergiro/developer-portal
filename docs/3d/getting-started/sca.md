@@ -12,7 +12,7 @@ Now, some user actions require their explicit consent and authorisation:
 
 ## Enrollment
 
-As part of the [KYC & Onboarding process](/integrate/onboarding) we take care of the user registration, i.e. the user creates a passcode, confirms their phone number and enrolls their biometry device. This is fully transparent and doesn't require you to store any user secrets on your end.
+As part of the [KYC & Onboarding process](/3d/onboarding) we take care of the user registration, i.e. the user creates a passcode, confirms their phone number and enrolls their biometry device. This is fully transparent and doesn't require you to store any user secrets on your end.
 
 When it comes to Bank payments and Cards, however, the users will have to provide their explicit authorisation directly to Intergiro by means of a URL redirect.
 

@@ -134,7 +134,7 @@ There are two main ways to make a payment to another account:
 - via bank details
 
 ::: warning
-Making payments online requires individual's [Strong Customer Authentication](/integrate/getting-started/sca).
+Making payments online requires individual's [Strong Customer Authentication](/3d/getting-started/sca).
 :::
 
 #### Make payment using counterparty account ID
