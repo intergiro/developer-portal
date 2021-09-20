@@ -1,6 +1,6 @@
 ---
 lang: en-US
-next: /integrate/getting-started/introduction
+next: /3d/getting-started/introduction
 ---
 
 # Integrate

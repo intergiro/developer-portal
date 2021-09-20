@@ -1,7 +1,7 @@
 <script>
 module.exports = {
   mounted(){
-    this.$router.push('/integrate/getting-started/introduction')
+    this.$router.push('/3d/getting-started/introduction')
   }
 }
 </script>
