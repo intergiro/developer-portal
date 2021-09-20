@@ -36,16 +36,16 @@ module.exports = {
     smoothScroll: true,
     nav: [
       {
-        text: 'Integrate',
-        ariaLabel: 'Integrate Menu',
-        link: '/integrate/',
+        text: 'Intergiro 3D',
+        ariaLabel: 'Intergiro 3D Menu',
+        link: '/3d/',
         items: [
-          { text: 'Getting started', link: '/integrate/getting-started/' },
-          { text: 'Onboarding', link: '/integrate/onboarding/' },
-          { text: 'Card programmes', link: '/integrate/card-programmes/' },
-          { text: 'Embedded finance', link: '/integrate/embedded-finance/' },
-          { text: 'Payment gateway', link: '/integrate/payment-gateway/' },
-          { text: 'API reference', link: 'https://b2b.intergiro.com/v3/docs' },
+          { text: 'Getting started', link: '/3d/getting-started/' },
+          { text: 'Onboarding', link: '/3d/onboarding/' },
+          { text: 'Card programmes', link: '/3d/card-programmes/' },
+          { text: 'Embedded finance', link: '/3d/embedded-finance/' },
+          { text: 'Payment gateway', link: '/3d/payment-gateway/' },
+          { text: 'API reference', link: 'https://3d.staging.intergiro.tech/v3/docs' },
         ]
       },
       {
@@ -66,17 +66,17 @@ module.exports = {
           { text: 'Common References', link: '/merchant/common/reference' }
         ]
       },
-      { text: 'Business banking', link: '/direct/' },
+      { text: 'Business banking', link: '/2d/' },
     ],
     sidebar: {
-      '/integrate/': getIntegrateSidebar(),
-      '/integrate/getting-started/': getIntegrateSidebar(),
-      '/integrate/onboarding/': getIntegrateSidebar(),
-      '/integrate/embedded-finance/': getIntegrateSidebar(),
-      '/integrate/card-programmes/': getIntegrateSidebar(),
-      '/integrate/payment-gateway/': getIntegrateSidebar(),
+      '/3d/': getIntegrateSidebar(),
+      '/3d/getting-started/': getIntegrateSidebar(),
+      '/3d/onboarding/': getIntegrateSidebar(),
+      '/3d/embedded-finance/': getIntegrateSidebar(),
+      '/3d/card-programmes/': getIntegrateSidebar(),
+      '/3d/payment-gateway/': getIntegrateSidebar(),
       '/merchant/': getMerchantSidebar(),
-      '/direct/': [
+      '/2d/': [
         '',
       ],
     }
@@ -97,18 +97,18 @@ function getIntegrateSidebar() {
       title: 'Getting started',
       collapsable: false,
       children: [
-        '/integrate/getting-started/introduction',
-        '/integrate/getting-started/environments',
-        '/integrate/getting-started/authentication',
-        '/integrate/versioning',
-        '/integrate/simulation',
-        '/integrate/getting-started/sca',
+        '/3d/getting-started/introduction',
+        '/3d/getting-started/environments',
+        '/3d/getting-started/authentication',
+        '/3d/versioning',
+        '/3d/simulation',
+        '/3d/getting-started/sca',
       ],
     },
-    '/integrate/onboarding/',
-    '/integrate/embedded-finance/',
-    '/integrate/card-programmes/',
-    '/integrate/payment-gateway/',
+    '/3d/onboarding/',
+    '/3d/embedded-finance/',
+    '/3d/card-programmes/',
+    '/3d/payment-gateway/',
   ]
 }
 function getMerchantSidebar() {
