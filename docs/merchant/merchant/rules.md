@@ -18,7 +18,7 @@ PATCH /v1/merchant/:id/rule
 
 Host: b2b.intergiro.com
 Content-Type: application/json
-Authorization: Bearer <private or agent access_token>
+Authorization: Bearer <private.api.key> or <agent.api.key>
 
 {
     "agent": ["reject refund if merchant.refundable<0"],

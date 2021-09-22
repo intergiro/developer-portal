@@ -6,7 +6,7 @@ Only non-captured authorizations can be canceled.
 DELETE /v1/authorization/:id
 
 Host: merchant.intergiro.com
-Authorization: Bearer <access_token>
+Authorization: Bearer <private.api.key>
 ```
 
 Example response for succesful cancelation:

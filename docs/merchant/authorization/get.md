@@ -6,7 +6,7 @@ Getting a specific authorization.
 GET /v1/authorization/:id
 
 Host: merchant.intergiro.com
-Authorization: Bearer <access_token>
+Authorization: Bearer <public.api.key> or <customer.api.key>
 ```
 
 Example response for succesful cancelation:
