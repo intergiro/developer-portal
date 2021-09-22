@@ -6,7 +6,7 @@ Listing all available authorizations.
 GET /v1/authorization/
 
 Host: merchant.intergiro.com
-Authorization: Bearer <access_token>
+Authorization: Bearer <private.api.key> or <agent.api.key>
 ```
 
 Example response for succesful cancelation:

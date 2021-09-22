@@ -7,7 +7,7 @@ POST /v1/authorization/:id/refund
 
 Host: merchant.intergiro.com
 Content-Type: application/json
-Authorization: Bearer <access_token>
+Authorization: Bearer <private.api.key>
 
 {
     "amount": 1

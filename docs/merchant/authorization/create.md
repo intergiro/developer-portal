@@ -8,7 +8,7 @@ POST /v1/authorization
 
 Host: merchant.intergiro.com
 Content-Type: application/json
-Authorization: Bearer <access_token>
+Authorization: Bearer <public.api.key> or <customer.api.key>
 
 {
 	"number": "a_unique_identifier",

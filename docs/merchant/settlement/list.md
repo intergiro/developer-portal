@@ -7,7 +7,7 @@ GET /v1/settlement/
 
 Host: merchant.intergiro.com
 Content-Type: application/json
-Authorization: Bearer <access_token>
+Authorization: Bearer <agent.api.key> or <private.api.key>
 ```
 
 The response contains an array of Settlements.

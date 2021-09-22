@@ -7,7 +7,7 @@ GET /v1/merchant/:id
 
 Host: merchant.intergiro.com
 Content-Type: application/json
-Authorization: Bearer <access_token>
+Authorization: Bearer <agent.api.key>
 ```
 
 The response contains an [Intergiro Merchant](./reference#merchant).
