@@ -77,16 +77,16 @@ Item Example:
 ## Contact
 Data type representing a contact.
 
-| Property          | Type                                                                               | Description                                                                    | Optional |
-|-------------------|------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|----------|
-| `type`            | `"organization"` or `"person"`                                                     |                                                                                | Yes      |
-| `identity_number` | `string`                                                                           |                                                                                | Yes      |
-| `id`              | `string`                                                                           |                                                                                | Yes      |
-| `number`          | `string`                                                                           |                                                                                | Yes      |
-| `name`            | `string` or [`Name`](./reference.html#name)                                        |                                                                                | Yes      |
-| `address`         | [`Address`](./reference.html#address) or [`Addresses`](./reference.html#addresses) |                                                                                | Yes      |
-| `email`           | `string` or [`EmailAddresses`](./reference.html#emailaddresses)                    | one email address as a string or two as [`EmailAddresses`](../reference.html)  | Yes      |
-| `phone`           | `string` or [`PhoneNumbers`](./reference.html#phonenumbers)                        | one phone number as a string or several as [`PhoneNumbers`](../reference.html) | Yes      |
+| Property          | Type                                                                               | Description                                                                                 | Optional |
+|-------------------|------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|----------|
+| `type`            | `"organization"` or `"person"`                                                     |                                                                                             | Yes      |
+| `identity_number` | `string`                                                                           |                                                                                             | Yes      |
+| `id`              | `string`                                                                           |                                                                                             | Yes      |
+| `number`          | `string`                                                                           |                                                                                             | Yes      |
+| `name`            | `string` or [`Name`](./reference.html#name)                                        |                                                                                             | Yes      |
+| `address`         | [`Address`](./reference.html#address) or [`Addresses`](./reference.html#addresses) |                                                                                             | Yes      |
+| `email`           | `string` or [`EmailAddresses`](./reference.html#emailaddresses)                    | one email address as a string or two as [`EmailAddresses`](./reference.html#emailaddresses) | Yes      |
+| `phone`           | `string` or [`PhoneNumbers`](./reference.html#phonenumbers)                        | one phone number as a string or several as [`PhoneNumbers`](../reference.html)              | Yes      |
 
 ## Name
 | Property | Type     | Optional |
