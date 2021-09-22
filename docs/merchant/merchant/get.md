@@ -10,4 +10,4 @@ Content-Type: application/json
 Authorization: Bearer <access_token>
 ```
 
-The response contains a [Intergiro Merchant](./reference#merchant).
+The response contains an [Intergiro Merchant](./reference#merchant).

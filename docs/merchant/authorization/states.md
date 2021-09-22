@@ -4,11 +4,11 @@ On authorization a state first goes through pre-authorization then post-authoriz
 
 ## PreAuthorization 
 
-| Property        | Type                                    |
-|-----------------|-----------------------------------------|
-| `merchant`      | [`Merchant`](./states.html#merchant)    |
-| `authorization` | See definition below                    |
-| `now`           | [`Date`](../common/reference.html#date) |
+| Property        | Type                                       |
+|-----------------|--------------------------------------------|
+| `merchant`      | [`Merchant`](./states.html#state-merchant) |
+| `authorization` | See definition below                       |
+| `now`           | [`Date`](../common/reference.html#date)    |
 
 
 `authorization` field:
@@ -28,13 +28,13 @@ The `card` field is defined as [`Card`](../card-api/reference.html#card) except 
 
 ## PostAuthorization
 
-| Property        | Type                                 | Optional |
-|-----------------|--------------------------------------|----------|
-| `merchant`      | [`Merchant`](./states.html#merchant) |          |
-| `amount`        | `number`                             |          |
-| `authorization` | See definition below                 |          |
-| `descriptor`    | `string`                             | Yes      |
-| `now`           | `Date`                               |          |
+| Property        | Type                                       | Optional |
+|-----------------|--------------------------------------------|----------|
+| `merchant`      | [`Merchant`](./states.html#state-merchant) |          |
+| `amount`        | `number`                                   |          |
+| `authorization` | See definition below                       |          |
+| `descriptor`    | `string`                                   | Yes      |
+| `now`           | `Date`                                     |          |
 
 `authorization` field:
 | Property    | Type                                            | Description                                     | Optional |
@@ -65,10 +65,10 @@ The `card` field is defined as [`Card`](../card-api/reference.html#card) except 
 ## Authorization
 This Authorization type is a State used for frontend and is not to be confused with the other [`Authorization`](./reference.html#authorization) type, which is stored in the Database.
 
-| Property        | Type                                                   | Description                                            |
-|-----------------|--------------------------------------------------------|--------------------------------------------------------|
-| `merchant`      | [`Merchant`](./states.html#merchant) or `{id: string}` | id is Intergiro's internal generated unique identifier |
-| `authorization` | See definition below                                   |                                                        |
+| Property        | Type                                                         | Description                                            |
+|-----------------|--------------------------------------------------------------|--------------------------------------------------------|
+| `merchant`      | [`Merchant`](./states.html#state-merchant) or `{id: string}` | id is Intergiro's internal generated unique identifier |
+| `authorization` | See definition below                                         |                                                        |
 
 `authorization` field:
 | Property       | Type                                            | Description                                     | Optional |   |

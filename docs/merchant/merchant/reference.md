@@ -2,20 +2,20 @@
 
 ## Merchant
 
-| Property         | Type                                | Description | Optional |
-|------------------|-------------------------------------|-------------|----------|
-| `id`             | `string`                            |             |          |
-| `number`         | `string`                            |             | Yes      |
-| `type`           | `"test" | "live"`                   |             |          |
-| `agent`          | `string`                            |             |          |
-| `reference`      | `string`                            |             |          |
-| `descriptor`     | `string`                            |             | Yes      |
-| `name`           | `string`                            |             |          |
-| `currency`       | `Currency`                          |             |          |
-| `reconciliation` | [`Reconciliation`](#reconciliation) |             |          |
-| `country`        | [`CountryCode`]()                   |             |          |
-| `categoryCode`   | `string`                            |             |          |
-| `rules`          | [`Rules`](./rules)                  |             |          |
+| Property         | Type                                        | Description | Optional |
+|------------------|---------------------------------------------|-------------|----------|
+| `id`             | `string`                                    |             |          |
+| `number`         | `string`                                    |             | Yes      |
+| `type`           | `"test" | "live"`                           |             |          |
+| `agent`          | `string`                                    |             |          |
+| `reference`      | `string`                                    |             |          |
+| `descriptor`     | `string`                                    |             | Yes      |
+| `name`           | `string`                                    |             |          |
+| `currency`       | `Currency`                                  |             |          |
+| `reconciliation` | [`Reconciliation`](#reconciliation)         |             |          |
+| `country`        | [`Alpha2`](../common/reference.html#alpha2) |             |          |
+| `categoryCode`   | `string`                                    |             |          |
+| `rules`          | [`Rules`](./rules)                          |             |          |
 
 
 ## Rules
@@ -29,12 +29,12 @@
 
 ## Reconciliation
 
-| Property   | Type                                                                                  | Description | Optional |
-|------------|---------------------------------------------------------------------------------------|-------------|----------|
-| `account`  | [`Account`](#account) or Record<[`Currency`]() or `"default"`, [`Account`](#account)> |             |          |
-| `costPlus` | `true`                                                                                |             | Yes      |
-| `fees`     | `Fee`                                                                                 |             | Yes      |
-| `reserves` | `{ percentage: number; days?: number }`                                               |             | Yes      |
+| Property   | Type                                                                                                                   | Description | Optional |
+|------------|------------------------------------------------------------------------------------------------------------------------|-------------|----------|
+| `account`  | [`Account`](#account) or Record<[`Currency`](../common/reference.html#currency) or `"default"`, [`Account`](#account)> |             |          |
+| `costPlus` | `true`                                                                                                                 |             | Yes      |
+| `fees`     | [`Fee`](#fee )                                                                                                         |             | Yes      |
+| `reserves` | `{ percentage: number; days?: number }`                                                                                |             | Yes      |
 
 ### Account
 
@@ -47,15 +47,20 @@ An account is either a `string` or the following data type.
 
 ### Fee 
 
-| Property      | Type          | Description | Optional |
-|---------------|---------------|-------------|----------|
-| [`Operation`] | `number`      |             |          |
-| [`Country`]   | `Transaction` |             |          |
-| `eea`         | `Transaction` |             | Yes      |
-| `other`       | `Transaction` |             |          |
+| Property                                    | Type                          | Description | Optional |
+|---------------------------------------------|-------------------------------|-------------|----------|
+| [`Operation`](#operation)                   | `number`                      |             |          |
+| [`Alpha2`](../common/reference.html#alpha2) | [`Transaction`](#transaction) |             |          |
+| `eea`                                       | [`Transaction`](#transaction) |             | Yes      |
+| `other`                                     | [`Transaction`](#transaction) |             |          |
 
-#### Transaction
+### Operation
+String set as "authorization", "capture", "refund", "void" or "all".
 
-| Property     | Type                                                                                                                                              | Description | Optional |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------|----------|
-| [`scheme`]() | `{ debit: { percentage: number; minimum?: number } credit: { percentage: number; minimum?: number } } | { percentage: number; minimum?: number }` |             |          |
+
+
+### Transaction
+
+| Property                                    | Type                                                                                                                                              | Description | Optional |
+|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------|----------|
+| [`scheme`](../common/reference.html#scheme) | `{ debit: { percentage: number; minimum?: number } credit: { percentage: number; minimum?: number } } | { percentage: number; minimum?: number }` |             |          |
