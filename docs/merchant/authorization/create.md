@@ -93,7 +93,7 @@ Authorization: Bearer <public.api.key> or <customer.api.key>
 		"verification": {
 			"type": "challenge",
 			"data": {
-				"authentication": "spwg/pFPMhd8fMgHL2eiVQ9OBc8=",
+				"authentication": "spwg/pFPMex1AmPleL2eiVQ9OBc8=",
 				"status": "Y",
 				"reference": {
 					"server": "00000000-0000-0000-0000-000000000000",
