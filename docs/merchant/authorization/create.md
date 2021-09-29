@@ -57,17 +57,50 @@ Example of a verification required response:
 HTTP 400 Bad Request
 
 {
-  "status": 400,
-  "type": "flawed content",
-  "content": {
-    "type": "verification required",
-    "flaws": [
-      {
-        "type": "reject",
-        "condition": "authorization.amount>15 !(authorization.verification:verified) !(authorization.recurring:subsequent)"
-      }
-    ]
-  },
-  "error": "verification required"
+	"status": 400,
+	"type": "flawed content",
+	"content": {
+		"type": "verification required",
+		"flaws": [
+			{
+				"type": "reject",
+				"condition": "authorization.amount>15 !(authorization.verification:verified) !(authorization.recurring:subsequent)"
+			}
+		]
+	},
+	"error": "verification required"
+}
+```
+
+After a successful [Verification response](../verification/create.html#create) has been returned, append it to the [Authorization creatable](./reference.html#authorization) in the `card.verification` property.
+
+Example Authorization request appended with Verification response:
+``` {1} JSON
+POST /v1/authorization
+
+Host: merchant.intergiro.com
+Content-Type: application/json
+Authorization: Bearer <public.api.key> or <customer.api.key>
+
+{
+	"number": "a_unique_identifier",
+	"amount": 23,
+	"currency": "EUR",
+	"card": {
+		"pan": "4111111111111111",
+		"expires": [2, 22],
+		"csc": "987",
+		"verification": {
+			"type": "challenge",
+			"data": {
+				"authentication": "spwg/pFPMex1AmPleL2eiVQ9OBc8=",
+				"status": "Y",
+				"reference": {
+					"server": "00000000-0000-0000-0000-000000000000",
+					"directory": "11111111-1111-1111-1111-111111111111",
+				}
+			}
+		}
+	}
 }
 ```
