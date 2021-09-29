@@ -16,7 +16,6 @@ Example PATCH request:
 ``` {1} JSON
 PATCH /v1/merchant/:id/rule
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <private.api.key> or <agent.api.key>
 
@@ -38,7 +37,6 @@ Example PUT Rule request:
 ``` {1} JSON
 PUT /v1/merchant/:id/rule
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <master access_token>
 

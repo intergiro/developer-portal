@@ -11,7 +11,6 @@ Example simulate card payment request:
 ``` {1}
 POST /v3/simulations/card_payment
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 ```

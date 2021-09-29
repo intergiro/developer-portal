@@ -25,7 +25,6 @@ Example payment methods listing request:
 ``` {1}
 GET /v3/guests/9a792adc-f4a2-4089-8e53-f3b0c140fc12/payment_methods
 
-Host: 3d.staging.intergiro.tech
 Content-Type: application/json
 Authorization: Bearer <access_token>
 ```
@@ -69,7 +68,6 @@ Example create new charge request:
 ``` {1,9-11}
 POST /v3/individuals/b3c8b592-daff-45cc-95ba-1741a4105b23/payment_methods
 
-Host: 3d.staging.intergiro.tech
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -103,7 +101,6 @@ Use the following API endpoint with the `consent.id` from the previous response:
 ``` {1}
 POST /v3/consents/e30b2da8-879d-4d9d-b9f9-7c461500245f
 
-Host: 3d.staging.intergiro.tech
 Content-Type: application/json
 Authorization: Bearer <access_token>
 ```
@@ -294,7 +291,6 @@ Example create new charge request:
 ``` {1,9-11}
 POST /v3/individuals/b3c8b592-daff-45cc-95ba-1741a4105b23/payment_methods
 
-Host: 3d.staging.intergiro.tech
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -323,7 +319,6 @@ Use the following API endpoint with the `consent.id` from the previous response:
 ``` {1}
 POST /v3/consents/e30b2da8-879d-4d9d-b9f9-7c461500245f
 
-Host: 3d.staging.intergiro.tech
 Content-Type: application/json
 Authorization: Bearer <access_token>
 ```

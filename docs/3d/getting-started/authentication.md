@@ -7,7 +7,6 @@ Example API request using `access_token`:
 ``` {1,5}
 GET /v3/individuals
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 ```
@@ -25,7 +24,6 @@ Example Login request:
 ``` {1,7}
 POST /v3/auth/login
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 
 {
@@ -61,7 +59,6 @@ Example refresh access token request:
 ``` {1,7}
 POST /v3/auth/refresh
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 
 {

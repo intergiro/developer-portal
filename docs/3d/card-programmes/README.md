@@ -26,7 +26,6 @@ Example virtual card order request:
 ```{1}
 POST /v3/cards
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -70,7 +69,6 @@ Example activate card request:
 ```{1}
 PATCH /v3/cards/a1c5ad61-5506-4c90-ab93-11221af2abdc
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -103,7 +101,6 @@ Example freeze card request:
 ```{1,8}
 PATCH /v3/cards/a1c5ad61-5506-4c90-ab93-11221af2abdc
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -117,7 +114,6 @@ In order to make a card active again, use the same request with `status: active`
 ```{1,8}
 PATCH /v3/cards/a1c5ad61-5506-4c90-ab93-11221af2abdc
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 

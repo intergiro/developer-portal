@@ -13,7 +13,6 @@ Example create individual request:
 ``` {1}
 POST /v3/individuals
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -49,7 +48,6 @@ First you'll need to initiate individual onboarding to get the `redirect_url`:
 ``` {1,8}
 POST /v3/individuals/9c017aec-c952-4713-aa10-11708cb0d11a/onboard
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -102,7 +100,6 @@ Example `IndividualOnboardingDataProvided` event payload:
 ``` {1}
 GET /v3/events/d08fb891-40be-4579-90c4-92c648b973f0
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 ```
@@ -147,7 +144,6 @@ Example `IndividualActivated` event payload:
 ``` {1}
 GET /v3/events/859edbaa-e110-482d-9054-1d187179aaee
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 ```

@@ -42,7 +42,6 @@ Here you can see what kind of consent is required, its status and when it expire
 ```{1}
 POST /v3/consents/e1dd9cd7-1650-42b3-8496-a970fb40ed3f
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 

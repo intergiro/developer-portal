@@ -13,7 +13,6 @@ Example create account request:
 ``` {1}
 POST /v3/accounts
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -47,7 +46,6 @@ These can be easily accessed by calling `GET /v3/accounts/:id/bank_details`:
 ``` {1}
 POST /v3/accounts/8942eaf9-80b3-4060-a0b7-e03c35ca12f4/bank_details
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 ```
@@ -88,7 +86,6 @@ Example move funds request:
 ``` {1}
 POST /v3/transactions/move
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -146,7 +143,6 @@ Example make payment via account ID request:
 ``` {1,12}
 POST /v3/transactions/pay
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -194,7 +190,6 @@ Example SEPA payment request:
 ``` {1,13-14}
 POST /v3/transactions/pay
 
-Host: b2b.intergiro.com
 Content-Type: application/json
 Authorization: Bearer <access_token>
 

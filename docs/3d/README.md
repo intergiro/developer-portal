@@ -39,4 +39,4 @@ The kick-off meeting will get you and your team ready to Integrate our platform 
 
 * [Integrate](https://intergiro.com/integrate)
 * [Intergiro Business application](https://business.intergiro.com/onboarding)
-* [API reference](https://b2b.intergiro.com/v3/docs)
+* [API reference](https://3d.intergiro.com/v3/docs)
