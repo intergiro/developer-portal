@@ -92,14 +92,18 @@ Space can also be used as an AND-operator to chain several conditions together.
 
 ### Extended State
 
-Depending on which [guards](./update#guards) are set on a merchant the [Pre-Authorization](../authorization/states.html#preauthorization), on which the rules apply, will contain additional information regarding the transaction under the field `authorization`.
+Depending on which [guards](./update#guards) are set on a merchant the [Pre-Authorization](../authorization/states.html#preauthorization), on which the rules apply, will contain additional information regarding the transaction under the field `authorization`. 
 
-#### IIN
-The IIN Guard will add information about the country of the card issuer.
+The guards that are currently available:
+- [iin](#iin)
+- [ip](#ip)
 
-| Property       | Type                                        | Description | Optional |
-|----------------|---------------------------------------------|-------------|----------|
-| `card.country` | [`Alpha2`](../common/reference.html#alpha2) |             | Yes      |
+#### Iin
+The iin Guard will add information about the country of the card issuer.
+
+| Property  | Type                                        | Description | Optional |
+|-----------|---------------------------------------------|-------------|----------|
+| `country` | [`Alpha2`](../common/reference.html#alpha2) |             | Yes      |
 
 Example on the added information from the iin guard:
 ``` JSON
@@ -116,3 +120,46 @@ Example Rule:
 
 `reject authorization if authorization.card.country:within(SE, NO, FI, DK)`
 
+#### Ip
+The Ip Guard will add information about what has .
+
+| Property       | Type                    | Description                                         | Optional |
+|----------------|-------------------------|-----------------------------------------------------|----------|
+| `amount`       | [last_days](#last-days) | The amount from transactions over the last days.    | Yes      |
+| `card`         | [last_days](#last-days) | The number of cards used over the last days.        | Yes      |
+| `email`        | [last_days](#last-days) | The number of emails used over the last days.       | Yes      |
+| `transactions` | [last_days](#last-days) | The number of transactions made over the last days. | Yes      |
+
+Example on the added information from the Ip-guard:
+``` JSON
+{
+    "authorization": {
+        "ip": {
+            "amount": {
+                "last1days": 25,
+                "last2days": 20,
+                "last3days": 15,
+                "last4days": 10,
+                "last5days": 5
+            }
+        }
+    }
+}
+```
+
+Example Rule:
+`reject authorization if authorization.ip.amount.last2days >= 20`
+Can be useful to check that the property exists:
+`reject authorization if (!authorization.ip.amount:has(last2days)) | (authorization.ip.amount.last2days >= 20)`
+
+
+
+
+#### Last Days
+| Property    | Type     | Description | Optional |
+|-------------|----------|-------------|----------|
+| `last1days` | `number` |             |          |
+| `last2days` | `number` |             |          |
+| `last3days` | `number` |             |          |
+| `last4days` | `number` |             |          |
+| `last5days` | `number` |             |          |
