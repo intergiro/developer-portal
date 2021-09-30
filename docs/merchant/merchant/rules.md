@@ -54,7 +54,10 @@ A Rule is a string that can be parsed and divided into the folloing parts.
 
 - `action` is as of yet limited to `"reject"`.
 - `operation` can be set as `"authorization"`, `"capture"`, `"refund"` or `"void"`.
-- `condition` is a boolean expression, created using information from either a [Pre-](../authorization/states.html#preauthorization) or [PostAuthorization](../authorization/states.html#postauthorization).
+- `condition` is a boolean expression, created using information from:
+    - [Pre-Authorization](../authorization/states.html#preauthorization)
+    - [extended PreAuthorization](../authorization/states.html#preauthorization)
+    - [PostAuthorization](../authorization/states.html#postauthorization).
 
 Example rule:
 
@@ -86,3 +89,30 @@ Spacing is important when writing a condition.
 When writing `20-12-24` is a string whereas `20 - 12 - 24` is a number. 
 
 Space can also be used as an AND-operator to chain several conditions together.
+
+### Extended State
+
+Depending on which [guards](./update#guards) are set on a merchant the [Pre-Authorization](../authorization/states.html#preauthorization), on which the rules apply, will contain additional information regarding the transaction under the field `authorization`.
+
+#### IIN
+The IIN Guard will add information about the country of the card issuer.
+
+| Property       | Type                                        | Description | Optional |
+|----------------|---------------------------------------------|-------------|----------|
+| `card.country` | [`Alpha2`](../common/reference.html#alpha2) |             | Yes      |
+
+Example on the added information from the iin guard:
+``` JSON
+{
+    "authorization": {
+        "card": {
+            "country": "SE"
+        }
+    }
+}
+```
+
+Example Rule:
+
+`reject authorization if authorization.card.country:within(SE, NO, FI, DK)`
+

@@ -19,3 +19,18 @@ Authorization: Bearer <private.api.key> or <agent.api.key>
 The response is the updated merchant on the same form as in [create merchant](./create.html), in this case with the currency updated to SEK.
 
 Note that the [rules](./rules) can also be updated through a patch call.
+
+## Guards
+To activate certain [guards](./rules#extended-state) PATCH the merchant with a list off all [guards](./rules#extended-state) that should be activated.
+
+``` {1} JSON
+PATCH /v1/merchant/:id
+
+Host: merchant.intergiro.com
+Content-Type: application/json
+Authorization: Bearer <private.api.key> or <agent.api.key>
+
+{
+  "guard": ["iin"],
+}
+```
