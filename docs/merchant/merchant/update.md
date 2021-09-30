@@ -21,7 +21,7 @@ The response is the updated merchant on the same form as in [create merchant](./
 Note that the [rules](./rules) can also be updated through a patch call.
 
 ## Guards
-To activate certain [guards](./rules#extended-state) PATCH the merchant with a list off all [guards](./rules#extended-state) that should be activated.
+To activate certain [guards](./rules.html#extended-state) PATCH the merchant with a list off all [guards](./rules.html#extended-state) that should be activated.
 
 ``` {1} JSON
 PATCH /v1/merchant/:id
