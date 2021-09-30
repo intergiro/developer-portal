@@ -56,7 +56,7 @@ A Rule is a string that can be parsed and divided into the folloing parts.
 - `operation` can be set as `"authorization"`, `"capture"`, `"refund"` or `"void"`.
 - `condition` is a boolean expression, created using information from:
     - [Pre-Authorization](../authorization/states.html#preauthorization)
-    - [extended PreAuthorization](./rules.html#extended-state)
+    - [extended PreAuthorization](../authorization/states.html#preauthorization)
     - [PostAuthorization](../authorization/states.html#postauthorization).
 
 Example rule:
@@ -92,16 +92,16 @@ Space can also be used as an AND-operator to chain several conditions together.
 
 ### Extended State
 
-Depending on which [guards](./update#guards) are set on a merchant the [Pre-Authorization](../authorization/states.html#preauthorization), on which the rules apply, will contain additional information regarding the transaction under the field `authorization`.
+Depending on which [guards](./update#guards) are set on a merchant, the [Pre-Authorization](../authorization/states.html#preauthorization) on which the rules apply, will contain additional information regarding the transaction under the field `authorization`. 
 
-#### IIN
-The IIN Guard will add information about the country of the card issuer.
+#### Iin
+The iin Guard will add information about the country of the card issuer on the `authorization.card` property on the [Pre-Authorization](../authorization/states.html#preauthorization).
 
-| Property       | Type                                        | Description | Optional |
-|----------------|---------------------------------------------|-------------|----------|
-| `card.country` | [`Alpha2`](../common/reference.html#alpha2) |             | Yes      |
+| Property  | Type                                        | Description | Optional |
+|-----------|---------------------------------------------|-------------|----------|
+| `country` | [`Alpha2`](../common/reference.html#alpha2) |             | Yes      |
 
-Example on the added information from the iin guard:
+Example of the information added to the [Pre-Authorization](../authorization/states.html#preauthorization):
 ``` JSON
 {
     "authorization": {
@@ -115,4 +115,8 @@ Example on the added information from the iin guard:
 Example Rule:
 
 `reject authorization if authorization.card.country:within(SE, NO, FI, DK)`
+
+Can be useful to check if the property exists:
+
+`reject authorization if (!authorization.card:has(country)) | (authorization.card.country:within(SE, NO, FI, DK))`
 
