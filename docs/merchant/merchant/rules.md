@@ -4,7 +4,7 @@ A `Rules` object is of type `Record<string, Rule[]>`. The key specifies who has 
 
 A merchant can have rules added to them. These rules can control if authorizations, captures, refunds or voids get rejected based on some criteria. [Read more of how to write a Rule](./rules.html#how-to-write-a-rule).
 
-Merchant rules can be [updated simultaneously with merchant information with a PATCH call](./update) or seperatly with a PATCH or PUT call to merchant/merchant_id/rule.
+Merchant rules can be [updated simultaneously with merchant information with a PATCH call](./update.html) or seperatly with a PATCH or PUT call to merchant/merchant_id/rule.
 
 The Rules specified by the key `"master"` are rules set up by the acquirer. A PUT call replaces the Record with the rules from the body, while a PATCH call only replaces the array with the same property name as the one in the body.
 
@@ -92,7 +92,7 @@ Space can also be used as an AND-operator to chain several conditions together.
 
 ### Extended State
 
-Depending on which [guards](./update#guards) are set on a merchant, the [PreAuthorization](../authorization/states.html#preauthorization) on which the rules apply, will contain additional information regarding the transaction under the field `authorization`. 
+Depending on which [guards](./update.html#guards) are set on a merchant, the [PreAuthorization](../authorization/states.html#preauthorization) on which the rules apply, will contain additional information regarding the transaction under the field `authorization`. 
 
 #### Iin
 The iin Guard will add information about the country of the card issuer on the `authorization.card` property on the [PreAuthorization](../authorization/states.html#preauthorization).
