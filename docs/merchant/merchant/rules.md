@@ -55,7 +55,7 @@ A Rule is a string that can be parsed and divided into the folloing parts.
 - `action` is as of yet limited to `"reject"`.
 - `operation` can be set as `"authorization"`, `"capture"`, `"refund"` or `"void"`.
 - `condition` is a boolean expression, created using information from:
-    - [Pre-Authorization](../authorization/states.html#preauthorization)
+    - [PreAuthorization](../authorization/states.html#preauthorization)
     - [extended PreAuthorization](../authorization/states.html#preauthorization)
     - [PostAuthorization](../authorization/states.html#postauthorization).
 
@@ -92,17 +92,17 @@ Space can also be used as an AND-operator to chain several conditions together.
 
 ### Extended State
 
-Depending on which [guards](./update#guards) are set on a merchant, the [Pre-Authorization](../authorization/states.html#preauthorization) on which the rules apply, will contain additional information regarding the transaction under the field `authorization`. 
+Depending on which [guards](./update#guards) are set on a merchant, the [PreAuthorization](../authorization/states.html#preauthorization) on which the rules apply, will contain additional information regarding the transaction under the field `authorization`. 
 
 #### Iin
-The iin Guard will add information about the country of the card issuer on the `authorization.card` property on the [Pre-Authorization](../authorization/states.html#preauthorization).
+The iin Guard will add information about the country of the card issuer on the `authorization.card` property on the [PreAuthorization](../authorization/states.html#preauthorization).
 
 | Property  | Type                                        | Description | Optional |
 |-----------|---------------------------------------------|-------------|----------|
 | `country` | [`Alpha2`](../common/reference.html#alpha2) |             | Yes      |
 
-Example of the information added to the [Pre-Authorization](../authorization/states.html#preauthorization):
-``` JSON
+Example of the information added to the [PreAuthorization](../authorization/states.html#preauthorization):
+``` json
 {
     "authorization": {
         "card": {
@@ -120,3 +120,108 @@ Can be useful to check if the property exists:
 
 `reject authorization if (!authorization.card:has(country)) | (authorization.card.country:within(SE, NO, FI, DK))`
 
+#### Card
+The card Guard will add information about the history of card being used with a merchant, this information will be added on the `authorization.card` property on the [PreAuthoirzation](../authorization/states.html#preauthorization).
+
+| Property       | Type                              | Description                                                           | Optional |
+|----------------|-----------------------------------|-----------------------------------------------------------------------|----------|
+| `amount`       | [`LastDays`](rules.html#lastdays) | Total amount for tha past 1-5 days (converted to merchant's currency) | Yes      |
+| `transactions` | [`LastDays`](rules.html#lastdays) | Number of transaction for the past 1-5 days                           | Yes      |
+
+Example of the information added to the [PreAuthorization](../authorization/states.html#preauthorization):
+``` json
+{
+    "authorization": {
+        "card": {
+            "amount": {
+                "last1days": 6.53,
+                "last2days": 14.7,
+                "last3days": 25.45,
+                "last4days": 25.45,
+                "last5days": 33.2
+            },
+            "transactions": {
+                "last1days": 1,
+                "last2days": 2,
+                "last3days": 3,
+                "last4days": 3,
+                "last5days": 4
+            }
+        }
+    }
+}
+```
+
+Example Rules:
+
+`reject authorization if authorization.card.amount.last3Days>500`
+
+`reject authorization if authorization.card.transactions.last4Days>10`
+
+Can be useful to check if the property exists:
+
+`reject authorization if (!authorization.card:has(transactions)) | (authorization.card.transactions.last4Days>10)`
+
+#### Email
+The email Guard will add information about the history of emails being used with a merchant, this information will be added on the `authorization` property on the [PreAuthorization](../authorization/state.html#preauthorization).
+
+Note that email must always be set on contact.email on the [verification creatable](../verification/reference.html#creatable) when creating the verification for this rule to apply.
+
+| Property       | Type                              | Description                                                                                     | Optional |
+|----------------|-----------------------------------|-------------------------------------------------------------------------------------------------|----------|
+| `amount`       | [`LastDays`](rules.html#lastdays) | Total amount accosiated with an email for tha past 1-5 days (converted to merchant's currency)  | Yes      |
+| `transactions` | [`LastDays`](rules.html#lastdays) | Number of transaction accosiated with an email for the past 1-5 days                            | Yes      |
+| `card`         | [`LastDays`](rules.html#lastdays) | Number of transaction an email has been used in combination with the card for the past 1-5 days | Yes      |
+
+Example of the information added to the [PreAuthorization](../authorization/states.html#preauthorization):
+``` json
+{
+    "authorization": {
+        "email": {
+            "amount": {
+                "last1days": 15.5,
+                "last2days": 15.5,
+                "last3days": 33.4,
+                "last4days": 33.4,
+                "last5days": 70.25
+            },
+            "transactions": {
+                "last1days": 1,
+                "last2days": 1,
+                "last3days": 2,
+                "last4days": 2,
+                "last5days": 3
+            },
+            "card": {
+                "last1days": 1,
+                "last2days": 1,
+                "last3days": 1,
+                "last4days": 1,
+                "last5days": 2
+            }
+        }
+    }
+}
+```
+
+Example Rules:
+
+`reject authorization if authorization.email.amount.last3Days>500`
+
+`reject authorization if authorization.email.transactions.last4Days>10`
+
+`reject authorization if authorization.email.card.last4Days>3`
+
+Can be useful to check if the property exists:
+
+`reject authorization if (!authorization.email:has(transactions)) | (authorization.email.transactions.last4Days>10)`
+
+#### LastDays
+
+| Property    | Type   |
+|-------------|--------|
+| `last1days` | number |
+| `last2days` | number |
+| `last3days` | number |
+| `last4days` | number |
+| `last5days` | number |
