@@ -73,60 +73,143 @@ If a verification error is returned, a frontend iframe has to be rendered based 
 ### Frontend iframe
 
 A frontend iframe is rendered in the cardholder browser, for the purpose of authentication.
-The `details` in the verification error specifies how the iframe should be rendered. Whether the iframe should be rendered visible or not is determined by the `visible` property of the `details` in the verification error response. Inside the iframe there must be a form that posts the data to the url specified in the verification error response with the HTML iframe as the target. How the data should be added to the form depends on the type.
+The `details` in the verification error specifies how the iframe should be rendered. 
+Whether the iframe should be rendered visible or not is determined by the `visible` property of the `details` in the verification error response. Inside the iframe there must be a form that posts the data to the url specified in the verification error response with the HTML iframe as the target. How the data should be added to the form depends on the type.
 
 ### Method
+If the verification error response field `response.content.details.data.type` is `"method"`, the following procedure should be performed.
 ``` JSON
 {
-  "visible": false,
-  "method": "POST",
-  "url": "https://acs.sandbox.3dsecure.io/3dsmethod",
-  "data": {
-    "type": "method",
-    "threeDSServerTransID": "d461f105-1792-407f-95ff-9a496fd918a9"
-  }
+  "status": 400,
+  "type": "malformed content",
+  "content": {
+    "property": "card",
+    "type": "Card.Creatable | Card.Token",
+    "description": "verification required",
+    "details": {
+      "visible": false,
+      "method": "POST",
+      "url": "https://acs.sandbox.3dsecure.io/3dsmethod",
+      "data": {
+        "type": "method",
+        "threeDSServerTransID": "d461f105-1792-407f-95ff-9a496fd918a9",
+        "messageVersion": "2.2.0"
+      }
+    }
+  },
+  "error": "verification required"
 }
-```
-Example of the `details` in the verification response with type method.
 
-Stringify the json including the threeDSServerTransID and a Requestor callback URL. The callback URL has to match the target field that you specify in the verification creatable. Then Base-64-URL encode the data and add it to the input field `threeDSMethodData`.
+```
+Example of a `verification required` error response with type `"method"`.
+
+
+Create a JSON object including a `threeDSServerTransID` field and a `threeDSMethodNotificationURL` field. The `threeDSServerTransID` field should have the value from `response.details.data.threeDSServerTransID` and the `threeDSMethodNotificationURL` field should be the callback URL you wish to receive the POST to. The callback URL has to match the target field that you specify in the [verification creatable](./create.html#create).
 
 ``` JSON
 {
- "threeDSServerTransID": "d461f105-1792-407f-95ff-9a496fd918a9",
- "threeDSMethodNotificationURL": "Requestor.callback.URL"
+  "threeDSServerTransID": "d461f105-1792-407f-95ff-9a496fd918a9",
+  "threeDSMethodNotificationURL": "https://localhost:1337/target/for/iframe/post/"
 }
 ```
-Example of a Method request
+Example of a Method request body.
 
-When the 3DS Method is finished, the hidden iframe will HTTP POST a form to the threeDSMethodNotificationURL.
+The 3DS Method procedure is as follows:
+1. Render a hidden HTML iframe in the browser as seen below.
+2. Create a form with an input field named `threeDSMethodData`.
+3. The `threeDSMethodData` field should contain the above JSON object, stringified, then base-64-URL encoded.
+4. POST the form to the url from the response body (`response.details.url`), with the HTML iframe as target.
+
+```html
+<iframe style="display: none;" name="threeDSMethodIframe" id="threeDSMethodIframe"></iframe>
+```
+Example of a hidden HTML iframe.
+
+``` html
+<form name="autoPost" id="threeDSMethodForm" method="post" action="<threeDSMethodNotificationURL>" target="threeDSMethodIframe">
+  <input 
+  type="hidden" 
+  name="threeDSMethodData" 
+  value="eyJ0aHJlZURTTWV0aG9kRGF0YSI6ImQ0NjFmMTA1LTE3OTItNDA3Zi05NWZmLTlhNDk2ZmQ5MThhOSIsInRocmVlRFNNZXRob2ROb3RpZmljYXRpb25VUkwiOiJodHRwczovL3lvdXIuY2FsbGJhY2sudXJsLyJ9"/>
+</form>
+<script type="text/javascript">
+		document.autoPost.submit();
+</script>
+``` 
+Example of the form associated with the iframe.
 
 The POST body will contain the value threeDSMethodData, which can be used to identify the request.
 
 ``` JS
-threeDSMethodData=eyJ0aHJlZURTTWV0aG9kRGF0YSI6ICJkNDYxZjEwNS0xNzkyLTQwN2YtOTVmZi05YTQ5NmZkOTE4YTkifQ
+threeDSMethodData=eyJ0aHJlZURTTWV0aG9kRGF0YSI6ImQ0NjFmMTA1LTE3OTItNDA3Zi05NWZmLTlhNDk2ZmQ5MThhOSIsInRocmVlRFNNZXRob2ROb3RpZmljYXRpb25VUkwiOiJodHRwczovL3lvdXIuY2FsbGJhY2sudXJsLyJ9
 ```
 Example of a Method response
 
 ### Challenge
-Stringify a json including everything from the data in the details except the type. Then Base-64-URL encode the data and add it to the input field `creq`.
+If the verification error response field `response.content.details.data.type` is `"challenge"`, the following procedure should be performed.
 
 ``` JSON
 {
-  "visible": true,
-  "method": "POST",
-  "url": "https://acs.sandbox.3dsecure.io/browser/challenge/manual",
-  "data": {
-    "type": "challenge",
-    "threeDSServerTransID": "d461f105-1792-407f-95ff-9a496fd918a9",
-    "acsTransID": "13521d57-581c-44d0-b321-40c58a9cf74e",
-    "messageVersion": "2.1.0",
-    "messageType": "CReq",
-    "challengeWindowSize": "01"
-  }
+  "status": 400,
+  "type": "malformed content",
+  "content": {
+    "property": "card",
+    "type": "Card.Creatable | Card.Token",
+    "description": "verification required",
+    "details": {
+      "visible": true,
+      "method": "POST",
+      "url": "https://acs.sandbox.3dsecure.io/browser/challenge/manual",
+      "data": {
+        "type": "challenge",
+        "threeDSServerTransID": "d461f105-1792-407f-95ff-9a496fd918a9",
+        "acsTransID": "13521d57-581c-44d0-b321-40c58a9cf74e",
+        "messageVersion": "2.1.0",
+        "messageType": "CReq",
+        "challengeWindowSize": "01"
+      }
+    }
+  },
+  "error": "verification required"
+}
+
+```
+Example of a `verification required` error response with type `"challenge"`.
+
+Create a JSON object including everything from `response.details.data` except the type. 
+``` JSON
+{
+  "threeDSServerTransID": "d461f105-1792-407f-95ff-9a496fd918a9",
+  "acsTransID": "13521d57-581c-44d0-b321-40c58a9cf74e",
+  "messageVersion": "2.1.0",
+  "messageType": "CReq",
+  "challengeWindowSize": "01"
 }
 ```
-Example of the `details` in the verification response with type challenge.
+
+The 3DS Challenge procedure is as follows:
+1. Render a visible HTML iframe in the browser.
+2. Create a form with an input field named `creq`.
+3. The `creq` field should contain the above JSON object, stringified, then base-64-URL encoded.
+4. POST the form to the url from the response body (`response.details.url`), with the HTML iframe as target.
+
+```html
+<iframe name="threeDSChallengeIframe" id="threeDSChallengeIframe"></iframe>
+```
+Example of a HTML iframe.
+
+``` html
+<form name="autoPost" id="threeDSChallengeForm" method="post" action="<response.details.url>" target="threeDSChallengeIframe">
+  <input 
+  type="hidden" 
+  name="creq" 
+  value="eyJhY3NUcmFuc0lEIjoiODc3OTFjZWUtMjUxNC00MzZjLWJlZDgtYTYzYTg3YmJkZjAxIiwiY2hhbGxlbmdlQ29tcGxldGlvbkluZCI6IlkiLCJtZXNzYWdlVHlwZSI6IkNSZXMiLCJtZXNzYWdlVmVyc2lvbiI6IjIuMS4wIiwidGhyZWVEU1NlcnZlclRyYW5zSUQiOiJkNDFmNjIwMC0wNDM1LTQ5ZWUtYWExMS1mMzY2ZjA2NjFjNmYiLCJ0cmFuc1N0YXR1cyI6IlkifQ"/>
+</form>
+<script type="text/javascript">
+  document.autoPost.submit();
+</script>
+``` 
+Example of the form associated with the iframe.
 
 The iframe will post the challenge response to the URL specified in the verification creatable target field.
 
@@ -138,13 +221,26 @@ Example of a Challenge response
 
 ### Iframe response handling
 
-Make a new verification creatable and include the response from the iframe into the response field of the creatable. 
+Make a new verification creatable and include the response from the iframe into the `card.verification` field of the creatable. 
 Post it to the verification endpoint.
 
 ``` JSON
 {
-  "type": "challenge" | "method",
-  "data": "iframe_response_string"
+  "number": "a_unique_identifier",
+  "items": 3,
+  "currency": "EUR",
+  "card": {
+    "pan": "4111111111111111",
+    "expires": [2, 22],
+    "csc": "987",
+    "verification": {
+      "type": "challenge" | "method",
+      "data": "iframe_response_string"
+    }
+  },
+  "target": "https://localhost:1337/target/for/iframe/post/"
 }
+
+
 ```
 Example of a response field in the verification creatable.
