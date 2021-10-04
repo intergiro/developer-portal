@@ -56,7 +56,7 @@ A Rule is a string that can be parsed and divided into the folloing parts.
 - `operation` can be set as `"authorization"`, `"capture"`, `"refund"` or `"void"`.
 - `condition` is a boolean expression, created using information from:
     - [PreAuthorization](../authorization/states.html#preauthorization)
-    - [extended PreAuthorization](../authorization/states.html#preauthorization)
+    - [extended PreAuthorization](./rules.html#extended-state)
     - [PostAuthorization](../authorization/states.html#postauthorization).
 
 Example rule:
