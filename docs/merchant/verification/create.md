@@ -68,13 +68,15 @@ HTTP 400 Bad Request
 \
 <img :src="$withBase('/assets/img/merchant/verification/3dflow.png')" alt="3dsecure">
 
-If a verification error is returned, a frontend iframe has to be rendered based on the data in the verification error as specified in the Frontend iframe section below. During one verification cycle this may have to be done several times.
+If a verification error is returned from the verification endpoint, a frontend iframe has to be rendered based on the data in the verification error, as specified in the [Frontend iframe](./create.html#frontend-iframe) section below. 
+
+During one verification cycle, 3D secure may have to be done several times. They can either be without any user interaction and therefore hidden or they can involve some kind of user interaction.
 
 ### Frontend iframe
 
 A frontend iframe is rendered in the cardholder browser, for the purpose of authentication.
 The `details` in the verification error specifies how the iframe should be rendered. 
-Whether the iframe should be rendered visible or not is determined by the `visible` property of the `details` in the verification error response. Inside the iframe there must be a form that posts the data to the url specified in the verification error response with the HTML iframe as the target. How the data should be added to the form depends on the type.
+Whether the iframe should be rendered visible or not is determined by the `visible` property of the `details` in the verification error response. Inside the iframe there must be a form that posts the data to the url specified in the verification error response, with the HTML iframe as the target. How the data should be added to the form depends on the type.
 
 ### Method
 If the verification error response field `response.content.details.data.type` is `"method"`, the following procedure should be performed.
@@ -104,12 +106,12 @@ If the verification error response field `response.content.details.data.type` is
 Example of a `verification required` error response with type `"method"`.
 
 
-Create a JSON object including a `threeDSServerTransID` field and a `threeDSMethodNotificationURL` field. The `threeDSServerTransID` field should have the value from `response.details.data.threeDSServerTransID` and the `threeDSMethodNotificationURL` field should be the callback URL you wish to receive the POST to. The callback URL has to match the target field that you specify in the [verification creatable](./create.html#create).
+Create a JSON object including a `threeDSServerTransID` field and a `threeDSMethodNotificationURL` field. The `threeDSServerTransID` field should have the value from `response.details.data.threeDSServerTransID` and the `threeDSMethodNotificationURL` field should be a callback URL. The callback URL has to match the target field that you specify in the [verification creatable](./create.html#create).
 
 ``` JSON
 {
   "threeDSServerTransID": "d461f105-1792-407f-95ff-9a496fd918a9",
-  "threeDSMethodNotificationURL": "https://localhost:1337/target/for/iframe/post/"
+  "threeDSMethodNotificationURL": "<callback-URL>"
 }
 ```
 Example of a Method request body.
@@ -118,7 +120,7 @@ The 3DS Method procedure is as follows:
 1. Render a hidden HTML iframe in the browser as seen below.
 2. Create a form with an input field named `threeDSMethodData`.
 3. The `threeDSMethodData` field should contain the above JSON object, stringified, then base-64-URL encoded.
-4. POST the form to the url from the response body (`response.details.url`), with the HTML iframe as target.
+4. POST the form to the url received from the details in the response (`response.content.details.url`), with the HTML iframe as target.
 
 ```html
 <iframe style="display: none;" name="threeDSMethodIframe" id="threeDSMethodIframe"></iframe>
@@ -126,7 +128,12 @@ The 3DS Method procedure is as follows:
 Example of a hidden HTML iframe.
 
 ``` html
-<form name="autoPost" id="threeDSMethodForm" method="post" action="<threeDSMethodNotificationURL>" target="threeDSMethodIframe">
+<form 
+  name="autoPost" 
+  id="threeDSMethodForm" 
+  method="post" 
+  action="https://acs.sandbox.3dsecure.io/3dsmethod" 
+  target="threeDSMethodIframe">
   <input 
   type="hidden" 
   name="threeDSMethodData" 
@@ -143,7 +150,9 @@ The POST body will contain the value threeDSMethodData, which can be used to ide
 ``` JS
 threeDSMethodData=eyJ0aHJlZURTTWV0aG9kRGF0YSI6ImQ0NjFmMTA1LTE3OTItNDA3Zi05NWZmLTlhNDk2ZmQ5MThhOSIsInRocmVlRFNNZXRob2ROb3RpZmljYXRpb25VUkwiOiJodHRwczovL3lvdXIuY2FsbGJhY2sudXJsLyJ9
 ```
-Example of a Method response
+Example of a Method response. 
+
+For the next step in the  verification cycle, see section [Iframe response handling](./create.html#iframe-response-handling).
 
 ### Challenge
 If the verification error response field `response.content.details.data.type` is `"challenge"`, the following procedure should be performed.
@@ -199,7 +208,12 @@ The 3DS Challenge procedure is as follows:
 Example of a HTML iframe.
 
 ``` html
-<form name="autoPost" id="threeDSChallengeForm" method="post" action="<response.details.url>" target="threeDSChallengeIframe">
+<form 
+  name="autoPost" 
+  id="threeDSChallengeForm" 
+  method="post" 
+  action="https://acs.sandbox.3dsecure.io/browser/challenge/manual" 
+  target="threeDSChallengeIframe">
   <input 
   type="hidden" 
   name="creq" 
@@ -218,6 +232,7 @@ cres=eyJhY3NUcmFuc0lEIjoiODc3OTFjZWUtMjUxNC00MzZjLWJlZDgtYTYzYTg3YmJkZjAxIiwiY2h
 ```
 Example of a Challenge response
 
+For the next step in the  verification cycle, see section [Iframe response handling](./create.html#iframe-response-handling).
 
 ### Iframe response handling
 
