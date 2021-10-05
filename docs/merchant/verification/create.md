@@ -173,7 +173,7 @@ If the verification error response field `response.content.details.data.type` is
         "type": "challenge",
         "threeDSServerTransID": "d461f105-1792-407f-95ff-9a496fd918a9",
         "acsTransID": "13521d57-581c-44d0-b321-40c58a9cf74e",
-        "messageVersion": "2.1.0",
+        "messageVersion": "2.2.0",
         "messageType": "CReq",
         "challengeWindowSize": "01"
       }
