@@ -84,19 +84,36 @@ HTTP 400 Bad Request
 
 To perform 3D Secure an Iframe must be rendered in the cardholder browser for the purpose of authentication.
 
+Include an iframe in the html body.
+
 ``` html
 <iframe id="verification" class="hidden"></iframe>
 ```
-### Authoirzation
+### Authorization
 
 The first step in the verification cycle is to post an [Authorization creatable](../authorization/reference.html) to the [Authorization create endpoint](../authorization/create.html#create).
 The response can lead to three cases:
 1. Success Status 201 -> succesful authorization
 2. Fail Status 400 -> failed authorization
-3. Fail Status 400 and verification required -> call the verification endpoint 
+3. Fail Status 400 and verification required -> Follow the steps in [Verification](./create#Verification) 
 ### Verification
 
 Post a verification creatable to the verification endpoint. 
+
+The response can lead to three cases:
+1. Success Status 201 -> succesful verification -> put the response body in the property authorization.card.verification and close iframe by setting class to hidden.
+2. Fail Status 400 -> failed verification
+3. Fail Status 400 and verification required -> Follow the steps in [iframe](./create#iframe) 
+
+### Iframe
+
+Check body.content.details.visible and set class to visible if true and hidden if false.
+
+``` JS
+	document.getElementById("verification").classList.replace("hidden", body.content.details.visible ? "visible" : "hidden")
+```
+
+
 
 ``` js
 window.addEventListener("message", async e => {
