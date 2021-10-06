@@ -1,17 +1,4 @@
 # Create
-```
-Post Authorization Creatable to Authorixation endpoint
-If the response is status 400 and body.error = "verification required"
-  Then make verification creatable and send to verification endpoint
-  If Status == 400 and body.error == "verification required" and body.content.detail.method == "GET"
-    then set iframe visible/hidden accoring to body.content.details.visible
-    on window message event, () => {
-      if event.data.destination == "parent" and event.data.content.name == "card"
-        Then hide iframe
-        set verification.response to a JSON parsed event.data.content.value 
-        and then post to verification endpoint 
-    }
-```
 
 In order to create a [Verification](./reference.html#verification), first send a request with the body of the request set as an [Verification creatable](./reference.html#verification).
 
@@ -77,38 +64,8 @@ HTTP 400 Bad Request
   "error": "verification required"
 }
 ```
-
-
-
 ## 3D Secure
-
-To perform 3D Secure an Iframe must be rendered in the cardholder browser for the purpose of authentication.
-
-``` html
-<iframe id="verification" class="hidden"></iframe>
-```
-### Authoirzation
-
-The first step in the verification cycle is to post an [Authorization creatable](../authorization/reference.html) to the [Authorization create endpoint](../authorization/create.html#create).
-The response can lead to three cases:
-1. Success Status 201 -> succesful authorization
-2. Fail Status 400 -> failed authorization
-3. Fail Status 400 and verification required -> call the verification endpoint 
-### Verification
-
-Post a verification creatable to the verification endpoint. 
-
-``` js
-window.addEventListener("message", async e => {
-	if (e.data.destination ="parent" && e.data.content.name == "card") {
-		const iframe = document.getElementById("verification")
-		iframe.classList.add("hidden")
-		await verify(JSON.parse(e.data.content.value))
-	}
-})
-```
-If verification is required post a verification creatable with an added `response` field 
-
+\
 <img :src="$withBase('/assets/img/merchant/verification/3dflow.png')" alt="3dsecure">
 
 If a verification error is returned from the verification endpoint, a frontend iframe has to be rendered based on the data in the verification error, as specified in the [Frontend iframe](./create.html#frontend-iframe) section below. 
