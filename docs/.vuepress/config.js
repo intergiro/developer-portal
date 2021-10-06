@@ -240,6 +240,7 @@ function getMerchantSidebar() {
       children: [
         '/merchant/common/reference',
         '/merchant/common/error',
+        '/merchant/common/test-cards'
       ]
     },
   ]
