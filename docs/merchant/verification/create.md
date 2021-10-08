@@ -126,4 +126,4 @@ window.addEventListener("message", async e => {
 })
 ```
 
-For a full example <a target="_blank" :href="$withBase('/assets/scripts/verification/index.html')" download="index.html">click here</a> and add your public api key to the const `key` in the code.
+For a full example <a target="_blank" :href="$withBase('/assets/scripts/verification/index.html')" download="index.html">click here</a> and add your public api key to the const `key` in the code. To access the github repository with the full example, <a target="_blank" href="https://github.com/intergiro/verification-example">click here</a>.
