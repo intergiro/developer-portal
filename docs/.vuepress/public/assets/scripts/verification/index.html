@@ -26,6 +26,7 @@
 	<script>
 		const baseUrl = "https://merchant.intergiro.com/v1"
 		const key = "Bearer <insert-public-api-key>"
+
 		let authorization
 		function submit() {
 			authorization = {
@@ -80,7 +81,7 @@
 				case 400:
 					if (body.error == "verification required" && body.content.details.method == "GET") {
 						iframe.classList.replace("hidden", body.content.details.visible ? "visible" : "hidden")
-						iframe.src = body.content.details.url + "&parent=" + encodeURIComponent(window.location.origin)
+						iframe.src = body.content.details.url
 					} else
 						alert("failed: " + JSON.stringify(body))
 					break
