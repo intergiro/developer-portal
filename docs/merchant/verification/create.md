@@ -104,12 +104,12 @@ async function verify() {
 ### Iframe
 
 Check body.content.details.visible of the response body from the verification endpoint response. Make the iframe visible if true and invisible if false.
-Set the `src` of the iframe to `body.content.details.url + "&parent=" + encodeURIComponent(window.location.origin)`.
+Set the `src` of the iframe to `body.content.details.url`.
 
 ``` JS
 const iframe = document.getElementById("verification")
 iframe.classList.replace("hidden", body.content.details.visible ? "visible" : "hidden")
-iframe.src = body.content.details.url + "&parent=" + encodeURIComponent(window.location.origin)
+iframe.src = body.content.details.url 
 ```
 
 Create an event listener that will listen to a message sent by the `verification` iframe.
