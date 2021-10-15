@@ -1,32 +1,35 @@
 # Create
 
-POST /authorization -> `"error": "verification required"`
+<img :src="$withBase('/assets/img/merchant/verification/get-flow.jpg')" alt="GET flow">
 
-Post to the verification endpoint with the query `method=GET`.
-In the body set a verification creatable as well as the `target` url you want the 3D Secure data to be http POSTed to.
+
+If you recieve a `"verification required"` error from the authorization endpoint, http POST to the verification endpoint with the query `method=GET` with, the body set as a [verification creatable](./reference.html#verification-creatable) and the `target` url you want the 3D Secure data to be http POSTed to. 
 
 ``` JSON {1}
 POST /verification&method=GET
 
 {
-    "items": 7.5,
     "number": "abcdef",
+    "items": 7.5,
     "currency": "EUR",
     "card": {
-        "number": "abcdef",
-		"amount": 7.5,
-		"currency": "EUR",
-		"card": {
-			"pan": "4111111111111111",
-			"expires": [2, 22],
-			"csc": "987"
-		}
+		"pan": "4111111111111111",
+		"expires": [2, 22],
+		"csc": "987"
     },
     "target": "http://your.example-url.com/",
 }
 ```
 
-The Response should look like this:
+## Verification Responses
+
+The verification response can be one of three things: 
+1. A [`"verification required"`](./create.html#verification-required) error response with status 400
+2. A [successful verification](./create.html#verification-success) response with status 201
+3. A [failed verification](./create.html#verification-failed)
+### Verification required 
+
+Example response:
 ``` json
 {
     "type": "method",
@@ -40,33 +43,26 @@ The Response should look like this:
 }
 ```
 
-This can be implemented in two ways either you redirect to the url specified in `content.details.url` or you put the url as the source of an Iframe.
+Either redirect to the url specified in `content.details.url` or put the url as the source of an Iframe.
+This will initiate a step in the 3D Secure cycle.
+The 3D response data will be POSTed to the url specified in the `target` property of the verification creatable. 
 
 
-This will cause an http POST to the url specified in the `target` property specified in the verification creatable.
-
-The request will look something like this
-``` json
-{
-    "data": {
-        "": ""
-        "messageVersion": "2.2.0"
-    }
-}
+Example POST to the `target` URL:
+``` {1}
+POST http://your.example-url.com/;verification=%7B%22type%22%3A%22method%22%2C%22data%22%3A%7B%22threeDSServerTransID%22%3A%22454c0f37-8c07-4f22-abb2-e1e4781ab03c%22%2C%22messageVersion%22%3A%222.2.0%22%7D%7D
+Content-Type=x-form-urlencoded
 ``` 
 
-Post the data to verification endpoint 
+The payload is sent as form data.
 
-The response from the verification endpoint can either be:
-1. verification, Status 201
-2. error, Status: 400
-    - Verification required
-    - failed verification
+Take the `verification` property from the payload and set it on the property `card.verification` on the verification creatable and POST to the verification endpoint.
 
-GET /verification/redirect?origin=...&threeDSMethodData=...&v=...
--> challenge
+Treat the verification response according to [Verification Response Section](./create.html#verification-required).
+### Verification Success
+A successful verification with status 201, means you can continue to the create an authorization using the [authorization endpoint](../authorization/create.html).
 
-
-POST /authorization -> success
+### Verification Failed
+A failed verification has status 400 and contains no `"verification required"` error.
 
 
