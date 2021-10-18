@@ -58,11 +58,11 @@ The payload is sent as form data.
 
 Take the `verification` property from the payload and set it on the property `card.verification` on the verification creatable and POST to the verification endpoint.
 
-Treat the verification response according to [Verification Response Section](./create.html#verification-required).
+Treat the verification response according to [Verification Response Section](./create.html#verification-responses).
 ### Verification Success
 A successful verification with status 201, means you can continue to the create an authorization using the [authorization endpoint](../authorization/create.html).
 
 ### Verification Failed
-A failed verification has status 400 and contains no `"verification required"` error.
+Any other error than [`"verification required"`](./create.html#verification-required) and a [successful verification](./create.html#verification-success) is a failed verification.
 
 
