@@ -165,7 +165,7 @@ Can be useful to check if the property exists:
 #### Email
 The email Guard will add information about the history of emails being used with a merchant, this information will be added on the `authorization` property on the [PreAuthorization](../authorization/state.html#preauthorization).
 
-Note that email must always be set on contact.email on the [verification creatable](../verification/reference.html#creatable) when creating the verification for this rule to apply.
+Note that email must always be set on contact.email on the [verification creatable](../verification/reference.html#verification-creatable) when creating the verification for this rule to apply.
 
 | Property       | Type                              | Description                                                                                     | Optional |
 |----------------|-----------------------------------|-------------------------------------------------------------------------------------------------|----------|
