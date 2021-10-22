@@ -4,7 +4,7 @@ The Controlled 3DS method gives you full control over the 3D flow.
 
 <img style="width: 90%; display: block; margin: auto" :src="$withBase('/assets/img/merchant/verification/post-flow.jpg')" alt="POST flow">
 
-POST an [authorization creatable](../authorization/reference.html#authorization-creatable) to the [authorization create](../authorization.html#create) endpoint. The `items` field must be populated and the `amount` must be undefined.
+POST an [authorization creatable](../authorization/reference.html#authorization-creatable) to the [authorization create](../authorization/create.html#create) endpoint. The `items` field must be populated and the `amount` must be undefined.
 
 ``` JSON {1}
 POST /authorization

@@ -4,7 +4,7 @@ The Interactive 3DS method provides control of what happens between the steps in
 
 <img style="width: 90%; display: block; margin: auto" :src="$withBase('/assets/img/merchant/verification/get-flow.jpg')" alt="GET flow">
 
-POST an [authorization creatable](../authorization/reference.html#authorization-creatable) to the [authorization create](../authorization.html#create) endpoint with the query `method=GET`. The `items` field must be populated and the `amount` must be undefined.
+POST an [authorization creatable](../authorization/reference#authorization-creatable.html) to the [authorization create](../authorization/create.html#create) endpoint with the query `method=GET`. The `items` field must be populated and the `amount` must be undefined.
 
 There are two ways the 3D result can be sent. This is decided by either specifying the `target` field or the `browser.parent` field in the authorization creatable. 
 1. Sent using a HTTP POST request, with form data as the payload, to the url you specify in the `target` field. This can be received through an endpoint.
@@ -29,9 +29,9 @@ POST /authorization?method=GET
 ## Authorization Responses
 
 The authorization response can be one of three things: 
-1. A [`"verification required"`](./create.html#verification-required) error response with status 400
-2. A [successful authorization](./create.html#authorization-success) response with status 201
-3. A [failed authorization](./create.html#authorization-failed)
+1. A [`"verification required"`](./interactive.html#verification-required) error response with status 400
+2. A [successful authorization](./interactive.html#authorization-success) response with status 201
+3. A [failed authorization](./interactive.html#authorization-failed)
 
 ### Verification required 
 
@@ -74,12 +74,12 @@ window.addEventListener("message", async e => {
 
 Take the tokenized card from the payload and set it on the property `card` on the authorization creatable and POST to the authorization endpoint as previously.
 
-Treat the authorization response according to [Authorization Response Section](./create.html#authorization-responses).
+Treat the authorization response according to [Authorization Response Section](./interactive.html#authorization-responses).
 ### Authorization Success
 A successful [authorization](../authorization/reference.html#authorization-2) has status 201.
 
 ### Authorization Failed
-Any other error than [`"verification required"`](./create.html#verification-required) and a [successful authorization](./create.html#authorization-success) is a failed authorization.
+Any other error than [`"verification required"`](./interactive.html#verification-required) and a [successful authorization](./interactive.html#authorization-success) is a failed authorization.
 
 ## Example
 
