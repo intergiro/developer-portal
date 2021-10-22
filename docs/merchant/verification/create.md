@@ -1,6 +1,10 @@
 # Create
 
-<img :src="$withBase('/assets/img/merchant/verification/verification-flowchart.png')" alt="verification-flowchart">
+
+
+# Create
+
+<img :src="$withBase('/assets/img/merchant/verification/get-flow.jpg')" alt="GET flow">
 
 The black boxes are endpoints, the orange squares are switches, purple is the iframe, red and green are the endstate result.
 
