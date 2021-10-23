@@ -61,7 +61,7 @@ module.exports = {
           { text: 'Customer API', link: '/merchant/customer/registration-ui' },
           { text: 'Authorization', link: '/merchant/authorization/create' },
           { text: 'Settlement', link: '/merchant/settlement/list' },
-          { text: 'Verification', link: '/merchant/verification/create' },
+          { text: '3D Secure', link: '/merchant/3d-secure/introduction' },
           { text: 'Merchant', link: '/merchant/merchant/create' },
           { text: 'Common References', link: '/merchant/common/reference' }
         ]
@@ -197,6 +197,7 @@ function getMerchantSidebar() {
         '/merchant/authorization/capture',
         '/merchant/authorization/cancel',
         '/merchant/authorization/refund',
+        '/merchant/authorization/redirect',
         '/merchant/authorization/states',
         '/merchant/authorization/list',
         '/merchant/authorization/get',
@@ -213,12 +214,13 @@ function getMerchantSidebar() {
       ]
     },
     {
-      title: 'Verification',
+      title: '3D Secure',
       collapsable: false,
       children: [
-        '/merchant/verification/create',
-        '/merchant/verification/reference',
-        '/merchant/verification/postman',
+        '/merchant/3d-secure/introduction',
+        '/merchant/3d-secure/automated',
+        '/merchant/3d-secure/interactive',
+        '/merchant/3d-secure/controlled',
       ]
     },
     {

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+
+<body style="height:90vh; width:90vw; margin:auto;">
+	<iframe name="verification" id="verification"
+		style="position:relative; z-index:2; width:100%; height:100%; border:none; box-sizing: border-box;"></iframe>
+	<form method="post" id="iframePost" action="https://merchant.intergiro.com/v1/authorization/html" target="verification">
+		<input type="hidden" id="input" name="input"></input>
+		<input type="hidden" id="key" name="key"></input>
+	</form>
+</body>
+<script>
+	const input = {
+		"number": "Number",
+		"items": 250,
+		"currency": "EUR",
+		"card": {
+			"pan": "4111111111111111",
+			"expires": [
+				2,
+				22
+			],
+			"csc": "987"
+		},
+		"target": "http://your.example-url.com/"
+	}
+	const key = "Bearer <public.api.key>";
+	const form = document.getElementById("iframePost")
+	form.input.value = JSON.stringify(input)
+	form.key.value = key
+	form.submit()
+</script>
+
+</html>

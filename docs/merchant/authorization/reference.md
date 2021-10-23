@@ -8,13 +8,17 @@ Authorization Creatable
 | Property     | Type                                                           | Description                   | Optional |
 |--------------|----------------------------------------------------------------|-------------------------------|----------|
 | `number`     | `string`                                                       | has to be a unique identifier |          |
-| `amount`     | `number`                                                       |                               |          |
+| `amount`     | `number`                                                       |                               | Yes      |
+| `items`      | [`number | Item | Item[]`](reference.html#item)                |                               | Yes      |
 | `currency`   | [`Currency`](../common/reference.html#currency)                |                               |          |
 | `card`       | `Signed JWT` or [`Card.Creatable`](../card-api/reference.html) |                               |          |
 | `descriptor` | `string`                                                       |                               | Yes      |
 | `capture`    | `"auto"`                                                       |                               | Yes      |
 | `recurring`  | [`Recurring`](./reference.html#recurring)                      |                               | Yes      |
 | `category`   | `"purchase" | "withdrawal"`                                    |                               | Yes      |
+| `browser`    | [`Browser`](../common/reference.html#browser)                  |                               | Yes      |
+| `contact`    | [`Contact`](../common/reference.html#contact)                  |                               | Yes      |
+| `target`     | `string`                                                       | verification target url       | Yes      |
 
 ### Authorization
 
