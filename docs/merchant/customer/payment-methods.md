@@ -16,3 +16,150 @@ Authentication: Bearer <public.api.key> | Bearer <private.api.key>
     "card": "<tokenized card information>",
 }
 ```
+
+## Remove or Reorder Payment Methods
+To remove or prioritize in between payment methods for an already existing [`Customer`](./reference.html#customer), use the set payment method endpoint. Use the existing payment methods list of the customer you wish to modify and change the order of the payment methods and/or remove payment methods.
+
+### Example of Remove or Reorder Payment Methods 
+For a customer with three payment methods registered with the cards 400000...0000, 411111...1111 and 422222...2222 that wants to remove card 400000...0000 because it's expired and wants to prioritize card 422222...2222 over the remaining card the payment method list can be modified as follows and can be sent to the endpoint:
+
+#### Before:
+
+``` JSON
+[
+  {
+    "type": "card",
+    "scheme": "visa",
+    "iin": "400000",
+    "last4": "0000",
+    "expires": [
+      2,
+      19
+    ],
+    "acquirer": "intergiro",
+    "created": "2021-08-20T12:34:20.907Z",
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwYXlmdW5jIiwiaWF0IjoxNjM1MTY5ODU1LCJhdWQiOiJkZXZlbG9wbWVudCIsInR5cGUiOiJjYXJkIiwiY2FyZCI6ImV5SmhiR2NpT2lKU1V6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwYzNNaU9pSmpZWEprSWl3aWFXRjBJam94TmpJNU5EWXlPRFl3TENKaGRXUWlPaUprWlhabGJHOXdiV1Z1ZENJc0ltVnVZeUk2SWpJd01ERXVXRzlyZFZGV2F6WnlibmxZUlV0ME9GTjBUVVJ0UVM1aVJVSjZWM0ZSYm1sUE1XMTNhMTl6Wm5kSFprSk5jbFl3ZEVkaU1ERlFNRkp4V2xwak5EWkVWa2c0SWl3aWVIQnlJanBiTWl3eU1sMTkuQzdudExYVlFtUHF1eXgwTmh5QWxDOVhGNXVqczh0VWtjQktJVnZqNUVYcVlDWHQyS3BpNVVtZFBGTllVQ1lodXNLeG9EY2p2R1lwRzFRN0tSTzgtdmtxNzhYSHRIOGwtVU1TQncxMk1SY2t3ZHJuUFlxSEt6Y3F2b3hEcURlMjVEUEM3bllMV0NXejF2YlpwWUhQYTZWU08ta1JmcWxzMGwzM05fbTN2dkRrSV96VEszZktzYjhscnA5VGNIbFNSbmw5Nlg0b0tPSEd6akVUSjREaWJuOFZzYmpTOUR5SzVyQ1RmMjFOcThKZncwZG8xaDRxXzZNUW90NmNhV1JuUkphQUE2MkhEU2c2SXNMLTZ5ZThOeEtSUnpxSUpZVDdmU2RlQ3VHamJwZWVOclN1SGxSY2tpeUpDdkJicEVaeGZKeVp2Njk2YW5yTWdObVViRU9kSTNBIiwic2NoZW1lIjoidmlzYSIsImlpbiI6IjQxMTExMSIsImxhc3Q0IjoiMTExMSIsImV4cGlyZXMiOlsyLDIyXSwicmVmZXJlbmNlIjoiTUNBMTQzNDIwMDgyMCIsImFjcXVpcmVyIjoiaW50ZXJnaXJvIiwiY3JlYXRlZCI6IjIwMjEtMDgtMjBUMTI6MzQ6MjAuOTA3WiJ9.c-kh0-kgIR9SsZnBKWoSerGiakYxfanNbimrg1FI7CCZNTtk_r7IKJBpxyku936s3Zcdc8hyJq6t7p_B4jlTlE-xn0Ezuz_D1jX9HfPIjpZCuptjKaw5dElN9iKgP0If75tw0YpQQcFcdN5kUY0g1_nNx1NmCnlCx1PIEtKBqZuZIvFkzz-dYye2dWYZNQA16RWv0IyNEQR-CXrA7oj0qvAU0FYNWd2m55Z7CXXq9eQY2TcIhXUcwK-VgDTyeHugZ2FJvJXNKUttTIkjLirbPZIfmUaIFibeEJp9m3Kopd6sb8YvAjSyti8asNM8LZiD62ryIj4jWi3NMT4lPH_vHQ"
+  },
+  {
+    "type": "card",
+    "scheme": "visa",
+    "iin": "411111",
+    "last4": "1111",
+    "expires": [
+      2,
+      22
+    ],
+    "acquirer": "intergiro",
+    "created": "2021-08-20T12:34:20.907Z",
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwYXlmdW5jIiwiaWF0IjoxNjM1MTY5ODU1LCJhdWQiOiJkZXZlbG9wbWVudCIsInR5cGUiOiJjYXJkIiwiY2FyZCI6ImV5SmhiR2NpT2lKU1V6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwYzNNaU9pSmpZWEprSWl3aWFXRjBJam94TmpJNU5EWXlPRFl3TENKaGRXUWlPaUprWlhabGJHOXdiV1Z1ZENJc0ltVnVZeUk2SWpJd01ERXVXRzlyZFZGV2F6WnlibmxZUlV0ME9GTjBUVVJ0UVM1aVJVSjZWM0ZSYm1sUE1XMTNhMTl6Wm5kSFprSk5jbFl3ZEVkaU1ERlFNRkp4V2xwak5EWkVWa2c0SWl3aWVIQnlJanBiTWl3eU1sMTkuQzdudExYVlFtUHF1eXgwTmh5QWxDOVhGNXVqczh0VWtjQktJVnZqNUVYcVlDWHQyS3BpNVVtZFBGTllVQ1lodXNLeG9EY2p2R1lwRzFRN0tSTzgtdmtxNzhYSHRIOGwtVU1TQncxMk1SY2t3ZHJuUFlxSEt6Y3F2b3hEcURlMjVEUEM3bllMV0NXejF2YlpwWUhQYTZWU08ta1JmcWxzMGwzM05fbTN2dkRrSV96VEszZktzYjhscnA5VGNIbFNSbmw5Nlg0b0tPSEd6akVUSjREaWJuOFZzYmpTOUR5SzVyQ1RmMjFOcThKZncwZG8xaDRxXzZNUW90NmNhV1JuUkphQUE2MkhEU2c2SXNMLTZ5ZThOeEtSUnpxSUpZVDdmU2RlQ3VHamJwZWVOclN1SGxSY2tpeUpDdkJicEVaeGZKeVp2Njk2YW5yTWdObVViRU9kSTNBIiwic2NoZW1lIjoidmlzYSIsImlpbiI6IjQxMTExMSIsImxhc3Q0IjoiMTExMSIsImV4cGlyZXMiOlsyLDIyXSwicmVmZXJlbmNlIjoiTUNBMTQzNDIwMDgyMCIsImFjcXVpcmVyIjoiaW50ZXJnaXJvIiwiY3JlYXRlZCI6IjIwMjEtMDgtMjBUMTI6MzQ6MjAuOTA3WiJ9.c-kh0-kgIR9SsZnBKWoSerGiakYxfanNbimrg1FI7CCZNTtk_r7IKJBpxyku936s3Zcdc8hyJq6t7p_B4jlTlE-xn0Ezuz_D1jX9HfPIjpZCuptjKaw5dElN9iKgP0If75tw0YpQQcFcdN5kUY0g1_nNx1NmCnlCx1PIEtKBqZuZIvFkzz-dYye2dWYZNQA16RWv0IyNEQR-CXrA7oj0qvAU0FYNWd2m55Z7CXXq9eQY2TcIhXUcwK-VgDTyeHugZ2FJvJXNKUttTIkjLirbPZIfmUaIFibeEJp9m3Kopd6sb8YvAjSyti8asNM8LZiD62ryIj4jWi3NMT4lPH_vHQ"
+  },
+  {
+    "type": "card",
+    "scheme": "visa",
+    "iin": "422222",
+    "last4": "2222",
+    "expires": [
+      2,
+      26
+    ],
+    "acquirer": "intergiro",
+    "created": "2021-08-20T12:34:20.907Z",
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwYXlmdW5jIiwiaWF0IjoxNjM1MTY5ODU1LCJhdWQiOiJkZXZlbG9wbWVudCIsInR5cGUiOiJjYXJkIiwiY2FyZCI6ImV5SmhiR2NpT2lKU1V6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwYzNNaU9pSmpZWEprSWl3aWFXRjBJam94TmpJNU5EWXlPRFl3TENKaGRXUWlPaUprWlhabGJHOXdiV1Z1ZENJc0ltVnVZeUk2SWpJd01ERXVXRzlyZFZGV2F6WnlibmxZUlV0ME9GTjBUVVJ0UVM1aVJVSjZWM0ZSYm1sUE1XMTNhMTl6Wm5kSFprSk5jbFl3ZEVkaU1ERlFNRkp4V2xwak5EWkVWa2c0SWl3aWVIQnlJanBiTWl3eU1sMTkuQzdudExYVlFtUHF1eXgwTmh5QWxDOVhGNXVqczh0VWtjQktJVnZqNUVYcVlDWHQyS3BpNVVtZFBGTllVQ1lodXNLeG9EY2p2R1lwRzFRN0tSTzgtdmtxNzhYSHRIOGwtVU1TQncxMk1SY2t3ZHJuUFlxSEt6Y3F2b3hEcURlMjVEUEM3bllMV0NXejF2YlpwWUhQYTZWU08ta1JmcWxzMGwzM05fbTN2dkRrSV96VEszZktzYjhscnA5VGNIbFNSbmw5Nlg0b0tPSEd6akVUSjREaWJuOFZzYmpTOUR5SzVyQ1RmMjFOcThKZncwZG8xaDRxXzZNUW90NmNhV1JuUkphQUE2MkhEU2c2SXNMLTZ5ZThOeEtSUnpxSUpZVDdmU2RlQ3VHamJwZWVOclN1SGxSY2tpeUpDdkJicEVaeGZKeVp2Njk2YW5yTWdObVViRU9kSTNBIiwic2NoZW1lIjoidmlzYSIsImlpbiI6IjQxMTExMSIsImxhc3Q0IjoiMTExMSIsImV4cGlyZXMiOlsyLDIyXSwicmVmZXJlbmNlIjoiTUNBMTQzNDIwMDgyMCIsImFjcXVpcmVyIjoiaW50ZXJnaXJvIiwiY3JlYXRlZCI6IjIwMjEtMDgtMjBUMTI6MzQ6MjAuOTA3WiJ9.c-kh0-kgIR9SsZnBKWoSerGiakYxfanNbimrg1FI7CCZNTtk_r7IKJBpxyku936s3Zcdc8hyJq6t7p_B4jlTlE-xn0Ezuz_D1jX9HfPIjpZCuptjKaw5dElN9iKgP0If75tw0YpQQcFcdN5kUY0g1_nNx1NmCnlCx1PIEtKBqZuZIvFkzz-dYye2dWYZNQA16RWv0IyNEQR-CXrA7oj0qvAU0FYNWd2m55Z7CXXq9eQY2TcIhXUcwK-VgDTyeHugZ2FJvJXNKUttTIkjLirbPZIfmUaIFibeEJp9m3Kopd6sb8YvAjSyti8asNM8LZiD62ryIj4jWi3NMT4lPH_vHQ"
+  }
+]
+```
+
+#### Example Request:
+
+```{1} JSON
+DELETE /v1/customer/:customer_id/method
+
+Host: merchant.intergiro.com
+Authentication: Bearer <public.api.key> | Bearer <private.api.key>
+
+[
+  {
+    "type": "card",
+    "scheme": "visa",
+    "iin": "422222",
+    "last4": "2222",
+    "expires": [
+      2,
+      26
+    ],
+    "acquirer": "intergiro",
+    "created": "2021-08-20T12:34:20.907Z",
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwYXlmdW5jIiwiaWF0IjoxNjM1MTY5ODU1LCJhdWQiOiJkZXZlbG9wbWVudCIsInR5cGUiOiJjYXJkIiwiY2FyZCI6ImV5SmhiR2NpT2lKU1V6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwYzNNaU9pSmpZWEprSWl3aWFXRjBJam94TmpJNU5EWXlPRFl3TENKaGRXUWlPaUprWlhabGJHOXdiV1Z1ZENJc0ltVnVZeUk2SWpJd01ERXVXRzlyZFZGV2F6WnlibmxZUlV0ME9GTjBUVVJ0UVM1aVJVSjZWM0ZSYm1sUE1XMTNhMTl6Wm5kSFprSk5jbFl3ZEVkaU1ERlFNRkp4V2xwak5EWkVWa2c0SWl3aWVIQnlJanBiTWl3eU1sMTkuQzdudExYVlFtUHF1eXgwTmh5QWxDOVhGNXVqczh0VWtjQktJVnZqNUVYcVlDWHQyS3BpNVVtZFBGTllVQ1lodXNLeG9EY2p2R1lwRzFRN0tSTzgtdmtxNzhYSHRIOGwtVU1TQncxMk1SY2t3ZHJuUFlxSEt6Y3F2b3hEcURlMjVEUEM3bllMV0NXejF2YlpwWUhQYTZWU08ta1JmcWxzMGwzM05fbTN2dkRrSV96VEszZktzYjhscnA5VGNIbFNSbmw5Nlg0b0tPSEd6akVUSjREaWJuOFZzYmpTOUR5SzVyQ1RmMjFOcThKZncwZG8xaDRxXzZNUW90NmNhV1JuUkphQUE2MkhEU2c2SXNMLTZ5ZThOeEtSUnpxSUpZVDdmU2RlQ3VHamJwZWVOclN1SGxSY2tpeUpDdkJicEVaeGZKeVp2Njk2YW5yTWdObVViRU9kSTNBIiwic2NoZW1lIjoidmlzYSIsImlpbiI6IjQxMTExMSIsImxhc3Q0IjoiMTExMSIsImV4cGlyZXMiOlsyLDIyXSwicmVmZXJlbmNlIjoiTUNBMTQzNDIwMDgyMCIsImFjcXVpcmVyIjoiaW50ZXJnaXJvIiwiY3JlYXRlZCI6IjIwMjEtMDgtMjBUMTI6MzQ6MjAuOTA3WiJ9.c-kh0-kgIR9SsZnBKWoSerGiakYxfanNbimrg1FI7CCZNTtk_r7IKJBpxyku936s3Zcdc8hyJq6t7p_B4jlTlE-xn0Ezuz_D1jX9HfPIjpZCuptjKaw5dElN9iKgP0If75tw0YpQQcFcdN5kUY0g1_nNx1NmCnlCx1PIEtKBqZuZIvFkzz-dYye2dWYZNQA16RWv0IyNEQR-CXrA7oj0qvAU0FYNWd2m55Z7CXXq9eQY2TcIhXUcwK-VgDTyeHugZ2FJvJXNKUttTIkjLirbPZIfmUaIFibeEJp9m3Kopd6sb8YvAjSyti8asNM8LZiD62ryIj4jWi3NMT4lPH_vHQ"
+  },
+  {
+    "type": "card",
+    "scheme": "visa",
+    "iin": "411111",
+    "last4": "1111",
+    "expires": [
+      2,
+      22
+    ],
+    "acquirer": "intergiro",
+    "created": "2021-08-20T12:34:20.907Z",
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwYXlmdW5jIiwiaWF0IjoxNjM1MTY5ODU1LCJhdWQiOiJkZXZlbG9wbWVudCIsInR5cGUiOiJjYXJkIiwiY2FyZCI6ImV5SmhiR2NpT2lKU1V6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwYzNNaU9pSmpZWEprSWl3aWFXRjBJam94TmpJNU5EWXlPRFl3TENKaGRXUWlPaUprWlhabGJHOXdiV1Z1ZENJc0ltVnVZeUk2SWpJd01ERXVXRzlyZFZGV2F6WnlibmxZUlV0ME9GTjBUVVJ0UVM1aVJVSjZWM0ZSYm1sUE1XMTNhMTl6Wm5kSFprSk5jbFl3ZEVkaU1ERlFNRkp4V2xwak5EWkVWa2c0SWl3aWVIQnlJanBiTWl3eU1sMTkuQzdudExYVlFtUHF1eXgwTmh5QWxDOVhGNXVqczh0VWtjQktJVnZqNUVYcVlDWHQyS3BpNVVtZFBGTllVQ1lodXNLeG9EY2p2R1lwRzFRN0tSTzgtdmtxNzhYSHRIOGwtVU1TQncxMk1SY2t3ZHJuUFlxSEt6Y3F2b3hEcURlMjVEUEM3bllMV0NXejF2YlpwWUhQYTZWU08ta1JmcWxzMGwzM05fbTN2dkRrSV96VEszZktzYjhscnA5VGNIbFNSbmw5Nlg0b0tPSEd6akVUSjREaWJuOFZzYmpTOUR5SzVyQ1RmMjFOcThKZncwZG8xaDRxXzZNUW90NmNhV1JuUkphQUE2MkhEU2c2SXNMLTZ5ZThOeEtSUnpxSUpZVDdmU2RlQ3VHamJwZWVOclN1SGxSY2tpeUpDdkJicEVaeGZKeVp2Njk2YW5yTWdObVViRU9kSTNBIiwic2NoZW1lIjoidmlzYSIsImlpbiI6IjQxMTExMSIsImxhc3Q0IjoiMTExMSIsImV4cGlyZXMiOlsyLDIyXSwicmVmZXJlbmNlIjoiTUNBMTQzNDIwMDgyMCIsImFjcXVpcmVyIjoiaW50ZXJnaXJvIiwiY3JlYXRlZCI6IjIwMjEtMDgtMjBUMTI6MzQ6MjAuOTA3WiJ9.c-kh0-kgIR9SsZnBKWoSerGiakYxfanNbimrg1FI7CCZNTtk_r7IKJBpxyku936s3Zcdc8hyJq6t7p_B4jlTlE-xn0Ezuz_D1jX9HfPIjpZCuptjKaw5dElN9iKgP0If75tw0YpQQcFcdN5kUY0g1_nNx1NmCnlCx1PIEtKBqZuZIvFkzz-dYye2dWYZNQA16RWv0IyNEQR-CXrA7oj0qvAU0FYNWd2m55Z7CXXq9eQY2TcIhXUcwK-VgDTyeHugZ2FJvJXNKUttTIkjLirbPZIfmUaIFibeEJp9m3Kopd6sb8YvAjSyti8asNM8LZiD62ryIj4jWi3NMT4lPH_vHQ"
+  }
+]
+```
+
+#### Example Response:
+
+``` JSON
+{
+  "number": "<your customer identifier>",
+  "method": [
+    {
+      "type": "card",
+      "scheme": "visa",
+      "iin": "422222",
+      "last4": "2222",
+      "expires": [
+        2,
+        26
+      ],
+      "acquirer": "intergiro",
+      "created": "2021-08-20T12:34:20.907Z",
+      "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwYXlmdW5jIiwiaWF0IjoxNjM1MTY5ODU1LCJhdWQiOiJkZXZlbG9wbWVudCIsInR5cGUiOiJjYXJkIiwiY2FyZCI6ImV5SmhiR2NpT2lKU1V6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwYzNNaU9pSmpZWEprSWl3aWFXRjBJam94TmpJNU5EWXlPRFl3TENKaGRXUWlPaUprWlhabGJHOXdiV1Z1ZENJc0ltVnVZeUk2SWpJd01ERXVXRzlyZFZGV2F6WnlibmxZUlV0ME9GTjBUVVJ0UVM1aVJVSjZWM0ZSYm1sUE1XMTNhMTl6Wm5kSFprSk5jbFl3ZEVkaU1ERlFNRkp4V2xwak5EWkVWa2c0SWl3aWVIQnlJanBiTWl3eU1sMTkuQzdudExYVlFtUHF1eXgwTmh5QWxDOVhGNXVqczh0VWtjQktJVnZqNUVYcVlDWHQyS3BpNVVtZFBGTllVQ1lodXNLeG9EY2p2R1lwRzFRN0tSTzgtdmtxNzhYSHRIOGwtVU1TQncxMk1SY2t3ZHJuUFlxSEt6Y3F2b3hEcURlMjVEUEM3bllMV0NXejF2YlpwWUhQYTZWU08ta1JmcWxzMGwzM05fbTN2dkRrSV96VEszZktzYjhscnA5VGNIbFNSbmw5Nlg0b0tPSEd6akVUSjREaWJuOFZzYmpTOUR5SzVyQ1RmMjFOcThKZncwZG8xaDRxXzZNUW90NmNhV1JuUkphQUE2MkhEU2c2SXNMLTZ5ZThOeEtSUnpxSUpZVDdmU2RlQ3VHamJwZWVOclN1SGxSY2tpeUpDdkJicEVaeGZKeVp2Njk2YW5yTWdObVViRU9kSTNBIiwic2NoZW1lIjoidmlzYSIsImlpbiI6IjQxMTExMSIsImxhc3Q0IjoiMTExMSIsImV4cGlyZXMiOlsyLDIyXSwicmVmZXJlbmNlIjoiTUNBMTQzNDIwMDgyMCIsImFjcXVpcmVyIjoiaW50ZXJnaXJvIiwiY3JlYXRlZCI6IjIwMjEtMDgtMjBUMTI6MzQ6MjAuOTA3WiJ9.c-kh0-kgIR9SsZnBKWoSerGiakYxfanNbimrg1FI7CCZNTtk_r7IKJBpxyku936s3Zcdc8hyJq6t7p_B4jlTlE-xn0Ezuz_D1jX9HfPIjpZCuptjKaw5dElN9iKgP0If75tw0YpQQcFcdN5kUY0g1_nNx1NmCnlCx1PIEtKBqZuZIvFkzz-dYye2dWYZNQA16RWv0IyNEQR-CXrA7oj0qvAU0FYNWd2m55Z7CXXq9eQY2TcIhXUcwK-VgDTyeHugZ2FJvJXNKUttTIkjLirbPZIfmUaIFibeEJp9m3Kopd6sb8YvAjSyti8asNM8LZiD62ryIj4jWi3NMT4lPH_vHQ"
+    },
+    {
+      "type": "card",
+      "scheme": "visa",
+      "iin": "411111",
+      "last4": "1111",
+      "expires": [
+        2,
+        22
+      ],
+      "acquirer": "intergiro",
+      "created": "2021-08-20T12:34:20.907Z",
+      "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwYXlmdW5jIiwiaWF0IjoxNjM1MTY5ODU1LCJhdWQiOiJkZXZlbG9wbWVudCIsInR5cGUiOiJjYXJkIiwiY2FyZCI6ImV5SmhiR2NpT2lKU1V6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwYzNNaU9pSmpZWEprSWl3aWFXRjBJam94TmpJNU5EWXlPRFl3TENKaGRXUWlPaUprWlhabGJHOXdiV1Z1ZENJc0ltVnVZeUk2SWpJd01ERXVXRzlyZFZGV2F6WnlibmxZUlV0ME9GTjBUVVJ0UVM1aVJVSjZWM0ZSYm1sUE1XMTNhMTl6Wm5kSFprSk5jbFl3ZEVkaU1ERlFNRkp4V2xwak5EWkVWa2c0SWl3aWVIQnlJanBiTWl3eU1sMTkuQzdudExYVlFtUHF1eXgwTmh5QWxDOVhGNXVqczh0VWtjQktJVnZqNUVYcVlDWHQyS3BpNVVtZFBGTllVQ1lodXNLeG9EY2p2R1lwRzFRN0tSTzgtdmtxNzhYSHRIOGwtVU1TQncxMk1SY2t3ZHJuUFlxSEt6Y3F2b3hEcURlMjVEUEM3bllMV0NXejF2YlpwWUhQYTZWU08ta1JmcWxzMGwzM05fbTN2dkRrSV96VEszZktzYjhscnA5VGNIbFNSbmw5Nlg0b0tPSEd6akVUSjREaWJuOFZzYmpTOUR5SzVyQ1RmMjFOcThKZncwZG8xaDRxXzZNUW90NmNhV1JuUkphQUE2MkhEU2c2SXNMLTZ5ZThOeEtSUnpxSUpZVDdmU2RlQ3VHamJwZWVOclN1SGxSY2tpeUpDdkJicEVaeGZKeVp2Njk2YW5yTWdObVViRU9kSTNBIiwic2NoZW1lIjoidmlzYSIsImlpbiI6IjQxMTExMSIsImxhc3Q0IjoiMTExMSIsImV4cGlyZXMiOlsyLDIyXSwicmVmZXJlbmNlIjoiTUNBMTQzNDIwMDgyMCIsImFjcXVpcmVyIjoiaW50ZXJnaXJvIiwiY3JlYXRlZCI6IjIwMjEtMDgtMjBUMTI6MzQ6MjAuOTA3WiJ9.c-kh0-kgIR9SsZnBKWoSerGiakYxfanNbimrg1FI7CCZNTtk_r7IKJBpxyku936s3Zcdc8hyJq6t7p_B4jlTlE-xn0Ezuz_D1jX9HfPIjpZCuptjKaw5dElN9iKgP0If75tw0YpQQcFcdN5kUY0g1_nNx1NmCnlCx1PIEtKBqZuZIvFkzz-dYye2dWYZNQA16RWv0IyNEQR-CXrA7oj0qvAU0FYNWd2m55Z7CXXq9eQY2TcIhXUcwK-VgDTyeHugZ2FJvJXNKUttTIkjLirbPZIfmUaIFibeEJp9m3Kopd6sb8YvAjSyti8asNM8LZiD62ryIj4jWi3NMT4lPH_vHQ"
+    }
+  ],
+  "contact": {
+    "name": "Example Customer",
+    "email": "example.customer@email.com"
+  },
+  "status": "active",
+  "total": 0,
+  "balance": [],
+  "currency": "SEK",
+  "schedule": "monthly",
+  "subscription": [
+    {
+      "start": "2021-08-20",
+      "items": 7,
+      "currency": "EUR",
+      "schedule": "daily",
+      "callback": "https://your.api.com/callback",
+      "id": "12aB",
+      "due": "2021-08-20"
+    }
+  ],
+  "id": "1234567890123456"
+}
+```
