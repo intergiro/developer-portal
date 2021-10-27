@@ -42,6 +42,13 @@ window.addEventListener("message", async e => {
 })
 ``` 
 
+If you need to verify the result, POST to the `authorization/verify` endpoint with the signed jwt as the body. The response will be an authorization or an error.
+``` JSON {1}
+POST /authorization/verify
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOQk9xaWNzZUhZTmhhQk4iLCJtZXJjaGFudCI6InRlc3R0ZXN0IiwibnVtYmVyIjoiVW5pcXVlLW51bWJlciIsInJlZmVyZW5jZSI6Ik1DQTA5NDQ0NzEwMjIiLCJjcmVhdGVkIjoiMjAyMS0xMC0yMlQwNzo0NDo0OS4wNDlaIiwiYW1vdW50IjoyNTAsImN1cnJlbmN5IjoiRVVSIiwiY2FyZCI6eyJzY2hlbWUiOiJ2aXNhIiwiaWluIjoiNDExMTExIiwibGFzdDQiOiIxMTExIiwiZXhwaXJlcyI6WzEyLDIyXSwiY3NjIjoicHJlc2VudCJ9LCJkZXNjcmlwdG9yIjoidGVzdCB0cmFuc2FjdGlvbiIsImhpc3RvcnkiOlt7Im1lcmNoYW50IjoidGVzdHRlc3QiLCJudW1iZXIiOiJVbmlxdWUtbnVtYmVyIiwiZGF0ZSI6IjIwMjEtMTAtMjJUMDc6NDQ6NDkuMDQ5WiIsInR5cGUiOiJjcmVhdGUiLCJzdGF0dXMiOiJzdWNjZXNzIiwidmVyaWZpY2F0aW9uIjoidmVyaWZpZWQifV0sImNhcHR1cmUiOltdLCJyZWZ1bmQiOltdLCJzdGF0dXMiOnsiYXV0aG9yaXplZCI6MjUwfX0.kVHWv6aa0g97rtnAu17TUMSrPg1KOqgsadq15vSqC48
+```
+
 ## Example
 
 A full example can be accessed from the <a target="_blank" href="https://github.com/intergiro/verification-example">github repository</a> or downloaded as a <a target="_blank" :href="$withBase('/assets/scripts/verification/redirect.html')" download="index.html">html file</a>. To test the code, a public api key is required to be added to the const `key` in the code. 
