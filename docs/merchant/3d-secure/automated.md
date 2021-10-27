@@ -42,7 +42,7 @@ window.addEventListener("message", async e => {
 })
 ``` 
 
-If you need to verify the result, POST to the `authorization/verify` endpoint with the signed jwt as the body. The response will be an authorization or an error.
+If you need to verify the result, POST to the `authorization/verify` endpoint with the signed jwt as the body. The response will be an [Authorization](../authorization.html#authorization) or an error.
 ``` JSON {1}
 POST /authorization/verify
 Content-Type: application/jwt
