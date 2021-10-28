@@ -161,7 +161,7 @@ function getMerchantSidebar() {
       collapsable: false,
       children: [
         '/merchant/card-holder-input/embed',
-        // '/merchant/card-holder-input/verification',
+        '/merchant/card-holder-input/verification',
         // '/merchant/card-holder-input/style',
       ]
     },
