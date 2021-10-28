@@ -156,6 +156,15 @@ function getMerchantSidebar() {
         '/merchant/card-input/style',
       ]
     },
+		{
+      title: 'Cardholder Input UI',
+      collapsable: false,
+      children: [
+        '/merchant/card-holder-input/embed',
+        // '/merchant/card-holder-input/verification',
+        // '/merchant/card-holder-input/style',
+      ]
+    },
     {
       title: 'Card API',
       collapsable: false,
