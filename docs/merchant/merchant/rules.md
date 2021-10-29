@@ -116,9 +116,27 @@ Example Rule:
 
 `reject authorization if authorization.card.country:within(SE, NO, FI, DK)`
 
-Can be useful to check if the property exists:
+#### IpCountry
+The `ipCountry` Guard will add information about the country of the card holders ip on the `authorization.ip.country` property on the [PreAuthorization](../authorization/states.html#preauthorization).
 
-`reject authorization if (!authorization.card:has(country)) | (authorization.card.country:within(SE, NO, FI, DK))`
+| Property  | Type                                        | Description | Optional |
+|-----------|---------------------------------------------|-------------|----------|
+| `country` | [`Alpha2`](../common/reference.html#alpha2) |             | Yes      |
+
+Example of the information added to the [PreAuthorization](../authorization/states.html#preauthorization):
+``` json
+{
+    "authorization": {
+        "ip": {
+            "country": "SE"
+        }
+    }
+}
+```
+
+Example Rule:
+
+`reject authorization if authorization.ip.country:within(SE, NO, FI, DK)`
 
 #### Card
 The card Guard will add information about the history of card being used with a merchant, this information will be added on the `authorization.card` property on the [PreAuthoirzation](../authorization/states.html#preauthorization).
@@ -158,9 +176,6 @@ Example Rules:
 
 `reject authorization if authorization.card.transactions.last4Days>10`
 
-Can be useful to check if the property exists:
-
-`reject authorization if (!authorization.card:has(transactions)) | (authorization.card.transactions.last4Days>10)`
 
 #### Email
 The email Guard will add information about the history of emails being used with a merchant, this information will be added on the `authorization` property on the [PreAuthorization](../authorization/state.html#preauthorization).
@@ -211,10 +226,6 @@ Example Rules:
 `reject authorization if authorization.email.transactions.last4Days>10`
 
 `reject authorization if authorization.email.card.last4Days>3`
-
-Can be useful to check if the property exists:
-
-`reject authorization if (!authorization.email:has(transactions)) | (authorization.email.transactions.last4Days>10)`
 
 #### LastDays
 
