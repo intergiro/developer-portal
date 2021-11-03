@@ -1,5 +1,5 @@
 # Functions
-Functions can be used as a condition in a [Rule](./rules.html) to silmplify writing rules and to make them more human readable. To be authorized to create, change and list Functions, an agent bearer API-key is needed.
+Functions can be used as a condition in a [Rule](./rules.html) to silmplify writing rules and to make them more human readable. An agent bearer API-key is needed to create, change and list Functions.
 
 Examples of Rules using Functions: 
 - `reject authorization if limit(300,EUR)`
@@ -10,12 +10,12 @@ Examples of Rules using Functions:
 The [`Functions`](./reference.html#functions) object is of type `Record<string, Detail>` where the key is the name of the function and the value is an object which contains some detailed information about the function. 
 
 The [Detail](./reference#detail) object includes:
-- A `definition` field which works the same as a Rule [condition](./rules.html#condition). This is a boolean expression, created using information from:
+- The `definition` field works the same as a Rule [condition](./rules.html#condition). This is a boolean expression, created using information from:
     - [PreAuthorization](../authorization/states.html#preauthorization)
     - [extended PreAuthorization](./rules.html#extended-state)
     - [PostAuthorization](../authorization/states.html#postauthorization).
-- An `arguments` field which is a list of all arguments used in the function. 
-- An optional [Description](./reference.html#description) field which can include a summary of the function, a description of each argument used in the function and examples of how to use the function. 
+- The `arguments` field is a list of all arguments used in the function. 
+- The [Description](./reference.html#description) field is optional and can include a summary of the function, a description of each argument used in the function and examples of how to use the function. 
 
 Example of a `Functions` object that sets a limit on the amount and currency for a transaction:
 ``` JSON
