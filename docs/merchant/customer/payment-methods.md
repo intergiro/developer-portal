@@ -18,7 +18,7 @@ Authentication: Bearer <public.api.key> | Bearer <private.api.key>
 ```
 
 ## Selecting Customer Method
-Use the function `Customer.Method.toPayment()` in the repository <a target="_blank" href="https://github.com/intergiro/model">Model</a> to convert a customer method to a [card payment](../order/reference.html#card-payment). Put the [card payment](../order/reference.html#card-payment) on the [Order Creatable](../order/reference.html#creatable) and POST to the [order endpoint](../order/create.html).
+To select a customer method, use the function `Customer.Method.toPayment()` from the repository <a target="_blank" href="https://github.com/intergiro/model">Model</a> to convert a customer method to a [card payment](../order/reference.html#card-payment). Then, put the [card payment](../order/reference.html#card-payment) on the [Order Creatable](../order/reference.html#creatable) and POST to the [order endpoint](../order/create.html).
 
 ``` js
 const payment = await model.Customer.Method.toPayment({
