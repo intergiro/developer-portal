@@ -230,8 +230,9 @@ function getMerchantSidebar() {
         '/merchant/merchant/create',
         '/merchant/merchant/update',
         '/merchant/merchant/get',
-        '/merchant/merchant/rules',
         '/merchant/merchant/list',
+        '/merchant/merchant/rules',
+        '/merchant/merchant/functions',
         '/merchant/merchant/reference',
         '/merchant/merchant/postman',
       ]

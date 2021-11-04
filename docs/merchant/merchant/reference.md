@@ -27,6 +27,26 @@
 
 [How to write rules](./rules.html#how-to-write-rules)
 
+## Functions
+
+| Property | Type                | Description | Optional |
+|----------|---------------------|-------------|----------|
+| `string` | [`Detail`](#detail) |             |          |
+
+### Detail
+| Property      | Type                          | Description | Optional |
+|---------------|-------------------------------|-------------|----------|
+| `description` | [`Description`](#description) |             | yes      |
+| `definition`  | string                        |             |          |
+| `arguments`   | string[]                      |             |          |
+
+### Description
+| Property    | Type                    | Description | Optional |
+|-------------|-------------------------|-------------|----------|
+| `arguments` | `Record<string,string>` |             | yes      |
+| `example`   | `Record<string,string>` |             | yes      |
+| `summary`   | string                  |             | yes      |
+
 ## Reconciliation
 
 | Property   | Type                                                                                                                   | Description | Optional |

@@ -66,6 +66,7 @@ Example rule:
 A rule always applies to an [authorization state](../authorization/states.html). An `"authorization"` operation is applied to the [PreAuthorization State](../authorization/states.html#preauthorization), e.g. The Rule `"reject authorization if merchant.captured > 250000"` will be used to possibly reject an authorization attempt. Whereas, all other operations (`"capture"`, `"refund"` and `"void"`) are applied to the [PostAuthorization State](../authorization/states.html#postauthorization).
 
 ### Condition
+A condition can be written as a boolean expression or as [Functions](./function.html) for more human readable rules. [Read more of how to write Functions](./functions.html#how-to-write-functions).
 
 | Operator     | Description              | Example                                                               |
 |--------------|--------------------------|-----------------------------------------------------------------------|
