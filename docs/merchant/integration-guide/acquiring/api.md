@@ -19,10 +19,11 @@ If you want to avoid handling card information to minimize the PCI scope of your
 The Intergiro Card Input UI can perform 3D-Secure by using the Verification API ([Read more here](../../card-input/verification.html#verification)).
 Intergiro Card Input UI can also be [customized](../../card-input/style.html#styling) to better suit the style of a given website.
 
-### Verification 
-
-You can perform your own custom 3D-Secure with the [Authorization API](../../authorization/create.html#create).
-Alternatively you can use the [Verification API](../../verification/create.html#create) together with either the [Card API](../../card-api/create.html#create) or the [Card Input UI](../../card-input/embed.html#embeddable-component).
+## 3D-Secure
+There are three different methods to perform 3D Secure. 
+- If you want to perform 3D Secure in one automated flow, follow the steps in the [Automated](../../3d-secure/automated.html) section. 
+- If you want control of what happens between the steps in the 3D cycle, follow the steps in the [Interactive](../../3d-secure/interactive.html) section. 
+- If you want full control of the 3D flow, follow the steps in the [Controlled](../../3d-secure/controlled.html) section.
 
 ## Settlement
 
