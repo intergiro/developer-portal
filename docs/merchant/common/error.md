@@ -64,5 +64,5 @@ Errors have the following structure.
 <dd>  Your card is not supported. Please try another card.</dd>
 <dd>  Your card doesn't support required 3D secure verification. Please try another card.</dd>
 <dt>verification required</dt>
-<dd>  verification required error.</dd>
+<dd>  If you receive a verification required error, <a href=../3d-secure/introduction.html>3D secure</a> needs to be performed.</dd>
 </dl>

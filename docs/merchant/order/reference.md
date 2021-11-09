@@ -3,17 +3,18 @@
 ## Order
 
 ### Creatable
-| Property   | Type                                                                                                                                     | Description                                                | Optional |
-|------------|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|----------|
-| `number`   | `string`                                                                                                                                 | Order number in your system.                               | Yes      |
-| `customer` | [`string | Contact`](../common/reference.html#contact)                                                                                   | Customer contact information or [customer id](./customer). | Yes      |
-| `items`    | [`number | Item | Item[]`](../common/reference.html#item)                                                                                |                                                            |          |
-| `currency` | [`Currency`](../common/reference.html#currency)                                                                                          |                                                            |          |
-| `payment`  | [`Payment.Card.Creatable`](./reference.html#card-payment) \| [`Payment.Customer.Creatable`](../customer/reference.html#customer-payment) |                                                            |          |
-| `category` | `"purchase"` or `"withdrawal"`                                                                                                           | Defaults to "purchase"                                     | Yes      |
-| `theme`    | `string`                                                                                                                                 | i.e. "intergiro" or "dark"                                 | Yes      |
-| `meta`     | `any`                                                                                                                                    | Data used by the merchant.                                 | Yes      |
-| `callback` | [`string`](./callback.html#callback)                                                                                                     | URL to receive the callbacks.                              | Yes      |
+| Property   | Type                                                                                                                                     | Description                                                                 | Optional |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|----------|
+| `id`       | `string`                                                                                                                                 | Identifier received from the [order-create](../order/create.html) endpoint. | Yes      |
+| `number`   | `string`                                                                                                                                 | Order number in your system.                                                | Yes      |
+| `customer` | [`string | Contact`](../common/reference.html#contact)                                                                                   | Customer contact information or [customer id](./customer).                  | Yes      |
+| `items`    | [`number | Item | Item[]`](../common/reference.html#item)                                                                                |                                                                             |          |
+| `currency` | [`Currency`](../common/reference.html#currency)                                                                                          |                                                                             |          |
+| `payment`  | [`Payment.Card.Creatable`](./reference.html#card-payment) \| [`Payment.Customer.Creatable`](../customer/reference.html#customer-payment) |                                                                             |          |
+| `category` | `"purchase"` or `"withdrawal"`                                                                                                           | Defaults to "purchase"                                                      | Yes      |
+| `theme`    | `string`                                                                                                                                 | i.e. "intergiro" or "dark"                                                  | Yes      |
+| `meta`     | `any`                                                                                                                                    | Data used by the merchant.                                                  | Yes      |
+| `callback` | [`string`](./callback.html#callback)                                                                                                     | URL to receive the callbacks.                                               | Yes      |
 
 #### Example
 ``` json
