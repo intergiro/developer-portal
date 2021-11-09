@@ -34,7 +34,7 @@ Authorization Creatable
 | `card`       | [`Card`](../card-api/reference.html#card)                    |                                                 |          |
 | `descriptor` | `string`                                                     |                                                 | Yes      |
 | `recurring`  | [`Recurring`](reference.html#recurring)                      |                                                 | Yes      |
-| `history`    | [`History[]`](reference.html#history)                       |                                                 |          |
+| `history`    | [`History[]`](reference.html#history)                        |                                                 |          |
 | `change`     | [`Change[]`](./reference.html#change)                        |                                                 | Yes      |
 | `capture`    | [`Capture[]`](./reference.html#capture)                      |                                                 |          |
 | `refund`     | [`Refund[]`](./reference.html#refund)                        |                                                 |          |
@@ -151,7 +151,7 @@ History.Create is of type [Fail](./reference.html#fail), [Success](./reference.h
 | `error`        | [`Error`](../common/error.html#error-2)          |             |          |
 
 
-#### success
+#### Success
 | Property       | Type                                       | Description | Optional |
 |----------------|--------------------------------------------|-------------|----------|
 | `type`         | `"create"`                                 |             |          |
@@ -172,14 +172,14 @@ History.Create is of type [Fail](./reference.html#fail), [Success](./reference.h
 | `reason`     | `"verification required" `                      |             |          |
 
 
-### Capture
-History.Capture is of type [Fail](./reference.html#fail-2) or [Success](./reference.html#success-2).
+### Capture and Refund
+History.Capture and History.Refund are of type [Fail](./reference.html#fail-2) or [Success](./reference.html#success-2).
 
 #### Fail
 
 | Property   | Type                                             | Description | Optional |
 |------------|--------------------------------------------------|-------------|----------|
-| `type`     | `"capture"`                                      |             |          |
+| `type`     | `"capture" | "refund"`                           |             |          |
 | `status`   | `"fail"`                                         |             |          |
 | `amount`   | `number`                                         |             |          |
 | `currency` | [`Currency`](../common/reference.html#currency)  |             |          |
@@ -187,36 +187,11 @@ History.Capture is of type [Fail](./reference.html#fail-2) or [Success](./refere
 | `error`    | [`Error`](../common/error.html#error-2)          |             |          |
 
 
-#### success
+#### Success
 | Property    | Type                                            | Description | Optional |
 |-------------|-------------------------------------------------|-------------|----------|
-| `type`      | `"capture"`                                     |             |          |
+| `type`      | `"capture" | "refund"`                          |             |          |
 | `status`    | `"fail"`                                        |             |          |
-| `amount`    | `number`                                        |             |          |
-| `currency`  | [`Currency`](../common/reference.html#currency) |             |          |
-| `reference` | `string`                                        |             |          |
-
-
-### Refund
-History.Refund is of type [Fail](./reference.html#fail-3) or [Success](./reference.html#success-3).
-
-#### Fail
-
-| Property   | Type                                             | Description | Optional |
-|------------|--------------------------------------------------|-------------|----------|
-| `type`     | `"refund"`                                       |             |          |
-| `status`   | `"fail"`                                         |             |          |
-| `amount`   | `number`                                         |             |          |
-| `currency` | [`Currency`](../common/reference.html#currency)  |             |          |
-| `reason`   | [`Error Code`](../common/error.html#error-codes) |             |          |
-| `error`    | [`Error`](../common/error.html#error-2)          |             |          |
-
-
-#### success
-| Property    | Type                                            | Description | Optional |
-|-------------|-------------------------------------------------|-------------|----------|
-| `type`      | `"refund"`                                      |             |          |
-| `status`    | `"success"`                                     |             |          |
 | `amount`    | `number`                                        |             |          |
 | `currency`  | [`Currency`](../common/reference.html#currency) |             |          |
 | `reference` | `string`                                        |             |          |
@@ -234,7 +209,7 @@ History.Refund is of type [Fail](./reference.html#fail-3) or [Success](./referen
 
 ### Verification
 
-History.Verification is of type [Fail](./reference.html#fail-4), [Success](./reference.html#success-4) or [Pending](./reference.html#pending-2).
+History.Verification is of type [Fail](./reference.html#fail-3), [Success](./reference.html#success-3) or [Pending](./reference.html#pending-2).
 
 #### Fail
 | Property    | Type                                                         | Description | Optional |
@@ -251,7 +226,7 @@ History.Verification is of type [Fail](./reference.html#fail-4), [Success](./ref
 | `reason`    | [`Error Code`](../common/error.html#error-codes)             |             |          |
 | `error`     | [`Error`](../common/error.html#error-2)                      |             |          |
 
-#### success
+#### Success
 | Property    | Type                                            | Description | Optional |
 |-------------|-------------------------------------------------|-------------|----------|
 | `type`      | `"verification"`                                |             |          |
@@ -264,7 +239,7 @@ History.Verification is of type [Fail](./reference.html#fail-4), [Success](./ref
 | `currency`  | [`Currency`](../common/reference.html#currency) |             | Yes      |
 | `recurring` | [`Recurring`](reference.html#recurring)         |             | Yes      |
 
-#### pending
+#### Pending
 | Property    | Type                                            | Description | Optional |
 |-------------|-------------------------------------------------|-------------|----------|
 | `type`      | `"verification"`                                |             |          |
@@ -278,7 +253,7 @@ History.Verification is of type [Fail](./reference.html#fail-4), [Success](./ref
 | `recurring` | [`Recurring`](reference.html#recurring)         |             | Yes      |
 
 ### Void
-History.Void is of type [Fail](./reference.html#fail-5) or [Success](./reference.html#success-5).
+History.Void is of type [Fail](./reference.html#fail-4) or [Success](./reference.html#success-4).
 
 #### Fail
 | Property | Type                                             | Description | Optional |
@@ -288,7 +263,7 @@ History.Void is of type [Fail](./reference.html#fail-5) or [Success](./reference
 | `reason` | [`Error Code`](../common/error.html#error-codes) |             |          |
 | `error`  | [`Error`](../common/error.html#error-2)          |             |          |
 
-#### success
+#### Success
 | Property | Type             | Description | Optional |
 |----------|------------------|-------------|----------|
 | `type`   | `"verification"` |             |          |
