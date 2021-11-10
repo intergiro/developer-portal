@@ -27,15 +27,17 @@ String set as `"unknown"`, `"amex"`, `"dankort"`, `"diners"`, `"discover"`, `"el
 
 ## Browser
 ### Creatable
-| Property      | Type                                | Description                     | Optional |
-|---------------|-------------------------------------|---------------------------------|----------|
-| `color_depth` | `number`                            |                                 | Yes      |
-| `java`        | `boolean`                           |                                 | Yes      |
-| `javascript`  | `boolean`                           |                                 | Yes      |
-| `locale`      | [`Locale`](./reference.html#locale) | `navigator.language`            | Yes      |
-| `timezone`    | `number`                            |                                 | Yes      |
-| `resolution`  | `[number, number]`                  | `screen.width`, `screen.height` | Yes      |
-| `parent`      | `string`                            |                                 | Yes      |
+Use the javascript commands in the description column below to get browser information from a user of your website. This is recommended when creating [Order](../order/create.html), [Customer](../customer/create.html), [Payment Method](../customer/payment-methods.html) or [Authorization](../authorization/create.html) for use when verifying card-holder.
+| Property      | Type                                | Description                      | Optional |
+|---------------|-------------------------------------|----------------------------------|----------|
+| `color_depth` | `number`                            | `screen.colorDepth`              | Yes      |
+| `java`        | `boolean`                           | `navigator.javaEnabled()`        | Yes      |
+| `javascript`  | `boolean`                           | `true`                           | Yes      |
+| `locale`      | [`Locale`](./reference.html#locale) | `navigator.language`             | Yes      |
+| `timezone`    | `number`                            | `new Date().getTimezoneOffset()` | Yes      |
+| `resolution`  | `[number, number]`                  | `[screen.width, screen.height]`  | Yes      |
+| `parent`      | `string`                            | `window.location.origin`         | Yes      |
+
 ### Browser
 The final `Browser` object is the same as the `Browser.Creatable` but with these added fields:
 
