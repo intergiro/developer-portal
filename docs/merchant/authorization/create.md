@@ -20,7 +20,7 @@ Authorization: Bearer <public.api.key> or <customer.api.key>
     "csc": "987"
   },
   "browser": {
-    "colorDepth": 24,
+    "color_depth": 24,
     "resolution": [2560,1440],
     "java": false,
     "javascript": true,

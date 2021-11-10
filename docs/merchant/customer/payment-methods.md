@@ -16,7 +16,7 @@ Authentication: Bearer <public.api.key> | Bearer <private.api.key>
   "card": "<tokenized card information>",
   "client": {
     "browser": {
-        "colorDepth": 24,
+        "color_depth": 24,
         "resolution": [2560,1440],
         "java": false,
         "javascript": true,

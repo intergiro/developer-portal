@@ -18,7 +18,7 @@ Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
     "client": {
       "browser":
         {
-          "colorDepth": 24,
+          "color_depth": 24,
           "resolution": [2560,1440],
           "java": false,
           "javascript": true,
