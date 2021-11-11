@@ -92,7 +92,7 @@ To add one or more [`Orders`](../order/reference.html#order) associated with the
 
 [Subscriptions](./reference.html#subscription) can be added in a similar way, by populating the Customer Creatable with [`Subscription Creatable`](./reference.html#subscription) or [`Subscription Creatable[]`](./reference.html#subscription).
 
-The response will be a [`Customer`](./reference.html#customer-2) & { order: `tokenized.order` | `tokenized.order`[] } and can be validated 
+The response will be a [`Customer`](./reference.html#customer-2) & { order: `tokenized.order` | `tokenized.order[]` } and can be validated 
 
 #### Request
 ``` HTTP {1}
