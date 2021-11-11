@@ -12,10 +12,23 @@ Host: merchant.intergiro.com
 Authentication: Bearer <public.api.key> | Bearer <private.api.key>
 
 {
-    "type": "token",
-    "card": "<tokenized card information>",
+  "type": "token",
+  "card": "<tokenized card information>",
+  "client": {
+    "browser": {
+        "color_depth": 24,
+        "resolution": [2560,1440],
+        "java": false,
+        "javascript": true,
+        "locale": "sv-SE",
+        "timezone": -60,
+        "parent": "https://your.webshop.com"
+      }
+    }
+  }
 }
 ```
+See [browser](../common/reference.html#browser) section for information on how to get the browser information above.
 
 ## Selecting Customer Method
 To select a customer method, use the function `Customer.Method.toPayment()` from the repository <a target="_blank" href="https://www.npmjs.com/package/@payfunc/model">Model</a> to convert a customer method to a [card payment](../order/reference.html#card-payment). Then, put the [card payment](../order/reference.html#card-payment) on the [Order Creatable](../order/reference.html#creatable) and POST to the [order endpoint](../order/create.html).

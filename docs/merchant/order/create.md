@@ -10,14 +10,28 @@ Host: merchant.intergiro.com
 Content-Type: application/json
 Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 {
-	"items": <number or item information or array of items objects>,
-	"currency": "<currency of the transaction>",
-	"payment": {
-		"type": "card"
-        "card": "<card JWT>"
-	}
+  "items": <number or item information or array of items objects>,
+  "currency": "<currency of the transaction>",
+  "payment": {
+    "type": "card"
+    "card": "<card JWT>"
+    "client": {
+      "browser":
+        {
+          "color_depth": 24,
+          "resolution": [2560,1440],
+          "java": false,
+          "javascript": true,
+          "locale": "sv-SE",
+          "timezone": -60,
+          "parent": "https://your.webshop.com"
+        }
+      }
+    }
+  }
 }
 ```
+See [browser](../common/reference.html#browser) section for information on how to get the browser information above.
 
 #### Response
 On success, the response will be an [Order](./reference.html#order-2).
