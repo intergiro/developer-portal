@@ -131,8 +131,8 @@ Authentication: Bearer <public.api.key | private.api.key>
     "email": "joe.smith@example.com"
   },
   "order": {
-	"items": 42,
-	"currency": "EUR",
+	  "items": 42,
+	  "currency": "EUR",
   }
 }
 ```
