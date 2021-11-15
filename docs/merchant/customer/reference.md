@@ -8,16 +8,17 @@ In the response from the endpoint, an object of the Customer data type will be r
 ### Creatable
 If you do not specify a currency when creating a customer, it will default to swedish crowns "SEK". 
 
-| Property   | Type                                                                                 | Description                                                           | Optional |
-|------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------|----------|
-| `id`       | `string`                                                                             | Unique 16-letter identifier in our system                             | Yes      |
-| `number`   | `string`                                                                             | Customer number in your system                                        | Yes      |
-| `contact`  | [`Contact`](../common/reference.html#contact)                                        |                                                                       | Yes      |
-| `method`   | `Method.Creatable[]`                                                                 | See [`Method`](#customermethod) data type, may include an empty array |          |
-| `currency` | [`Currency`](../common/reference.html#currency)                                      | 3-letter currency code, e.g. "SEK"                                    | Yes      |
-| `schedule` | [`Schedule`](./reference.html#schedule) or [`Frequency`](./reference.html#frequency) | see [`Schedule`](./reference.html#schedule) data type                 | Yes      |
-| `limit`    | `number`                                                                             | Credit limit in the specified currency for the customer               | Yes      |
-
+| Property       | Type                                                                                 | Description                                                                                            | Optional |
+|----------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|----------|
+| `id`           | `string`                                                                             | Unique 16-letter identifier in our system                                                              | Yes      |
+| `number`       | `string`                                                                             | Customer number in your system                                                                         | Yes      |
+| `contact`      | [`Contact`](../common/reference.html#contact)                                        |                                                                                                        | Yes      |
+| `method`       | `Method.Creatable[]`                                                                 | See [`Method`](#customermethod) data type, may include an empty array                                  |          |
+| `currency`     | [`Currency`](../common/reference.html#currency)                                      | 3-letter currency code, e.g. "SEK"                                                                     | Yes      |
+| `schedule`     | [`Schedule`](./reference.html#schedule) or [`Frequency`](./reference.html#frequency) | see [`Schedule`](./reference.html#schedule) data type                                                  | Yes      |
+| `limit`        | `number`                                                                             | Credit limit in the specified currency for the customer                                                | Yes      |
+| `order`        | [`Order | Order[]`](../order/reference.html#creatable)                               | Order or Orders (without the fields payment and customer) to be created simultaneously as the customer | Yes      |
+| `subscription` | [`Subscription | Subscription[]`](./reference.html#subscription)                     | Subscription or Subscriptions to be created simultaneously as the customer.                            | Yes      |
 ### Customer
 Responses from the Customer endpoint will contain a `Customer` object, which includes an `"id"` and may include a `"status"`, subscriptions and `"link"` fields in addition to the ones in the Creatable type. 
 
