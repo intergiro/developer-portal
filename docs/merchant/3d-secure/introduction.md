@@ -7,3 +7,5 @@ There are three different methods to perform 3D Secure.
  If you want control of what happens between the steps in the 3D cycle, follow the steps in the [Interactive](./interactive.html) section. This method is suitable for those who need <em>some</em> control in the 3DS process and want an easy integration. 
 ### [Controlled](./controlled.html)
  If you want full control of the 3D flow, follow the steps in the [Controlled](./controlled.html) section. 
+### [External](./external.html)
+ If you want perform 3Ds using an external 3Ds service, follow the steps in the [External](./external.html) section. 

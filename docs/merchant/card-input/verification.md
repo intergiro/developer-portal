@@ -1,6 +1,6 @@
 # Verification
 
-This section describes how to do 3D Secure using `<intergiro-card-input>`. If you wish to have full control over the 3D Secure process you can build it yourself using the [Verification API](../verification/create.html#create).
+This section describes how to do 3D Secure using `<intergiro-card-input>`. If you wish to have full control over the 3D Secure process you can build it yourself using the [3D Secure API](../3d-secure/introduction.html).
 
 ## 3D Secure
 Submit a [card token](./embed.html) together with a `verification required` error through the card input to initialize the 3D Secure cycle. This can render an invisible iframe for frictionless flow or a visible ifram that requires user interaction. The 3D Sercure process may require several steps in order to succeed. The response will contain a new verification required error which is to be submitted to card input together with the card token.
