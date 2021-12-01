@@ -221,6 +221,7 @@ function getMerchantSidebar() {
         '/merchant/3d-secure/automated',
         '/merchant/3d-secure/interactive',
         '/merchant/3d-secure/controlled',
+        '/merchant/3d-secure/external',
       ]
     },
     {

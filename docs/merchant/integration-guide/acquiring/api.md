@@ -16,7 +16,7 @@ After creating an authorization, the authorization can be [captured](../../autho
 ### Minimize PCI scope
 
 If you want to avoid handling card information to minimize the PCI scope of your system, you can use the [Card Input UI](../../card-input/embed.html#embeddable-component).
-The Intergiro Card Input UI can perform 3D-Secure by using the Verification API ([Read more here](../../card-input/verification.html#verification)).
+The Intergiro Card Input UI can perform 3D-Secure by using the 3D-Secure API. ([Read more here](../../card-input/verification.html#verification)).
 Intergiro Card Input UI can also be [customized](../../card-input/style.html#styling) to better suit the style of a given website.
 
 ## 3D-Secure
