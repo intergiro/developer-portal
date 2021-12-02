@@ -36,7 +36,7 @@ The authorization response can be one of three things:
 
 ### Verification required 
 
-- If the error response includes a `content` field with a `content.details.url`, antifraud verification needs to be performed.
+- If the error response includes a `content.details` field with a url, antifraud verification needs to be performed.
 
     Example response:
     ``` json
@@ -78,12 +78,17 @@ The authorization response can be one of three things:
     Take the tokenized card from the payload and set it on the property `card` on the authorization creatable and POST to the authorization endpoint as previously.
 
 
-- If the error response does not include a `content` field, 3DS needs to be performed.
+- If the error response does not include a `content.details` field, 3DS needs to be performed.
     Example response:
     ``` json
     {
         "status": 400,
         "type": "malformed content",
+        "content": {
+        "property": "card",
+        "type": "Card.Creatable | Card.Token",
+        "description": "verification required"
+    },
         "error": "verification required"
     }
     ```
@@ -102,7 +107,7 @@ The authorization response can be one of three things:
             "expires": [2, 22],
             "csc": "987",
             "verification": {
-                "type": "challenge" | "method",
+                "type": "challenge" | "method" | "pares" | "guard",
                 "data": "3d-response"
             }
         },
@@ -114,4 +119,4 @@ The authorization response can be one of three things:
 A successful [authorization](../authorization/reference.html#authorization-2) has status 201.
 
 ### Authorization Failed
-Any other error than [`"verification required"`](./external.html#verification-required) and a [successful authorization](./external.html#authorization-success) is a failed authorization.
+Any other error than [`"verification required"`](./external.html#verification-required) is a failed authorization.
