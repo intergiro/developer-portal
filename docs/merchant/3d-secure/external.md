@@ -2,7 +2,20 @@
 
 The External method is suitable if you want to create an authorization using an external 3Ds service. In this flow, the whole 3D Secure process will be performed externally, which includes verifying the result. This method requires an api-key which does not include any configurations for 3Ds. 
 
-<img style="width: 90%; display: block; margin: auto" :src="$withBase('/assets/img/merchant/verification/external-flow.jpg')" alt="POST flow">
+<img style="width: 100%; display: block; margin: auto" :src="$withBase('/assets/img/merchant/verification/external-sequence.jpg')" alt="POST flow">
+The sequence diagram shows the steps of the external 3D Secure method:
+
+- Send a request to the authorization endpoint. The response will be a verification required error including a url.
+- Perform antifraud verification using the url in the previous response.
+- Send a request to the authorization endpoint. If no 3DS data is provided, the response will be a verification required error.
+- Perform 3DS and send another request to the authorization endpoint with the 3DS data.
+- If the call is successful, an [authorization](../authorization/reference.html#authorization-2) will be returned.
+
+
+## Create Authorization
+
+<img style="width: 70%; display: block; margin: auto" :src="$withBase('/assets/img/merchant/verification/external-flow.jpg')" alt="POST flow">
+
 
 POST an [authorization creatable](../authorization/reference#authorization-creatable.html) to the [authorization create](../authorization/create.html#create) endpoint.
 
@@ -36,7 +49,7 @@ The authorization response can be one of three things:
 
 ### Verification required 
 
-- If the error response includes a `content.details` field with a url, antifraud verification needs to be performed.
+- If the error response includes a `content.details` field with a `url`, antifraud verification needs to be performed.
 
     Example response:
     ``` json
