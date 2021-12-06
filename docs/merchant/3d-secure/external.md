@@ -5,7 +5,7 @@ The External method is suitable if you want to create an authorization using an 
 <img style="width: 100%; display: block; margin: auto" :src="$withBase('/assets/img/merchant/verification/external-sequence.jpg')" alt="POST flow">
 The sequence diagram shows the steps of the external 3D Secure method:
 
-- Send a request to the authorization endpoint. The response will be a verification required error including a url.
+- Send a request to the authorization endpoint. The response will be a [`"verification required"`](./external.html#verification-required) error including a url.
 - Perform antifraud verification using the url in the previous response.
 - Send a request to the authorization endpoint. If no 3DS data is provided, the response will be a verification required error.
 - Perform 3DS and send another request to the authorization endpoint with the 3DS data.
