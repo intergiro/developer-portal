@@ -128,6 +128,38 @@ The authorization response can be one of three things:
     }
     ```
 
+## 3d-response
+In the verification fields, these are the expected input data:
+
+3D Secure Version 1:
+``` JSON
+  "verification": {
+    "type": "pares",
+    "data": "<pares-string>"
+  }
+```
+3D Secure Version 2:
+``` JSON
+  "verification": {
+    "type": "challenge",
+    "data": "<ARes/RReq-base64-encoded-string>"
+  }
+```
+3D Secure Version 2 as unpacked ARes/RReq:
+``` JSON
+  "verification": {
+    "type": "challenge",
+    "data": {
+      "authenticationValue": "<string>",
+      "transStatus": "Y" | "N" | "U" | "A" | "C" | "R",
+      "dsTransID": "<string>",
+      "threeDSServerTransID": "<string>"
+    }
+  }
+```
+If antifraud verification has been initiated and then been successfully performed, 
+replace card property with the JWT response from the antifraud verification.
+
 ### Authorization Success
 A successful [authorization](../authorization/reference.html#authorization-2) has status 201.
 
