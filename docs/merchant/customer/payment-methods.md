@@ -31,7 +31,7 @@ Authentication: Bearer <public.api.key> | Bearer <private.api.key>
 See [browser](../common/reference.html#browser) section for information on how to get the browser information above.
 
 ## Selecting Customer Method
-To select a customer method, use the function `Customer.Method.toPayment()` from the repository <a target="_blank" href="https://www.npmjs.com/package/@payfunc/model">Model</a> to convert a customer method to a [card payment](../order/reference.html#card-payment). Then, put the [card payment](../order/reference.html#card-payment) on the [Order Creatable](../order/reference.html#creatable) and POST to the [order endpoint](../order/create.html).
+To select a customer method, use the function `Customer.Method.toPayment()` from the repository <a target="_blank" href="https://www.npmjs.com/package/@payfunc/model">Model</a> to convert a customer method to a [card payment](../order/reference.html#card-payment). Then, put the [card payment](../order/reference.html#card-payment) on the [Order Creatable](../order/reference.html#creatable) with the `customer` field populated and POST to the [order endpoint](../order/create.html).
 
 ``` js
 const payment = await model.Customer.Method.toPayment({
@@ -45,6 +45,21 @@ const payment = await model.Customer.Method.toPayment({
 			token:
 				"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwYXlmdW5jIiwiaWF0IjoxNjM1MTcwNDQ4LCJhdWQiOiJwcm9kdWN0aW9uIiwidHlwZSI6ImNhcmQiLCJjYXJkIjoiZXlKaGJHY2lPaUpTVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKallYSmtJaXdpYVdGMElqb3hOak0xTVRjd01qVTJMQ0poZFdRaU9pSndjbTlrZFdOMGFXOXVJaXdpWlc1aklqb2lNakV3TWk1aldGZGxTa1ZCTW0xd1NtSjZWbHAzWWpaM2RUZG5Ma1ZrTm1sbGRuRklia05xYW5ObE5teHJVVGxNZFU4MFJXVnpiMUIzYTJSNWFYcFNhV3hoYUhOMVoyOGlMQ0o0Y0hJaU9sc3lMREl5WFgwLkt4TC1aY2RMZXRoOHd1TDJyOVVUMHZaUlk3eS1KWHZUVE9MVkE4RE1VT0xXNWhTS1lBM1ZGNDFlcEVwOW1HSV9CZmxMMVIwRVFsQ2hnSW1wbk10N0pCMVVfOUk4U245NUVvVVVvTnd0dlJFcXVWdjBYQ1BESGJscUppeVhiSEYwTDlPR3d2Q3I0ZkN1QXNIUDZETlVrNjY5S25nTTdCMk1TRDVSaDA0cy1mLTdZRjdlaWtWenJYYW5PY3dnLXAzNVMtVjJGeVZITW5TTmJuRUhlQWJOM0Q4WUlrWVo4Rmp4ZEhZRldoRDF0WDh4OVA0WHVoYS0wY1l1Y3RFXy1KYkdraWNrWWUtTDdrM3ZlWWYtNExKZmJyZy1vTnJVSEF2NEdfVGg3dnE2em1ET3Q3Rjd4UWQ5R0NRWVNwWVYyVHkwWVJMYkQ5VjJvc19pUVBVaHN1UkRIQSIsInNjaGVtZSI6InZpc2EiLCJpaW4iOiI0MTExMTEiLCJsYXN0NCI6IjExMTEiLCJleHBpcmVzIjpbMiwyMl0sInJlZmVyZW5jZSI6Ik1DQTE1NTczNTEwMjUiLCJhY3F1aXJlciI6ImludGVyZ2lybyIsImNyZWF0ZWQiOiIyMDIxLTEwLTI1VDEzOjU3OjM2LjU5OVoifQ.oVsdkb_2sEYn6d5URHOyqosVhGaxX7snALekZVcSPa4DzHyWwu_fgwBWTd91qtX4NaYMHIbGBZ1odqe5VNlptjLok7TzI6cCnpuumEzNC236y575GTcbc6wr1IiwaYk_qCeLSMa86jahunYVe_td3J6mAf_zBX5WTnkQGyqJFeEaBJLhM9EcNwU8B_L28hkH316D1dhxndoYtc-9YHvJYfbx7O9pSgKxLN1uS3flhtST4G18ivexRkH_0-uBOuEe7WLFmaeXTRgPZwMc7hnMmL0KU7GxIzPvds81NGkOgEX6JImC1qsARIOL84EzjtxrIfGtUOUb7s1E68NADL_1Dw",
 })
+```
+
+Example of an [Order Creatable](../order/reference.html#creatable) with the selected payment method:
+``` json
+{
+    "items": 20,
+    "currency": "EUR",
+    "customer": "TjbHYXXn6yEdhLgS",
+    "payment": {
+        "card": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjYXJkIiwiaWF0IjoxNjM4NDUwMDAwLCJhdWQiOiJwcm9kdWN0aW9uIiwiZW5jIjoiMjEwMi5RcnkxSGYwTjlWNVlsdVlabllWeEZnLkhON25FdTVuSTBkanFUSEp0WVF5MGtWTHREZ25fM1N2X21YcWYzSzNzUm8iLCJ4cHIiOlsiMiIsIjIyIl19.A--M75_7_xXYwO3ryudSaP-GIuL_LGxFfBR_-jpu1anulg1OP6q2rHo0ybUJh3YU15eNuYuHT4CWs2twDCjAraD2_vQxVAVaiGZ4eV1oNIFNiJES_CuikM_6E37xfeZEs27smy9cEWeWb9F6u4ScqI6zQ1Xx8FVtN0O0O_DYDUlWMcdyrZjaVif3mira186z1gEHIA1CP_-BeLP2akBGR3vJS_H_8LqDMbm8rFASSpg3X9pKloBBAu6aWrFsxGN0w-tLA7lFrud94jdcT0tqSdPS61bVCkPoVGVxES1JA0DSW3PD8GfVWTDf_XdZtIO2OsJ0-PJ-5CSxrQ4m9HrkJw",
+        "reference": "MCA1400001202",
+        "category": "subsequent",
+        "type": "card"
+    }
+}
 ```
 
 ## Remove or Reorder Payment Methods
