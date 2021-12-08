@@ -106,7 +106,7 @@ The authorization response can be one of three things:
     }
     ```
     - Perform 3D and verify the result.
-    - Update the authorization creatable to include the [response from 3D](./external.html#_3d-response) into the `card.verification` field of the creatable. 
+    - Update the authorization creatable to include the [response from 3D](./external.html#_3d-responses) into the `card.verification` field of the creatable. 
     - Post it to the authorization endpoint.
 
 
