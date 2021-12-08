@@ -128,7 +128,7 @@ The authorization response can be one of three things:
     }
     ```
 
-## 3d-response
+## 3D Responses
 In the verification fields, these are the expected input data:
 
 3D Secure Version 1:
