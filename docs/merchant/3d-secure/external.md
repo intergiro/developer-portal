@@ -106,7 +106,7 @@ The authorization response can be one of three things:
     }
     ```
     - Perform 3D and verify the result.
-    - Update the authorization creatable to include the response from 3D into the `card.verification` field of the creatable. 
+    - Update the authorization creatable to include the [response from 3D](./external.html#_3d-responses) into the `card.verification` field of the creatable. 
     - Post it to the authorization endpoint.
 
 
@@ -127,6 +127,38 @@ The authorization response can be one of three things:
         "target": "http://your.example-url.com/",
     }
     ```
+
+## 3D Responses
+In the verification fields, these are the expected input data:
+
+3D Secure Version 1:
+``` JSON
+  "verification": {
+    "type": "pares",
+    "data": "<pares-string>"
+  }
+```
+3D Secure Version 2:
+``` JSON
+  "verification": {
+    "type": "challenge",
+    "data": "<ARes/RReq-base64-encoded-string>"
+  }
+```
+3D Secure Version 2 as unpacked ARes/RReq:
+``` JSON
+  "verification": {
+    "type": "challenge",
+    "data": {
+      "authenticationValue": "<string>",
+      "transStatus": "Y" | "N" | "U" | "A" | "C" | "R",
+      "dsTransID": "<string>",
+      "threeDSServerTransID": "<string>"
+    }
+  }
+```
+If antifraud verification has been initiated and then been successfully performed, 
+replace card property with the JWT response from the antifraud verification.
 
 ### Authorization Success
 A successful [authorization](../authorization/reference.html#authorization-2) has status 201.
