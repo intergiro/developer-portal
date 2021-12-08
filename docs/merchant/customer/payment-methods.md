@@ -16,6 +16,37 @@ Authentication: Bearer <public.api.key> | Bearer <private.api.key>
   "card": "<tokenized card information>",
   "client": {
     "browser": {
+      "color_depth": 24,
+      "resolution": [2560,1440],
+      "java": false,
+      "javascript": true,
+      "locale": "sv-SE",
+      "timezone": -60,
+      "parent": "https://your.webshop.com"
+    }
+  }
+}
+```
+See [browser](../common/reference.html#browser) section for information on how to get the browser information above.
+
+### Create Payment Method with an Order or a Subscription
+To add one or more [`Orders`](../order/reference.html#order) while in the same call adding a payment method, put the Payment Creatable on the field `method` and on the `order` field set one or a list of [`Order Creatables`](../order/reference.html#order) without the `payment` field set.
+
+[`Subscriptions`](./reference.html#subscription) can be added in a similar way, by populating the `subscrption` field to one or a list of [`Subscriptions Creatables`](./reference.html#subscription).
+
+#### Request
+``` {1} JSON
+POST /v1/customer/:customer_id/method
+
+Host: merchant.intergiro.com
+Authentication: Bearer <public.api.key> | Bearer <private.api.key>
+
+{
+  "method": {
+    "type": "token",
+    "card": "<tokenized card information>",
+    "client": {
+      "browser": {
         "color_depth": 24,
         "resolution": [2560,1440],
         "java": false,
@@ -25,10 +56,13 @@ Authentication: Bearer <public.api.key> | Bearer <private.api.key>
         "parent": "https://your.webshop.com"
       }
     }
+  },
+  "order": {
+    "items": <number or item information or array of items objects>,
+    "currency": "<currency of the transaction>",
   }
 }
 ```
-See [browser](../common/reference.html#browser) section for information on how to get the browser information above.
 
 ## Selecting Customer Method
 To select a customer method, use the function `Customer.Method.toPayment()` from the repository <a target="_blank" href="https://www.npmjs.com/package/@payfunc/model">Model</a> to convert a customer method to a [card payment](../order/reference.html#card-payment). Then, put the [card payment](../order/reference.html#card-payment) on the [Order Creatable](../order/reference.html#creatable) with the `customer` field populated and POST to the [order endpoint](../order/create.html).
