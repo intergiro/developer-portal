@@ -8,6 +8,7 @@ POST /v1/order
 
 Host: merchant.intergiro.com
 Content-Type: application/json
+Accept: application/json
 Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 {
   "items": <number or item information or array of items objects>,
@@ -33,6 +34,8 @@ Authentication: Bearer <customer.api.key> | Bearer <private.api.key>
 ```
 See [browser](../common/reference.html#browser) section for information on how to get the browser information above.
 
+**Note:** Including `application/json` in the Accept header will return the Order as a JSON, otherwise the Order will be in a signed JWT.
+
 #### Response
 On success, the response will be an [Order](./reference.html#order-2).
 ```json
@@ -47,7 +50,7 @@ On success, the response will be an [Order](./reference.html#order-2).
 On failure, an [Error](../common/error.html) will be returned together with the id of the order. The `id` in the error response should be included in the request body in all following calls to the order-create endpoint, concerning the same order. This is important if you want to keep a correct [History](../authorization/reference.html#history) of the authorization creation, and to make sure 3Ds is done correctly.
 
 
-<b>Note:</b> The id field in an Order Creatable should never be populated with any id other than the id received from the order endpoint.
+**Note:** The id field in an Order Creatable should never be populated with any id other than the id received from the order endpoint.
 
 <!-- If, for example, a verification required error is returned, all following calls to the order-create endpoint in the 3DS cycle should include the id in the request body. -->
 
