@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+	<meta http-equiv="x-ua-compatible" content="IE=Edge">
+	<title>Verification Example</title>
+	<style>
+		iframe.hidden {
+			display: none;
+		}
+		iframe.visible {
+			border: none;
+			height: 70vh;
+			width: 90vw;
+			max-width: 40em;
+			outline: 1px solid red;
+		}
+		input {
+			display: block;
+		}
+	</style>
+	<script>
+		const baseUrl = "https://merchant.intergiro.com/v1"
+		const key = "Bearer <public-api-key-without-3d-config>"
+		let authorization
+		let verification
+		function submit() {
+			authorization = {
+				"number": "Unique-number1",
+				"items": Number(document.getElementById("amount").value),
+				"currency": "EUR",
+				"card": {
+					"pan": document.getElementById("pan").value,
+					"expires": [
+						Number(document.getElementById("expires").value.split("/")[0]),
+						Number(document.getElementById("expires").value.split("/")[1])
+					],
+					"csc": document.getElementById("csc").value
+				},
+				browser: { parent: window.location.origin }
+			}
+			verification = { 
+				"number": "Unique-number2",
+				"items": authorization.items,
+				"currency": authorization.currency,
+				"card": {
+					"pan": authorization.card.pan,
+					"expires": authorization.card.expires,
+					"csc": authorization.card.csc
+				},
+				browser: { parent: window.location.origin }
+			}
+			authorize(authorization)
+		}
+		async function authorize(creatable) {
+			const [status, body] = await post(baseUrl + "/authorization", key, creatable)
+			const iframe = document.getElementById("verification")
+			switch (status) {
+				case 201:
+					alert("sucess: " + JSON.stringify(body))
+					break
+				case 400:
+					if (body.error == "verification required" && body.content.details?.url)
+						iframe.src = body.content.details.url
+					else if (body.error == "verification required")
+						await perform3d()
+					else
+						alert("failed: " + JSON.stringify(body))
+					break
+				default:
+					alert("failed: " + JSON.stringify(body))
+					break
+			}
+		}
+		window.addEventListener("message", async e => {
+			if (e.data.destination == "parent" && e.data.content.name == "card") {
+				const response = JSON.parse(atob(e.data.content.value.split(".")[1]))
+				if (response.ver.type == "guard")
+					await authorize({ ...authorization, card: e.data.content.value })
+			}
+		})
+		async function post(url, key, body) {
+			const response = await fetch(url, {
+				method: "POST",
+				headers: new Headers(
+					{
+						Authorization: key,
+						"Content-Type": "application/json"
+					}),
+				body: JSON.stringify(body),
+			}
+			)
+			return [response.status, response.headers.get("Content-Type")?.startsWith("application/json") ? await response.json() : await response.text()]
+		}
+
+
+
+		// Function used in this example to perform 3D. A public api key with 3D configurations is needed to test this example.
+		async function perform3d() {
+			const [status, body] = await post(baseUrl + "/verification?method=GET", "<public-api-key-with-3d-config>", verification)
+			const iframe = document.getElementById("verification")
+			switch (status) {
+				case 201:
+					authorization.card.verification = body
+					iframe.classList.remove("visible")
+					iframe.classList.add("hidden")
+					await authorize(authorization)
+					break
+				case 400:
+					if (body.error == "verification required") {
+						iframe.classList.replace("hidden", body.content.details.visible ? "visible" : "hidden")
+						iframe.src = body.content.details.url + "&parent=" + encodeURIComponent(window.location.origin)
+					} else
+						alert("failed: " + JSON.stringify(body))
+					break
+				default:
+					alert("failed: " + JSON.stringify(body))
+					break
+			}
+		}
+
+		// EventListener used to receive data from the 3D process used in this example. 
+		window.addEventListener("message", async e => {
+			if (e.data.destination == "parent" && e.data.content.name == "card") {
+				const response = JSON.parse(atob(e.data.content.value.split(".")[1]))
+				if (response.ver.type != "guard") {
+					verification.card = e.data.content.value
+					await perform3d()
+				}
+				const iframe = document.getElementById("verification")
+				iframe.class = "hidden"
+			} else if (e.data.destination == "parent" && e.data.content.name == "verification") {
+				verification.card.verification = JSON.parse(e.data.content.value)
+				await perform3d()
+			}
+
+		})
+
+	</script>
+</head>
+
+<body style="width: 100%; max-width: 20em; margin-left: auto; margin-right: auto;">
+	<iframe id="verification" class="hidden"></iframe>
+	<form method="post">
+		<label for="pan">PAN</label>
+		<input type="text" id="pan" name="pan" value="4111111111111111" />
+		<label for="csc">CSC</label>
+		<input type="text" id="csc" name="csc" value="987" />
+		<label for="expires">Expires</label>
+		<input type="text" id="expires" name="expires" placeholder="MM/YY" value="2/22" />
+		<label for="amount">Amount</label>
+		<input type="text" id="amount" name="amount" value="250" />
+	</form>
+	<button onclick="submit()">Submit</button>
+</body>
+
+</html>

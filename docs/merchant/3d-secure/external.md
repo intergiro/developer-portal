@@ -165,3 +165,7 @@ A successful [authorization](../authorization/reference.html#authorization-2) ha
 
 ### Authorization Failed
 Any other error than [`"verification required"`](./external.html#verification-required) is a failed authorization.
+
+## Example
+
+A full example can be accessed from the <a target="_blank" href="https://github.com/intergiro/verification-example">github repository</a> or downloaded as a <a target="_blank" :href="$withBase('/assets/scripts/verification/external.html')" download="index.html">html file</a>. To test the code, a public api key without 3D configurations is required to be added to the const `key` in the code. To test the example using our 3DS solution, an additional public key is needed, with 3D configurations.
