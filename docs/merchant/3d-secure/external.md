@@ -138,6 +138,17 @@ In the verification fields, these are the expected input data:
     "data": "<pares-string>"
   }
 ```
+3D Secure Version 1 as unpacked Pares:
+``` JSON
+  "verification": {
+    "type": "pares",
+    "data": {
+       "cavv": "<string>",
+       "xid": "<string>",
+       "eci": "0" | "1" | "2" | "5" | "6" | "7"
+    }
+  }
+```
 3D Secure Version 2:
 ``` JSON
   "verification": {
