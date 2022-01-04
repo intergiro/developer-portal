@@ -29,7 +29,7 @@ It can either be integrated in an existing web application or be used in native 
 </body>
 </html>
 ```
-A fully working example is available on [GitHub](https://github.com/payfunc/onboard-example).
+A fully working example is available on [GitHub](https://github.com/intergiro/onboard-example).
 
 <img :src="$withBase('/assets/img/merchant/customer-registration.png')" alt="Customer Registration">
 
