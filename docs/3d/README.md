@@ -30,7 +30,7 @@ The kick-off meeting will get you and your team ready to Integrate our platform 
 * Onboarding info (see [Register your business account](#register-your-business-account))
 * Service-level agreement
 * Communication and support channels
-* Staging environment access (see [Environments](/integrate/getting-started/environments))
+* Staging environment access (see [Environments](/3d/getting-started/environments))
 * Comfort tests
 * Security questionnaire
 * Card design information
