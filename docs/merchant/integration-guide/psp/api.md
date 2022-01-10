@@ -1,10 +1,10 @@
 # PSP APIs
 
-| Service                                                            | UI                                             | API                                    |
-|--------------------------------------------------------------------|------------------------------------------------|----------------------------------------|
-| Creating orders for one off relations with your users.             | [Checkout](../../checkout/embed.html)          | [Order](../../order/create.html)       |
-| Registering payment options for ongoing relations with your users. | [Onboard](../../customer/registration-ui.html) | [Customer](../../customer/create.html) |
-| Tokenizing sensitive card information to minimize your PCI scope.  | [Card Input](../../card-input/embed.html)      | [Card](../../card-api/create.html)     |
+| Service                                                            | UI                                                           | API                                    |
+|--------------------------------------------------------------------|--------------------------------------------------------------|----------------------------------------|
+| Creating orders for one off relations with your users.             | [Checkout](../../checkout/embed.html)                        | [Order](../../order/create.html)       |
+| Registering payment options for ongoing relations with your users. | [Customer Registration](../../customer/registration-ui.html) | [Customer](../../customer/create.html) |
+| Tokenizing sensitive card information to minimize your PCI scope.  | [Card Input](../../card-input/embed.html)                    | [Card](../../card-api/create.html)     |
 
 ## [Creating orders UI](../../checkout/embed.html)
 Checkout is used for creating orders and authorize payments associated with orders for one off relations. 

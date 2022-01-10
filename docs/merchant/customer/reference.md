@@ -35,12 +35,19 @@ Responses from the Customer endpoint will contain a `Customer` object, which inc
 
 ### CustomerMethod
 For automatic payment with a customer, a payment method has to be created first. 
-This can be done either with already tokenized cards or through the [Registration](#) Process.
+This can be done either with already tokenized cards or through the [Registration](./registration-ui.html) Process.
 #### Creatable
-| Property | Type      | Description                   |
-|----------|-----------|-------------------------------|
-| `type`   | `"token"` | Indicator for method type     |
-| `card`   | `string`  | Tokenized payment information |
+| Property | Type                | Description                   | Optional |
+|----------|---------------------|-------------------------------|----------|
+| `type`   | `"token"`           | Indicator for method type     |          |
+| `card`   | `string`            | Tokenized payment information |          |
+| `client` | [`Client`](#client) |                               | Yes      |
+
+##### Client
+| Property  | Type                                          | Description | Optional |
+|-----------|-----------------------------------------------|-------------|----------|
+| `ip`      | `"string"`                                    |             | Yes      |
+| `browser` | [`Browser`](../common/reference.html#browser) |             | Yes      |
 
 #### CustomerMethod
 
@@ -48,7 +55,7 @@ This can be done either with already tokenized cards or through the [Registratio
 |------------|-------------------------------------------------|--------------------------------------------------------------------|----------|
 | `type`     | `string`                                        | `"card"` or `"token"`                                              |          |
 | `created`  | [`DateTime`](../common/reference.html#datetime) |                                                                    |          |
-| `token`    | authly.Token                                    |                                                                    |          |
+| `token`    | `string`                                        | Tokenized payment information                                      |          |
 | `scheme`   | [`Scheme`](../common/reference.html#scheme)     |                                                                    |          |
 | `iin`      | `string`                                        | First 6 digits on card                                             |          |
 | `last4`    | `string`                                        | Last 4 digits on card                                              |          |

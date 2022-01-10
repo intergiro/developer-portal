@@ -88,8 +88,7 @@ Authentication: Bearer <public.api.key | private.api.key>
 
 ## With initial Orders and Subscriptions
 
-
-To add one or more [`Orders`](../order/reference.html#order) associated with the Customer, populate the `order` field with a list or a single [`Order.Creatable`](../order/reference.html#creatable) without the fields `"payment"` and `"customer"`. The `items` value of the `order`, or the first `order` in the list, is used to authorize the [`Customer Method`](./reference.html#customermethod). 
+Making a payment while creating a new customer can be done by adding an `order` field in the request. Populate the `order` field with a list or a single [`Order.Creatable`](../order/reference.html#creatable) without the fields `"payment"` and `"customer"`. The `items` value of the `order`, or the first `order` in the list, is used to authorize the [`Customer Method`](./reference.html#customermethod). 
 
 
 [Subscriptions](./reference.html#subscription) can be added in a similar way, by populating the Customer Creatable with [`Subscription Creatable`](./reference.html#subscription) or [`Subscription Creatable[]`](./reference.html#subscription).
