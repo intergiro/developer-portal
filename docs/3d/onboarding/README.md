@@ -1,4 +1,4 @@
-# Onboarding
+# Onboarding as a Service
 
 <img :src="$withBase('/assets/img/onboarding.jpg')" alt="Business banking">
 
