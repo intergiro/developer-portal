@@ -2,7 +2,7 @@
 sidebarDepth: 2
 ---
 
-# Payment gateway
+# Payments as a Service
 
 <img :src="$withBase('/assets/img/integrate/payment-gateway/payment-gateway-splash.jpg')" alt="Payment gateway">
 
