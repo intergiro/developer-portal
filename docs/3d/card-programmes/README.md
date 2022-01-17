@@ -1,4 +1,4 @@
-# Card programmes
+# Card aaS
 
 <img :src="$withBase('/assets/img/card-programmes-splash.jpg')" alt="Card programmes">
 
