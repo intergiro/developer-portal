@@ -1,4 +1,4 @@
-# Embedded finance
+# Accounts as a Service
 
 <img :src="$withBase('/assets/img/embedded-splash.jpg')" alt="Business banking">
 
