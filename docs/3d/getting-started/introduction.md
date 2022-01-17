@@ -2,11 +2,11 @@
 
 <img :src="$withBase('/assets/img/introduction.jpg')" alt="Business banking">
 
-Intergiro Integr>te allows FinTechs and other businesses alike to compete with traditional banks and easily, quickly and cost-efficiently launch new products to the market.
+Intergiro.3d allows FinTechs and other businesses alike to compete with traditional banks and easily, quickly and cost-efficiently launch new products to the market.
 
 We've partnered with major European traditional banking players as well as fintech infrastructure providers to form a package of different financial products to offer to our end customers via an API.
 
-Our Integr>te product provides Banking-as-a-Service and Embedded Finance solutions to fintechs and non-financial businesses. Today these solutions include:
+Our 3d product provides Banking-as-a-Service and Embedded Finance solutions to fintechs and non-financial businesses. Today these solutions include:
  - Accounts
  - Payments
  - Cards
