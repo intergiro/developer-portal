@@ -3,7 +3,7 @@ lang: en-US
 next: /3d/getting-started/introduction
 ---
 
-# Integrate
+# Intergiro.3d — create your own financial services
 
 <img :src="$withBase('/assets/img/tech-splash.jpg')" alt="Intergiro Developer Portal">
 
