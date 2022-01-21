@@ -1,8 +1,13 @@
 # Payment Methods
-To add payment methods after customer creation, refer the contact to the [`Customer page`](../customer-page.html#customer-page), implement [`Customer Registration`](./customer-registration.html#customer-registration) for existing customers or use the customer methods endpoint to [`payment methods`](./reference.html#customermethod) with already tokenized card information.
+Adding payment methods on an existing customer can be done using the [Customer Registration UI](./customer-registration.html#customer-registration) or by making an [api call](#create-payment-method) with already tokenized card information. A customer can also add a payment method through the [Customer App](./app.html).
 
-A request to this endpoint can either be made with a `"private"` authorization key or with the `"customer"` authorization key. 
-With the `"customer"` authorization key you have to specify `"me"` as the customer id, for `"private"` authorization specify the customer id of the customer you wish to update.
+
+### Create payment method
+A request to this endpoint can either be made with a `private` authorization key or with the `customer` authorization key. 
+When using `private` authorization, specify the customer id of the customer you wish to update in the url.
+However, with the `customer` authorization key, specify `me` as the customer id.
+
+The body should be a [Customer Method Creatable](./reference.html#creatable-2) including a valid [Card Token](../card-api/create.html). The response body will be a [Customer Method](./reference.html#customermethod-2) with type `card`.
 
 #### Request
 ```{1} JSON
@@ -13,7 +18,7 @@ Authentication: Bearer <public.api.key> | Bearer <private.api.key>
 
 {
   "type": "token",
-  "card": "<tokenized card information>",
+  "card": "<card token>",
   "client": {
     "browser": {
       "color_depth": 24,
@@ -29,8 +34,22 @@ Authentication: Bearer <public.api.key> | Bearer <private.api.key>
 ```
 See [browser](../common/reference.html#browser) section for information on how to get the browser information above.
 
+#### Response
+```json
+{
+  "type": "card",
+  "scheme": "visa",
+  "iin": "411111",
+  "last4": "1111",
+  "expires": [2, 22],
+  "acquirer": "intergiro",
+  "created": "2021-10-25T13:57:36.599Z",
+  "token": "<card token>"
+}
+```
+
 ### Create Payment Method with an Order or a Subscription
-To add one or more [`Orders`](../order/reference.html#order) while in the same call adding a payment method, put the Payment Creatable on the field `method` and on the `order` field set one or a list of [`Order Creatables`](../order/reference.html#order) without the `payment` field set.
+Creating a new payment method and making a payment in one call can be done by adding an `order` field in the request. Put the [Customer Method Creatable](./reference.html#creatable-2) on the field `method`, and on the `order` field set one or a list of [`Order Creatables`](../order/reference.html#order) without the `payment` or `contact` field set.  3D Secure will be performed with the total amount of the order (the first order if multiple orders are being created).
 
 [`Subscriptions`](./reference.html#subscription) can be added in a similar way, by populating the `subscrption` field to one or a list of [`Subscriptions Creatables`](./reference.html#subscription).
 
@@ -59,13 +78,29 @@ Authentication: Bearer <public.api.key> | Bearer <private.api.key>
   },
   "order": {
     "items": <number or item information or array of items objects>,
-    "currency": "<currency of the transaction>",
+    "currency": "<currency of the transaction>"
   }
+}
+```
+#### Response
+``` json
+{
+    "method": {
+      "type": "card",
+      "scheme": "visa",
+      "iin": "411111",
+      "last4": "1111",
+      "expires": [2, 22],
+      "acquirer": "intergiro",
+      "created": "2021-10-25T13:57:36.599Z",
+      "token": "<card token>"
+    },
+    "order": "<signed order token>"
 }
 ```
 
 ## Selecting Customer Method
-To select a customer method, use the function `Customer.Method.toPayment()` from the repository <a target="_blank" href="https://www.npmjs.com/package/@payfunc/model">Model</a> to convert a customer method to a [card payment](../order/reference.html#card-payment). Then, put the [card payment](../order/reference.html#card-payment) on the [Order Creatable](../order/reference.html#creatable) with the `customer` field populated and POST to the [order endpoint](../order/create.html).
+To select a customer method to make an order with, the customer method first needs to be converted into a [card payment](../order/reference.html#card-payment). For this, the function `Customer.Method.toPayment()` should be used which can be accessed through the npm package <a target="_blank" href="https://www.npmjs.com/package/@payfunc/model">@payfunc/model</a>. 
 
 ``` js
 const payment = await model.Customer.Method.toPayment({
@@ -80,6 +115,8 @@ const payment = await model.Customer.Method.toPayment({
 				"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwYXlmdW5jIiwiaWF0IjoxNjM1MTcwNDQ4LCJhdWQiOiJwcm9kdWN0aW9uIiwidHlwZSI6ImNhcmQiLCJjYXJkIjoiZXlKaGJHY2lPaUpTVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKallYSmtJaXdpYVdGMElqb3hOak0xTVRjd01qVTJMQ0poZFdRaU9pSndjbTlrZFdOMGFXOXVJaXdpWlc1aklqb2lNakV3TWk1aldGZGxTa1ZCTW0xd1NtSjZWbHAzWWpaM2RUZG5Ma1ZrTm1sbGRuRklia05xYW5ObE5teHJVVGxNZFU4MFJXVnpiMUIzYTJSNWFYcFNhV3hoYUhOMVoyOGlMQ0o0Y0hJaU9sc3lMREl5WFgwLkt4TC1aY2RMZXRoOHd1TDJyOVVUMHZaUlk3eS1KWHZUVE9MVkE4RE1VT0xXNWhTS1lBM1ZGNDFlcEVwOW1HSV9CZmxMMVIwRVFsQ2hnSW1wbk10N0pCMVVfOUk4U245NUVvVVVvTnd0dlJFcXVWdjBYQ1BESGJscUppeVhiSEYwTDlPR3d2Q3I0ZkN1QXNIUDZETlVrNjY5S25nTTdCMk1TRDVSaDA0cy1mLTdZRjdlaWtWenJYYW5PY3dnLXAzNVMtVjJGeVZITW5TTmJuRUhlQWJOM0Q4WUlrWVo4Rmp4ZEhZRldoRDF0WDh4OVA0WHVoYS0wY1l1Y3RFXy1KYkdraWNrWWUtTDdrM3ZlWWYtNExKZmJyZy1vTnJVSEF2NEdfVGg3dnE2em1ET3Q3Rjd4UWQ5R0NRWVNwWVYyVHkwWVJMYkQ5VjJvc19pUVBVaHN1UkRIQSIsInNjaGVtZSI6InZpc2EiLCJpaW4iOiI0MTExMTEiLCJsYXN0NCI6IjExMTEiLCJleHBpcmVzIjpbMiwyMl0sInJlZmVyZW5jZSI6Ik1DQTE1NTczNTEwMjUiLCJhY3F1aXJlciI6ImludGVyZ2lybyIsImNyZWF0ZWQiOiIyMDIxLTEwLTI1VDEzOjU3OjM2LjU5OVoifQ.oVsdkb_2sEYn6d5URHOyqosVhGaxX7snALekZVcSPa4DzHyWwu_fgwBWTd91qtX4NaYMHIbGBZ1odqe5VNlptjLok7TzI6cCnpuumEzNC236y575GTcbc6wr1IiwaYk_qCeLSMa86jahunYVe_td3J6mAf_zBX5WTnkQGyqJFeEaBJLhM9EcNwU8B_L28hkH316D1dhxndoYtc-9YHvJYfbx7O9pSgKxLN1uS3flhtST4G18ivexRkH_0-uBOuEe7WLFmaeXTRgPZwMc7hnMmL0KU7GxIzPvds81NGkOgEX6JImC1qsARIOL84EzjtxrIfGtUOUb7s1E68NADL_1Dw",
 })
 ```
+
+Create an [Order Creatable](../order/reference.html#creatable) object with the card payment populated on the `payment` field, and the customer ID populated on the `customer` field, and POST to the [order endpoint](../order/create.html).
 
 Example of an [Order Creatable](../order/reference.html#creatable) with the selected payment method:
 ``` json
@@ -151,10 +188,10 @@ For a customer with three payment methods registered with the cards 400000...000
 #### Example Request:
 
 ```{1} JSON
-DELETE /v1/customer/:customer_id/method
+PUT /v1/customer/:customer_id/methods
 
 Host: merchant.intergiro.com
-Authentication: Bearer <public.api.key> | Bearer <private.api.key>
+Authentication: Bearer <private.api.key> | Bearer <customer.api.key> 
 
 [
   {

@@ -1,5 +1,5 @@
 # Registration UI
-Customer Registration guides your users through the process of registration. It handles the full process of entering the card information as well as performing the full 3D Secure authentication procedure. Once everything is done you will receive a customer number that you then can use to perform payments towards the user’s card without the need for any interaction with the user.
+Customer Registration guides your users through the process of registration. It handles the full process of entering the card information as well as performing the full 3D Secure authentication procedure. Once everything is done you will receive a customer ID that can be used to perform payments with the user’s card, without the need for any interaction with the user.
 
 
 ## Registration
@@ -33,9 +33,10 @@ A fully working example is available on [GitHub](https://github.com/intergiro/on
 
 <img :src="$withBase('/assets/img/merchant/customer-registration.png')" alt="Customer Registration">
 
-Inside the form text-input field can also be used with the property `name` set to `"name"`, `"email"` and `"phone"` to set contact information.
+Contact information can be set while registrating the customer by adding additional input fields in the form, with the attribute `name` set to `"name"`, `"email"` or `"phone"`.
+To specify the customer number, populate the `number` attribute of the component.
 ```html
-<form action="done" method="get"> to Existing Customer
+<form action="done" method="get"> 
     <input type="text" name="name" placeholder="Name"/>
     <input type="email" name="email" placeholder="Email"/>
     <input type="tel" name="phone" placeholder="Phone"/>
@@ -66,8 +67,7 @@ Once the user has entered their card information and successfully performed the 
 ```
 
 ## Adding Payment Methods
-To implement onboarding for an already existing Customer, implement the onboarding dialog in the same way as the registration dialog for creating a customer.
-Only change the `<intergiro-customer-registration>` html to specify the customer as a stringified [`Customer`](./reference.html#customer) object instead of specifying the number field.
+The customer registration component can also be used to add payment methods for an already existing customer. For this, add a `customer` attribute with a [`Customer`](./reference.html#customer) object, or a stringified [`Customer`](./reference.html#customer) object, instead of specifying the `number` attribute.
 
 ```html
 <intergiro-customer-registration
