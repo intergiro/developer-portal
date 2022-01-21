@@ -27,7 +27,7 @@ Responses from the Customer endpoint will contain a `Customer` object, which inc
 | `id`           | `string`                                          |                                                                     |          |
 | `number`       | `string`                                          |                                                                     | Yes      |
 | `contact`      | [`Contact`](../common/reference.html#contact)     |                                                                     | Yes      |
-| `method`       | [`CustomerMethod`](#customermethod)               |                                                                     |          |
+| `method`       | [`CustomerMethod[]`](#customermethod)               |                                                                     |          |
 | `link`         | [`CustomerLink`](#customerlink)                   |                                                                     | Yes      |
 | `status`       | `string`                                          | `"active"`, `"created"`, `"inactive"`, `"pending"` or `"suspended"` | Yes      |
 | `subscription` | [`Subscription[]`](./reference.html#subscription) |                                                                     | Yes      |

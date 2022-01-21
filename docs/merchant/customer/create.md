@@ -6,7 +6,7 @@ When integrating through the endpoint a customer can be initialized with [`Conta
 and a [`payment method`](./payment-methods.html) with a tokenized card. [Card Input](../card-input/embed.html) can be used to generate a card token.
 
 #### Request
-``` HTTP {1}
+``` json {1}
 POST /v1/customer
 
 Host: merchant.intergiro.com
@@ -85,6 +85,7 @@ Authentication: Bearer <public.api.key | private.api.key>
   "currency": "SEK"
 }
 ```
+If a `verification required` error is returned, [verification](../card-api/verification.html) needs to be performed.
 
 ## With initial Orders and Subscriptions
 

@@ -52,28 +52,4 @@ On failure, an [Error](../common/error.html) will be returned together with the 
 
 **Note:** The id field in an Order Creatable should never be populated with any id other than the id received from the order endpoint.
 
-<!-- If, for example, a verification required error is returned, all following calls to the order-create endpoint in the 3DS cycle should include the id in the request body. -->
-
-<!-- ```json
-{
-    "status": 400,
-    "type": "malformed content",
-    "content": {
-        "property": "card",
-        "type": "Card.Creatable | Card.Token",
-        "description": "verification required",
-        "details": {
-            "visible": false,
-            "method": "POST",
-            "url": "https://acs.sandbox.3dsecure.io/3dsmethod",
-            "data": {
-                "type": "method",
-                "threeDSServerTransID": "8ca068b6-4b45-49eb-9807-1c21aa661bde",
-                "messageVersion": "2.2.0"
-            }
-        }
-    },
-    "error": "verification required",
-    "id": "SpyMA1U1g4iPwf8l"
-}
-``` -->
+If a `verification required` error is returned, [verification](../card-api/verification.html) needs to be performed.

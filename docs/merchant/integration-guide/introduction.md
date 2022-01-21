@@ -13,7 +13,7 @@ Don't sweat it, you can start somewhere and change solution step by step.
 | API           | Subset                                                     | Acquiring          | Order                | Subscription         |
 |---------------|------------------------------------------------------------|--------------------|----------------------|----------------------|
 | Acquiring     | [Authorization API](../authorization/create.html)          | yes                |                      |                      |
-| Acquiring,PSP | [Verification API](../verification/create.html)            | yes                | Custom UI (optional) | Custom UI (optional) |
+| Acquiring,PSP | [3D Secure API](../3d-secure/introduction.html)            | yes                | Custom UI (optional) | Custom UI (optional) |
 | PSP           | [Order API](../order/create.html)                          |                    | Custom UI (optional) |                      |
 | PSP           | [Customer API](../customer/introduction.html)              |                    |                      | yes                  |
 | PSP           | [Customer Subscription API](../customer/introduction.html) |                    |                      | yes                  |
