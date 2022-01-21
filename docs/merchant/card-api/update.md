@@ -2,7 +2,7 @@
 
 To update information on a card, send a PUT or PATCH request to the card endpoint with the [card token](./reference.html#token) in the url. The body of the request should be a [Card Creatable](./reference.html). The response will be the updated [card token](./reference.html#token). 
 
-If [verification](../verification/create) is needed then the verification field can be populated in the body and a PUT or PATCH request can be sent to the card endpoint.
+If [verification](./verification.html) is needed then the verification field can be populated in the body and a PUT or PATCH request can be sent to the card endpoint.
 
 #### Request
 ``` {1} JSON

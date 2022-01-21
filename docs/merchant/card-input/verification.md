@@ -1,9 +1,9 @@
 # Verification
 
-This section describes how to do 3D Secure using `<intergiro-card-input>`. If you wish to have full control over the 3D Secure process you can build it yourself using the [3D Secure API](../3d-secure/introduction.html).
+This section describes how to perform 3D Secure using `<intergiro-card-input>`. If you wish to have full control over the 3D Secure process you can build it yourself using the [3D Secure API](../3d-secure/introduction.html).
 
 ## 3D Secure
-Submit a [card token](./embed.html) together with a `verification required` error through the card input to initialize the 3D Secure cycle. This can render an invisible iframe for frictionless flow or a visible ifram that requires user interaction. The 3D Sercure process may require several steps in order to succeed. The response will contain a new verification required error which is to be submitted to card input together with the card token.
+Submit a [card token](./embed.html) together with a `verification required` error through the card input to initialize the 3D Secure cycle. This can render an invisible iframe for frictionless flow or a visible iframe that requires user interaction. The 3D Secure process may require several steps in order to succeed. The response will contain a new verification required error which is to be submitted to card input together with the card token.
 
 ``` json
 {
@@ -40,9 +40,8 @@ How to use card input to create an order and verifying the payment with 3D Secur
 <html>
 
 <head>
-  <script type="module" src="https://merchant.intergiro.com/ui/index.esm.js"></script>
-  <script nomodule src="https://merchant.intergiro.com/ui/index.js"></script>
-  <link href="https://merchant.intergiro.com/theme/intergiro/index.css" rel="stylesheet">
+	<script type="module" src="https://merchant.intergiro.com/ui/"></script>
+	<link href="https://merchant.intergiro.com/theme/intergiro/index.css" rel="stylesheet">
 
 	<script defer>
 		const order = {
@@ -57,7 +56,7 @@ How to use card input to create an order and verifying the payment with 3D Secur
 			let result
 			if (typeof card == "string") {
 				order.payment.card = card
-				const response = await fetch("https://merchant.intergiro.com/order", {
+				const response = await fetch("https://merchant.intergiro.com/v1/order", {
 					headers: {
 						"Accept": "application/json",
 						"Content-Type": "application/json",
@@ -98,7 +97,7 @@ How to use card input to create an order and verifying the payment with 3D Secur
 How to create a customer with a card token for recurring payments, using Intergiro Card Input.
 
 - Tokenize the card by submitting to Intergiro Card Input.
-- Put the card in `customer.method=[{type="token", card}]` (note that method is an array) post to [create customer](../customer/create.html) endpoint.
+- Add the tokenized card to the `method` field in a [Customer Creatable](../customer/reference.html#creatable) object such as `{ method: [{ type: "token", card: <card token> }] }` (note that method is an array), and post to [create customer](../customer/create.html) endpoint.
 - If the response is a `verification required` error, please submit this error together with the card token to Intergiro Card Input, this will initialize the 3D Secure cycle.
 - Post the new card token to the [create customer](../customer/create.html) endpoint.
 - Continue with the last two steps until either `response.ok = true` or any error other than `verification required` is returned.
@@ -107,9 +106,8 @@ How to create a customer with a card token for recurring payments, using Intergi
 <html>
 
 <head>
-  <script type="module" src="https://merchant.intergiro.com/ui/index.esm.js"></script>
-  <script nomodule src="https://merchant.intergiro.com/ui/index.js"></script>
-  <link href="https://merchant.intergiro.com/theme/intergiro/index.css" rel="stylesheet">
+	<script type="module" src="https://merchant.intergiro.com/ui/"></script>
+  	<link href="https://merchant.intergiro.com/theme/intergiro/index.css" rel="stylesheet">
 	<script defer>
 		async function create(customer, card, error) {
 			const element = document.querySelector("intergiro-card-input")
@@ -118,7 +116,7 @@ How to create a customer with a card token for recurring payments, using Intergi
 			if (typeof card == "string") {
 				customer = customer ?? { method: [{ type: "token" }] }
 				customer.method[0].card = card
-				const response = await fetch("https://merchant.intergiro.com/customer", {
+				const response = await fetch("https://merchant.intergiro.com/v1/customer", {
 					headers: {
 						"Accept": "application/json",
 						"Content-Type": "application/json",
