@@ -43,7 +43,7 @@ The cosmetic parameter should be set to a JSON or a stringified JSON as describe
 		"border": {"width": "1px", "radius": "5px", "color": "#000", "style": "solid"},
 		"background": "white",
 		"font_family": "Arial, Verdana",
-		"font_weight": "400",
+		"font_weight": "normal",
 		"danger_color": "#de4747"
 	}'>
 </intergiro-card-input>
