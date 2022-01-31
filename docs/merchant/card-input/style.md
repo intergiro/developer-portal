@@ -73,6 +73,10 @@ However fonts can be imported via Google Fonts, using the attribute `font-import
   }'>
 </intergiro-card-input>
 ```
+To get a particular `font-import`, goto the Google Fonts page for the font and select the font you want, then copy the `family` value in the link tag, as shown in the image below.
+
+<img :src="$withBase('/assets/img/merchant/card-input/select-google-font.png')" alt="Select Google Font">
+
 Font imports can specify font-weight and italic. Examples of font-import values: `"Roboto"`, `"Roboto:wght@200"`, `"Roboto+Mono"`, `"Roboto+Mono:wght@200"`, `"Roboto+Mono:ital,wght@1,300"`.
 
 ### Borders
