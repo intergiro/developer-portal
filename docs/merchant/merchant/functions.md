@@ -1,18 +1,18 @@
 # Functions
 Functions can be used as a condition in a [Rule](./rules.html) to silmplify writing rules and to make them more human readable. An agent bearer API-key is needed to create, change and list Functions.
 
-| Name                    | Arguments                                      | True if                                                                                                                                 |
-|-------------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| `currencyOtherThan`     | [`Country`](../common/reference.html#currency) | `authorization.currency` is something other than the specified currency                                                                 |
-| `cscMissing`            |                                                | not a subsequent payment and `authorization.card.csc` is absent                                                                         |
-| `verificationThreshold` | `number`                                       | `authorization.amount` is greater than the argument, the authorization is not yet verified and it is not a subsequent recurring payment |
-| `sanctionedCardCountry` |                                                | issuer country is a [sanctioned country]()                                                                                              |
-| `cardCountryNotEEA`     |                                                | issuer country is not an EEA country                                                                                                    |
-| `sanctionedIpCountry`   |                                                | the country of the card holder ip is a [sanctioned country]()                                                                           |
-| `ipCountryNotEEA`       |                                                | the country of the card holder is not an EEA country                                                                                    |
-| `recurring`             |                                                | the authorization is a recurring payment                                                                                                |
-| `recurringNotVerified`  |                                                | the authorization is a recurring payment and is not yet verified                                                                        |
-
+| Name                    | Arguments                                      | True if                                                                                                                               |
+|-------------------------|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `currencyOtherThan`     | [`Country`](../common/reference.html#currency) | authorization currency is something other than the specified currency                                                                 |
+| `cscMissing`            |                                                | not a subsequent payment and the card csc is absent                                                                                   |
+| `verificationThreshold` | `number`                                       | authorization amount is greater than the argument, the authorization is not yet verified and it is not a subsequent recurring payment |
+| `sanctionedCardCountry` |                                                | issuer country is a [sanctioned country]()                                                                                            |
+| `cardCountryNotEEA`     |                                                | issuer country is not an EEA country                                                                                                  |
+| `sanctionedIpCountry`   |                                                | the country of the card holder ip is a [sanctioned country]()                                                                         |
+| `ipCountryNotEEA`       |                                                | the country of the card holder is not an EEA country                                                                                  |
+| `recurring`             |                                                | the authorization is a recurring payment                                                                                              |
+| `recurringNotVerified`  |                                                | the authorization is a recurring payment and is not yet verified                                                                      |
+| `fraudio`               |                                                | fraudio recommends blocking the transaction                                                                                               |
 
 ## How to write Functions
 The [`Functions`](./reference.html#functions) object is of type `Record<string, Detail>` where the key is the name of the function and the value is an object which contains some detailed information about the function. 
