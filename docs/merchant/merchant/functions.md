@@ -1,10 +1,18 @@
 # Functions
 Functions can be used as a condition in a [Rule](./rules.html) to silmplify writing rules and to make them more human readable. An agent bearer API-key is needed to create, change and list Functions.
 
-Examples of Rules using Functions: 
-- `reject authorization if limit(300,EUR)`
-- `reject authorization if enforce3Ds(15)` 
-
+| Name                    | Arguments                                      | True if                                                                                                                               |
+|-------------------------|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `currencyOtherThan`     | [`Country`](../common/reference.html#currency) | authorization currency is something other than the specified currency                                                                 |
+| `cscMissing`            |                                                | not a subsequent payment and the card csc is absent                                                                                   |
+| `verificationThreshold` | `number`                                       | authorization amount is greater than the argument, the authorization is not yet verified and it is not a subsequent recurring payment |
+| `sanctionedCardCountry` |                                                | issuer country is a [sanctioned country]()                                                                                            |
+| `cardCountryNotEEA`     |                                                | issuer country is not an EEA country                                                                                                  |
+| `sanctionedIpCountry`   |                                                | the country of the card holder ip is a [sanctioned country]()                                                                         |
+| `ipCountryNotEEA`       |                                                | the country of the card holder is not an EEA country                                                                                  |
+| `recurring`             |                                                | the authorization is a recurring payment                                                                                              |
+| `recurringNotVerified`  |                                                | the authorization is a recurring payment and is not yet verified                                                                      |
+| `fraudio`               |                                                | fraudio recommends blocking the transaction                                                                                               |
 
 ## How to write Functions
 The [`Functions`](./reference.html#functions) object is of type `Record<string, Detail>` where the key is the name of the function and the value is an object which contains some detailed information about the function. 
@@ -20,26 +28,27 @@ The [Detail](./reference#detail) object includes:
 Example of a `Functions` object that sets a limit on the amount and currency for a transaction:
 ``` JSON
 {
-   "limit": {
-        "definition": "authorization.amount>=max | !authorization.currency:currency",
-        "arguments": ["max", "currency"],
+   "currencyOtherThan": {
+        "definition": "!authorization.currency:value",
+        "arguments": ["currency"],
         "description": {
             "arguments":{
-                "max": "Maximum amount allowed for a transaction.",
                 "currency": "The allowed currency of a transaction."
             },
             "example": {
-                "limit(300,EUR)": "authorization.amount>=300 | !authorization.currency:EUR",
-                "limit(500,SEK)": "authorization.amount>=500 | !authorization.currency:SEK"
+                "limit(EUR)": "!authorization.currency:EUR",
+                "limit(SEK)": "!authorization.currency:SEK"
             },
-            "summary": "Amount and currency limitation on a transaction."
+            "summary": "Currency limitation on a transaction."
        }
    }
 }
 ```
-Example rule:
+Example rules:
 
-`"reject authorization if limit(300,EUR)"`
+`"reject authorization if currencyOtherThan(EUR)"`
+
+`"reject authorization if cscMissing()"`
 
 ## Create 
 
@@ -51,19 +60,18 @@ Content-Type: application/json
 Authorization: Bearer <agent.api.key>
 
 {
-   "limit": {
-       "definition": "authorization.amount>=max | !authorization.currency:currency",
-       "arguments": ["max", "currency"],
-       "description": {
+   "currencyOtherThan": {
+        "definition": "!authorization.currency:value",
+        "arguments": ["currency"],
+        "description": {
             "arguments":{
-                "max": "Maximum amount allowed for a transaction.",
                 "currency": "The allowed currency of a transaction."
             },
             "example": {
-                "limit(300,EUR)": "authorization.amount>=300 | !authorization.currency:EUR",
-                "limit(500,SEK)": "authorization.amount>=500 | !authorization.currency:SEK"
+                "limit(EUR)": "!authorization.currency:EUR",
+                "limit(SEK)": "!authorization.currency:SEK"
             },
-            "summary": "Amount and currency limitation on a transaction."
+            "summary": "Currency limitation on the transactions."
        }
    }
 }
@@ -78,20 +86,18 @@ Content-Type: application/json
 Authorization: Bearer <agent.api.key>
 
 {
-    "limit": {
-        "definition": "authorization.amount>=max | !authorization.currency:currency | authorization.card.amount.last1Days>dailyAmount",
-        "arguments": ["max", "currency", "dailyAmount"],
+    "verificationThreshold": {
+        "definition": "authorization.amount>threshold !authorization.verification:verified !authorization.recurring.type:subsequent",
+        "arguments": ["threshold"],
         "description": {
             "arguments":{
-                "max": "Maximum amount allowed for a transaction.",
-                "currency": "The allowed currency of a transaction.",
-                "dailyAmount": "Maximum amount allowed for a transaction from one card in one day."
+                "threshold": "Maximum amount allowed for a transaction without requiring verification.",
             },
             "example": {
-                "limit(300,EUR,50)": "authorization.amount>=300 | !authorization.currency:EUR | authorization.card.amount.last1Days>50",
-                "limit(500,SEK,100)": "authorization.amount>=500 | !authorization.currency:SEK | authorization.card.amount.last1Days>100"
+                "limit(300)": "authorization.amount>300 !authorization.verification:verified !authorization.recurring.type:subsequent",
+                "limit(500)": "authorization.amount>500 !authorization.verification:verified !authorization.recurring.type:subsequent"
             },
-            "summary": "Amount and currency limitation on a transaction."
+            "summary": "Amount limitation for a transaction without requiring verification."
         }
     }
 }
@@ -105,35 +111,39 @@ GET /v1/merchant/functions
 
 Content-Type: application/json
 Authorization: Bearer <agent.api.key>
+```
 
+Example response body: 
+
+``` JSON
 {
-   "limit": {
-       "definition": "authorization.amount>=max | !authorization.currency:currency",
-       "arguments": ["max", "currency"],
-       "description": {
+   "currencyOtherThan": {
+        "definition": "!authorization.currency:value",
+        "arguments": ["currency"],
+        "description": {
             "arguments":{
-                "max": "Maximum amount allowed for a transaction.",
                 "currency": "The allowed currency of a transaction."
             },
             "example": {
-                "limit(300,EUR)": "authorization.amount>=300 | !authorization.currency:EUR",
-                 "limit(500,SEK)": "authorization.amount>=500 | !authorization.currency:SEK"
+                "limit(EUR)": "!authorization.currency:EUR",
+                "limit(SEK)": "!authorization.currency:SEK"
             },
-            "summary": "Amount and currency limitation on a transaction."
+            "summary": "Currency limitation on the transactions."
        }
    },
-   "enforce3Ds": {
-        "definition": "authorization.amount>amount !authorization.verification:verified",
-        "arguments": ["amount"],
+    "verificationThreshold": {
+        "definition": "authorization.amount>threshold !authorization.verification:verified !authorization.recurring.type:subsequent",
+        "arguments": ["threshold"],
         "description": {
             "arguments":{
-                "amount": "Minimum amount to enforce 3Ds."
+                "threshold": "Maximum amount allowed for a transaction without requiring verification.",
             },
             "example": {
-                "enforce3Ds(15)": "authorization.amount>15 !authorization.verification:verified"
+                "limit(300)": "authorization.amount>300 !authorization.verification:verified !authorization.recurring.type:subsequent",
+                "limit(500)": "authorization.amount>500 !authorization.verification:verified !authorization.recurring.type:subsequent"
             },
-            "summary": "Sets the minimum amount of an authorization to enforce 3Ds."
-       }
-   }
+            "summary": "Amount limitation for a transaction without requiring verification."
+        }
+    }
 }
 ```
