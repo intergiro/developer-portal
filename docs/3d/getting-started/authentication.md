@@ -4,7 +4,7 @@ All Intergiro API endpoints are protected and require a valid JWT **access token
 
 Example API request using `access_token`:
 
-``` {1,5}
+```{1,4}
 GET /v3/individuals
 
 Content-Type: application/json
@@ -21,7 +21,7 @@ Session API endpoints allow you to obtain and subsequently renew access tokens.
 
 Example Login request:
 
-``` {1,7}
+```{1,6}
 POST /v3/auth/login
 
 Content-Type: application/json
@@ -33,7 +33,7 @@ Content-Type: application/json
 
 Response:
 
-``` {1,4}
+```{1,4}
 HTTP 200 OK
 
 {
@@ -49,14 +49,13 @@ It is important that you keep `refresh_token` around, in case the session expire
 Not relying on refresh tokens may trigger fraud prevention mechanisms that may lead to service disruption.
 :::
 
-
 ### Refreshing token
 
 Whenever an API call returns `401 Unauthorized` response, it means the session has expired and the access token must be renewed. This can be achieved by calling `POST /auth/refresh` endpoint.
 
 Example refresh access token request:
 
-``` {1,7}
+```{1,6}
 POST /v3/auth/refresh
 
 Content-Type: application/json
@@ -68,7 +67,7 @@ Content-Type: application/json
 
 Response
 
-``` {1,4}
+```{1,4}
 HTTP 200 OK
 
 {
@@ -79,3 +78,6 @@ HTTP 200 OK
 
 Whether it's the first time logging in or refreshing existing expired session, always keep the latest `refresh_token` for the next renewal.
 
+::: warning
+Please be aware that token refresh attempt should be performed only after access token has expired. Attempts to prematurely refresh token will end with an error.
+:::
