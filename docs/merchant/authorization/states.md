@@ -23,6 +23,7 @@ On authorization a state first goes through pre-authorization then post-authoriz
 | `number`       | `string`                                        | Number specified by integrator (must be unique) | Yes      |
 | `verification` | `string`                                        | `"verified"`, `"unavailable"` or `"rejected"`   | Yes      |
 | `recurring`    | [`Recurring`](./reference.html#recurring)       |                                                 | Yes      |
+| `fraudio`      | [`Fraudio`](./reference.html#fraudio)           | Risk evaluation object.                         | Yes      |
 
 The `card` field is defined as [`Card`](../card-api/reference.html#card) except `csc` is optional and if it is set, is only allowed to be set to the string `"present"`.
 
@@ -71,26 +72,27 @@ This Authorization type is a State used for frontend and is not to be confused w
 | `authorization` | See definition below                                         |                                                        |
 
 `authorization` field:
-| Property       | Type                                            | Description                                     | Optional |   |
-|----------------|-------------------------------------------------|-------------------------------------------------|----------|---|
-| `id`           | `string`                                        | Intergiro's internal generated unique ID number |          |   |
-| `number`       | `string`                                        | Number specified by integrator (must be unique) |          |   |
-| `reference`    | `string`                                        | Scheme dependent external reference number      |          |   |
-| `amount`       | `number`                                        |                                                 |          |   |
-| `currency`     | [`Currency`](../common/reference.html#currency) |                                                 |          |   |
-| `card`         | [`Card`](../card-api/reference.html#card)       |                                                 |          |   |
-| `descriptor`   | `string`                                        |                                                 | Yes      |   |
-| `recurring`    | [`Recurring`](./reference.html#recurring)       |                                                 | Yes      |   |
-| `verification` | `string`                                        | `"verified"`, `"unavailable"` or `"rejected"`   | Yes      |   |
-| `history`      | `History[]`                                     |                                                 |          |   |
-| `change`       | `Change[]`                                      |                                                 | Yes      |   |
-| `captured`     | See definition below                            |                                                 |          |   |
-| `refunded`     | See definition below                            |                                                 |          |   |
-| `settled`      | See definition below                            |                                                 |          |   |
-| `voided`       | [`DateTime`](../common/reference.html#datetime) |                                                 | Yes      |   |
-| `status `      | [`Status[]`](./reference.html#status)           |                                                 |          |   |
-| `created`      | [`DateTime`](../common/reference.html#datetime) |                                                 |          |   |
-| `category`     | `string`                                        | `"purchase" | "withdrawal"`                     |          |   |
+| Property       | Type                                            | Description                                     | Optional |
+|----------------|-------------------------------------------------|-------------------------------------------------|----------|
+| `id`           | `string`                                        | Intergiro's internal generated unique ID number |          |
+| `number`       | `string`                                        | Number specified by integrator (must be unique) |          |
+| `reference`    | `string`                                        | Scheme dependent external reference number      |          |
+| `amount`       | `number`                                        |                                                 |          |
+| `currency`     | [`Currency`](../common/reference.html#currency) |                                                 |          |
+| `card`         | [`Card`](../card-api/reference.html#card)       |                                                 |          |
+| `descriptor`   | `string`                                        |                                                 | Yes      |
+| `recurring`    | [`Recurring`](./reference.html#recurring)       |                                                 | Yes      |
+| `verification` | `string`                                        | `"verified"`, `"unavailable"` or `"rejected"`   | Yes      |
+| `history`      | `History[]`                                     |                                                 |          |
+| `change`       | `Change[]`                                      |                                                 | Yes      |
+| `captured`     | See definition below                            |                                                 |          |
+| `refunded`     | See definition below                            |                                                 |          |
+| `settled`      | See definition below                            |                                                 |          |
+| `voided`       | [`DateTime`](../common/reference.html#datetime) |                                                 | Yes      |
+| `status `      | [`Status[]`](./reference.html#status)           |                                                 |          |
+| `created`      | [`DateTime`](../common/reference.html#datetime) |                                                 |          |
+| `category`     | `string`                                        | `"purchase" | "withdrawal"`                     |          |
+| `fraudio`      | [`Fraudio`](./reference.html#fraudio)           | Risk evaluation object.                         | Yes      |
 
 
 `captured` field:
@@ -141,6 +143,7 @@ This Authorization type is a State used for frontend and is not to be confused w
 | `history`      | `History[]`                                     |                                                 |          |
 | `reason`       | `string`                                        |                                                 |          |
 | `created`      | [`DateTime`](../common/reference.html#datetime) |                                                 |          |
+| `fraudio`      | [`Fraudio`](./reference.html#fraudio)           | Risk evaluation object.                         | Yes      |
 
 ## Card
 The Card State has the same definition as [`Card`](../card-api/reference.html#card) except `expires` is set to a [`Date`](../common/reference.html#date) instead of `[number, number]`.

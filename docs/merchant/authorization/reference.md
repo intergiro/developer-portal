@@ -41,6 +41,7 @@ Authorization Creatable
 | `void`       | [`DateTime`](../common/reference.html#datetime)              |                                                 | Yes      |
 | `status`     | [`Partial<Record<Status, number>>`](./reference.html#status) |                                                 |          |
 | `category`   | `"purchase" | "withdrawal"`                                  |                                                 | Yes      |
+| `fraudio`    | [`Fraudio`](./reference.html#fraudio)                        | Risk evaluation object.                         | Yes      |
 
 #### Status
 Authorization.Status is string set to `"authorized"`, `"cancelled"`, `"captured"`, `"refunded"` or `"settled"`.
@@ -124,13 +125,14 @@ Recurring can be defined in four ways:
 History can be of type [Create](./reference.html#create), [Capture](./reference.html#capture-3), [Refund](./reference.html#refund-3), [Settlement](./reference.html#settlement), [Verification](./reference.html#verification) or [Void](./reference.html#void). Each type extends type [Base](./reference.html#base).
 
 ### Base
-| Property   | Type                                                                       | Description | Optional |
-|------------|----------------------------------------------------------------------------|-------------|----------|
-| `merchant` | `string`                                                                   |             |          |
-| `number`   | `string`                                                                   |             |          |
-| `date`     | [`DateTime`](../common/reference.html#datetime)                            |             |          |
-| `type`     | `"create" | "capture" | "refund" | "settlement" | "verification" | "void"` |             |          |
-| `status`   | `"fail" | "success" | "pending"`                                           |             |          |
+| Property   | Type                                                                       | Description             | Optional |
+|------------|----------------------------------------------------------------------------|-------------------------|----------|
+| `merchant` | `string`                                                                   |                         |          |
+| `number`   | `string`                                                                   |                         |          |
+| `date`     | [`DateTime`](../common/reference.html#datetime)                            |                         |          |
+| `type`     | `"create" | "capture" | "refund" | "settlement" | "verification" | "void"` |                         |          |
+| `status`   | `"fail" | "success" | "pending"`                                           |                         |          |
+| `fraudio`  | [`Fraudio`](./reference.html#fraudio)                                      | Risk evaluation object. | Yes      |
 
 ### Create
 History.Create is of type [Fail](./reference.html#fail), [Success](./reference.html#success) or [Pending](./reference.html#pending).
@@ -253,7 +255,7 @@ History.Verification is of type [Fail](./reference.html#fail-3), [Success](./ref
 | `recurring` | [`Recurring`](reference.html#recurring)         |             | Yes      |
 
 ### Void
-History.Void is of type [Fail](./reference.html#fail-4) or [Success](./reference.html#success-4).
+`History.Void` is of type [Fail](./reference.html#fail-4) or [Success](./reference.html#success-4).
 
 #### Fail
 | Property | Type                                             | Description | Optional |
@@ -269,3 +271,14 @@ History.Void is of type [Fail](./reference.html#fail-4) or [Success](./reference
 | `type`   | `"verification"` |             |          |
 | `status` | `"success"`      |             |          |
 
+## Fraudio
+The `Fraudio` type is for risk evalution.
+| Property         | Type                         | Description                                                      | Optional |
+|------------------|------------------------------|------------------------------------------------------------------|----------|
+| `score`          | `number`                     | Value between 0 and 1. The higher the score the higher the risk. |          |
+| `recommendation` | `"green" | "yellow" | "red"` | Fraudio's recommendation.                                        |          |
+| `id`             | `string`                     |                                                                  |          |
+| `threshold`      | `number`                     | Value between 0 and 1.                                           |          |
+| `model`          | `string`                     |                                                                  |          |
+| `notes`          | `string`                     |                                                                  | Yes      |
+| `transaction`    | `string`                     |                                                                  | Yes      |
