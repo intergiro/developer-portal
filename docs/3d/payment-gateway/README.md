@@ -12,7 +12,6 @@ Everything in this section revolves around Payment methods concept. It allows se
 
 Our Prebuilt checkout pages and Embeddable UI components are built so you don't have to worry about PCI compliance. We take care of everything in a transparent and secure manner by leveraging strong and open internet security standards like signed JWTs and iframe.
 
-
 ## Listing payment methods
 
 Saved cards will appear as Payment methods that you can easily pull via the API. Depending whether a payment method belongs to an individual or anonymous user (Guest) two API endpoints are available:
@@ -22,7 +21,7 @@ Saved cards will appear as Payment methods that you can easily pull via the API.
 
 Example payment methods listing request:
 
-``` {1}
+```{1}
 GET /v3/guests/9a792adc-f4a2-4089-8e53-f3b0c140fc12/payment_methods
 
 Content-Type: application/json
@@ -30,7 +29,8 @@ Authorization: Bearer <access_token>
 ```
 
 Response:
-``` {1}
+
+```{1}
 HTTP 200 OK
 
 {
@@ -51,10 +51,10 @@ HTTP 200 OK
 }
 ```
 
-
 ## Payment method flow
 
 This section describe common set of steps one needs to take in order to:
+
 - Save card as a payment method
 - Accept one-off card payment
 - Create a recurring payment
@@ -67,7 +67,7 @@ Here one needs to decide whether there's the need to make a one-off charge or se
 
 In case when you only need to save the card `charge` section can be skipped.
 
-``` {1,9-11}
+```{1,9-11}
 POST /v3/individuals/b3c8b592-daff-45cc-95ba-1741a4105b23/payment_methods
 
 Content-Type: application/json
@@ -85,7 +85,7 @@ Authorization: Bearer <access_token>
 
 Response:
 
-``` {1,5}
+```{1,5}
 HTTP 200 OK
 
 {
@@ -100,16 +100,16 @@ Once the charge consent is created, for it to be used in the next confirmation s
 
 Use the following API endpoint with the `consent.id` from the previous response:
 
-``` {1}
+```{1}
 POST /v3/consents/e30b2da8-879d-4d9d-b9f9-7c461500245f
 
 Content-Type: application/json
 Authorization: Bearer <access_token>
 ```
 
-Response: 
+Response:
 
-``` {1,5-6}
+```{1,5-6}
 HTTP 200 OK
 
 {
@@ -123,7 +123,6 @@ HTTP 200 OK
 
 Depending on your preferences, two different payment confirmation methods exist. For example `redirect_url` can be used for the Prebuilt checkout experience and `token` is something that is needed as part of the Custom payment flow.
 
-
 ### Prebuilt checkout page
 
 Prebuilt checkout experience is great if you want to get going quickly without the need to do any changes on the front end.
@@ -131,7 +130,6 @@ Prebuilt checkout experience is great if you want to get going quickly without t
 It works by sending the end user to the `redirect_url` where we take care of the payment and redirect the user back once it's done.
 
 <img :src="$withBase('/assets/img/integrate/payment-gateway/prebuilt-checkout-page.png')" alt="Prebuilt checkout page">
-
 
 ### Custom payment flow
 
@@ -274,7 +272,6 @@ First steps requires adding Intergiro 3D SDK library onto your website.
 </html>
 ```
 
-
 ## Save card as a payment method
 
 You can give user the ability to save card for later use by specifying a `save` flag when confirming:
@@ -296,7 +293,6 @@ intergiro.confirmPaymentMethod(token, {
 ```
 
 This will make this card available in payment methods listing API.
-
 
 ## Setup a recurring payment
 
@@ -341,34 +337,36 @@ Authorization: Bearer <access_token>
 ### Schedule
 
 `schedule` parameter has two forms:
+
 - simple one with time periods predefined: `daily`, `weekly`, `monthly`, `quarterly`, `yearly`
 - complex one, that allows to specify more advance payment patterns:
 
-| Property    | Type                                      | Description                            | Optional |
-|-------------|-------------------------------------------|----------------------------------------|----------|
-| `frequency` | `Frequency` | Frequency of the payment               |          |
-| `divisor`   | `number` or `[number,number]`             | How often to apply the payment         | Yes      |
-| `offset`    | `number` or `[number,number]`             | Specifying offset inside the frequency | Yes      |
+| Property    | Type                          | Description                            | Optional |
+| ----------- | ----------------------------- | -------------------------------------- | -------- |
+| `frequency` | `Frequency`                   | Frequency of the payment               |          |
+| `divisor`   | `number` or `[number,number]` | How often to apply the payment         | Yes      |
+| `offset`    | `number` or `[number,number]` | Specifying offset inside the frequency | Yes      |
 
 #### Frequency
 
 Defined as string that is either `"daily"`,`"weekly"`,`"monthly"`, `"quarterly"` or`"yearly"`
 
-#### Divisor 
+#### Divisor
 
 The divisor defines how often to apply the payment. Thus, a payment on every even (Iso)week would specify `frequency: "weekly"` and `divisor: 2`.
 
 If the billing is supposed to happen at a specific time inside of the payment period, this can be done using a more complex divisor.
 For example to bill every 10 days, but always on the third day of the period, specify `frequency: "daily"` and `divisor: [3, 10]`.
 
-All numbers in the divisor have to be positive and in case of a tuple, the second number of the tuple has to be larger than the first number. 
-It should also be considered that divisors use the modulo division and divisors that are not dividends of the timeframe that they divide can lead to much larger effective payment intervals. 
+All numbers in the divisor have to be positive and in case of a tuple, the second number of the tuple has to be larger than the first number.
+It should also be considered that divisors use the modulo division and divisors that are not dividends of the timeframe that they divide can lead to much larger effective payment intervals.
 
 For example, with `frequency: "monthly"` and `divisor:7` there will only be a single payment a year, which will happen in August (month is specified with number `0`-`11`). When using the divisor with `"weekly"` frequencies also consider that an ISO year has either 53 or 52 weeks. The "daily" frequency uses the day of the month for the divisor.
 
 #### Examples
 
 Every month
+
 ```json
 {
   "frequency": "monthly"
@@ -376,6 +374,7 @@ Every month
 ```
 
 The first day of every other month (February, April, ..., December):
+
 ```json
 {
   "frequency": "monthly",
@@ -385,6 +384,7 @@ The first day of every other month (February, April, ..., December):
 ```
 
 The last day of every quarter:
+
 ```json
 {
   "frequency": "quarterly",
@@ -393,6 +393,7 @@ The last day of every quarter:
 ```
 
 Payment period of every third (Iso)week of the year, paying on wednesday in the middle week:
+
 ```json
 {
   "frequency": "weekly",
@@ -402,6 +403,7 @@ Payment period of every third (Iso)week of the year, paying on wednesday in the 
 ```
 
 Every other year on the 13th of december:
+
 ```json
 {
   "frequency": "yearly",
@@ -418,38 +420,72 @@ Use [3D Theme builder app](https://3d.staging.intergiro.tech/sca/theme) that we'
 
 3D SDK embeddable elements can also be customized. See example usage below.
 
-```js{12}
+```js{1,3,22}
 const components = intergiro.components()
 
 const theme = {
-  layout: 'row',
+  layout: 'standard',
+  fontImport: 'Poppins:wght@400',
   style: {
+    gap: '1rem',
+    fontFamily: 'Poppins, Menlo',
+    fontWeight: '400',
     text: {
-      background: '#000',
-    }
-  }
+      background: '#E0E7ED',
+      color: '#070808',
+    },
+    border: {
+      color: 'black',
+      width: '2px',
+      radius: '5px',
+    },
+  },
 }
 
 const card = components.get('card-input', theme)
 ```
+
 `theme` parameter gets passed as a second argument to the components factory.
 
 Below you can find element-specific customization parameters available:
 
 #### `card-input`
 
-<img :src="$withBase('/assets/img/integrate/payment-gateway/sdk-card-input.png')" alt="Card input component">
+<br/>
+<img :src="$withBase('/assets/img/integrate/payment-gateway/sdk-cardholder-input.png')" alt="Card input component">
 
-| Property    | Type                                      | Description                            |
-|-------------|-------------------------------------------|----------------------------------------|
-| `layout` | `row`, `column` or `standard`              |          |
-| `style.text.background`   | css color            | Text background color        |
-| `style.text.color`   | css color            | Text color       |
-| `style.border.color`   | css color            | Border color       |
-| `style.border.width`   | css distance in px or relative units            | Border width       |
-| `style.border.style`   | css `border-style`, ex. `solid`            | Border style       |
-| `style.border.radius`   | css `border-radius` in px, ex. `25px`            | Border radius       |
-| `stylefontFamily`   | `string`            | Font family       |
-| `style.dangerColor`   | css color            | Danger color       |
-| `style.gap`   | css distance in px or relative units            | Gap width       |
-| `style.background`   | css color           | Background color       |
+| Property                | Type                                  | Description           |
+| ----------------------- | ------------------------------------- | --------------------- |
+| `layout`                | `row`, `column` or `standard`         |                       |
+| `fontImport`            | `string`                              | Google font           |
+| `style.text.background` | css color                             | Text background color |
+| `style.text.color`      | css color                             | Text color            |
+| `style.border.color`    | css color                             | Border color          |
+| `style.border.width`    | css distance in px or relative units  | Border width          |
+| `style.border.style`    | css `border-style`, ex. `solid`       | Border style          |
+| `style.border.radius`   | css `border-radius` in px, ex. `25px` | Border radius         |
+| `style.fontFamily`      | `string`                              | Font family           |
+| `style.dangerColor`     | css color                             | Danger color          |
+| `style.gap`             | css distance in px or relative units  | Gap width             |
+| `style.background`      | css color                             | Background color      |
+
+## Optimizations
+
+Loading components from our 3D SDK might take a moment.
+Luckily, **there are optimizations that we enabled**, so that the component is displayed right away when user should see it.
+
+Before your user reaches page where our card components should be displayed, you can prepare a container where our component will be mounted.
+
+Later you can use `mount()` as in the example below to quickly display previously prepared component.
+
+```js{3,7}
+const components = intergiro.components();
+const container = document.getElementById("card-input-container");
+const cardInput = components.get("card-input", {}, container);
+
+...
+
+cardInput.mount();
+```
+
+This will significantly improve loading time for your users.
