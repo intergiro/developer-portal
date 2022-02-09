@@ -2,7 +2,14 @@
 
 All Intergiro API endpoints are documented in the specification available [here](https://3d.intergiro.com/v3/docs).
 
-Every endpoint is thoroughly documented and you can see exactly what should be provided in the request body, what are the possible responses or what errors could be returned.
+## Structure
+
+Endpoints are **organized in specific sections** like _individual_ or _transaction_.
+
+Each section contains **list of related endpoints** with short description.
+Every single endpoint is thoroughly documented and you can see exactly what's the expected **request body**, what are the **path or query parameters**, or what are the **possible responses**.
+
+Also, some endpoints have additional annotations, like SCA requirement badge.
 
 ## Rules
 
@@ -47,7 +54,10 @@ What's wrong with this request payload?
 
 Response to this invalid request would contain list of errors that describe exactly what was wrong.
 
----
+## Tips
 
 Most of the time returned errors are very precise, but unfortunately in case of very complex request payloads, the error could be more generic.
-Make sure that you always follow the specification and validation rules to avoid unexpected issues.
+**Make sure that you always follow the specification and validation rules to avoid unexpected issues**.
+
+In case you're not sure about usage of any of the endpoints from the specification, remember to **check other sections on our [developer portal](/3d)**.
+There's a high chance that this operation that you're having troubles with is described somewhere here with additional examples and descriptions.
