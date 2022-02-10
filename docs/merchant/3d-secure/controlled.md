@@ -64,7 +64,8 @@ Example of a `verification required` error response with type `method`:
       }
     }
   },
-  "error": "verification required"
+  "error": "verification required",
+  "id": "g44QVj3iQXiElrUa"
 }
 ```
 Create a JSON object including a `threeDSServerTransID` field and a `threeDSMethodNotificationURL` field. The `threeDSServerTransID` field should have the value from `response.details.data.threeDSServerTransID` and the `threeDSMethodNotificationURL` field should be a callback URL. The callback URL has to match the target field that you specify in the auhtorization creatable.
@@ -141,7 +142,8 @@ Example of a `verification required` error response with type `challenge`:
       }
     }
   },
-  "error": "verification required"
+  "error": "verification required",
+  "id": "g44QVj3iQXiElrUa"
 }
 
 ```
@@ -197,11 +199,16 @@ For the next step in the verification cycle, see section [Iframe response handli
 
 ### Iframe response handling
 
-Update the authorization creatable to include the response from the iframe into the `card.verification` field of the creatable. 
-Post it to the authorization endpoint.
+
+Update the previous authorization creatable with the following:
+- Add an `id` property populated with the id returned from the verification required error. The id field should never be populated with any id other than the id received from the error message.
+- Populate the `card.verification` field with the response from the iframe.
+
+POST to the authorization endpoint as previously.
 
 ``` JSON
 {
+    "id": "g44QVj3iQXiElrUa",
     "number": "abcdef",
     "items": 7.5,
     "currency": "EUR",
@@ -217,4 +224,4 @@ Post it to the authorization endpoint.
     "target": "http://your.example-url.com/",
 }
 ```
-
+Treat the authorization response according to [Authorization Response Section](./controlled.html#authorization-responses).
