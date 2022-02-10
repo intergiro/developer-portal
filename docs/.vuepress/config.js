@@ -45,7 +45,7 @@ module.exports = {
           { text: 'Card programmes', link: '/3d/card-programmes/' },
           { text: 'Embedded finance', link: '/3d/embedded-finance/' },
           { text: 'Payment gateway', link: '/3d/payment-gateway/' },
-          { text: 'API reference', link: 'https://3d.staging.intergiro.tech/v3/docs' },
+          { text: 'API reference', link: 'https://3d.intergiro.com/v3/docs' },
         ]
       },
       {
@@ -99,6 +99,7 @@ function getIntegrateSidebar() {
       children: [
         '/3d/getting-started/introduction',
         '/3d/getting-started/environments',
+        '/3d/getting-started/specification',
         '/3d/getting-started/authentication',
         '/3d/versioning',
         '/3d/simulation',
