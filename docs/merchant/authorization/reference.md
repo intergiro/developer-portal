@@ -278,7 +278,7 @@ The `Fraudio` type is for risk evalution.
 | `score`          | `number`                     | Value between 0 and 1. The higher the score the higher the risk. |          |
 | `recommendation` | `"green" | "yellow" | "red"` | Fraudio's recommendation.                                        |          |
 | `id`             | `string`                     |                                                                  |          |
-| `threshold`      | `number`                     | Value between 0 and 1.                                           |          |
-| `model`          | `string`                     |                                                                  |          |
+| `threshold`      | `number`                     | Value between 0 and 1.                                           | Yes      |
+| `model`          | `string`                     |                                                                  | Yes      |
 | `notes`          | `string`                     |                                                                  | Yes      |
 | `transaction`    | `string`                     |                                                                  | Yes      |
