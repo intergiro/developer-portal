@@ -66,7 +66,8 @@ The authorization response can be one of three things:
                 "url": "https://merchant.intergiro.com/v1/verification/redirect?target=https://3dsecure.io/&origin=http://your.example-url.com/&v=2.2.0"
             }
         },
-        "error": "verification required"
+        "error": "verification required",
+        "id": "g44QVj3iQXiElrUa"
     }
     ```
 
@@ -88,7 +89,26 @@ The authorization response can be one of three things:
     })
 
     ``` 
-    Take the tokenized card from the payload and set it on the property `card` on the authorization creatable and POST to the authorization endpoint as previously.
+
+    Update the authorization creatable with the following:
+    - Add an `id` property populated with the id returned from the verification required error. The id field should never be populated with any id other than the id received from the error response.
+    - Take the tokenized card from the payload and set it on the property `card` 
+
+    POST to the authorization endpoint as previously.
+
+    ``` JSON {1}
+    POST /authorization?method=GET
+
+    {
+        "id": "g44QVj3iQXiElrUa",
+        "number": "abcdef",
+        "items": 7.5,
+        "currency": "EUR",
+        "card": "<tokenized-card>",
+        "target": "http://your.example-url.com/",
+    }
+    ```
+    Treat the authorization response according to [Authorization Response Section](./interactive.html#authorization-responses).
 
 
 - If the error response does not include a `content.details` field, 3DS needs to be performed.
@@ -98,20 +118,24 @@ The authorization response can be one of three things:
         "status": 400,
         "type": "malformed content",
         "content": {
-        "property": "card",
-        "type": "Card.Creatable | Card.Token",
-        "description": "verification required"
-    },
-        "error": "verification required"
+          "property": "card",
+          "type": "Card.Creatable | Card.Token",
+          "description": "verification required"
+        },
+        "error": "verification required",
+        "id": "g44QVj3iQXiElrUa"
     }
     ```
     - Perform 3D and verify the result.
-    - Update the authorization creatable to include the [response from 3D](./external.html#_3d-responses) into the `card.verification` field of the creatable. 
+    - Update the authorization creatable with the following:
+      - Add an `id` property populated with the id returned from the verification required error. The id field should never be populated with any id other than the id received from the error response.
+      - Include the [response from 3D](./external.html#_3d-responses) into the `card.verification` field.
     - Post it to the authorization endpoint.
 
 
     ``` JSON
     {
+        "id": "g44QVj3iQXiElrUa",
         "number": "abcdef",
         "items": 7.5,
         "currency": "EUR",

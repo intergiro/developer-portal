@@ -30,7 +30,8 @@ Example of a `verification required` error response with type `method`:
       }
     }
   },
-  "error": "verification required"
+  "error": "verification required",
+  "id": "g44QVj3iQXiElrUa",
 }
 ```
 Create a JSON object including a `threeDSServerTransID` field and a `threeDSMethodNotificationURL` field. The `threeDSServerTransID` field should have the value from `response.details.data.threeDSServerTransID` and the `threeDSMethodNotificationURL` field should be a callback URL. 
@@ -162,20 +163,25 @@ For the next step in the verification cycle, see section [Iframe response handli
 
 ### Iframe response handling
 
-Update the card to include the response from the iframe into the `verification` field and post . 
+Update the previous request body with the following:
+- Add an `id` property on the top level, populated with the id returned from the verification required error. The id field should never be populated with any id other than the id received from the error response.
+- Populate the `card.verification` field with the response from the iframe.
+
+POST to the same endpoint again.
 
 ``` JSON
-
 {
-  "pan": "4111111111111111",
-  "expires": [2, 22],
-  "csc": "987",
-  "verification": {
-      "type": "challenge" | "method",
-      "data": "iframe_response_string"
-  }
+    "id": "g44QVj3iQXiElrUa",
+    ...
+    "card": {
+      "pan": "4111111111111111",
+      "expires": [2, 22],
+      "csc": "987",
+          "verification": {
+              "type": "challenge" | "method",
+              "data": "iframe_response_string"
+          }
+    }
 }
 
 ```
-
-[Update](./update) the card token with the verification information.

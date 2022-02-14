@@ -47,9 +47,8 @@ On success, the response will be an [Order](./reference.html#order-2).
     "payment": "<Card payment>",
 }
 ```
-On failure, an [Error](../common/error.html) will be returned together with the id of the order. The `id` in the error response should be included in the request body in all following calls to the order-create endpoint, concerning the same order. This is important if you want to keep a correct [History](../authorization/reference.html#history) of the authorization creation, and to make sure 3Ds is done correctly.
+On failure, an [Error](../common/error.html) will be returned together with the id of the order. If a `verification required` error is returned, [verification](../card-api/verification.html) needs to be performed.
+
+**Note: Include the `id` from the error response in the request body for all following calls to the order-create endpoint, concerning the same order.** This is important to keep a correct [History](../authorization/reference.html#history) of the authorization creation, and to make sure 3DS is done correctly. The id field in an Order Creatable should never be populated with any id other than the id received from the order endpoint.
 
 
-**Note:** The id field in an Order Creatable should never be populated with any id other than the id received from the order endpoint.
-
-If a `verification required` error is returned, [verification](../card-api/verification.html) needs to be performed.
