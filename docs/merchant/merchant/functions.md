@@ -1,7 +1,7 @@
 # Functions
 Functions can be used as a condition in a [Rule](./rules.html) to silmplify writing rules and to make them more human readable. An agent bearer API-key is needed to create, change and list Functions.
 
-| Name                    | Arguments                                      | True if                                                                                                                               |
+| Name                    | Arguments                                      | True if...                                                                                                                            |
 |-------------------------|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | `currencyOtherThan`     | [`Country`](../common/reference.html#currency) | authorization currency is something other than the specified currency                                                                 |
 | `cscMissing`            |                                                | not a subsequent payment and the card csc is absent                                                                                   |
@@ -12,7 +12,7 @@ Functions can be used as a condition in a [Rule](./rules.html) to silmplify writ
 | `ipCountryNotEEA`       |                                                | the country of the card holder is not an EEA country                                                                                  |
 | `recurring`             |                                                | the authorization is a recurring payment                                                                                              |
 | `recurringNotVerified`  |                                                | the authorization is a recurring payment and is not yet verified                                                                      |
-| `fraudio`               |                                                | fraudio recommends blocking the transaction                                                                                               |
+| `fraudio`               |                                                | fraudio recommends blocking the transaction                                                                                           |
 
 ## How to write Functions
 The [`Functions`](./reference.html#functions) object is of type `Record<string, Detail>` where the key is the name of the function and the value is an object which contains some detailed information about the function. 
@@ -36,8 +36,8 @@ Example of a `Functions` object that sets a limit on the amount and currency for
                 "currency": "The allowed currency of a transaction."
             },
             "example": {
-                "limit(EUR)": "!authorization.currency:EUR",
-                "limit(SEK)": "!authorization.currency:SEK"
+                "currencyOtherThan(EUR)": "!authorization.currency:EUR",
+                "currencyOtherThan(SEK)": "!authorization.currency:SEK"
             },
             "summary": "Currency limitation on a transaction."
        }
@@ -68,8 +68,8 @@ Authorization: Bearer <agent.api.key>
                 "currency": "The allowed currency of a transaction."
             },
             "example": {
-                "limit(EUR)": "!authorization.currency:EUR",
-                "limit(SEK)": "!authorization.currency:SEK"
+                "currencyOtherThan(EUR)": "!authorization.currency:EUR",
+                "currencyOtherThan(SEK)": "!authorization.currency:SEK"
             },
             "summary": "Currency limitation on the transactions."
        }
@@ -94,8 +94,8 @@ Authorization: Bearer <agent.api.key>
                 "threshold": "Maximum amount allowed for a transaction without requiring verification.",
             },
             "example": {
-                "limit(300)": "authorization.amount>300 !authorization.verification:verified !authorization.recurring.type:subsequent",
-                "limit(500)": "authorization.amount>500 !authorization.verification:verified !authorization.recurring.type:subsequent"
+                "verificationThreshold(300)": "authorization.amount>300 !authorization.verification:verified !authorization.recurring.type:subsequent",
+                "verificationThreshold(500)": "authorization.amount>500 !authorization.verification:verified !authorization.recurring.type:subsequent"
             },
             "summary": "Amount limitation for a transaction without requiring verification."
         }
@@ -125,8 +125,8 @@ Example response body:
                 "currency": "The allowed currency of a transaction."
             },
             "example": {
-                "limit(EUR)": "!authorization.currency:EUR",
-                "limit(SEK)": "!authorization.currency:SEK"
+                "currencyOtherThan(EUR)": "!authorization.currency:EUR",
+                "currencyOtherThan(SEK)": "!authorization.currency:SEK"
             },
             "summary": "Currency limitation on the transactions."
        }
@@ -139,8 +139,8 @@ Example response body:
                 "threshold": "Maximum amount allowed for a transaction without requiring verification.",
             },
             "example": {
-                "limit(300)": "authorization.amount>300 !authorization.verification:verified !authorization.recurring.type:subsequent",
-                "limit(500)": "authorization.amount>500 !authorization.verification:verified !authorization.recurring.type:subsequent"
+                "verificationThreshold(300)": "authorization.amount>300 !authorization.verification:verified !authorization.recurring.type:subsequent",
+                "verificationThreshold(500)": "authorization.amount>500 !authorization.verification:verified !authorization.recurring.type:subsequent"
             },
             "summary": "Amount limitation for a transaction without requiring verification."
         }
