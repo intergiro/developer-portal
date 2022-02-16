@@ -43,21 +43,41 @@ The cosmetic parameter should be set to a JSON or a stringified JSON as describe
 		"border": {"width": "1px", "radius": "5px", "color": "#000", "style": "solid"},
 		"background": "white",
 		"font_family": "Arial, Verdana",
+		"font_weight": "normal",
 		"danger_color": "#de4747"
 	}'>
 </intergiro-card-input>
 ```
 ### Fonts
-The font_family field can consist of several fonts and are separated by comma. The property `text.color` changes the text color.
+The `font_family` field can consist of several fonts and are separated by comma. The property `text.color` changes the text color.
 ``` html
 <intergiro-card-input
   api-key="<public-api-key>"
   cosmetic='{ 
-        "text": {"color": "#566c68"},
-		"font_family": "Arial, Verdana",
-	}'>
+    "text": {"color": "#566c68"},
+    "font_family": "Arial, \"Times New Roman\", Verdana",
+    "font_weight": "300"
+  }'>
 </intergiro-card-input>
 ```
+By default only websafe fonts are available to use in the card-input. 
+However fonts can be imported via Google Fonts, using the attribute `font-import` as seen in the example below.
+``` html
+<intergiro-card-input
+  api-key="<public-api-key>"
+  font-import="Roboto:wght@500"
+  cosmetic='{ 
+    "text": {"color": "#566c68"},
+    "font_family": "Roboto, Verdana",
+    "font_weight": "500"
+  }'>
+</intergiro-card-input>
+```
+To get a particular `font-import`, goto the Google Fonts page for the font and select the font you want, then copy the `family` value in the link tag, as shown in the image below.
+
+<img :src="$withBase('/assets/img/merchant/card-input/select-google-font.png')" alt="Select Google Font">
+
+Font imports can specify font-weight and italic. Examples of font-import values: `"Roboto"`, `"Roboto:wght@200"`, `"Roboto+Mono"`, `"Roboto+Mono:wght@200"`, `"Roboto+Mono:ital,wght@1,300"`.
 
 ### Borders
 The borders inside the component can be changed with four parameters.
