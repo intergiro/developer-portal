@@ -64,6 +64,7 @@ An account is either a `string` or the following data type.
 |----------|----------|-------------|----------|
 | `bic`    | `string` |             |          |
 | `iban`   | `string` |             |          |
+| `local`  | `string` |             | yes      |
 
 ### Fee 
 
