@@ -93,6 +93,7 @@ This Authorization type is a State used for frontend and is not to be confused w
 | `created`      | [`DateTime`](../common/reference.html#datetime) |                                                 |          |
 | `category`     | `string`                                        | `"purchase" | "withdrawal"`                     |          |
 | `fraudio`      | [`Fraudio`](./reference.html#fraudio)           | Risk evaluation object.                         | Yes      |
+| `processor`    | [`Processor`](./reference.html#processor)       | Information about the processor.                | Yes      |
 
 
 `captured` field:
@@ -144,6 +145,8 @@ This Authorization type is a State used for frontend and is not to be confused w
 | `reason`       | `string`                                        |                                                 |          |
 | `created`      | [`DateTime`](../common/reference.html#datetime) |                                                 |          |
 | `fraudio`      | [`Fraudio`](./reference.html#fraudio)           | Risk evaluation object.                         | Yes      |
+| `processor`    | [`Processor`](./reference.html#processor)       | Information about the processor.                | Yes      |
+
 
 ## Card
 The Card State has the same definition as [`Card`](../card-api/reference.html#card) except `expires` is set to a [`Date`](../common/reference.html#date) instead of `[number, number]`.

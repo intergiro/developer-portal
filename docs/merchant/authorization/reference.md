@@ -42,6 +42,7 @@ Authorization Creatable
 | `status`     | [`Partial<Record<Status, number>>`](./reference.html#status) |                                                 |          |
 | `category`   | `"purchase" | "withdrawal"`                                  |                                                 | Yes      |
 | `fraudio`    | [`Fraudio`](./reference.html#fraudio)                        | Risk evaluation object.                         | Yes      |
+| `processor`  | [`Processor`](./reference.html#processor)                    | Information about the processor response.       | Yes      |
 
 #### Status
 Authorization.Status is string set to `"authorized"`, `"cancelled"`, `"captured"`, `"refunded"` or `"settled"`.
@@ -282,3 +283,29 @@ The `Fraudio` type is for risk evalution.
 | `model`          | `string`                     |                                                                  | Yes      |
 | `notes`          | `string`                     |                                                                  | Yes      |
 | `transaction`    | `string`                     |                                                                  | Yes      |
+
+## Processor
+The `Processor` contains information given by the processor.
+| Property    | Type                                      | Description | Optional |
+|-------------|-------------------------------------------|-------------|----------|
+| `name`      | `string`                                  |             |          |
+| `mid`       | `string`                                  |             |          |
+| `entry`     | `"e-commerce" | string`                   |             |          |
+| `reference` | [`Reference`](./reference.html#reference) |             |          |
+| `response`  | [`Response`](./reference.html#response)   |             |          |
+| `code`      | `string`                                  |             |          |
+| `eci`       | `string`                                  |             | Yes      |
+
+### Response
+| Property      | Type     | Description | Optional |
+|---------------|----------|-------------|----------|
+| `code`        | `string` |             |          |
+| `csc`         | `string` |             |          |
+| `description` | `string` |             |          |
+
+### Reference
+| Property      | Type     | Description | Optional |
+|---------------|----------|-------------|----------|
+| `transaction` | `string` |             |          |
+| `retrieval`   | `string` |             |          |
+| `scheme`      | `string` |             |          |
