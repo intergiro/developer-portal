@@ -16,7 +16,7 @@ There are three different methods to perform 3D Secure.
 There are two ways to perform 3D Secure when using the PSP api.
 
 ### [Checkout](../checkout/embed.html)
-3D Secure is built in to the [Intergiro Checkout UI](../checkout/embed.html) and will trigger 3D Secure authentication when authentication is needed.
+3D Secure is built into the [Intergiro Checkout UI](../checkout/embed.html) and will trigger 3D Secure authentication when authentication is needed.
 
 
 ### [Verification](../card-api/verification.html)
