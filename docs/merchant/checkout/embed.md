@@ -19,11 +19,11 @@ The attributes to Intergiro Checkout.
 <html>
 
 <head>
-  <script type="module" src="https://merchant.intergiro.com/ui/index.esm.js"></script>
-  <script nomodule src="https://merchant.intergiro.com/ui/index.js"></script>
-  <link href="https://merchant.intergiro.com/theme/intergiro/index.css" rel="stylesheet">
+  <script type="module" src="https://merchant.intergiro.com/intergiro-ui.esm.js"></script>
+  <script nomodule src="https://merchant.intergiro.com/intergiro-ui.js"></script>
+  <link href="https://theme.payfunc.com/intergiro/index.css" rel="stylesheet">
 </head>
-
+​
 <body style="width: 100%; max-width: 20em; margin-left: auto; margin-right: auto;">
 	<main>
 		<form action="<url-to-done-page>" method="get">
