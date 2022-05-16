@@ -79,7 +79,7 @@ The POST body will contain the value threeDSMethodData, which can be used to ide
 threeDSMethodData=eyJ0aHJlZURTTWV0aG9kRGF0YSI6ImQ0NjFmMTA1LTE3OTItNDA3Zi05NWZmLTlhNDk2ZmQ5MThhOSIsInRocmVlRFNNZXRob2ROb3RpZmljYXRpb25VUkwiOiJodHRwczovL3lvdXIuY2FsbGJhY2sudXJsLyJ9
 ```
 
-For the next step in the  verification cycle, see section [Iframe response handling](./controlled.html#iframe-response-handling).
+For the next step in the  verification cycle, see section [Iframe response handling](#iframe-response-handling).
 
 ### 3DS Challenge
 If the verification error response field `response.content.details.data.type` is `"challenge"`, the following procedure should be performed.
@@ -159,13 +159,13 @@ cres=eyJhY3NUcmFuc0lEIjoiODc3OTFjZWUtMjUxNC00MzZjLWJlZDgtYTYzYTg3YmJkZjAxIiwiY2h
 ```
 Example of a Challenge response
 
-For the next step in the verification cycle, see section [Iframe response handling](./controlled.html#iframe-response-handling).
+For the next step in the verification cycle, see section [Iframe response handling](#iframe-response-handling).
 
 ### Iframe response handling
 
 Update the previous request body with the following:
 - Add an `id` property on the top level, populated with the id returned from the verification required error. The id field should never be populated with any id other than the id received from the error response.
-- Populate the `card.verification` field with the response from the iframe.
+- Update the `card` field of the request body with the response from the iframe. To update a card token, see [Card update](./update.html).
 
 POST to the same endpoint again.
 
@@ -177,10 +177,10 @@ POST to the same endpoint again.
       "pan": "4111111111111111",
       "expires": [2, 22],
       "csc": "987",
-          "verification": {
-              "type": "challenge" | "method",
-              "data": "iframe_response_string"
-          }
+      "verification": {
+          "type": "challenge" | "method",
+          "data": "iframe_response_string"
+      }
     }
 }
 
