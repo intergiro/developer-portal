@@ -37,8 +37,8 @@ The table below shows the contents of a `card.Token`:
 
 | Property | Type                                    | Description                   |
 |----------|-----------------------------------------|-------------------------------|
-| `type`   | `"method | challenge"`                  |                               |
-| `data`   | [Verification Data](#verification-data) | tokenized or as a json object |
+| `type`   | `"method" | "challenge" | "guard"`                  |                               |
+| `data`   | [Verification Data](#verification-data) | base64 encoded string or a json object |
 	  
     
 ### Verification Data
