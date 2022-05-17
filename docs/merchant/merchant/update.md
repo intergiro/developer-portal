@@ -7,7 +7,7 @@ PATCH /v1/merchant/:id
 
 Host: merchant.intergiro.com
 Content-Type: application/json
-Authorization: Bearer <private.api.key> or <agent.api.key>
+Authorization: Bearer <agent.api.key>
 
 {
   "number": "Example",
@@ -28,7 +28,7 @@ PATCH /v1/merchant/:id
 
 Host: merchant.intergiro.com
 Content-Type: application/json
-Authorization: Bearer <private.api.key> or <agent.api.key>
+Authorization: Bearer <agent.api.key>
 
 {
   "guard": ["iin"],
