@@ -152,7 +152,7 @@ Example of a HTML iframe.
 ``` 
 Example of the form associated with the iframe.
 
-The iframe will post the challenge response to the URL specified in the authorization creatable `target` field.
+The iframe will post the challenge response to the URL specified in `client.callback` field of the request body.
 
 ``` JS
 cres=eyJhY3NUcmFuc0lEIjoiODc3OTFjZWUtMjUxNC00MzZjLWJlZDgtYTYzYTg3YmJkZjAxIiwiY2hhbGxlbmdlQ29tcGxldGlvbkluZCI6IlkiLCJtZXNzYWdlVHlwZSI6IkNSZXMiLCJtZXNzYWdlVmVyc2lvbiI6IjIuMS4wIiwidGhyZWVEU1NlcnZlclRyYW5zSUQiOiJkNDFmNjIwMC0wNDM1LTQ5ZWUtYWExMS1mMzY2ZjA2NjFjNmYiLCJ0cmFuc1N0YXR1cyI6IlkifQ

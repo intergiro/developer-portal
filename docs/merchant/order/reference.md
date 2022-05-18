@@ -119,13 +119,19 @@ The following are valid types of events: `"cancel"`, `"charge"`, `"defer"`, `"or
 ## Card Payment
 
 ### Card Payment Creatable
-| Property    | Type                                                               | Description                                 | Optional |
-|-------------|--------------------------------------------------------------------|---------------------------------------------|----------|
-| `type`      | `"card"`                                                           |                                             |          |
-| `card`      | `JWT`                                                              | Contains encrypted card information.        |          |
-| `client`    | [`{ip:string; browser:Browser}`](../common/reference.html#browser) |                                             | Yes      |
-| `scheduled` | `true`                                                             | Indicates that this is a scheduled payment. | Yes      |
+| Property    | Type              | Description                                 | Optional |
+|-------------|-------------------|---------------------------------------------|----------|
+| `type`      | `"card"`          |                                             |          |
+| `card`      | `JWT`             | Contains encrypted card information.        |          |
+| `client`    | [Client](#client) |                                             | Yes      |
+| `scheduled` | `true`            | Indicates that this is a scheduled payment. | Yes      |
 
+#### Client
+| Property   | Type                                          | Description                                  | Optional |
+|------------|-----------------------------------------------|----------------------------------------------|----------|
+| `ip`       | `"string"`                                    |                                              | Yes      |
+| `browser`  | [`Browser`](../common/reference.html#browser) |                                              | Yes      |
+| `callback` | `"string"`                                    | URL to receive the result from Challenge 3DS | Yes      |
 ### Card Payment
 | Property          | Type                                            | Description                                                         | Optional |
 |-------------------|-------------------------------------------------|---------------------------------------------------------------------|----------|

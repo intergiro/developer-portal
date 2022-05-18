@@ -27,7 +27,7 @@ Responses from the Customer endpoint will contain a `Customer` object, which inc
 | `id`           | `string`                                          |                                                                     |          |
 | `number`       | `string`                                          |                                                                     | Yes      |
 | `contact`      | [`Contact`](../common/reference.html#contact)     |                                                                     | Yes      |
-| `method`       | [`CustomerMethod[]`](#customermethod)               |                                                                     |          |
+| `method`       | [`CustomerMethod[]`](#customermethod)             |                                                                     |          |
 | `link`         | [`CustomerLink`](#customerlink)                   |                                                                     | Yes      |
 | `status`       | `string`                                          | `"active"`, `"created"`, `"inactive"`, `"pending"` or `"suspended"` | Yes      |
 | `subscription` | [`Subscription[]`](./reference.html#subscription) |                                                                     | Yes      |
@@ -44,10 +44,11 @@ This can be done either with already tokenized cards or through the [Registratio
 | `client` | [`Client`](#client) |                               | Yes      |
 
 ##### Client
-| Property  | Type                                          | Description | Optional |
-|-----------|-----------------------------------------------|-------------|----------|
-| `ip`      | `"string"`                                    |             | Yes      |
-| `browser` | [`Browser`](../common/reference.html#browser) |             | Yes      |
+| Property   | Type                                          | Description                                  | Optional |
+|------------|-----------------------------------------------|----------------------------------------------|----------|
+| `ip`       | `"string"`                                    |                                              | Yes      |
+| `browser`  | [`Browser`](../common/reference.html#browser) |                                              | Yes      |
+| `callback` | `"string"`                                    | URL to receive the result from Challenge 3DS | Yes      |
 
 #### CustomerMethod
 
