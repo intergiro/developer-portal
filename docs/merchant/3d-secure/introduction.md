@@ -1,6 +1,6 @@
 # Introduction
 
-## Acquiring Api
+## Acquiring API
 
 There are three different methods to perform 3D Secure.
 ### [Automated](./automated.html)
@@ -12,12 +12,11 @@ There are three different methods to perform 3D Secure.
 ### [External](./external.html)
  If you want perform 3Ds using an external 3Ds service, follow the steps in the [External](./external.html) section. 
 
-## PSP Api
-There are two ways to perform 3D Secure when using the PSP api.
+## PSP API
+There are two ways to perform 3D Secure when using the PSP API.
 
 ### [Checkout](../checkout/embed.html)
 3D Secure is built into the [Intergiro Checkout UI](../checkout/embed.html) and will trigger 3D Secure authentication when authentication is needed.
 
-
 ### [Verification](../card-api/verification.html)
-When using the [Order api](../order/create.html) to create [Orders](../order/reference.html#order) the use of the [Verification endpoint](../card-api/verification.html) is required to perform 3D Secure.
+When using the [Order API](../order/create.html) or the [Customer API](../customer/create.html), follow the [Verification guide](../card-api/verification.html) to perform 3D Secure.
