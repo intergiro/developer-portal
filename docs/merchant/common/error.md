@@ -66,3 +66,25 @@ Errors have the following structure.
 <dt>verification required</dt>
 <dd>  If you receive a verification required error, <a href=../3d-secure/introduction.html>3D secure</a> needs to be performed.</dd>
 </dl>
+
+## Error responses
+
+To test potential error responses, use pan  `4200000000000000` for visa, or
+`5555550000004444` for mastercard together with an amount from the list below.
+
+| Amount | Error code                 | Description                        | Response status |
+|--------|----------------------------|------------------------------------|-----------------|
+| 13.11  | invalid card number        | Invalid card number.               | 400             |
+| 400.00 | invalid input              | General input error.               | 400             |
+| 401.11 | unsupported card           | Unsupported card scheme.           | 400             |
+| 401.40 | invalid currency           | Invalid currency.                  | 400             |
+| 401.50 | invalid descriptor         | Invalid text on statement.         | 400             |
+| 401.90 | invalid transaction        | Invalid transaction.               | 400             |
+| 402.00 | rule violation             | Acquirer rule violation.           | 400             |
+| 403.00 | 3ds problem                | 3-D Secure problem.                | 400             |
+| 403.10 | 3ds authentication failure | 3-D Secure authentication failure. | 400             |
+| 404.10 | card declined              | Declined by issuer or card scheme. | 400             |
+| 404.13 | insufficient funds         | Insufficient funds.                | 400             |
+| 404.14 | suspected fraud            | Suspected fraud.                   | 400             |
+| 404.15 | amount limit               | Amount limit exceeded.             | 400             |
+| 404.20 | blocked merchant           | Merchant blocked by cardholder.    | 400             |
