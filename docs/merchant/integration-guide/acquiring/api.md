@@ -11,7 +11,7 @@ A verification is usually needed if the amount is large enough or when creating 
 A verification is a Strong Customer Authentication (SCA) supported by the issuing bank. 
 
 The [Authorization API](../../authorization/create.html#create) let's you create authorizations for single time payments as well as recurring payments.
-After creating an authorization, the authorization can be [captured](../../authorization/captute.html), [canceled](../../authorization/cancel.html) or [refunded](../../authorization/refund.html).
+After creating an authorization, the authorization can be [captured](../../authorization/capture.html), [canceled](../../authorization/cancel.html) or [refunded](../../authorization/refund.html).
 
 ### Minimize PCI scope
 
@@ -24,6 +24,8 @@ There are three different methods to perform 3D Secure.
 - If you want to perform 3D Secure in one automated flow, follow the steps in the [Automated](../../3d-secure/automated.html) section. 
 - If you want control of what happens between the steps in the 3D cycle, follow the steps in the [Interactive](../../3d-secure/interactive.html) section. 
 - If you want full control of the 3D flow, follow the steps in the [Controlled](../../3d-secure/controlled.html) section.
+- If you want perform 3Ds using an external 3Ds service, follow the steps in the [External](../../3d-secure/external.html)  section.
+
 
 ## Settlement
 
