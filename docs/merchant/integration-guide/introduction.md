@@ -2,7 +2,7 @@
 The Intergiro Merchant Services APIs can be used and integrated to support a wide range of different use cases. 
 This guide aims to help you select the API subset which best suit your needs.
 
-If you get stuck and do not know how or what to integrate against please contact our support for help.
+If you need assistance with choosing the integration option that best suits your business case, feel free to contact us at acquiring@intergiro.com
 
 Don't sweat it, you can start somewhere and change solution step by step.
 
