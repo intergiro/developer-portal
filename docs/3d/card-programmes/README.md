@@ -129,3 +129,87 @@ The following actions are terminating, meaning there is no way to use the card a
 
 
 ## Card limits and controls
+
+
+## Apple Pay
+
+Apple Pay tokenization is initiated by calling the following endpoint with card ID you wish to tokenize:
+
+```{1}
+POST /v3/cards/a1c5ad61-5506-4c90-ab93-11221af2abdc/apple_pay/tokenize
+
+Content-Type: application/json
+Authorization: Bearer <access_token>
+```
+
+Which responds with a pending Consent:
+
+```{1,5}
+HTTP 412 Precondition Failed
+
+{
+  "consent": {
+    "id": "e1dd9cd7-1650-42b3-8496-a970fb40ed3f",
+    "status": "pending"
+  }
+}
+```
+
+Use the following endpoint with `consent.id` you got from response to the previous request:
+
+```{1}
+POST /v3/consents/e30b2da8-879d-4d9d-b9f9-7c461500245f
+
+Content-Type: application/json
+Authorization: Bearer <access_token>
+```
+
+Response:
+
+```{1,6}
+HTTP 200 OK
+
+{
+  "method": {
+    "redirect_url": "https://3d.staging.intergiro.tech/...",
+    "token": "YW55IGNhcm5hbCBwbGVhc3Vy",
+    "expires_at": "2021-07-27T12:00:33+02:00"
+  }
+}
+```
+
+Using the `method.token` you can call the `authenticate` method on the iOS Mobile SDK:
+
+```swift{6,8}
+import IntergiroSDK
+
+let intergiro = Intergiro(publicKey: "<PUBLIC_KEY>")
+
+intergiro.authenticate(
+  token: "YW55IGNhcm5hbCBwbGVhc3Vy", 
+  parentViewController: self,
+  callback
+)
+```
+
+This in turn will open a UI provided by Intergiro where the Apple Pay provisioning flow takes place.
+
+Depending on what happened within the SDK UI and how it was closed, the callback will return different values.
+If at any point the UI was closed by the user with a swipe, the callback will return `nil`.
+
+[//]: # (If there was an issue with internet connection, TODO)
+When provisioning was successful and the card was added to Apple Pay, callback returns:
+
+```json
+{
+  "status": "approved"
+}
+```
+
+When provisioning was not successful for any reason, callback returns:
+
+```json
+{
+  "status": "error"
+}
+```
