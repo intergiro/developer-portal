@@ -49,7 +49,7 @@ module.exports = {
         ]
       },
       {
-        text: 'Merchant',
+        text: 'Card Acquiring',
         ariaLabel: 'Merchant Menu',
         link: '/merchant/',
         items: [
