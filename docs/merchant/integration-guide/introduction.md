@@ -1,15 +1,14 @@
-# Introduction
-The Intergiro Merchant Services APIs can be used and integrated to support a wide range of different use cases. 
-This guide aims to help you select the API subset which best suit your needs.
+# Get Started
 
-If you need assistance with choosing the integration option that best suits your business case, feel free to contact us at acquiring@intergiro.com
+Intergiro supports wide range of solutions depending on your business needs.
 
-Don't sweat it, you can start somewhere and change solution step by step.
+- If you are a Payment Service Provider (PSP) and are in control of payment method and order management, recommended integration is to our [Acquiring API](./acquiring/overview.html).
 
-- If you only ever require low level access to our card acquiring API because you aggregate other payment methods yourself and build all the order handling yourself, then consider using our [Acquiring APIs](./acquiring/api.html).
-- Otherwise, or when in doubt, use our [PSP APIs](./psp/api.html).
+- If you are a Merchant and want to use Intergiro order and customer management solutions, recommended way is to integrate  [Intergiro Payment Gateway](./psp/overview.html)
 
+If you need assistance with choosing the solution that best fits your business needs, we are happy to support you at [acquiring@intergiro.com](mailto:acquiring@intergiro.com)
 
+<!--- 
 | API           | Subset                                                      | Acquiring          | Order                | Subscription         |
 |---------------|-------------------------------------------------------------|--------------------|----------------------|----------------------|
 | Acquiring     | [Authorization API](../authorization/create.html)           | yes                |                      |                      |
@@ -27,3 +26,4 @@ Don't sweat it, you can start somewhere and change solution step by step.
 - Minimize PCI scope: avoid handling card information.
 
 All endpoints uses JWT tokens for authentication ([Read more here](./authentication.html)).
+-->

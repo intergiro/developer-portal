@@ -50,20 +50,32 @@ module.exports = {
       },
       {
         text: 'Card Acquiring',
-        ariaLabel: 'Merchant Menu',
+        ariaLabel: 'Card Acquiring Menu',
         link: '/merchant/',
         items: [
-          { text: 'Integration Guide', link: '/merchant/integration-guide/introduction' },
-          { text: 'Checkout UI', link: '/merchant/checkout/embed' },
-          { text: 'Order API', link: '/merchant/order/create' },
-          { text: 'Card Input UI', link: '/merchant/card-input/embed' },
-          { text: 'Card API', link: '/merchant/card-api/create' },
-          { text: 'Customer API', link: '/merchant/customer/registration-ui' },
-          { text: 'Authorization', link: '/merchant/authorization/create' },
-          { text: 'Settlement', link: '/merchant/settlement/list' },
-          { text: '3D Secure', link: '/merchant/3d-secure/introduction' },
-          { text: 'Merchant', link: '/merchant/merchant/create' },
-          { text: 'Common References', link: '/merchant/common/reference' }
+          { text: 'Get Started', link: '/merchant/integration-guide/introduction' },
+          {
+            text: 'Acquiring',
+            items: [
+              { text: 'Overview', link: '/merchant/integration-guide/acquiring/overview' },
+              { text: 'Authorization', link: '/merchant/authorization/create' },
+              { text: 'Settlement', link: '/merchant/settlement/list' },
+              { text: '3D Secure', link: '/merchant/3d-secure/introduction' },
+              //{ text: 'Merchant', link: '/merchant/merchant/create' }    
+            ]
+          },
+          {
+            text: 'Payment Gateway', 
+            items: [
+              { text: 'Overview', link: '/merchant/integration-guide/psp/overview' },
+              { text: 'Checkout UI', link: '/merchant/checkout/embed' },
+              { text: 'Card Input UI', link: '/merchant/card-input/embed' },
+              { text: 'Customers', link: '/merchant/customer/registration-ui' },
+              { text: 'Order API', link: '/merchant/order/create' },
+              { text: 'Card API', link: '/merchant/card-api/create' },
+              //{ text: 'Common References', link: '/merchant/common/reference' }    
+            ]
+          }
         ]
       },
       { text: 'Business banking', link: '/2d/' },
@@ -125,8 +137,10 @@ function getMerchantSidebar() {
       sidebarDepth: 1,
       // path: '/merchant/integration-guide/acquiring/api',
       children: [
-        '/merchant/integration-guide/acquiring/api',
-        '/merchant/integration-guide/authentication',
+        {
+          title: 'Overview',
+          path: '/merchant/integration-guide/acquiring/overview'
+        },
         {
           title: 'Authorization',
           collapsable: true,
@@ -164,44 +178,55 @@ function getMerchantSidebar() {
             '/merchant/3d-secure/controlled',
             '/merchant/3d-secure/external',
           ]
-        },
-        {
-          title: 'Merchant',
-          collapsable: true,
-          sidebarDepth: 1,
-          children: [
-            '/merchant/merchant/create',
-            '/merchant/merchant/update',
-            '/merchant/merchant/get',
-            '/merchant/merchant/list',
-            '/merchant/merchant/rules',
-            '/merchant/merchant/functions',
-            '/merchant/merchant/reference',
-            '/merchant/merchant/postman',
-          ]
-        },
+        }
+        // {
+        //   title: 'Merchant',
+        //   collapsable: true,
+        //   sidebarDepth: 1,
+        //   children: [
+        //     '/merchant/merchant/create',
+        //     '/merchant/merchant/update',
+        //     '/merchant/merchant/get',
+        //     '/merchant/merchant/list',
+        //     '/merchant/merchant/rules',
+        //     '/merchant/merchant/functions',
+        //     '/merchant/merchant/reference',
+        //     '/merchant/merchant/postman',
+        //   ]
+        // },
       ]
     },
     {
-      title: 'PSP',
+      title: 'Payment Gateway',
       sidebarDepth: 1,
       collapsable: true,
-      // path: '/merchant/integration-guide/psp/api',
+      // path: '/merchant/integration-guide/psp/overview',
       children: [
-        '/merchant/integration-guide/psp/api',
+        {
+          title: 'Overview',
+          path: '/merchant/integration-guide/psp/overview'
+        },
         // '/merchant/integration-guide/balance',
         // '/merchant/integration-guide/create-top-up-payment',
         {
-          title: 'Order API',
-          sidebarDepth: 1,
+          title: 'Checkout UI',
           collapsable: true,
+          sidebarDepth: 1,
           children: [
-            '/merchant/order/create',
-            '/merchant/order/change',
-            '/merchant/order/list',
-            '/merchant/order/callback',
-            '/merchant/order/reference',
-            '/merchant/order/postman',
+            '/merchant/checkout/embed',
+            // '/merchant/checkout/redirect',
+            '/merchant/checkout/features',
+            '/merchant/checkout/cosmetic',
+          ]
+        },
+        {
+          title: 'Card Input UI',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: [
+            '/merchant/card-input/embed',
+            '/merchant/card-input/verification',
+            '/merchant/card-input/style',
           ]
         },
         {
@@ -227,24 +252,16 @@ function getMerchantSidebar() {
           ]
         },
         {
-          title: 'Checkout UI',
-          collapsable: true,
+          title: 'Order API',
           sidebarDepth: 1,
-          children: [
-            '/merchant/checkout/embed',
-            // '/merchant/checkout/redirect',
-            '/merchant/checkout/features',
-            '/merchant/checkout/cosmetic',
-          ]
-        },
-        {
-          title: 'Card Input UI',
           collapsable: true,
-          sidebarDepth: 1,
           children: [
-            '/merchant/card-input/embed',
-            '/merchant/card-input/verification',
-            '/merchant/card-input/style',
+            '/merchant/order/create',
+            '/merchant/order/change',
+            '/merchant/order/list',
+            '/merchant/order/callback',
+            '/merchant/order/reference',
+            '/merchant/order/postman',
           ]
         },
         {

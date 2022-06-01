@@ -1,4 +1,4 @@
-# PSP APIs
+# Payment Gateway Overview
 
 | Service                                                            | UI                                                           | API                                    |
 |--------------------------------------------------------------------|--------------------------------------------------------------|----------------------------------------|
@@ -43,3 +43,13 @@ For more information and code example please read more at [Intergiro Card Input]
 - [Creating customers](../../customer/create.html) 
 - [Subscriptions](../../customer/subscriptions.html)
 - [Recurring payments](../../customer/create-order.html)
+
+
+## PSP API
+There are two ways to perform 3D Secure when using the PSP API.
+
+### [Checkout](../checkout/embed.html)
+3D Secure is built into the [Intergiro Checkout UI](../checkout/embed.html) and will trigger 3D Secure authentication when authentication is needed.
+
+### [Verification](../card-api/verification.html)
+When using the [Order API](../order/create.html) or the [Customer API](../customer/create.html), follow the [Verification guide](../card-api/verification.html) to perform 3D Secure.
