@@ -115,133 +115,157 @@ function getIntegrateSidebar() {
 function getMerchantSidebar() {
   return [
     {
-      title: 'Integration Guide',
+      title: 'Get Started',
       collapsable: false,
+      path: '/merchant/integration-guide/introduction',
+    },
+    {
+      title: 'PSP',
+      sidebarDepth: 1,
+      collapsable: true,
+      // path: '/merchant/integration-guide/psp/api',
       children: [
-        '/merchant/integration-guide/introduction',
         '/merchant/integration-guide/psp/api',
-        '/merchant/integration-guide/acquiring/api',
-        '/merchant/integration-guide/authentication',
         // '/merchant/integration-guide/balance',
         // '/merchant/integration-guide/create-top-up-payment',
+        {
+          title: 'Order API',
+          sidebarDepth: 1,
+          collapsable: true,
+          children: [
+            '/merchant/order/create',
+            '/merchant/order/change',
+            '/merchant/order/list',
+            '/merchant/order/callback',
+            '/merchant/order/reference',
+            '/merchant/order/postman',
+          ]
+        },
+        {
+          title: 'Customer',
+          sidebarDepth: 1,
+          collapsable: true,
+          children: [
+            '/merchant/customer/registration-ui',
+            '/merchant/customer/create',
+            '/merchant/customer/create-api-key',
+            '/merchant/customer/create-order',
+            '/merchant/customer/balance',
+            '/merchant/customer/update-details',
+            '/merchant/customer/update-contact-information',
+            '/merchant/customer/get',
+            '/merchant/customer/list',
+            '/merchant/customer/create-app-login',
+            '/merchant/customer/payment-methods',
+            '/merchant/customer/subscriptions',
+            '/merchant/customer/app',
+            '/merchant/customer/reference',
+            '/merchant/customer/postman',
+          ]
+        },
+        {
+          title: 'Checkout UI',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: [
+            '/merchant/checkout/embed',
+            // '/merchant/checkout/redirect',
+            '/merchant/checkout/features',
+            '/merchant/checkout/cosmetic',
+          ]
+        },
+        {
+          title: 'Card Input UI',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: [
+            '/merchant/card-input/embed',
+            '/merchant/card-input/verification',
+            '/merchant/card-input/style',
+          ]
+        },
+        {
+          title: 'Card API',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: [
+            '/merchant/card-api/create',
+            '/merchant/card-api/update',
+            '/merchant/card-api/get',
+            '/merchant/card-api/verification',
+            '/merchant/card-api/postman',
+            '/merchant/card-api/reference',
+          ]
+        },
       ]
     },
     {
-      title: 'Checkout UI',
-      collapsable: false,
+      title: 'Acquiring',
+      collapsable: true,
+      sidebarDepth: 1,
+      // path: '/merchant/integration-guide/acquiring/api',
       children: [
-        '/merchant/checkout/embed',
-        // '/merchant/checkout/redirect',
-        '/merchant/checkout/features',
-        '/merchant/checkout/cosmetic',
-      ]
-    },
-    {
-      title: 'Order API',
-      collapsable: false,
-      children: [
-        '/merchant/order/create',
-        '/merchant/order/change',
-        '/merchant/order/list',
-        '/merchant/order/callback',
-        '/merchant/order/reference',
-        '/merchant/order/postman',
-      ]
-    },
-    {
-      title: 'Card Input UI',
-      collapsable: false,
-      children: [
-        '/merchant/card-input/embed',
-        '/merchant/card-input/verification',
-        '/merchant/card-input/style',
-      ]
-    },
-    {
-      title: 'Card API',
-      collapsable: false,
-      children: [
-        '/merchant/card-api/create',
-        '/merchant/card-api/update',
-        '/merchant/card-api/get',
-        '/merchant/card-api/verification',
-        '/merchant/card-api/postman',
-        '/merchant/card-api/reference',
-      ]
-    },
-    {
-      title: 'Customer',
-      collapsable: false,
-      children: [
-        '/merchant/customer/registration-ui',
-        '/merchant/customer/create',
-        '/merchant/customer/create-api-key',
-        '/merchant/customer/create-order',
-        '/merchant/customer/balance',
-        '/merchant/customer/update-details',
-        '/merchant/customer/update-contact-information',
-        '/merchant/customer/get',
-        '/merchant/customer/list',
-        '/merchant/customer/create-app-login',
-        '/merchant/customer/payment-methods',
-        '/merchant/customer/subscriptions',
-        '/merchant/customer/app',
-        '/merchant/customer/reference',
-        '/merchant/customer/postman',
-      ]
-    },
-    {
-      title: 'Authorization',
-      collapsable: false,
-      children: [
-        '/merchant/authorization/create',
-        '/merchant/authorization/capture',
-        '/merchant/authorization/cancel',
-        '/merchant/authorization/refund',
-        '/merchant/authorization/redirect',
-        '/merchant/authorization/states',
-        '/merchant/authorization/list',
-        '/merchant/authorization/get',
-        '/merchant/authorization/reference',
-        '/merchant/authorization/postman',
-      ]
-    },
-    {
-      title: 'Settlement',
-      collapsable: false,
-      children: [
-        '/merchant/settlement/list',
-        '/merchant/settlement/reference',
-      ]
-    },
-    {
-      title: '3D Secure',
-      collapsable: false,
-      children: [
-        '/merchant/3d-secure/introduction',
-        '/merchant/3d-secure/automated',
-        '/merchant/3d-secure/interactive',
-        '/merchant/3d-secure/controlled',
-        '/merchant/3d-secure/external',
-      ]
-    },
-    {
-      title: 'Merchant',
-      collapsable: false,
-      children: [
-        '/merchant/merchant/create',
-        '/merchant/merchant/update',
-        '/merchant/merchant/get',
-        '/merchant/merchant/list',
-        '/merchant/merchant/rules',
-        '/merchant/merchant/functions',
-        '/merchant/merchant/reference',
-        '/merchant/merchant/postman',
+        '/merchant/integration-guide/acquiring/api',
+        '/merchant/integration-guide/authentication',
+        {
+          title: 'Authorization',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: [
+            '/merchant/authorization/create',
+            '/merchant/authorization/capture',
+            '/merchant/authorization/cancel',
+            '/merchant/authorization/refund',
+            '/merchant/authorization/redirect',
+            '/merchant/authorization/states',
+            '/merchant/authorization/list',
+            '/merchant/authorization/get',
+            '/merchant/authorization/reference',
+            '/merchant/authorization/postman',
+          ]
+        },
+        {
+          title: 'Settlement',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: [
+            '/merchant/settlement/list',
+            '/merchant/settlement/reference',
+          ]
+        },
+        {
+          title: '3D Secure',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: [
+            '/merchant/3d-secure/introduction',
+            '/merchant/3d-secure/automated',
+            '/merchant/3d-secure/interactive',
+            '/merchant/3d-secure/controlled',
+            '/merchant/3d-secure/external',
+          ]
+        },
+        {
+          title: 'Merchant',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: [
+            '/merchant/merchant/create',
+            '/merchant/merchant/update',
+            '/merchant/merchant/get',
+            '/merchant/merchant/list',
+            '/merchant/merchant/rules',
+            '/merchant/merchant/functions',
+            '/merchant/merchant/reference',
+            '/merchant/merchant/postman',
+          ]
+        },
       ]
     },
     {
       title: 'Common',
-      collapsable: false,
+      collapsable: true,
+      sidebarDepth: 1,
       children: [
         '/merchant/common/reference',
         '/merchant/common/error',
