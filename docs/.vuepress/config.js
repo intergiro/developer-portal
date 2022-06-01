@@ -120,6 +120,69 @@ function getMerchantSidebar() {
       path: '/merchant/integration-guide/introduction',
     },
     {
+      title: 'Acquiring',
+      collapsable: true,
+      sidebarDepth: 1,
+      // path: '/merchant/integration-guide/acquiring/api',
+      children: [
+        '/merchant/integration-guide/acquiring/api',
+        '/merchant/integration-guide/authentication',
+        {
+          title: 'Authorization',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: [
+            '/merchant/authorization/create',
+            '/merchant/authorization/capture',
+            '/merchant/authorization/cancel',
+            '/merchant/authorization/refund',
+            '/merchant/authorization/redirect',
+            '/merchant/authorization/states',
+            '/merchant/authorization/list',
+            '/merchant/authorization/get',
+            '/merchant/authorization/reference',
+            '/merchant/authorization/postman',
+          ]
+        },
+        {
+          title: 'Settlement',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: [
+            '/merchant/settlement/list',
+            '/merchant/settlement/reference',
+          ]
+        },
+        {
+          title: '3D Secure',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: [
+            '/merchant/3d-secure/introduction',
+            '/merchant/3d-secure/automated',
+            '/merchant/3d-secure/interactive',
+            '/merchant/3d-secure/controlled',
+            '/merchant/3d-secure/external',
+          ]
+        },
+        {
+          title: 'Merchant',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: [
+            '/merchant/merchant/create',
+            '/merchant/merchant/update',
+            '/merchant/merchant/get',
+            '/merchant/merchant/list',
+            '/merchant/merchant/rules',
+            '/merchant/merchant/functions',
+            '/merchant/merchant/reference',
+            '/merchant/merchant/postman',
+          ]
+        },
+      ]
+    },
+    {
       title: 'PSP',
       sidebarDepth: 1,
       collapsable: true,
@@ -195,69 +258,6 @@ function getMerchantSidebar() {
             '/merchant/card-api/verification',
             '/merchant/card-api/postman',
             '/merchant/card-api/reference',
-          ]
-        },
-      ]
-    },
-    {
-      title: 'Acquiring',
-      collapsable: true,
-      sidebarDepth: 1,
-      // path: '/merchant/integration-guide/acquiring/api',
-      children: [
-        '/merchant/integration-guide/acquiring/api',
-        '/merchant/integration-guide/authentication',
-        {
-          title: 'Authorization',
-          collapsable: true,
-          sidebarDepth: 1,
-          children: [
-            '/merchant/authorization/create',
-            '/merchant/authorization/capture',
-            '/merchant/authorization/cancel',
-            '/merchant/authorization/refund',
-            '/merchant/authorization/redirect',
-            '/merchant/authorization/states',
-            '/merchant/authorization/list',
-            '/merchant/authorization/get',
-            '/merchant/authorization/reference',
-            '/merchant/authorization/postman',
-          ]
-        },
-        {
-          title: 'Settlement',
-          collapsable: true,
-          sidebarDepth: 1,
-          children: [
-            '/merchant/settlement/list',
-            '/merchant/settlement/reference',
-          ]
-        },
-        {
-          title: '3D Secure',
-          collapsable: true,
-          sidebarDepth: 1,
-          children: [
-            '/merchant/3d-secure/introduction',
-            '/merchant/3d-secure/automated',
-            '/merchant/3d-secure/interactive',
-            '/merchant/3d-secure/controlled',
-            '/merchant/3d-secure/external',
-          ]
-        },
-        {
-          title: 'Merchant',
-          collapsable: true,
-          sidebarDepth: 1,
-          children: [
-            '/merchant/merchant/create',
-            '/merchant/merchant/update',
-            '/merchant/merchant/get',
-            '/merchant/merchant/list',
-            '/merchant/merchant/rules',
-            '/merchant/merchant/functions',
-            '/merchant/merchant/reference',
-            '/merchant/merchant/postman',
           ]
         },
       ]
