@@ -12,8 +12,8 @@ To obtain test access, contact us at [acquiring@intergiro.com](mailto:acquiring@
 
 ### 2. Process live transactions
 
-In order to process live transactions, we must have your valid PCI AoC and have signed a PSP/Introducer agreement with Intergiro.
-After a merchant has been approved by our underwriting team, we will provide you with a live public and private key for that merchant (each merchant will be issued their own unique keys).
+In order to process live transactions, you must provide your valid PCI AoC and must sign a PSP/Introducer agreement with us.
+After a merchant you submitted to us has been approved by our underwriting team, we will provide you with a live public and private key for that merchant (each merchant will be issued their own unique keys).
 <br><br>
 ## PCI scope
 
