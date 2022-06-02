@@ -1,5 +1,13 @@
 # Create
 
+An authorization is the reservation of a specified amount of money on a cardholder's credit/debit card. 
+An authorization often require a verification. 
+A verification is usually needed if the amount is large enough or when creating an initial recurring authorization.
+A verification is a Strong Customer Authentication (SCA) supported by the issuing bank. 
+
+The Create Authorization API let's you create authorizations for single time payments as well as recurring payments.
+After creating an authorization, the authorization can be [captured](../authorization/capture.html), [canceled](../authorization/cancel.html) or [refunded](../authorization/refund.html).
+
 In order to create an [Authorization](./reference.html#authorization), first send a request with the body of the request set as an [Authorization creatable](./reference.html#authorization).
 
 Example Authorization request:
@@ -8,7 +16,7 @@ POST /v1/authorization
 
 Host: merchant.intergiro.com
 Content-Type: application/json
-Authorization: Bearer <public.api.key> or <customer.api.key>
+Authorization: Bearer <public.api.key>
 
 {
   "number": "a_unique_identifier",

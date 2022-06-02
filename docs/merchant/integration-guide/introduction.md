@@ -1,12 +1,24 @@
 # Get Started
 
-Intergiro supports wide range of solutions depending on your business needs.
+Intergiro supports wide range of solutions depending on your business model. 
 
-- If you are a Payment Service Provider (PSP) and are in control of payment method and order management, recommended integration is to our [Acquiring API](./acquiring/overview.html).
+### You are a Payment Service Provider (PSP) 
 
-- If you are a Merchant and want to use Intergiro order and customer management solutions, recommended way is to integrate  [Intergiro Payment Gateway](./psp/overview.html)
+- you offer payment gateway or checkout services to multiple merchants
+- you are in control of payment method and order management
 
-If you need assistance with choosing the solution that best fits your business needs, we are happy to support you at [acquiring@intergiro.com](mailto:acquiring@intergiro.com)
+Best fit for your needs is [Intergiro Acquiring API](./acquiring/overview.html).
+
+### You are a Merchant 
+
+- you sell products or services to customers through your website
+- you need a checkout solution to accept card payments from your customers    
+
+Best fit for your needs is [Intergiro Payment Gateway](./psp/overview.html)   
+     
+ <br>
+      
+For further questions, we are happy to support you at [acquiring@intergiro.com](mailto:acquiring@intergiro.com)
 
 <!--- 
 | API           | Subset                                                      | Acquiring          | Order                | Subscription         |
