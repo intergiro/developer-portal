@@ -1,6 +1,6 @@
 # List
 
-List all Settlements available to the access_token.
+List all Settlements from previous authorizations available to the access_token.
 
 ``` {1}
 GET /v1/settlement/
