@@ -21,7 +21,7 @@ Intergiro Card Input is an embeddable component for card tokenization that can b
 
 Card Input is also capable of doing 3D Secure, more information and code examples can be found at [Card Input Verification](../../card-input/verification.html). 
 
-For more information and code example please read more at [Intergiro Card Input](../card-input/embed.html) 
+For more information and code example please read more at [Intergiro Card Input](../../card-input/embed.html) 
 
 ### [Card API](../../card-api/create.html)
 [Card API](../../card-api/create.html) can create card tokens and handle 3D Secure if desired. 
@@ -45,14 +45,18 @@ For more information and code example please read more at [Intergiro Card Input]
 - [Recurring payments](../../customer/create-order.html)
 
 
-## PSP API
-There are two ways to perform 3D Secure when using the PSP API.
+## 3D Secure
+There are three ways to perform 3D Secure when using the PSP API.
 
-### [Checkout](../checkout/embed.html)
-3D Secure is built into the [Intergiro Checkout UI](../checkout/embed.html) and will trigger 3D Secure authentication when authentication is needed.
+### [Checkout](../../checkout/embed.html)
+3D Secure is built into the [Intergiro Checkout UI](../../checkout/embed.html) and will trigger 3D Secure authentication when authentication is needed.
 
-### [Verification](../card-api/verification.html)
-When using the [Order API](../order/create.html) or the [Customer API](../customer/create.html), follow the [Verification guide](../card-api/verification.html) to perform 3D Secure.
+### [Verification UI](../../card-input/verification.html)
+
+When using [Card Input UI](../../card-input/index.html) follow this [Verification Guide](../../card-input/verification.html).
+
+### [Verification API](../../card-api/verification.html)
+When using the [Order API](../../order/create.html) or the [Customer API](../../customer/create.html), follow the [Verification guide](../../card-api/verification.html) to perform 3D Secure.
 
 
 
@@ -75,5 +79,5 @@ Private API-keys can among other things be used to list all your orders and char
 
 ### Customer API-keys
 
-Customer API-keys are unique to a each [customer](../customer/reference.html). 
+Customer API-keys are unique to a each [customer](../../customer/reference.html). 
 It enable your users to update their address, payment methods and also to view their order history.

@@ -49,6 +49,7 @@ module.exports = {
           { text: 'API reference', link: 'https://3d.intergiro.com/v3/docs' },
         ]
       },
+      { text: 'Intergiro 2D', link: '/2d/' },
       {
         text: 'Card Acquiring',
         ariaLabel: 'Card Acquiring Menu',
@@ -78,8 +79,7 @@ module.exports = {
             ]
           }
         ]
-      },
-      { text: 'Business banking', link: '/2d/' },
+      }
     ],
     sidebar: {
       '/3d/': getIntegrateSidebar(),
