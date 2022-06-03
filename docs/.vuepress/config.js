@@ -22,7 +22,8 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/assets/img/logo_black.svg' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+    ['script', { defer: true, ['data-domain']: 'intergiro.github.io', src: 'https://plausible.io/js/plausible.js' }],
   ],
 
   /**
