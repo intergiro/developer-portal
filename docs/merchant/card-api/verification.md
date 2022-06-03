@@ -6,7 +6,7 @@ Based on the data in the verification error, an iframe has to be rendered in the
 
 During one authorization cycle, 3D secure may have to be done several times. They can either be without any user interaction and therefore hidden or they can involve some kind of user interaction.
 
-
+## 3D Secure version 2
 ### 3DS Method
 If the verification error response field `response.content.details.data.type` is `"method"`, the following procedure should be performed.
 
@@ -112,7 +112,7 @@ Example of a `verification required` error response with type `challenge`:
 
 ```
 
-Create a JSON object including everything from `response.details.data` except for the field `type`. 
+Create a JSON object including everything from `content.details.data` except for the field `type`. 
 ``` JSON
 {
   "threeDSServerTransID": "d461f105-1792-407f-95ff-9a496fd918a9",
@@ -127,7 +127,7 @@ The 3DS Challenge procedure is as follows:
 1. Render a visible HTML iframe in the browser.
 2. Create a form with an input field named `creq`.
 3. The `creq` field should contain the above JSON object, stringified, then base-64-URL encoded.
-4. POST the form to the url from the response body (`response.details.url`), with the HTML iframe as target.
+4. POST the form to the url from the response body (`content.details.url`), with the HTML iframe as target.
 
 ```html
 <iframe name="threeDSChallengeIframe" id="threeDSChallengeIframe"></iframe>
@@ -161,7 +161,72 @@ Example of a Challenge response
 
 For the next step in the verification cycle, see section [Iframe response handling](#iframe-response-handling).
 
-### Iframe response handling
+## 3D Secure version 1
+
+If the card number is not enrolled for `3DSv2`, but for `3Dsv1`, the following procedure should be performed.
+
+Example of a `verification required` error response for `3Dsv1`:
+``` JSON
+{
+    "status": 400,
+    "type": "malformed content",
+    "content": {
+        "property": "card",
+        "type": "Card.Creatable | Card.Token",
+        "description": "verification required",
+        "details": {
+            "visible": true,
+            "method": "POST",
+            "url": "https://merchant.intergiro.com/v1/ch3d1sim/acs",
+            "data": {
+                "PaReq": "eyJ2ZXJzaW9uIjoiMS4wIiwiY2FyZFR5cGUiOiIxIiwiUEFOIjoiNTU1NTU1MDAwMDAwNDQ0NCIsImV4cGlyeSI6IjI0MDEiLCJkZXZpY2VDYXRlZ29yeSI6IjAiLCJwdXJjaEFtb3VudCI6IjQwNDIwIiwiZXhwb25lbnQiOiJmYWxzZSIsImN1cnJlbmN5IjoiRVVSIiwibWVyY2hhbnRJRCI6IjAwMDAwODEwMzAwMDExMSIsInhpZCI6Ik1EQXdNREF3TURBd01EQXdNREF3T0RVNE5UWT0iLCJva1VybCI6Ind3dy5leGFtcGxlLmNvbSIsImZhaWxVcmwiOiJ3d3cuZXhhbXBsZS5jb20ifQ",
+                "TermUrl": "http://your.example-url.com/",
+                "MD": "MD"
+            }
+        }
+    },
+    "error": "verification required",
+    "id": "_8Pqg0ILqC5Sd2cf"
+}
+
+```
+
+The 3DSv1 procedure is as follows:
+1. Render a visible HTML iframe in the browser.
+2. Create a form with 3 input fields named `PaReq`, `MD` and `TermUrl`.
+3. Populate the input values with their respective data values returned from the error response (`content.details.data`).
+4. POST the form to the url from the response body (`content.details.url`), with the HTML iframe as target.
+
+```html
+<iframe name="threeDSv1Iframe" id="threeDSv1Iframe"></iframe>
+```
+Example of a HTML iframe.
+
+``` html
+<form 
+  name="autoPost" 
+  method="post" 
+  action="https://merchant.intergiro.com/v1/ch3d1sim/acs" 
+  target="threeDSv1Iframe">
+  <input 
+  name="PaReq" 
+  value="eyJ2ZXJzaW9uIjoiMS4wIiwiY2FyZFR5cGUiOiIxIiwiUEFOIjoiNTU1NTU1MDAwMDAwNDQ0NCIsImV4cGlyeSI6IjI0MDEiLCJkZXZpY2VDYXRlZ29yeSI6IjAiLCJwdXJjaEFtb3VudCI6IjQwNDIwIiwiZXhwb25lbnQiOiJmYWxzZSIsImN1cnJlbmN5IjoiRVVSIiwibWVyY2hhbnRJRCI6IjAwMDAwODEwMzAwMDExMSIsInhpZCI6Ik1EQXdNREF3TURBd01EQXdNREF3T0RVNE5UWT0iLCJva1VybCI6Ind3dy5leGFtcGxlLmNvbSIsImZhaWxVcmwiOiJ3d3cuZXhhbXBsZS5jb20ifQ"/>
+  <input name="TermUrl" value="http://your.example-url.com/"/>
+  <input name="MD" value="MD"/>
+</form>
+<script type="text/javascript">
+  document.autoPost.submit();
+</script>
+``` 
+Example of the form associated with the iframe.
+
+The iframe will post the challenge response to the URL specified in client.callback field of the request body.
+
+``` JS
+PaRes=eyJhbW91bnQiOiIyMDAwMCIsImN1cnJlbmN5IjoiRVVSIiwibWVyY2hhbnRfaWQiOiIwMDAwMDgxMDMwMDAxMTEiLCJsYXN0NCI6IjExMTEiLCJlY2kiOiIyIiwiY2F2diI6IiIsImNhdnZfYWxnb3JpdGhtIjoidGVzdCIsInhpZCI6Ik1EQXdNREF3TURBd01EQXdNREF3T0RVNE5UWT0iLCJzdGF0dXMiOiJZIn0
+```
+Example of a Pares response
+## Iframe response handling
 
 Update the previous request body with the following:
 - Add an `id` property on the top level, populated with the id returned from the verification required error. The id field should never be populated with any id other than the id received from the error response.
