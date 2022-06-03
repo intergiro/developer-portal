@@ -128,10 +128,34 @@ The following actions are terminating, meaning there is no way to use the card a
 - `lost` - report card as lost
 
 
-## Card limits and controls
-
-
 ## Apple Pay
+
+**Phase 1: Initiate process**
+
+Before implementation, you must contact Intergiro to start the process. Intergiro will assist with the initial steps
+required from both Apple and VISA.
+
+**Phase 2: Steps required**
+
+The following steps need to be completed prior to integration:
+
+- Entitlement and Whitelisting Request
+- Entitlement configuration
+- Splash screen and Apple Pay Mark control logic to be implemented in your application
+ 
+Details about these steps can be found in the official Apple documentation.
+
+**Phase 3: Integration**
+
+Start the integration according to the technical documentation below.
+
+**Phase 4: Certification**
+
+Apple Pay certification must be completed before going live. This certification will need to be booked by your company
+and carried out by an authorised certifier. Intergiro can advise but cannot book this on your company’s behalf.
+
+---
+
 
 Apple Pay tokenization is initiated by calling the following endpoint with card ID you wish to tokenize:
 
