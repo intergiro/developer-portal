@@ -16,6 +16,9 @@ The [Intergiro Customer Registration UI](../../customer/registration-ui.html) co
 ## Minimize PCI scope
 If you need a separate card tokenization there is an UI solution in addition to an API solution.
 
+::: warning
+If you handle any card data you are expected to provide us with a valid PCI AoC, indicating you are allowed to store, process and manage card data. If you do not wish to handle any card data please use [Intergiro Checkout UI](../../checkout/embed.html) to create orders or [Card Input UI](../../card-input/embed.html) to tokenize cards.
+:::
 ### [Card Input UI](../../card-input/embed.html)
 Intergiro Card Input is an embeddable component for card tokenization that can be integrated as a normal html component, that can be customized if desired trough [styling](../../card-input/style.html). 
 
