@@ -162,17 +162,6 @@ In the verification fields, these are the expected input data:
     "data": "<pares-string>"
   }
 ```
-3D Secure Version 1 as unpacked Pares:
-``` JSON
-  "verification": {
-    "type": "pares",
-    "data": {
-       "cavv": "<string>",
-       "xid": "<string>",
-       "eci": "0" | "1" | "2" | "5" | "6" | "7"
-    }
-  }
-```
 3D Secure Version 2:
 ``` JSON
   "verification": {
@@ -186,9 +175,12 @@ In the verification fields, these are the expected input data:
     "type": "challenge",
     "data": {
       "authenticationValue": "<string>",
-      "transStatus": "Y" | "N" | "U" | "A" | "C" | "R",
       "dsTransID": "<string>",
-      "threeDSServerTransID": "<string>"
+      "messageVersion": "2.1.0" | "2.2.0",
+      "messageType": "RReq" | "ARes",   
+      "eci": "<string>",
+      "threeDSServerTransID": "<string>",
+      "transStatus": "Y" | "N" | "U" | "A" | "C" | "R"
     }
   }
 ```
