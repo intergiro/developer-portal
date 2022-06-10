@@ -226,6 +226,42 @@ The iframe will post the challenge response to the URL specified in client.callb
 PaRes=eyJhbW91bnQiOiIyMDAwMCIsImN1cnJlbmN5IjoiRVVSIiwibWVyY2hhbnRfaWQiOiIwMDAwMDgxMDMwMDAxMTEiLCJsYXN0NCI6IjExMTEiLCJlY2kiOiIyIiwiY2F2diI6IiIsImNhdnZfYWxnb3JpdGhtIjoidGVzdCIsInhpZCI6Ik1EQXdNREF3TURBd01EQXdNREF3T0RVNE5UWT0iLCJzdGF0dXMiOiJZIn0
 ```
 Example of a Pares response
+
+For the next step in the verification cycle, see section [Iframe response handling](#iframe-response-handling).
+
+## Antifraud verification
+If the `details` in the verification error response has the `method` field set to `"GET"` and includes a `url`, antifraud verification needs to be performed.
+
+Example response:
+``` json
+{
+    "status": 400,
+    "type": "malformed content",
+    "content": {
+        "property": "card",
+        "type": "Card.Creatable | Card.Token",
+        "description": "verification required",
+        "details": {
+            "visible": false,
+            "method": "GET",
+            "url": "https://merchant.intergiro.com/v1/verification/redirect?target=https://3dsecure.io/&origin=http://your.example-url.com/&v=2.2.0"
+        }
+    },
+    "error": "verification required",
+    "id": "g44QVj3iQXiElrUa"
+}
+```
+
+A GET call to the url specified in `content.details.url` returns html that will perform the verification. This call can be done by either redirecting to the url or by setting the url as the source of an Iframe.
+
+The verification response will be posted to the URL specified in [`client.callback`](../order/reference.html#client) field of the request body. The payload is sent as form data with `card` as key and a tokenized card as value. 
+
+    ``` JS
+    card=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjYXJkIiwiaWF0IjoxNjU0ODQxNzgxLCJhdWQiOiJwcm9kdWN0aW9uIiwiZW5jIjoiMTYuSFJFcm5PZVpKT2FULXVqMzc0dTA4Zy5UZWdwZW9lcUFqcXZuRmlmSG53a0xPT19NMVdCQjFhLVJoaEgzaWdQQURpMnBlRy0iLCJ4cHIiOlsxMiwzMF0sInZlciI6eyJ0eXBlIjoiZ3VhcmQiLCJkYXRhIjp7ImJyb3dzZXIiOnsiY29sb3JEZXB0aCI6MjQsInJlc29sdXRpb24iOlsxOTIwLDEyMDBdLCJqYXZhIjpmYWxzZSwiamF2YXNjcmlwdCI6dHJ1ZSwibG9jYWxlIjoiZW4tR0IiLCJ0aW1lem9uZSI6LTEyMCwiaXAiOiI5Mi4zMi43Ny4yMDEifSwiY291bnRyeSI6IlNFIn19fQ.izpDY--GowynMFMQwTH5Ez8HfOWfYdPW8dHsjND-ZVW8JiEzK6BVbUKuMJPTs60z5uTrKewro2EIWLsobuaHAI5UAzbvC34AAfVjeYOkETzw0uoWFX7CU0YBsdk-lMb9vRVA7YiJ7l4j_kH8q1-vjkd2kNSgsct6bD2hhuWUlX5mMtFOzcMqgv70baTkpA1ymUomV8jRucl6WlEoolgs2zjZVSoBpTUHjUKePjQ59uzxZVeEYm8Qj0l8QbJtGWC_7wtj7SekyaouiCXKTanammRbzac-1JAGY7Au5baGT4XP3uQKURcDnbmwNVDL6moqtDf-u4lLIqlZ2TDAQYhqWg
+    ``` 
+
+   For the next step in the verification cycle, see section [Iframe response handling](#iframe-response-handling).
+
 ## Iframe response handling
 
 Update the previous request body with the following:

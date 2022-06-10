@@ -131,7 +131,7 @@ The following are valid types of events: `"cancel"`, `"charge"`, `"defer"`, `"or
 |------------|-----------------------------------------------|----------------------------------------------|----------|
 | `ip`       | `"string"`                                    |                                              | Yes      |
 | `browser`  | [`Browser`](../common/reference.html#browser) |                                              | Yes      |
-| `callback` | `"string"`                                    | URL to receive the result from Challenge 3DS | Yes      |
+| `callback` | `"string"`                                    | URL to receive the result from 3DS | Yes      |
 ### Card Payment
 | Property          | Type                                            | Description                                                         | Optional |
 |-------------------|-------------------------------------------------|---------------------------------------------------------------------|----------|
