@@ -202,26 +202,20 @@ HTTP 200 OK
 }
 ```
 
-Using the `method.token` you can call the `authenticate` method on the iOS Mobile SDK:
+Using the `method.token` you can call the `Intergiro.launch()` method on the iOS Mobile SDK:
 
-```swift{6,8}
+```swift{5}
 import IntergiroSDK
 
-let intergiro = Intergiro(publicKey: "<PUBLIC_KEY>")
+Intergiro.setPublicKey("<PUBLIC_KEY>")
 
-intergiro.authenticate(
-  token: "YW55IGNhcm5hbCBwbGVhc3Vy", 
-  parentViewController: self,
-  callback
-)
+Intergiro.launch(token: "YW55IGNhcm5hbCBwbGVhc3Vy", callback: completion)
 ```
 
 This in turn will open a UI provided by Intergiro where the Apple Pay provisioning flow takes place.
 
-Depending on what happened within the SDK UI and how it was closed, the callback will return different values.
-If at any point the UI was closed by the user with a swipe, the callback will return `nil`.
+Depending on what happened within the SDK UI, the callback may return a payload or an error. For a list of possible error codes, see the `IntergiroError` enum.
 
-[//]: # (If there was an issue with internet connection, TODO)
 When provisioning was successful and the card was added to Apple Pay, callback returns:
 
 ```json
