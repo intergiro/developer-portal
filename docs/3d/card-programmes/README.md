@@ -128,7 +128,7 @@ The following actions are terminating, meaning there is no way to use the card a
 - `lost` - report card as lost
 
 
-## Apple Pay
+## Apple Pay - live soon
 
 **Phase 1: Initiate process**
 
