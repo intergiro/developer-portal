@@ -69,9 +69,14 @@ Errors have the following structure.
 
 ## Error responses
 
-To test potential error responses, use pan  `4200000000000000` for visa, or
-`5555550000004444` for mastercard together with an amount from the list below.
+To test potential error responses, use a pan from the table:
+| pan                | scheme     | 3D version |
+|--------------------|------------|------------|
+| `2221000000000009` | mastercard | 3DSv2      |
+| `4200000000000000` | visa       | 3DSv1      |
+| `5555550000004444` | mastercard | 3DSv1      |
 
+The amount will determine which error response to test.
 | Amount | Error code                 | Description                        | Response status |
 |--------|----------------------------|------------------------------------|-----------------|
 | 13.11  | invalid card number        | Invalid card number.               | 400             |
