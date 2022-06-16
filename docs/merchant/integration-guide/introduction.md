@@ -1,20 +1,20 @@
 # Get Started
 
-Intergiro supports wide range of solutions depending on your business model. 
+Intergiro supports a wide range of solutions depending on your business model. 
 
 ### You are a Payment Service Provider (PSP) 
 
 - you offer payment gateway or checkout services to multiple merchants
 - you are in control of payment method and order management
 
-Best fit for your needs is [Intergiro Acquiring API](./acquiring/overview.html).
+The best fit for your needs is [Intergiro's Acquiring API](./acquiring/overview.html).
 
 ### You are a Merchant 
 
 - you sell products or services to customers through your website
 - you need a checkout solution to accept card payments from your customers    
 
-Best fit for your needs is [Intergiro Payment Gateway](./psp/overview.html)   
+The best fit for your needs is [Intergiro's Payment Gateway](./psp/overview.html)   
      
  <br>
       

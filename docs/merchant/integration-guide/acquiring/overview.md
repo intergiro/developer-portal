@@ -4,7 +4,7 @@
 
 ### 1. Test our API
 
-You are able to obtain test access to Intergiro Acquiring API, before you provided an PCI AoC or signed an agreement with Intergiro. To enable you to test, we will create a unique test merchant and provide you with private and public keys.
+You are able to obtain test access to Intergiro Acquiring API, prior to providing a PCI AoC or signing an agreement with Intergiro. To enable you to test, we will create a unique test merchant and provide you with private and public keys.
 
 
 To obtain test access, contact us at [acquiring@intergiro.com](mailto:acquiring@intergiro.com) with your company and contact information.
@@ -12,7 +12,7 @@ To obtain test access, contact us at [acquiring@intergiro.com](mailto:acquiring@
 
 ### 2. Process live transactions
 
-In order to process live transactions, you must provide your valid PCI AoC and must sign a PSP/Introducer agreement with us.
+In order to process live transactions, you must provide your valid PCI AoC and must sign a PSP agreement with us.
 After a merchant you submitted to us has been approved by our underwriting team, we will provide you with a live public and private key for that merchant (each merchant will be issued their own unique keys).
 <br><br>
 ## PCI scope
