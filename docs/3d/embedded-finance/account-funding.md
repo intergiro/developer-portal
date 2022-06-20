@@ -1,12 +1,7 @@
----
-sidebarDepth: 2
----
 
-# Payments as a Service
+# Account Funding
 
-<img :src="$withBase('/assets/img/integrate/payment-gateway/payment-gateway-splash.jpg')" alt="Payment gateway">
-
-Accepting payments online has never been easier with Integrate Payment methods API and embeddable UI components.
+Enabling customers to fund their account has never been easier with Payment methods API and embeddable UI components.
 
 Everything in this section revolves around Payment methods concept. It allows setting up recurring payments, onboarding and charging cards or making one-off anonymous payments.
 
