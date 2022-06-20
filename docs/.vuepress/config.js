@@ -43,9 +43,8 @@ module.exports = {
         items: [
           { text: 'Getting started', link: '/3d/getting-started/' },
           { text: 'Onboarding', link: '/3d/onboarding/' },
-          { text: 'Card programmes', link: '/3d/card-programmes/' },
-          { text: 'Embedded finance', link: '/3d/embedded-finance/' },
-          { text: 'Payment gateway', link: '/3d/payment-gateway/' },
+          { text: 'Accounts', link: '/3d/embedded-finance/' },
+          { text: 'Cards', link: '/3d/card-programmes/' },
           { text: 'API reference', link: 'https://3d.intergiro.com/v3/docs' },
         ]
       },
@@ -87,7 +86,6 @@ module.exports = {
       '/3d/onboarding/': getIntegrateSidebar(),
       '/3d/embedded-finance/': getIntegrateSidebar(),
       '/3d/card-programmes/': getIntegrateSidebar(),
-      '/3d/payment-gateway/': getIntegrateSidebar(),
       '/merchant/': getMerchantSidebar(),
       '/2d/': [
         '',
@@ -120,9 +118,16 @@ function getIntegrateSidebar() {
       ],
     },
     '/3d/onboarding/',
-    '/3d/embedded-finance/',
+    {
+      title: 'Accounts as a Service',
+      collapsable: false,
+      children: [
+        '/3d/embedded-finance/accounts',
+        '/3d/embedded-finance/payments',
+        '/3d/embedded-finance/account-funding',
+      ],
+    },
     '/3d/card-programmes/',
-    '/3d/payment-gateway/',
   ]
 }
 function getMerchantSidebar() {
