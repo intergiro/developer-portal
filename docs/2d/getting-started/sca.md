@@ -1,6 +1,6 @@
 # Strong Customer Authentication
 
-New PSR2 RTS requirements have been rolled out across Europe to protect online payments. At Intergiro we proudly welcome the new regulation and endorse the mission to give users control over their payment experience and security online.
+New PSD2 requirements have been rolled out across Europe to protect online payments. At Intergiro we proudly welcome the new regulation and endorse the mission to give users control over their payment experience and security online.
 
 Now, some actions can not be fully automated and requires explicit user actions to be completed. For example due to regulations it is not possible to create and send payments without user involvement. It is mandatory to apply sca(`Secure Customer Authentication`) to send payment(s). To send payment(s) via 2D API the first step is to send POST /v1/bulk_payments with one or more payment details and source account id. After payment(s) are created a user with proper permissions should navigate to Intergiro `/portal/payments/api-payments` page and explicitly approve payments. This will require SCA to be applied.
 

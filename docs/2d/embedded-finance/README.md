@@ -1,10 +1,6 @@
-# Accounts as a Service.
+# Accounts.
 
 <img :src="$withBase('/assets/img/embedded-splash.jpg')" alt="Business banking">
-
-## Accounts.
-
-Accounts are fundamental and serve as a basis for other value-add services that we offer.
 
 ### View company accounts.
 
@@ -35,7 +31,7 @@ HTTP 200 OK
 }
 ```
 
-# Transactions as a Service.
+# Transactions.
 
 ### View company transactions.
 
@@ -84,7 +80,7 @@ HTTP 200 OK
 
 ```
 
-# Payments as a Service.
+# Payments.
 
 ## Create Payment(s).
 
@@ -92,7 +88,6 @@ The only supported way to transfer money via 2D API is using bulk_payments
 It allows to transfer money from single source account to many beneficiaries.
 Only SEPA EUR transfers are allowed.
 
-### Create payment(s).
 
 Example send payment(s) request:
 

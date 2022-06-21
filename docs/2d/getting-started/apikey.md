@@ -25,7 +25,6 @@ To renew the key click renew button shown near each key. If the request is succe
 2D API keys can be easily deleted. This will trigger immediate session invocation action. This gives an opportunity to delete the keys in case it was stolen or no longer needed. To delete the api key click on delete button shown near each key. If the request is successful the key will successfully be removed from the list. To see the `delete button` user needs to have an appropriate `delete api key` permissions.
 
 # Recommendations 
-- It is highly recommended to create a new corporation for automation purposes.
 - Do not give `create` 2D API key permissions to all users. Only limited users such as admins should be granted such powerful privilege. The user having `create` API key permission can create a new key by assigning all possible roles. Thus, making the whole company data to be easily accessible via API key. For now we limit the number of api key roles as view accounts and transactions. In addition to create payments. In the future new roles can be added and the sensitive data from other users might be exposed to the key. 
 
 ###TODO add more info if needed  
