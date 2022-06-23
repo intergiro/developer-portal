@@ -73,10 +73,19 @@ Example of the form associated with the iframe:
 </script>
 ``` 
 
-The POST body will contain the value threeDSMethodData, which can be used to identify the request. Example of a Method response:
+The POST body will contain the `threeDSMethodData` as a base64 encoded string, which can be used to identify the request. Example of a Method response:
 
 ``` JS
-threeDSMethodData=eyJ0aHJlZURTTWV0aG9kRGF0YSI6ImQ0NjFmMTA1LTE3OTItNDA3Zi05NWZmLTlhNDk2ZmQ5MThhOSIsInRocmVlRFNNZXRob2ROb3RpZmljYXRpb25VUkwiOiJodHRwczovL3lvdXIuY2FsbGJhY2sudXJsLyJ9
+threeDSMethodData=eyJ0aHJlZURTU2VydmVyVHJhbnNJRCI6ImRlZDI5ZjBkLTAwYWQtNGU2Yy05N2U4LWNiNjJhNDAxNjNhOCJ9
+```
+
+Unpack the `threeDSMethodData` response and add the `messageVersion` which was returned from the error message.
+
+``` JSON
+{
+  "threeDSServerTransID": "ded29f0d-00ad-4e6c-97e8-cb62a40163a8",
+  "messageVersion":  "2.2.0"
+}
 ```
 
 For the next step in the  verification cycle, see section [Iframe response handling](#iframe-response-handling).
@@ -270,6 +279,7 @@ Update the previous request body with the following:
 
 POST to the same endpoint again.
 
+Example of the updated card with a string as verification data.
 ``` JSON
 {
     "id": "g44QVj3iQXiElrUa",
@@ -279,8 +289,29 @@ POST to the same endpoint again.
       "expires": [2, 22],
       "csc": "987",
       "verification": {
-          "type": "challenge" | "method",
-          "data": "iframe_response_string"
+          "type": "challenge" | "method" | "guard" | "pares",
+          "data": "iframe_response_string" 
+      }
+    }
+}
+
+```
+Example of the updated card with a object as verification data.
+
+``` JSON
+{
+    "id": "g44QVj3iQXiElrUa",
+    ...
+    "card": {
+      "pan": "4111111111111111",
+      "expires": [2, 22],
+      "csc": "987",
+      "verification": {
+          "type": "method",
+          "data": {
+            "threeDSServerTransID": "ded29f0d-00ad-4e6c-97e8-cb62a40163a8",
+            "messageVersion":  "2.2.0"
+          }
       }
     }
 }
