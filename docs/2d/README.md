@@ -3,15 +3,15 @@ lang: en-US
 next: /2d/getting-started/introduction
 ---
 
-# Intergiro 2D
+# Intergiro 2d
 
 
-Integrate business banking into your existing systems and processes through our 2D API.
+Integrate business banking into your existing systems and processes through our 2d API.
 <br>
 
-As an Intergiro customer, you can use 2D API to automate your own business processes. For example, you can view accounts, transactions, make payments without manual effort in the WebUI interfaces, which saves time, and reduces costs and errors.
+As an Intergiro customer, you can use 2d API to automate your own business processes. For example, you can view accounts, transactions, make payments without manual effort in the WebUI interfaces, which saves time, and reduces costs and errors.
 
-To get started using the 2D API, check the user guide.
+To get started using the 2d API, check the user guide.
 
 You can also reference the API specification on Github.
 
@@ -23,7 +23,7 @@ To start using our platform, you must sign up for a [Intergiro business account]
 
 ## Start developing
 
-To get started you need to create 2D API key using your Intergiro business account. 
+To get started you need to create 2d API key using your Intergiro business account. 
 
 * Onboarding info (see [Register your business account](#register-your-business-account))
 * Service-level agreement
