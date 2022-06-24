@@ -1,6 +1,7 @@
 # Authentication
 
 All Intergiro API endpoints are protected and require a valid JWT **access token** supplied with each request.
+qweqwe
 
 Example API request using `access_token`:
 
