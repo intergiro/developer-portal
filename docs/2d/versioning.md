@@ -4,7 +4,7 @@ We use Semantic Versioning to evolve our APIs and adapt quickly to customer need
 
 `/v1/bulk_payments`
 
-We put major API version in the URL to emphasize it is a breaking change. It means the change might be impacting your integration one way or another and it's worth looking at it closer.
+We put a major API version in the URL to emphasise it is a breaking change. It means the change might be impacting your integration one way or another and it's worth looking at it closer.
 
 ## Breaking changes
 

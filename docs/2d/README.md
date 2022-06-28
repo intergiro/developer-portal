@@ -9,30 +9,24 @@ next: /2d/getting-started/introduction
 Integrate business banking into your existing systems and processes through our 2d API.
 <br>
 
-As an Intergiro customer, you can use 2d API to automate your own business processes. For example, you can view accounts, transactions, make payments without manual effort in the WebUI interfaces, which saves time, and reduces costs and errors.
+As an Intergiro customer, you can use our 2d API to automate your own business processes. For example, you can view accounts, transactions, make payments without manual effort, which saves time, and reduces costs and errors.
 
 To get started using the 2d API, check the user guide.
 
-You can also reference the API specification on Github.
+You can also reference the API specification here.
 
 <img :src="$withBase('/assets/img/business-banking-splash.jpg')" alt="Business banking">
 
 ## Register your business account
 
-To start using our platform, you must sign up for a [Intergiro business account](https://business.intergiro.com/onboarding). The onboarding process is fast and simple but also help us cover necessities e.g. compliance, but also to get to know your business. You'll also get an SEPA ([Single Euro Payments Area](https://en.wikipedia.org/wiki/Single_Euro_Payments_Area)) business account which may be used to receive future revenue. During the onboarding process you can always reach out to our support for any type of inquiries.
+To start using our platform, you must sign up for an [Intergiro business account](https://business.intergiro.com/onboarding).
 
-## Start developing
+### Useful links
 
-To get started you need to create 2d API key using your Intergiro business account. 
+To get started, you need to log in to your account and create an API key in the [Intergiro Customer Portal](https://business.intergiro.com/portal).
+- Don't have an Intergiro business banking account? Register [here](https://business.intergiro.com/onboarding)
 
-* Onboarding info (see [Register your business account](#register-your-business-account))
-* Service-level agreement
-* Communication and support channels
-* Staging environment access (see [Environments](/2d/getting-started/environments))
-* Comfort tests
-* Security questionnaire
-
-### Related links
-
-* [Intergiro Business application](https://business.intergiro.com/onboarding)
+* [Intergiro business terms & conditions](https://intergiro.com/business-terms)
+* Support (mailto: 2d-api-support@intergiro.com) 
+* Staging environment access (see [Environments](/2d/getting-started/environments.md))
 * [API reference](https://2d.intergiro.com/v1/docs)

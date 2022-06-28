@@ -12,7 +12,7 @@ Authorization: Bearer <access_token>
 ```
 
 ## Session
-// TODO add more info.
+
 API keys are used for logging in and are provided separately. Each API key has specific permissions assigned. Permissions can only be specified while creating a new API key. Only users having a set of API key manage permissions can create, renew, list or delete API keys. A key does not have an identity, They act on behalf of a company. Thus, it's very important to make sure to secure it properly. In case of any issues or questions with API Key it's highly recommended to contact the Integration manager.
 
 Session API endpoints allow you to obtain and subsequently renew access tokens.
