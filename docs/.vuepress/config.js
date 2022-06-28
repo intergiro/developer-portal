@@ -37,8 +37,8 @@ module.exports = {
     smoothScroll: true,
     nav: [
       {
-        text: 'Intergiro 3D',
-        ariaLabel: 'Intergiro 3D Menu',
+        text: 'Intergiro 3d',
+        ariaLabel: 'Intergiro 3d Menu',
         link: '/3d/',
         items: [
           { text: 'Getting started', link: '/3d/getting-started/' },
@@ -49,12 +49,12 @@ module.exports = {
         ]
       },
       {
-        text: 'Intergiro 2D',
-        ariaLabel: 'Intergiro 2D Menu',
+        text: 'Intergiro 2d',
+        ariaLabel: 'Intergiro 2d Menu',
         link: '/2d/',
         items: [
           { text: 'Getting started', link: '/2d/getting-started/' },
-          { text: 'Accounts', link: '/2d/embedded-finance/' },
+          { text: 'Services', link: '/2d/services/' },
           { text: 'API reference', link: 'https://2d.intergiro.com/v1/docs' },
         ]
       },
@@ -97,7 +97,7 @@ module.exports = {
       '/3d/card-programmes/': getIntegrateSidebar(),
       '/2d/': getDirectSidebar(),
       '/2d/getting-started/': getDirectSidebar(),
-      '/2d/embedded-finance/': getDirectSidebar(),
+      '/2d/services/': getDirectSidebar(),
       '/merchant/': getMerchantSidebar()
     }
   },
@@ -156,12 +156,12 @@ function getDirectSidebar() {
       ],
     },
     {
-      title: 'Accounts',
+      title: 'Services',
       collapsable: false,
       children: [
-        '/2d/embedded-finance/accounts',
-        '/2d/embedded-finance/transactions',
-        '/2d/embedded-finance/payments',
+        '/2d/services/accounts',
+        '/2d/services/transactions',
+        '/2d/services/payments',
       ],
     }
   ]

@@ -10,7 +10,6 @@ Our 2d product provides API access to Direct Banking Service.
 Today these solutions include:
  - Accounts
  - Payments
- - Identification & Verification
- - Compliance
+ - Transactions
 
 In the future we will also be adding Card Acquiring, FX, Lending etc.

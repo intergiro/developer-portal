@@ -1,6 +1,6 @@
-# Application programming interface (API) key
+# API key
 
-An API key is a code used to identify and authenticate an application or a user. It may also act as a unique identifier and provide a secret token for authentication purposes.
+An API `Application programming interface` key is a code used to identify and authenticate an application or a user. It may also act as a unique identifier and provide a secret token for authentication purposes.
 
 The 2d API key can be attached to one or more roles. Roles available:
 - `Get all transaction details`: A key with this role can retrieve all company transaction details
