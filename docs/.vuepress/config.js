@@ -37,8 +37,8 @@ module.exports = {
     smoothScroll: true,
     nav: [
       {
-        text: 'Intergiro 3D',
-        ariaLabel: 'Intergiro 3D Menu',
+        text: 'Intergiro 3d',
+        ariaLabel: 'Intergiro 3d Menu',
         link: '/3d/',
         items: [
           { text: 'Getting started', link: '/3d/getting-started/' },
@@ -48,7 +48,16 @@ module.exports = {
           { text: 'API reference', link: 'https://3d.intergiro.com/v3/docs' },
         ]
       },
-      { text: 'Intergiro 2D', link: '/2d/' },
+      {
+        text: 'Intergiro 2d',
+        ariaLabel: 'Intergiro 2d Menu',
+        link: '/2d/',
+        items: [
+          { text: 'Getting started', link: '/2d/getting-started/' },
+          { text: 'Services', link: '/2d/services/' },
+          { text: 'API reference', link: 'https://2d.intergiro.com/v1/docs' },
+        ]
+      },
       {
         text: 'Card Acquiring',
         ariaLabel: 'Card Acquiring Menu',
@@ -86,10 +95,10 @@ module.exports = {
       '/3d/onboarding/': getIntegrateSidebar(),
       '/3d/embedded-finance/': getIntegrateSidebar(),
       '/3d/card-programmes/': getIntegrateSidebar(),
-      '/merchant/': getMerchantSidebar(),
-      '/2d/': [
-        '',
-      ],
+      '/2d/': getDirectSidebar(),
+      '/2d/getting-started/': getDirectSidebar(),
+      '/2d/services/': getDirectSidebar(),
+      '/merchant/': getMerchantSidebar()
     }
   },
 
@@ -130,6 +139,34 @@ function getIntegrateSidebar() {
     '/3d/card-programmes/',
   ]
 }
+
+function getDirectSidebar() {
+  return [
+    {
+      title: 'Getting started',
+      collapsable: false,
+      children: [
+        '/2d/getting-started/introduction',
+        '/2d/getting-started/apikey',
+        '/2d/getting-started/authentication',
+        '/2d/getting-started/sca',
+        '/2d/getting-started/environments',
+        '/2d/getting-started/specification',
+        '/2d/versioning'
+      ],
+    },
+    {
+      title: 'Services',
+      collapsable: false,
+      children: [
+        '/2d/services/accounts',
+        '/2d/services/transactions',
+        '/2d/services/payments',
+      ],
+    }
+  ]
+}
+
 function getMerchantSidebar() {
   return [
     {
