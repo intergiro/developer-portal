@@ -1,9 +1,10 @@
 
-# Strong Customer Authentication
+# Security
 
-At Intergiro we proudly support security measures  and endorse the mission to give users control over their payment experience and security online.
+At Intergiro we proudly support strong security measures and endorse the mission to give users control over their payment experience and security online.
 
-Now, some actions can not be fully automated and requires explicit user actions to be completed. For example it is not possible to create and send payments without user involvement.
+For this reason, some actions cannot be fully automated and require explicit user actions to be completed. For example, it is not possible to create and send payments without user involvement.
+
 To approve or reject payments, the user will be asked to go through SCA (`Secure Customer Authentication`) to send payments. To send payments via 2d API, the first step is to send POST /v1/bulk_payments with one or more payment details and source account id. After a payment is created, a user with proper permissions should navigate to the Intergiro `/portal/payments/api-payments` page and explicitly approve payments. This will require applying SCA.
 
 ## Send payment(s) via 2d API
