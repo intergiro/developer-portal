@@ -1,4 +1,4 @@
-# Application Programming Interface (API) key
+# API keys
 
 An API key is a code used to identify and authenticate an application or a user. It may also act as a unique identifier and provide a secret token for authentication purposes.
 
