@@ -13,7 +13,9 @@ Authorization: Bearer <access_token>
 
 ## Session
 
-API keys are used for logging in and are provided separately. Each API key has specific permissions assigned. Permissions can only be specified while creating a new API key. Only users having a set of API key manage permissions can create, renew, list or delete API keys. A key does not have an identity, They act on behalf of a company. Thus, it's very important to make sure to secure it properly. In case of any issues or questions with API Key it's highly recommended to contact the Integration manager.
+API keys are used for logging in and are provided separately. Each API key has specific permissions assigned, which can only be specified when creating a new API key. Only users having a set of API key manage permissions can create, renew, list or delete API keys. 
+
+A key does not have an identity. It acts on behalf of a company. Thus, it's very important to make sure it is properly secured. In case of any issues or questions with API keys, it is highly recommended to contact the Integration manager.
 
 Session API endpoints allow you to obtain and subsequently renew access tokens.
 
@@ -51,7 +53,7 @@ Not relying on refresh tokens may trigger fraud prevention mechanisms that may l
 
 ### Refreshing token
 
-Whenever an API call returns `401 Unauthorized` response, it means the session has expired and the access token must be renewed. This can be achieved by calling `POST /auth/refresh` endpoint.
+Whenever an API call returns a `401 Unauthorized` response, it means the session has expired and the access token must be renewed. This can be achieved by calling `POST /auth/refresh` endpoint.
 
 Example refresh access token request:
 
@@ -76,8 +78,8 @@ HTTP 200 OK
 }
 ```
 
-Whether it's the first time logging in or refreshing existing expired session, always keep the latest `refresh_token` for the next renewal.
+Whether it's the first time logging in or refreshing an existing expired session, always keep the latest `refresh_token` for the next renewal.
 
 ::: warning
-Please be aware that token refresh attempt should be performed only after access token has expired. Attempts to prematurely refresh token will end with an error.
+Please be aware that a token refresh attempt should be performed only after the access token has expired. Attempts to prematurely refresh a token will result in an error.
 :::

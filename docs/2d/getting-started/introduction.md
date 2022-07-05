@@ -7,5 +7,5 @@ Intergiro's 2d API allows you to automate your business processes. With it, you 
 This API provides access to our Intergiro.2d product services, which include:
 
  - Accounts
- - Payments
- - Transactions
+ - Payments and Transactions
+ - Cards
