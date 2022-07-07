@@ -9,6 +9,6 @@ next: /3d/getting-started/introduction
 
 Welcome to Intergiro’s developer portal! Here you can view the documentation for our three different APIs: 
 
-* 2d (Business Banking) API
-* 3d (Banking as a Service) API 
-* Card Acquiring Service API 
+* [2d (Business Banking) API](/2d/getting-started/introduction.html)
+* [3d (Banking as a Service) API](/3d/getting-started/introduction.html) 
+* [Card Acquiring Service API](/merchant/integration-guide/introduction.html) 
