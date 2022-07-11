@@ -1,13 +1,15 @@
-
 # Payments
 
 There are two ways to transfer money:
+
 - move money between individual's own accounts
 - pay to somebody else's account using account ID or IBAN
 
 ### Make a transfer
 
-Internal transfers enable instant movement of funds between same-currency accounts **belonging to the same individual**. This can serve as a good way to fund someone's dedicated card account with the funds from another of their accounts.
+Internal transfers enable instant movement of funds between same-currency accounts **belonging to the same individual or
+client**. This can serve as a good way to fund someone's dedicated card account with the funds from another of their
+accounts.
 
 Example move funds request:
 
@@ -22,7 +24,8 @@ Authorization: Bearer <access_token>
   "source_account_id": "95b31a55-7fba-47f6-b452-c6f2e7c53bde",
   "target_account_id": "b2714527-9812-490b-a3e9-c70f9cd9663c",
   "amount": 12000,
-  "reference": "Move funds"
+  "reference": "Move funds",
+  "request_id": "e1689f4d-51fe-453a-8df9-134b8e9ae1ee"
 }
 ```
 
@@ -34,11 +37,15 @@ HTTP 200 OK
 {
   "id": "27e0e678-4f04-4ae4-85d9-a5bc91be5472",
   "type": "bank-transfer",
-  "amount": 12000,
+  "amount": -12000,
   "currency": "EUR",
   "status": "pending",
   "account_id": "95b31a55-7fba-47f6-b452-c6f2e7c53bde",
   "reference": "Move funds",
+  "request_id": "e1689f4d-51fe-453a-8df9-134b8e9ae1ee",
+  "exchange_rate": null,
+  "payment_amount": -1300,
+  "payment_currency": "EUR",
   "counterparty": {
     "name": "Sigmund Fleud",
     "account_id": "b2714527-9812-490b-a3e9-c70f9cd9663c",
@@ -51,10 +58,10 @@ HTTP 200 OK
 }
 ```
 
-
 ### External bank payment
 
 There are two main ways to make a payment to another account:
+
 - using Intergiro account ID
 - via bank details
 

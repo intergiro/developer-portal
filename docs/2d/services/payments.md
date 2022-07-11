@@ -26,9 +26,8 @@ Authorization: Bearer <access_token>
 	"items": [
 		{
 			"counterparty": {
-				"type": "sepa",
-				"account_details": {
-					"name": "B0",
+				"name": "B0",
+				"account": {
 					"account_iban": "SE9297700000010008060245",
 					"account_bic": "FTCSSESS"
 				}

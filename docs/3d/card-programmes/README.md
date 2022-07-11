@@ -68,28 +68,28 @@ Physical cards require activation in order to be used.
 Example activate card request:
 
 ```{1}
-PATCH /v3/cards/a1c5ad61-5506-4c90-ab93-11221af2abdc
+POST /v3/cards/a1c5ad61-5506-4c90-ab93-11221af2abdc/activate
 
 Content-Type: application/json
 Authorization: Bearer <access_token>
+```
+
+Which responds with a pending Consent:
+
+```{1,5}
+HTTP 412 Precondition Failed
 
 {
-  "return_url": "https://example.com/activate_card_cb"
+  "consent": {
+    "id": "01cd329f-e668-4ea9-903c-26d3f469cfb4",
+    "status": "pending"
+  }
 }
 ```
 
-Response
+Proceed with the Consent as explained in the [SCA section](/3d/getting-started/sca.html#consent-api).
 
-```{1,4}
-HTTP 200 OK
-
-{
-  "redirect_url": "https://integrate.intergiro.com/activate_card?...",
-  "expires_at": "2021-02-08T14:09:15.000Z"
-}
-```
-
-Next, you will need to send the end user to the url from the response, where they will be able to set up their initial PIN and activate the card.
+On the UI, user will be able to set up their initial PIN and activate the card.
 
 <img :src="$withBase('/assets/img/integrate/card-programmes/activate-card-redirect.png')" alt="Activate card flow">
 
@@ -99,7 +99,7 @@ You can report the card stolen or lost as well as put it on a temporary or perma
 
 Example freeze card request:
 
-```{1,8}
+```{1,7}
 PATCH /v3/cards/a1c5ad61-5506-4c90-ab93-11221af2abdc
 
 Content-Type: application/json
@@ -110,18 +110,7 @@ Authorization: Bearer <access_token>
 }
 ```
 
-In order to make a card active again, use the same request with `status: active`:
-
-```{1,8}
-PATCH /v3/cards/a1c5ad61-5506-4c90-ab93-11221af2abdc
-
-Content-Type: application/json
-Authorization: Bearer <access_token>
-
-{
-  "status": "active"
-}
-```
+In order to make a card active again after being frozen, proceed as explained in the [card activation section](#activate-card).
 
 The following actions are terminating, meaning there is no way to use the card again:
 - `block` - permanent block

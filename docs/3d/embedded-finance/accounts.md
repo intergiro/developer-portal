@@ -30,7 +30,8 @@ HTTP 200 OK
   "name": "EUR account",
   "currency": "EUR",
   "balance": 0,
-  "created_at": "2021-02-08T14:09:15.000Z"
+  "created_at": "2021-02-08T14:09:15.000Z",
+  "type": "current"
 }
 ```
 
@@ -51,21 +52,24 @@ Authorization: Bearer <access_token>
 
 Response:
 
-``` {1,4-5}
+``` {1}
 HTTP 200 OK
 
-{
-  "payment_rail": "sepa",
-  "details": {
-    "iban": "SE0097700000000000000001",
-    "bic": "FTCSSESSXXX"
-  },
-  beneficiary: {
-    "street1": "Regeringsgatan 59",
-    "city": "Stockholm",
-    "country_code": "SE",
-    "post_code": "111 56"
+[
+  {
+    "payment_rail": "sepa",
+    "details": {
+      "iban": "SE0097700000000000000001",
+      "bic": "FTCSSESSXXX"
+    },
+    "beneficiary": "Intergiro Intl AB (publ)",
+    "beneficiary_address": {
+      "street1": "Regeringsgatan 59",
+      "city": "Stockholm",
+      "country_code": "SE",
+      "post_code": "111 56"
+    }
   }
-}
+]
 ```
 
