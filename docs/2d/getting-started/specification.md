@@ -32,9 +32,8 @@ Authorization: Bearer <access_token>
 	"items": [
 		{
 			"counterparty": {
-				"type": "sepa",
-				"account_details": {
-					"name": "B0",
+				"name": "B0",
+				"account": {
 					"account_iban": "SE9297700000010008060245",
 					"account_bic": "FTCSSESS"
 				}
@@ -59,9 +58,8 @@ Authorization: Bearer <access_token>
 	"items": [
 		{
 			"counterparty": {
-				"type": "swift",
-				"account_details": {
-					"name": null,
+				"name": null,
+				"account": {
 					"account_iban": "123",
 					"account_bic": "--3##$@@"
 				}
@@ -77,9 +75,8 @@ Authorization: Bearer <access_token>
 What's wrong with this request payload?
 
 - `account_id` cannot be an empty string. Our `string` type requires non-empty strings.
-- `items[0].counterparty.type` cannot be type `swift` - only `sepa` is allowed.
-- `items[0].counterparty.account_details.name` cannot be specified as null. We distinguish between an optional parameter and a parameter that can be `null`. Optional parameters can be omitted entirely and not present in the request body at all.
-- `items[0].counterparty.account_details.account_iban` and `items[0].counterparty.account_details.account_bic` are incorrectly formatted.
+- `items[0].counterparty.name` cannot be specified as null. We distinguish between an optional parameter and a parameter that can be `null`. Optional parameters can be omitted entirely and not present in the request body at all.
+- `items[0].counterparty.account.account_iban` and `items[0].counterparty.account.account_bic` are incorrectly formatted.
 - `items[0].amount` cannot be double. The amount portion should not contain more than 2 digits after the decimal point.
 - `items[0].reference` cannot be an empty string.
 Response to this invalid request will contain a list of errors that describe exactly what was wrong.
