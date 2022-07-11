@@ -1,15 +1,15 @@
 
 # Account Funding
 
-Enabling customers to fund their account has never been easier with Payment methods API and embeddable UI components.
+Enabling customers to fund their account has never been easier with our payment methods API and embeddable UI components.
 
-Everything in this section revolves around Payment methods concept. It allows setting up recurring payments, onboarding and charging cards or making one-off anonymous payments.
+Everything in this section revolves around the payment methods concept. It allows the set-up of recurring payments; of onboarding and charging cards; and making one-off anonymous payments.
 
-Our Prebuilt checkout pages and Embeddable UI components are built so you don't have to worry about PCI compliance. We take care of everything in a transparent and secure manner by leveraging strong and open internet security standards like signed JWTs and iframe.
+Our prebuilt checkout pages and embeddable UI components are built so you don't have to worry about PCI compliance. We take care of everything in a transparent and secure manner by leveraging strong and open internet security standards like signed JWTs and iframe.
 
 ## Listing payment methods
 
-Saved cards will appear as Payment methods that you can easily pull via the API. Depending whether a payment method belongs to an individual or anonymous user (Guest) two API endpoints are available:
+Saved cards will appear as payment methods that you can easily pull via the API. Depending on whether a payment method belongs to an individual or anonymous user (Guest), two API endpoints are available:
 
 - `GET /individuals/:id/payment_methods`
 - `GET /guests/:id/payment_methods`
@@ -48,19 +48,19 @@ HTTP 200 OK
 
 ## Payment method flow
 
-This section describe common set of steps one needs to take in order to:
+This section describes the common set of steps needed in order to:
 
-- Save card as a payment method
-- Accept one-off card payment
+- Save a card as a payment method
+- Accept a one-off card payment
 - Create a recurring payment
 
-The flow begins on the backend by initiating a payment method consent to get secret token. After that the token needs to be passed to the front-end into Intergiro 3D SDK to complete the process.
+The flow begins on the backend by initiating a payment method consent to get a secret token. After that, the token needs to be passed to the front-end into Intergiro's 3D SDK to complete the process.
 
 ### Generate charge consent
 
-Here one needs to decide whether there's the need to make a one-off charge or set up a recurring payment. If so, make sure to include `charge` details specifing the destination account id the money should land to.
+Here one needs to decide whether there's the need to make a one-off charge or set up a recurring payment. If so, make sure to include `charge` details specifing the destination account ID the money should land to.
 
-In case when you only need to save the card `charge` section can be skipped.
+In cases where you only need to save the card, the `charge` section can be skipped.
 
 ```{1,9-11}
 POST /v3/individuals/b3c8b592-daff-45cc-95ba-1741a4105b23/payment_methods
@@ -91,7 +91,7 @@ HTTP 200 OK
 }
 ```
 
-Once the charge consent is created, for it to be used in the next confirmation step, it needs to be explicitly requested.
+Once the charge consent is created, it needs to be explicitly requested for it to be used in the next confirmation step.
 
 Use the following API endpoint with the `consent.id` from the previous response:
 
@@ -116,11 +116,11 @@ HTTP 200 OK
 }
 ```
 
-Depending on your preferences, two different payment confirmation methods exist. For example `redirect_url` can be used for the Prebuilt checkout experience and `token` is something that is needed as part of the Custom payment flow.
+Depending on your preferences, two different payment confirmation methods exist. For example `redirect_url` can be used for the prebuilt checkout experience and `token` is something that is needed as part of the custom payment flow.
 
 ### Custom payment flow
 
-For those interested in providing seamless user experience there's a way to embed Intergiro custom UI components into your app.
+For those interested in providing a seamless user experience, there's a way to embed Intergiro's custom UI components into your app.
 
 ::: tip
 Currently the components are web-based, but you can still use them on the mobile in a WebView.
@@ -128,7 +128,7 @@ Currently the components are web-based, but you can still use them on the mobile
 
 #### Step 1: Include 3D SDK
 
-First steps requires adding Intergiro 3D SDK library onto your website.
+The first steps require adding the Intergiro 3D SDK library to your website.
 
 ```html{6,8}
 <!DOCTYPE html>
@@ -293,7 +293,7 @@ Prebuilt 3D experience as well as 3D SDK elements can be customized to better ma
 
 Use [3D Theme builder app](https://3d.staging.intergiro.tech/sca/theme) that we've built for you to play around with customization parameters and share the link with the results with your account manager to have the settings applied to all your end-user prebuilt experience.
 
-3D SDK embeddable elements can also be customized. See example usage below.
+3D SDK embeddable elements can also be customized. See example usage below:
 
 ```js{1,3,22}
 const components = intergiro.components()
@@ -351,7 +351,7 @@ Luckily, **there are optimizations that we enabled**, so that the component is d
 
 Before your user reaches page where our card components should be displayed, you can prepare a container where our component will be mounted.
 
-Later you can use `mount()` as in the example below to quickly display previously prepared component.
+Later you can use `mount()` as in the example below to quickly display previously prepared components.
 
 ```js{3,7}
 const components = intergiro.components();

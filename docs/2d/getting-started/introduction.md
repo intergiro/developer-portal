@@ -1,4 +1,4 @@
-# Introduction
+# Introduction to Intergiro's 2d API
 
 <img :src="$withBase('/assets/img/introduction.2d.png')" alt="Business banking">
 
@@ -16,13 +16,12 @@ You can also reference the API specification here.
 
 To start using our platform, you must sign up for an [Intergiro business account](https://business.intergiro.com/onboarding).
 
-### Useful links
+## Useful links
 
 To get started, you need to log in to your account and create an API key in the [Intergiro Customer Portal](https://business.intergiro.com/portal).
-- Don't have an Intergiro business banking account? Register [here](https://business.intergiro.com/onboarding)
-
+* Don't have an Intergiro business banking account? Register [here](https://business.intergiro.com/onboarding)
 * [Intergiro business terms & conditions](https://intergiro.com/business-terms)
-* Support (mailto: 2d-api-support@intergiro.com) 
+* Support [2d-api-support@intergiro.com](mailto:2d-api-support@intergiro.com)
 * Staging environment access (see [Environments](/2d/getting-started/environments.md))
 * [API reference](https://2d.intergiro.com/v1/docs)
 

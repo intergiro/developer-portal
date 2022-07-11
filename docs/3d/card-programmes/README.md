@@ -2,7 +2,8 @@
 
 <img :src="$withBase('/assets/img/card-programmes-splash.jpg')" alt="Card programmes">
 
-We provide, processing and banking, so you can create a programme with a single contract:
+We provide processing and banking so you can create a programme with all these features in a single contract:
+
 - Issue virtual and physical cards
 - Real-time funding
 - PCI-certified APIs
@@ -15,7 +16,7 @@ Using our PCI-compliant API allows you to develop your custom solutions without 
 
 <img :src="$withBase('/assets/img/integrate/card-programmes/pci-redirect.png')" alt="PCI redirect flow">
 
-In order to bring your PCI obligations to the minimum, we rely on hosted pages that the user is redirected to, which helps us practically eliminate the risks associated with handling sensitive card information on your end.
+In order to minimize your PCI obligations, we rely on hosted pages to which the user is redirected. This helps us practically eliminate the risks associated with handling sensitive card information on your end.
 
 ## Order card
 
@@ -121,8 +122,7 @@ The following actions are terminating, meaning there is no way to use the card a
 
 **Phase 1: Initiate process**
 
-Before implementation, you must contact Intergiro to start the process. Intergiro will assist with the initial steps
-required from both Apple and VISA.
+Before implementation, you must contact Intergiro to start the process. Intergiro will assist with the initial steps required from both Apple and VISA.
 
 **Phase 2: Steps required**
 
@@ -140,8 +140,7 @@ Start the integration according to the technical documentation below.
 
 **Phase 4: Certification**
 
-Apple Pay certification must be completed before going live. This certification will need to be booked by your company
-and carried out by an authorised certifier. Intergiro can advise but cannot book this on your company’s behalf.
+Apple Pay certification must be completed before going live. This certification will need to be booked by your company and carried out by an authorised certifier. Intergiro can advise but cannot book this on your company’s behalf.
 
 ---
 
@@ -205,7 +204,7 @@ This in turn will open a UI provided by Intergiro where the Apple Pay provisioni
 
 Depending on what happened within the SDK UI, the callback may return a payload or an error. For a list of possible error codes, see the `IntergiroError` enum.
 
-When provisioning was successful and the card was added to Apple Pay, callback returns:
+When provisioning was successful and the card was added to Apple Pay, the callback returns:
 
 ```json
 {
@@ -213,7 +212,7 @@ When provisioning was successful and the card was added to Apple Pay, callback r
 }
 ```
 
-When provisioning was not successful for any reason, callback returns:
+When provisioning was not successful for any reason, the callback returns:
 
 ```json
 {
