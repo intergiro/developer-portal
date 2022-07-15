@@ -44,7 +44,7 @@ These can be easily accessed by calling `GET /v3/accounts/:id/bank_details`:
 
 
 ``` {1}
-POST /v3/accounts/8942eaf9-80b3-4060-a0b7-e03c35ca12f4/bank_details
+GET /v3/accounts/8942eaf9-80b3-4060-a0b7-e03c35ca12f4/bank_details
 
 Content-Type: application/json
 Authorization: Bearer <access_token>
