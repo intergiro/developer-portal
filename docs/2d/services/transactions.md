@@ -27,8 +27,8 @@ HTTP 200 OK
 			"amount": -1,
 			"counterparty": {
 				"account_details": {
-					"iban": "SE2697700000010002870284",
-					"type": "sepa"
+					"number": "SE2697700000010002870284",
+					"bank_code": "FTCSSESS"
 				},
 				"account_id": "xyS9BBCIy",
 				"name": "test PA appr"
