@@ -1,0 +1,461 @@
+{
+	"info": {
+		"_postman_id": "90392fd4-8a78-42a0-9014-58633196d283",
+		"name": "3D Verificaiton",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Verification Endpoint",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"3d method verification error\", function () {",
+							"    pm.expect(jsonData.content.details.data.type).to.equal(\"method\")",
+							"    const methodUrl = jsonData.content.details.url",
+							"    pm.environment.set(\"methodUrl\", methodUrl)",
+							"    const transactionId = jsonData.content.details.data.threeDSServerTransID",
+							"    pm.environment.set(\"transactionId\", transactionId)",
+							"    const methodData = btoa(JSON.stringify({",
+							"        threeDSServerTransID: transactionId,",
+							"    })).replace(/\\+/g, '-').replace(/\\//g, '_')",
+							"    pm.environment.set(\"methodData\", methodData)",
+							"    pm.expect(typeof methodData == \"string\" && methodData.length > 10)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{publicKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/jwt",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"number\": \"UniqueNumber-1\",\n  \"items\": {{verificationValue}},\n  \"currency\": \"EUR\",\n  \"card\": {\n    \"pan\": \"{{testPan}}\",\n    \"expires\": [\n      12,\n      22\n    ],\n    \"csc\": \"987\"\n  },\n  \"target\": \"http://testestest.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{verificationUrl}}/verification",
+					"host": [
+						"{{verificationUrl}}"
+					],
+					"path": [
+						"verification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3D2 method call",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    //const $ = cheerio.load(responseBody);",
+							"    const methodCallbackData = btoa(JSON.stringify({",
+							"        threeDSServerTransID: pm.environment.get(\"transactionId\")",
+							"    }))",
+							"    pm.environment.set(\"methodCallbackData\", methodCallbackData)",
+							"    //pm.globals.set(\"methodCallbackData\",($( 'input[name=\"PaRes\"]' ).val()))",
+							"    // var htmlResponse = pm.response.text",
+							"    // pm.visualizer.set(htmlResponse)",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{public3D2Key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "text/html"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "threeDSMethodData",
+							"value": "{{methodData}}",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{methodUrl}}",
+					"host": [
+						"{{methodUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verification Endpoint Method step",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"3d challenge verification error\", function () {",
+							"    pm.expect(jsonData.content.details.data.type).to.equal(\"challenge\")",
+							"    const transactionId = jsonData.content.details.data.threeDSServerTransID",
+							"    pm.environment.set(\"transactionId\", transactionId)",
+							"    const challengeUrl = jsonData.content.details.url",
+							"    pm.environment.set(\"challengeUrl\", challengeUrl)",
+							"    let challengeCallbackUrl ",
+							"    pm.environment.set(\"challengeCallbackUrl\", challengeCallbackUrl)",
+							"    const acsTransactionId = jsonData.content.details.data.acsTransID",
+							"    pm.environment.set(\"acsTransactionId\", acsTransactionId)",
+							"    const messageVersion = jsonData.content.details.data.messageVersion",
+							"    pm.environment.set(\"messageVersion\", messageVersion)",
+							"    const challengeMessageType = jsonData.content.details.data.messageType",
+							"    pm.environment.set(\"challengeMessageType\", challengeMessageType)",
+							"    const challengeWindowSize = jsonData.content.details.data.challengeWindowSize",
+							"    pm.environment.set(\"challengeWindowSize\", challengeWindowSize)",
+							"    const challengeData = btoa(JSON.stringify({",
+							"        threeDSServerTransID: transactionId,",
+							"        acsTransID: acsTransactionId,",
+							"        messageVersion: messageVersion,",
+							"        messageType: challengeMessageType,",
+							"        challengeWindowSize: challengeWindowSize,",
+							"    })).replace(/\\+/g, '-').replace(/\\//g, '_')",
+							"    pm.environment.set(\"challengeData\", challengeData)",
+							"    pm.expect(typeof challengeData == \"string\" && challengeData.length > 10)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{publicKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"number\": \"Number\",\n  \"items\": {{verificationValue}},\n  \"currency\": \"EUR\",\n  \"card\": {\n    \"pan\": \"{{testPan}}\",\n    \"expires\": [\n      12,\n      22\n    ],\n    \"csc\": \"987\"\n  },\n  \"target\": \"http://testestest.com\",\n  \"response\":{\"type\":\"method\",\"data\":\"{{methodCallbackData}}\"}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{verificationUrl}}//verification",
+					"host": [
+						"{{verificationUrl}}"
+					],
+					"path": [
+						"",
+						"verification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3D2 challenge call",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    const $ = cheerio.load(responseBody);",
+							"    const challengeNotificationUrl = ($('form').attr('action'))",
+							"    pm.expect(typeof challengeNotificationUrl == \"string\" && challengeNotificationUrl.length > 3)",
+							"    pm.environment.set(\"challengeNotificationUrl\", challengeNotificationUrl)",
+							"    pm.globals.set(\"challengeNotificationUrl\", challengeNotificationUrl)",
+							"    const transactionId = ($('input[name=\"threeDSServerTransID\"]').val())",
+							"    pm.environment.set(\"transactionId\", transactionId)",
+							"    const challengeStatus = ($(\"input[name='challengeStatus']\").val() ?? \"pass\")",
+							"    pm.environment.set(\"challengeStatus\", challengeStatus)",
+							"    const challengeCallbackData = btoa(JSON.stringify({",
+							"        threeDSServerTransID: transactionId,",
+							"        challengeStatus: challengeStatus  ",
+							"    }))",
+							"    pm.environment.set(\"challengeCallbackData\", challengeCallbackData)",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{publicKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "text/html"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "creq",
+							"value": "{{challengeData}}",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{challengeUrl}}",
+					"host": [
+						"{{challengeUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3D2 challenge html autopost",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    const $ = cheerio.load(responseBody);",
+							"    const challengeEndNotificationUrl = ($('form[id=\"endform\"]').attr('action'))",
+							"    pm.expect(typeof challengeEndNotificationUrl == \"string\" && challengeEndNotificationUrl.length > 3)",
+							"    pm.environment.set(\"challengeEndNotificationUrl\", challengeEndNotificationUrl)",
+							"    const challengeCallbackData = ($('input[name=\"cres\"]').val())",
+							"    pm.environment.set(\"challengeCallbackData\", challengeCallbackData)",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{public3D2Key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "text/html"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "cres",
+							"value": "{{challengeCallbackData}}",
+							"type": "text"
+						},
+						{
+							"key": "challengeStatus",
+							"value": "{{challengeStatus}}",
+							"type": "text"
+						},
+						{
+							"key": "threeDSServerTransID",
+							"value": "{{transactionId}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{challengeNotificationUrl}}",
+					"host": [
+						"{{challengeNotificationUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Succcessfull Verification",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Is Challenge type\", function () {",
+							"    pm.expect(jsonData.type == \"challenge\")",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{publicKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/jwt",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"number\": \"Number\",\n  \"items\": {{verificationValue}},\n  \"currency\": \"EUR\",\n  \"card\": {\n    \"pan\": \"{{testPan}}\",\n    \"expires\": [\n      12,\n      22\n    ],\n    \"csc\": \"987\"\n  },\n  \"target\": \"http://testestest.com\",\n  \"response\":{\"type\":\"challenge\",\"data\":\"{{challengeCallbackData}}\"}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{verificationUrl}}/verification",
+					"host": [
+						"{{verificationUrl}}"
+					],
+					"path": [
+						"verification"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

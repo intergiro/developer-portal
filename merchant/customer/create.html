@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Create using API | Intergiro developer portal</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/developer-portal/assets/img/logo_black.svg">
+    <script defer="true" data-domain="intergiro.github.io" src="https://plausible.io/js/plausible.js"></script>
+    <meta name="description" content="API documentation">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="preload" href="/developer-portal/assets/css/0.styles.df05db0b.css" as="style"><link rel="preload" href="/developer-portal/assets/js/app.7927bbbe.js" as="script"><link rel="preload" href="/developer-portal/assets/js/2.3092679d.js" as="script"><link rel="preload" href="/developer-portal/assets/js/84.b029f047.js" as="script"><link rel="prefetch" href="/developer-portal/assets/js/10.c64a8b59.js"><link rel="prefetch" href="/developer-portal/assets/js/100.2e81805c.js"><link rel="prefetch" href="/developer-portal/assets/js/101.6e4fb6ad.js"><link rel="prefetch" href="/developer-portal/assets/js/102.177fbf17.js"><link rel="prefetch" href="/developer-portal/assets/js/103.aa981480.js"><link rel="prefetch" href="/developer-portal/assets/js/104.2e28c018.js"><link rel="prefetch" href="/developer-portal/assets/js/105.89d6e3fe.js"><link rel="prefetch" href="/developer-portal/assets/js/106.825b8035.js"><link rel="prefetch" href="/developer-portal/assets/js/107.6ebd24d4.js"><link rel="prefetch" href="/developer-portal/assets/js/108.3809a8a8.js"><link rel="prefetch" href="/developer-portal/assets/js/109.d29e31a0.js"><link rel="prefetch" href="/developer-portal/assets/js/11.cdeb5469.js"><link rel="prefetch" href="/developer-portal/assets/js/110.b3e7e9d8.js"><link rel="prefetch" href="/developer-portal/assets/js/111.4d642f85.js"><link rel="prefetch" href="/developer-portal/assets/js/112.032118ec.js"><link rel="prefetch" href="/developer-portal/assets/js/113.58caf7a4.js"><link rel="prefetch" href="/developer-portal/assets/js/114.4974994d.js"><link rel="prefetch" href="/developer-portal/assets/js/115.f4ce135a.js"><link rel="prefetch" href="/developer-portal/assets/js/116.88b4cd86.js"><link rel="prefetch" href="/developer-portal/assets/js/117.b48a607d.js"><link rel="prefetch" href="/developer-portal/assets/js/12.8ca66dc3.js"><link rel="prefetch" href="/developer-portal/assets/js/13.b9c2f6e5.js"><link rel="prefetch" href="/developer-portal/assets/js/14.cce116b1.js"><link rel="prefetch" href="/developer-portal/assets/js/15.0f171e04.js"><link rel="prefetch" href="/developer-portal/assets/js/16.0e6d669c.js"><link rel="prefetch" href="/developer-portal/assets/js/17.f1bce708.js"><link rel="prefetch" href="/developer-portal/assets/js/18.e0facf57.js"><link rel="prefetch" href="/developer-portal/assets/js/19.61badc96.js"><link rel="prefetch" href="/developer-portal/assets/js/20.e977b37e.js"><link rel="prefetch" href="/developer-portal/assets/js/21.c52f4950.js"><link rel="prefetch" href="/developer-portal/assets/js/22.29c88b85.js"><link rel="prefetch" href="/developer-portal/assets/js/23.e69e7465.js"><link rel="prefetch" href="/developer-portal/assets/js/24.43bad68e.js"><link rel="prefetch" href="/developer-portal/assets/js/25.13731975.js"><link rel="prefetch" href="/developer-portal/assets/js/26.881d7550.js"><link rel="prefetch" href="/developer-portal/assets/js/27.50b7cdb8.js"><link rel="prefetch" href="/developer-portal/assets/js/28.df5d2954.js"><link rel="prefetch" href="/developer-portal/assets/js/29.21e1f646.js"><link rel="prefetch" href="/developer-portal/assets/js/3.1a457da2.js"><link rel="prefetch" href="/developer-portal/assets/js/30.5360dc4c.js"><link rel="prefetch" href="/developer-portal/assets/js/31.d94615d6.js"><link rel="prefetch" href="/developer-portal/assets/js/32.1232bc57.js"><link rel="prefetch" href="/developer-portal/assets/js/33.889963a6.js"><link rel="prefetch" href="/developer-portal/assets/js/34.7bf796b5.js"><link rel="prefetch" href="/developer-portal/assets/js/35.f5e39f0b.js"><link rel="prefetch" href="/developer-portal/assets/js/36.eb0a2a04.js"><link rel="prefetch" href="/developer-portal/assets/js/37.51063593.js"><link rel="prefetch" href="/developer-portal/assets/js/38.4835dc8b.js"><link rel="prefetch" href="/developer-portal/assets/js/39.333df15b.js"><link rel="prefetch" href="/developer-portal/assets/js/4.ca09d204.js"><link rel="prefetch" href="/developer-portal/assets/js/40.28bcb7e9.js"><link rel="prefetch" href="/developer-portal/assets/js/41.8e2d3b46.js"><link rel="prefetch" href="/developer-portal/assets/js/42.040a701a.js"><link rel="prefetch" href="/developer-portal/assets/js/43.01d9012f.js"><link rel="prefetch" href="/developer-portal/assets/js/44.9957b799.js"><link rel="prefetch" href="/developer-portal/assets/js/45.144682fe.js"><link rel="prefetch" href="/developer-portal/assets/js/46.539f4778.js"><link rel="prefetch" href="/developer-portal/assets/js/47.00d8e02c.js"><link rel="prefetch" href="/developer-portal/assets/js/48.45806316.js"><link rel="prefetch" href="/developer-portal/assets/js/49.0d4fac1e.js"><link rel="prefetch" href="/developer-portal/assets/js/5.ada08187.js"><link rel="prefetch" href="/developer-portal/assets/js/50.250245ff.js"><link rel="prefetch" href="/developer-portal/assets/js/51.e6556d47.js"><link rel="prefetch" href="/developer-portal/assets/js/52.5cd06acd.js"><link rel="prefetch" href="/developer-portal/assets/js/53.76935425.js"><link rel="prefetch" href="/developer-portal/assets/js/54.dbd9b996.js"><link rel="prefetch" href="/developer-portal/assets/js/55.3be0658e.js"><link rel="prefetch" href="/developer-portal/assets/js/56.75a95845.js"><link rel="prefetch" href="/developer-portal/assets/js/57.1eabcddf.js"><link rel="prefetch" href="/developer-portal/assets/js/58.aa538f6b.js"><link rel="prefetch" href="/developer-portal/assets/js/59.ce3ad120.js"><link rel="prefetch" href="/developer-portal/assets/js/6.a0de0d96.js"><link rel="prefetch" href="/developer-portal/assets/js/60.a3d63f0a.js"><link rel="prefetch" href="/developer-portal/assets/js/61.5d6c329d.js"><link rel="prefetch" href="/developer-portal/assets/js/62.38c33cbc.js"><link rel="prefetch" href="/developer-portal/assets/js/63.9ed4eeae.js"><link rel="prefetch" href="/developer-portal/assets/js/64.ddac8434.js"><link rel="prefetch" href="/developer-portal/assets/js/65.966096c9.js"><link rel="prefetch" href="/developer-portal/assets/js/66.05068be6.js"><link rel="prefetch" href="/developer-portal/assets/js/67.a1a41af1.js"><link rel="prefetch" href="/developer-portal/assets/js/68.aea88c64.js"><link rel="prefetch" href="/developer-portal/assets/js/69.547e1dec.js"><link rel="prefetch" href="/developer-portal/assets/js/7.0f8a83a1.js"><link rel="prefetch" href="/developer-portal/assets/js/70.44ae5db4.js"><link rel="prefetch" href="/developer-portal/assets/js/71.4ee76613.js"><link rel="prefetch" href="/developer-portal/assets/js/72.05c37e41.js"><link rel="prefetch" href="/developer-portal/assets/js/73.2bc9e0ee.js"><link rel="prefetch" href="/developer-portal/assets/js/74.58cfd200.js"><link rel="prefetch" href="/developer-portal/assets/js/75.13bdac02.js"><link rel="prefetch" href="/developer-portal/assets/js/76.a8e7f97f.js"><link rel="prefetch" href="/developer-portal/assets/js/77.397020cb.js"><link rel="prefetch" href="/developer-portal/assets/js/78.ca83221c.js"><link rel="prefetch" href="/developer-portal/assets/js/79.aa74d6f2.js"><link rel="prefetch" href="/developer-portal/assets/js/8.1a26529f.js"><link rel="prefetch" href="/developer-portal/assets/js/80.d2fbc454.js"><link rel="prefetch" href="/developer-portal/assets/js/81.9eb0b32c.js"><link rel="prefetch" href="/developer-portal/assets/js/82.3b4c2e27.js"><link rel="prefetch" href="/developer-portal/assets/js/83.869d9cea.js"><link rel="prefetch" href="/developer-portal/assets/js/85.bf23e236.js"><link rel="prefetch" href="/developer-portal/assets/js/86.af720e8d.js"><link rel="prefetch" href="/developer-portal/assets/js/87.f033a7d4.js"><link rel="prefetch" href="/developer-portal/assets/js/88.6f7627d1.js"><link rel="prefetch" href="/developer-portal/assets/js/89.b9c1b674.js"><link rel="prefetch" href="/developer-portal/assets/js/9.1ddb5885.js"><link rel="prefetch" href="/developer-portal/assets/js/90.a163b722.js"><link rel="prefetch" href="/developer-portal/assets/js/91.a91d465c.js"><link rel="prefetch" href="/developer-portal/assets/js/92.867fda2c.js"><link rel="prefetch" href="/developer-portal/assets/js/93.968708b1.js"><link rel="prefetch" href="/developer-portal/assets/js/94.e106e333.js"><link rel="prefetch" href="/developer-portal/assets/js/95.50b4c22d.js"><link rel="prefetch" href="/developer-portal/assets/js/96.4e613b5c.js"><link rel="prefetch" href="/developer-portal/assets/js/97.d69df3ca.js"><link rel="prefetch" href="/developer-portal/assets/js/98.05062a41.js"><link rel="prefetch" href="/developer-portal/assets/js/99.0afefb68.js">
+    <link rel="stylesheet" href="/developer-portal/assets/css/0.styles.df05db0b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/developer-portal/" class="home-link router-link-active"><img src="/developer-portal/assets/img/logo_black.svg" alt="Intergiro developer portal" class="logo"> <span class="site-name can-hide">Intergiro developer portal</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Intergiro 3d Menu" class="dropdown-title"><span class="title">Intergiro 3d</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/developer-portal/3d/getting-started/" class="nav-link">
+  Getting started
+</a></li><li class="dropdown-item"><!----> <a href="/developer-portal/3d/onboarding/" class="nav-link">
+  Onboarding
+</a></li><li class="dropdown-item"><!----> <a href="/developer-portal/3d/embedded-finance/" class="nav-link">
+  Accounts
+</a></li><li class="dropdown-item"><!----> <a href="/developer-portal/3d/card-programmes/" class="nav-link">
+  Cards
+</a></li><li class="dropdown-item"><!----> <a href="https://3d.intergiro.com/v3/docs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  API reference
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Intergiro 2d Menu" class="dropdown-title"><span class="title">Intergiro 2d</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/developer-portal/2d/getting-started/" class="nav-link">
+  Getting started
+</a></li><li class="dropdown-item"><!----> <a href="/developer-portal/2d/services/" class="nav-link">
+  Services
+</a></li><li class="dropdown-item"><!----> <a href="https://2d.intergiro.com/v1/docs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  API reference
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Card Acquiring Menu" class="dropdown-title"><span class="title">Card Acquiring</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/developer-portal/merchant/integration-guide/introduction.html" class="nav-link">
+  Get Started
+</a></li><li class="dropdown-item"><h4>
+          Acquiring
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/developer-portal/merchant/integration-guide/acquiring/overview.html" class="nav-link">
+  Overview
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/authorization/create.html" class="nav-link">
+  Authorization
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/settlement/list.html" class="nav-link">
+  Settlement
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/3d-secure/introduction.html" class="nav-link">
+  3D Secure
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Payment Gateway
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/developer-portal/merchant/integration-guide/psp/overview.html" class="nav-link">
+  Overview
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/checkout/embed.html" class="nav-link">
+  Checkout UI
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/card-input/embed.html" class="nav-link">
+  Card Input UI
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/customer/registration-ui.html" class="nav-link">
+  Customers
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/order/create.html" class="nav-link">
+  Order API
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/card-api/create.html" class="nav-link">
+  Card API
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Intergiro 3d Menu" class="dropdown-title"><span class="title">Intergiro 3d</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/developer-portal/3d/getting-started/" class="nav-link">
+  Getting started
+</a></li><li class="dropdown-item"><!----> <a href="/developer-portal/3d/onboarding/" class="nav-link">
+  Onboarding
+</a></li><li class="dropdown-item"><!----> <a href="/developer-portal/3d/embedded-finance/" class="nav-link">
+  Accounts
+</a></li><li class="dropdown-item"><!----> <a href="/developer-portal/3d/card-programmes/" class="nav-link">
+  Cards
+</a></li><li class="dropdown-item"><!----> <a href="https://3d.intergiro.com/v3/docs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  API reference
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Intergiro 2d Menu" class="dropdown-title"><span class="title">Intergiro 2d</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/developer-portal/2d/getting-started/" class="nav-link">
+  Getting started
+</a></li><li class="dropdown-item"><!----> <a href="/developer-portal/2d/services/" class="nav-link">
+  Services
+</a></li><li class="dropdown-item"><!----> <a href="https://2d.intergiro.com/v1/docs" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  API reference
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Card Acquiring Menu" class="dropdown-title"><span class="title">Card Acquiring</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/developer-portal/merchant/integration-guide/introduction.html" class="nav-link">
+  Get Started
+</a></li><li class="dropdown-item"><h4>
+          Acquiring
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/developer-portal/merchant/integration-guide/acquiring/overview.html" class="nav-link">
+  Overview
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/authorization/create.html" class="nav-link">
+  Authorization
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/settlement/list.html" class="nav-link">
+  Settlement
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/3d-secure/introduction.html" class="nav-link">
+  3D Secure
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Payment Gateway
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/developer-portal/merchant/integration-guide/psp/overview.html" class="nav-link">
+  Overview
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/checkout/embed.html" class="nav-link">
+  Checkout UI
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/card-input/embed.html" class="nav-link">
+  Card Input UI
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/customer/registration-ui.html" class="nav-link">
+  Customers
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/order/create.html" class="nav-link">
+  Order API
+</a></li><li class="dropdown-subitem"><a href="/developer-portal/merchant/card-api/create.html" class="nav-link">
+  Card API
+</a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/developer-portal/merchant/integration-guide/introduction.html" class="sidebar-link">Get Started</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Acquiring</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Payment Gateway</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/developer-portal/merchant/integration-guide/psp/overview.html" class="sidebar-link">Overview</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Checkout UI</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Card Input UI</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>Customer</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/developer-portal/merchant/customer/registration-ui.html" class="sidebar-link">Registration UI</a></li><li><a href="/developer-portal/merchant/customer/create.html" aria-current="page" class="active sidebar-link">Create using API</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/developer-portal/merchant/customer/create.html#with-initial-orders-and-subscriptions" class="sidebar-link">With initial Orders and Subscriptions</a></li></ul></li><li><a href="/developer-portal/merchant/customer/create-api-key.html" class="sidebar-link">Creating an API key</a></li><li><a href="/developer-portal/merchant/customer/create-order.html" class="sidebar-link">Creating an Order</a></li><li><a href="/developer-portal/merchant/customer/balance.html" class="sidebar-link">Balance</a></li><li><a href="/developer-portal/merchant/customer/update-details.html" class="sidebar-link">Update Details</a></li><li><a href="/developer-portal/merchant/customer/update-contact-information.html" class="sidebar-link">Update Contact Information</a></li><li><a href="/developer-portal/merchant/customer/get.html" class="sidebar-link">Get Information</a></li><li><a href="/developer-portal/merchant/customer/list.html" class="sidebar-link">List</a></li><li><a href="/developer-portal/merchant/customer/create-app-login.html" class="sidebar-link">Create App Login</a></li><li><a href="/developer-portal/merchant/customer/payment-methods.html" class="sidebar-link">Payment Methods</a></li><li><a href="/developer-portal/merchant/customer/subscriptions.html" class="sidebar-link">Subscriptions</a></li><li><a href="/developer-portal/merchant/customer/app.html" class="sidebar-link">App</a></li><li><a href="/developer-portal/merchant/customer/reference.html" class="sidebar-link">Reference</a></li><li><a href="/developer-portal/merchant/customer/postman.html" class="sidebar-link">Postman Examples</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Order API</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Card API</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Common</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="create-using-api"><a href="#create-using-api" class="header-anchor">#</a> Create using API</h1> <p>We strongly recommend creating customers by integrating <a href="/developer-portal/merchant/customer/registration-ui.html#registration-ui">Customer Registration</a>.
+However creating a customer can also be done via a call to the customer creation endpoint.
+When integrating through the endpoint a customer can be initialized with <a href="/developer-portal/merchant/common/reference.html#contact"><code>Contact information</code></a>
+and a <a href="/developer-portal/merchant/customer/payment-methods.html"><code>payment method</code></a> with a tokenized card. <a href="/developer-portal/merchant/card-input/embed.html">Card Input</a> can be used to generate a card token.</p> <h4 id="request"><a href="#request" class="header-anchor">#</a> Request</h4> <div class="language-json extra-class"><div class="highlight-lines"><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-json"><code>POST /v1/customer
+
+Host<span class="token operator">:</span> merchant.intergiro.com
+Content-Type<span class="token operator">:</span> application/json
+Authentication<span class="token operator">:</span> Bearer &lt;public.api.key | private.api.key&gt;
+
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;number&quot;</span><span class="token operator">:</span> <span class="token string">&quot;customer-number-001&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;method&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;card&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;single-use.card.token&gt;&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;token&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;client&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;browser&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;color_depth&quot;</span><span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;resolution&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token number">2560</span><span class="token punctuation">,</span>
+            <span class="token number">1440</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;java&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;javascript&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;locale&quot;</span><span class="token operator">:</span> <span class="token string">&quot;en-GB&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;timezone&quot;</span><span class="token operator">:</span> <span class="token number">-120</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;parent&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;origin of current page url&gt;&quot;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;contact&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Joe Smith&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;email&quot;</span><span class="token operator">:</span> <span class="token string">&quot;joe.smith@example.com&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="response"><a href="#response" class="header-anchor">#</a> Response</h4> <div class="language-JSON extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;Intergiro customer identifier&gt;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;number&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;your customer number&gt;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;contact&quot;</span><span class="token operator">:</span> &lt;contact information&gt;<span class="token punctuation">,</span>
+  <span class="token property">&quot;method&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>&lt;payment method&gt;<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;Customer Status&gt;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;total&quot;</span><span class="token operator">:</span> &lt;Customer Balance&gt;<span class="token punctuation">,</span>
+  <span class="token property">&quot;schedule&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;customer payment schedule&gt;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;currency&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;customer currency&gt;&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-JSON extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;SMmmIYXgLFTgE8qW&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;number&quot;</span><span class="token operator">:</span> <span class="token string">&quot;customer-number-001&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;contact&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Joe Smith&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;email&quot;</span><span class="token operator">:</span> <span class="token string">&quot;joe.smith@example.com&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;method&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;card&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;scheme&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;scheme&gt;&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;iin&quot;</span><span class="token operator">:</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;last4&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1234&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;expires&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token number">22</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;acquirer&quot;</span><span class="token operator">:</span> <span class="token string">&quot;intergiro&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;created&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1970-01-01T00:00:00.000Z&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;token&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;card.token&gt;&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token string">&quot;active&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;total&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;balance&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;schedule&quot;</span><span class="token operator">:</span> <span class="token string">&quot;monthly&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;currency&quot;</span><span class="token operator">:</span> <span class="token string">&quot;SEK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>If a <code>verification required</code> error is returned, <a href="/developer-portal/merchant/card-api/verification.html">verification</a> needs to be performed.</p> <h2 id="with-initial-orders-and-subscriptions"><a href="#with-initial-orders-and-subscriptions" class="header-anchor">#</a> With initial Orders and Subscriptions</h2> <p>Making a payment while creating a new customer can be done by adding an <code>order</code> field in the request. Populate the <code>order</code> field with a list or a single <a href="/developer-portal/merchant/order/reference.html#creatable"><code>Order.Creatable</code></a> without the fields <code>&quot;payment&quot;</code> and <code>&quot;customer&quot;</code>. The <code>items</code> value of the <code>order</code>, or the first <code>order</code> in the list, is used to authorize the <a href="/developer-portal/merchant/customer/reference.html#customermethod"><code>Customer Method</code></a>.</p> <p><a href="/developer-portal/merchant/customer/reference.html#subscription">Subscriptions</a> can be added in a similar way, by populating the Customer Creatable with <a href="/developer-portal/merchant/customer/reference.html#subscription"><code>Subscription Creatable</code></a> or <a href="/developer-portal/merchant/customer/reference.html#subscription"><code>Subscription Creatable[]</code></a>.</p> <p>The response will be a <a href="/developer-portal/merchant/customer/reference.html#customer-2"><code>Customer</code></a> &amp; { order: <code>tokenized.order</code> | <code>tokenized.order[]</code> } or an <a href="/developer-portal/merchant/common/error.html"><code>Error</code></a>. If you receive a verification required error, <a href="/developer-portal/merchant/3d-secure/introduction.html">3D secure</a> needs to be performed.</p> <h4 id="request-2"><a href="#request-2" class="header-anchor">#</a> Request</h4> <div class="language-HTTP extra-class"><div class="highlight-lines"><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-http"><code>POST /v1/customer
+
+<span class="token header"><span class="token header-name keyword">Host</span><span class="token punctuation">:</span> <span class="token header-value">merchant.intergiro.com</span></span>
+<span class="token header"><span class="token header-name keyword">Content-Type</span><span class="token punctuation">:</span> <span class="token header-value">application/json</span></span>
+<span class="token header"><span class="token header-name keyword">Authentication</span><span class="token punctuation">:</span> <span class="token header-value">Bearer &lt;public.api.key | private.api.key&gt;</span></span>
+<span class="token application-json">
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;number&quot;</span><span class="token operator">:</span> <span class="token string">&quot;customer-number-001&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;method&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;card&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;single-use.card.token&gt;&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;token&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;client&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;browser&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;color_depth&quot;</span><span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;resolution&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token number">2560</span><span class="token punctuation">,</span>
+            <span class="token number">1440</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;java&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;javascript&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;locale&quot;</span><span class="token operator">:</span> <span class="token string">&quot;en-GB&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;timezone&quot;</span><span class="token operator">:</span> <span class="token number">-120</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;parent&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;origin of current page url&gt;&quot;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;contact&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Joe Smith&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;email&quot;</span><span class="token operator">:</span> <span class="token string">&quot;joe.smith@example.com&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;order&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	  <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token number">42</span><span class="token punctuation">,</span>
+	  <span class="token property">&quot;currency&quot;</span><span class="token operator">:</span> <span class="token string">&quot;EUR&quot;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><h4 id="response-2"><a href="#response-2" class="header-anchor">#</a> Response</h4> <div class="language-JSON extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;SMmmIYXgLFTgE8qW&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;number&quot;</span><span class="token operator">:</span> <span class="token string">&quot;customer-number-001&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;contact&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Joe Smith&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;email&quot;</span><span class="token operator">:</span> <span class="token string">&quot;joe.smith@example.com&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;method&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;card&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;scheme&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;scheme&gt;&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;iin&quot;</span><span class="token operator">:</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;last4&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1234&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;expires&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token number">22</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;acquirer&quot;</span><span class="token operator">:</span> <span class="token string">&quot;intergiro&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;created&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1970-01-01T00:00:00.000Z&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;token&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;card.token&gt;&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token string">&quot;active&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;total&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;balance&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;schedule&quot;</span><span class="token operator">:</span> <span class="token string">&quot;monthly&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;currency&quot;</span><span class="token operator">:</span> <span class="token string">&quot;SEK&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;order&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ZXlKaGJHY2lPaUpTVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKd1lYbG1kVzVqSWl3aWFXRjBJam94TmpNMk5EWTBOREExTENKaGRXUWlPaUp3Y205a2RXTjBhVzl1SWl3aVkzSmxZWFJsWkNJNklqSXdNakV0TVRFdE1EbFVNVE02TWpZNk5EVXVNekE1V2lJc0ltbDBaVzF6SWpwYmV5SnVkVzFpWlhJaU9pSjBjekF3TVMxaUlpd2libUZ0WlNJNklrSmhjMmxqSUZRdGMyaHBjblFzSUdKc1lXTnJJaXdpY0hKcFkyVWlPakl3TUN3aWRtRjBJam8xTUN3aWNYVmhiblJwZEhraU9qVXNJbk4wWVhSMWN5STZXeUp2Y21SbGNtVmtJaXdpYjNKa1pYSmxaQ0lzSW05eVpHVnlaV1FpTENKdmNtUmxjbVZrSWl3aWIzSmtaWEpsWkNKZGZTeDdJbTUxYldKbGNpSTZJblJ6TURBeExYY2lMQ0p1WVcxbElqb2lRbUZ6YVdNZ1ZDMXphR2x5ZEN3Z2QyaHBkR1VpTENKd2NtbGpaU0k2TWpBd0xDSjJZWFFpT2pVd0xDSnhkV0Z1ZEdsMGVTSTZNVEFzSW5OMFlYUjFjeUk2V3lKdmNtUmxjbVZrSWl3aWIzSmtaWEpsWkNJc0ltOXlaR1Z5WldRaUxDSnZjbVJsY21Wa0lpd2liM0prWlhKbFpDSXNJbTl5WkdWeVpXUWlMQ0p2Y21SbGNtVmtJaXdpYjNKa1pYSmxaQ0lzSW05eVpHVnlaV1FpTENKdmNtUmxjbVZrSWwxOVhTd2lZM1Z5Y21WdVkza2lPaUpGVlZJaUxDSmpZWFJsWjI5eWVTSTZJbkIxY21Ob1lYTmxJaXdpYm5WdFltVnlJam9pWjJSU0xVdHdObTVrTXpVM0lpd2ljR0Y1YldWdWRDSTZleUowZVhCbElqb2lZMkZ5WkNJc0ltUmxjMk55YVhCMGIzSWlPaUlpTENKaGJXOTFiblFpT2pNM05UQXNJbU55WldGMFpXUWlPaUl5TURJeExURXhMVEE1VkRFek9qSTJPalEwTGpnME5Wb2lMQ0pqZFhKeVpXNWplU0k2SWtWVlVpSXNJbVY0Y0dseVpYTWlPbHN5TERJeVhTd2lhV2x1SWpvaU5ERXhNVEV4SWl3aWJHRnpkRFFpT2lJeE1URXhJaXdpYzJOb1pXMWxJam9pZG1sellTSXNJbk4wWVhSMWN5STZJbU55WldGMFpXUWlMQ0pqWVhKa0lqb2laWGxLYUdKSFkybFBhVXBUVlhwSk1VNXBTWE5KYmxJMVkwTkpOa2xyY0ZoV1EwbzVMbVY1U25Cak0wMXBUMmxLYWxsWVNtdEphWGRwWVZkR01FbHFiM2hPYWsweVRrUlpNRTVFUVhsTVEwcG9aRmRSYVU5cFNuZGpiVGxyWkZkT01HRlhPWFZKYVhkcFdsYzFha2xxYjJsTmFsbDFUVVp3ZVdGR1JtWlRla3BaVlRCT2IxUlhlRVJpYld0NFltcEtjMXA1TkRWYU1scFVUMGR3U0ZOVVkzUk1WV2MwV20wMWJrOVViSEphZWtaSFRYcFJNMDlHVG5aT2JrSlVXbXhXWVU1dVJuZGlXR2haVDFWYWJGa3lUakpaYkdkcFRFTktOR05JU1dsUGJITjVURVJKZVZoVGQybGtiVlo1U1dwd04wbHVValZqUjFWcFQybEthbUZIUm5OaVIxWjFXakpWYVV4RFNtdFpXRkpvU1dwd04wbHRSakZrUjJoc1ltNVNjRmt5UmpCaFZ6bDFTV3B2YVZsNlVrcE5TRnBvV1Zod1JWb3dNRFZhYlRrMFZWaGtOVlJFVlRWYVIwVnlZMFJDVWxCVFNYTkpiazR3V1ZoU01XTjVTVFpKYkd0cFRFTktlVnBYV214amJWWjFXVEpWYVU5dWMybGFSMng1V2xkT01HSXpTalZKYW05cFRWUkJkMWw2Ykd4UFZHdDBUbGRSTUUxcE1EQlBSR3hvVEZSbk5GbHFRWFJOZWxVelRucFJkMDVYV1RSTlZHdDRTV2wzYVdNeVZubGtiVlo1U1dwdmFWbDZZelZaVkVVMVRsZFpkRTFxWnpKWlV6QXdUMFJqTUV4VVp6TlpiVlYwVFcxT2FscFVhR3RaYlZKdFdXcFplVWx1TVRsbVdEQXVSVXRHZGpCcFdUWkdVWE52ZWsweldrdHZPWE5QYUhWYVRuVkZlVUoyZFRWSlQza3dMWFJ2UTBvMlUycGZTR3hSUzJvMUxYTmZjWEpNZDI5RFpqazRZMWhxUzI1NVJIVXhlbXRyT0dwSmRqVk5jMlJtVG01aWVqSXphV0o2VkRoaWNGUlRjSGMwY0hscFNVVXpaMWRxY1ZKb2NuUmZhbXh2ZGtjM2NYQkxSV2hYYjBwclRGOWhOMGgzT0dGeVZFUkpNMnhaVkRkRmEyWmlhWFZ1YkZKaU9GUnpVRXBUVURGU2J6RldUMjlCWDBGZk4xbGtWME5OYlc5c1ZIbFBUR0Y1TUZVdFNGZFdhbXc0V0dKS1gycHFNRkl0Y1hwTU5GTjRlRVJPVFcxMmJEWm5aakpmWmxkU2NrSnhhRkJ2VFZCTmRXVldiblpyV2taUGIzZEZWSGhRYWxWSVpEWlhhMU5vVkhWaFUxUXdZbUYxYVVGWlQzQnVkekl0ZEZFeE5tY3daVmcyUzFkME5HRkRjalJMYVVWRGJqWTNiRkphYWxsSlpqSTNWWHBMVEhSaE9HdE5OVXg1ZFdWTlpIcHBWVXRqTFV3MlltbEJJaXdpY21WbVpYSmxibU5sSWpvaVJUbHBkekpPUWxGVGVFdHJUbkJLY0NJc0luTmxjblpwWTJVaU9pSnBiblJsY21kcGNtOGlMQ0p6WTJobGJXVlNaV1psY21WdVkyVWlPaUpOUTBFeE5ESTJORFF4TVRBNUluMHNJbVYyWlc1MElqcGJleUowZVhCbElqb2liM0prWlhJaUxDSmtZWFJsSWpvaU1qQXlNUzB4TVMwd09WUXhNem95TmpvME5TNHpNRGxhSW4xZExDSnBaQ0k2SWxNNVpIVkpYMlY2Tm5ZM2J6UXhSM2NpTENKemRHRjBkWE1pT25zaWIzSmtaWEpsWkNJNk16YzFNSDE5LkZRaWM2c2hIcEsyYmVaLXNxek9SQ01XSjF5RmZNd3JUTjdSemNwaFgxSlMyU01mSFIteE5DSmF4MEtQb19MWG1WdnRHc3ZpSFIweS1hSnFxT2xTYmVtUWFGd0E4dkNMaFhoTUpVWUFpQlA1LUxWQ2h1UkNEbTlENGF1VkVSRUpnbFEtVldPb3VHaFpLT1dZWHhETWluRG5ZQm85NWs4Y0c0Z3NjSDdTaVp5QnYtS0czdGJJbmVGQlg0YWlUYXlNQXdRa2V3WE9HVjdIQ0xEa1EwMWpvZE9WdzJKOXBSbGxnNWlHNHptV1VIb3IzUzVpY193RnJRaWhMazRWREEzeTRJX2ZhaElRUjc4d2FaWE5MSW5UOGRVWTN5NkV3TGJRQzY5amt5bERWM1dGaEl1Qk5uSXIwTGhYMGlkd2RfRzBieXNpVUtzQ3AxOXVLQllxVmowUnBpQQ==&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/developer-portal/merchant/customer/registration-ui.html" class="prev">
+        Registration UI
+      </a></span> <span class="next"><a href="/developer-portal/merchant/customer/create-api-key.html">
+        Creating an API key
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/developer-portal/assets/js/app.7927bbbe.js" defer></script><script src="/developer-portal/assets/js/2.3092679d.js" defer></script><script src="/developer-portal/assets/js/84.b029f047.js" defer></script>
+  </body>
+</html>
