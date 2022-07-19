@@ -20,7 +20,6 @@ Content-Type: application/json
 Authorization: Bearer <access_token>
 
 {
-  "request_id": "9b68d2fb-8ec1-44c4-b6d0-23afbe2f6a1c",
   "source_account_id": "95b31a55-7fba-47f6-b452-c6f2e7c53bde",
   "target_account_id": "b2714527-9812-490b-a3e9-c70f9cd9663c",
   "amount": 12000,
@@ -35,20 +34,20 @@ Response:
 HTTP 200 OK
 
 {
-  "id": "27e0e678-4f04-4ae4-85d9-a5bc91be5472",
+  "id": "bzVI0L2ar0",
   "type": "bank-transfer",
   "amount": -12000,
   "currency": "EUR",
   "status": "pending",
-  "account_id": "95b31a55-7fba-47f6-b452-c6f2e7c53bde",
+  "account_id": "cFlonoU91",
   "reference": "Move funds",
   "request_id": "e1689f4d-51fe-453a-8df9-134b8e9ae1ee",
   "exchange_rate": null,
-  "payment_amount": -1300,
+  "payment_amount": -12000,
   "payment_currency": "EUR",
   "counterparty": {
     "name": "Sigmund Fleud",
-    "account_id": "b2714527-9812-490b-a3e9-c70f9cd9663c",
+    "account_id": "zzEjdGRXO",
     "account_details": {
       "type": "sepa",
       "iban": "SE0097700000000000000002"
